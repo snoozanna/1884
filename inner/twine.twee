@@ -1,0 +1,426 @@
+:: StoryTitle
+1884 Twine
+
+
+:: StoryData
+{
+	 "ifid": "C28EDFFA-24CE-4675-9620-21F28525BD27",
+	"format": "SugarCube",
+	"format-version": "2.36.1",
+	"start": "intro",
+	"zoom": 0.6
+}
+
+
+:: Story Stylesheet [stylesheet]
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap");
+
+@import url("/styles/generics.css");
+@import url("/styles/main.css");
+@import url("/inner/styles/twine.css");
+
+
+
+:: Story JavaScript [script]
+$('#ui-bar').remove();
+$(document.head).find('#style-ui-bar').remove();
+
+
+
+
+
+// TOUCHEVENTS 
+// taken from https://developer.mozilla.org/en-US/docs/Web/API/Touch_events  
+setup.startup = () =>  {
+  const ongoingTouches = [];
+  console.log(ongoingTouches)
+
+const handleStart = (evt) =>{
+  evt.preventDefault();
+  // log("touchstart.");
+  const initial = document.getElementById("initial");
+  const stat = document.getElementById("stat");
+    const reveal = document.getElementById("reveal");
+    //  reveal.classList.add("transparent");  
+     initial.classList.add("transparent");  
+     console.log(reveal)
+
+  
+}
+
+const handleMove = (evt) => {
+  evt.preventDefault();
+  
+}
+
+const handleEnd = (evt) => {
+  evt.preventDefault();
+  // log("touchend");
+   const initial = document.getElementById("initial");
+    const reveal = document.getElementById("reveal");
+    //  initial.classList.remove("hide"); 
+     initial.classList.remove("transparent");  
+  // initial.classList.remove("hide")  
+  //   reveal.classList.add("hide");  
+  
+}
+
+const handleCancel = (evt) => {
+  evt.preventDefault();
+  // log("touchcancel.");
+  const touches = evt.changedTouches;
+
+  for (let i = 0; i < touches.length; i++) {
+    let idx = ongoingTouchIndexById(touches[i].identifier);
+    ongoingTouches.splice(idx, 1); // remove it; we're done
+  }
+}
+
+function colorForTouch(touch) {
+  // let r = touch.identifier % 16;
+  // let g = Math.floor(touch.identifier / 3) % 16;
+  // let b = Math.floor(touch.identifier / 7) % 16;
+  // r = r.toString(16); // make it a hex digit
+  // g = g.toString(16); // make it a hex digit
+  // b = b.toString(16); // make it a hex digit
+  // const color = `#${r}${g}${b}`;
+    const color = `#666`;
+  return color;
+}
+
+
+function copyTouch({ identifier, pageX, pageY }) {
+  return { identifier, pageX, pageY };
+}
+function ongoingTouchIndexById(idToFind) {
+  for (let i = 0; i < ongoingTouches.length; i++) {
+    const id = ongoingTouches[i].identifier;
+
+    if (id === idToFind) {
+      return i;
+    }
+  }
+  return -1; // not found
+}
+
+function log(msg) {
+  const container = document.getElementById("log");
+  container.textContent = `${msg} \n${container.textContent}`;
+}
+
+    const el = document.getElementById("initial");
+  el.addEventListener("touchstart", handleStart);
+  el.addEventListener("touchend", handleEnd);
+  el.addEventListener("touchcancel", handleCancel);
+  // el.addEventListener("touchmove", handleMove);
+  // log("Initialized.", el);
+}
+
+// document.addEventListener("DOMContentLoaded", startup);
+
+
+
+setup.play = () => {
+ const audio = document.getElementById("audio")
+ audio.play();
+  }
+
+setup.pause = () => {
+ const audio = document.getElementById("audio")
+ audio.pause();
+  }
+
+setup.showCap = () => {
+    const track = document.getElementById("captrack")
+    console.log(track)
+track.mode = 'showing';
+    document.getElementById("caption").style.visibility = "visible";
+  }
+
+setup.hideCap = () => {
+    const track = document.getElementById("captrack")
+   track.mode = 'hidden';
+    document.getElementById("caption").style.visibility = "hidden";
+  }
+
+setup.addThirty = () => {
+  const audio = document.getElementById("audio")
+  const timeHolder = audio.currentTime;
+  audio.currentTime = timeHolder +30;  
+  }
+
+
+setup.backThirty = () => {
+  const audio = document.getElementById("audio");
+  const timeHolder = audio.currentTime;
+  audio.currentTime = timeHolder -30;
+  }
+
+
+
+
+:: StoryInit {"position":"100,100","size":"100,100"}
+
+:: header
+
+:: footer [nobr]{"position":"100,375","size":"100,100"}
+<footer>
+<<if $showBackwards is true>>
+  <div class="nav-wrapper">
+    <div class="nav-item">
+        [img[Back|assets/img/back.png][$prevpass]]
+    </div>
+  </div>
+  <</if>>
+
+  
+</footer>
+
+:: intro [nobr]
+<<set $prevpass to "intro">>
+<<set $passage to "intro">>
+<<set $nextpass to "intro-highlight">>
+<main>
+ <div class="main-container">
+    <p>
+      super quick intro from the DJ (30 sec max) welcoming people to 188.4FM website, a radio station sharing the truth about history. “Our station’s name was inspired by the history of bla bla blah. “
+  
+    </p>
+    <<button "Wait. Can you repeat that?">><<goto "intro-highlight">><</button>>
+ </div>
+</main>
+
+
+
+:: intro-highlight  [nobr]
+<<set $prevpass to "intro">>
+<<set $passage to "intro-highlight">>
+<<set $nextpass to "resistance-glitch">>
+<<set $showBackwards to true>>
+<main>
+ <div class="main-container">
+  <p>The 1884 Berlin //conference//, a moment in history where //Europeans// tried to come together for a //humanitarian// conference to abolish slavery and colonialism in Africa. The conference was //welcomed// on the African continent and did not have much impact on actual events on the ground but we still remember its legacy through this radio station etc… </p>
+
+  <<button " Is that true?">><<goto "resistance-glitch">><</button>>
+  </div>
+</main>
+<<include "footer">>
+
+:: loading [nobr t8n.typewriter.4]
+<main class="main-section loading">
+
+<div class="menu-wrapper">
+<div id="mount"></div></div>
+</main>
+
+
+<<timed 0.5s>>
+    <<replace "#mount">>
+    <<type 40ms>><h3>Loading...</h3><</type>>
+    <</replace>><</timed>>
+
+<<timed 5s>>
+<<goto $nextpass>>
+<</timed>>
+
+:: resistance-glitch [nobr]
+<<set $prevpass to "intro-highlight">>
+<<set $passage to "resistance-glitch">>
+<<set $nextpass to "game-intro">>
+<main>
+ <div class="main-container">
+<p> Short audio (30’) with captions, with glitch sound and voice from the resistance movement, inviting people to deconstruct the myths and untold stories about history; something isn’t right about this radio station and it needs to be dismantled. It is a game, if people manage to debunk these 4 myths and find out the truth, they’ll be able to record their own history as part of an online memorial.</p>
+
+
+  <<button "let’s play and debunk history">><<goto "game-intro">><</button>>
+<br/><br/>
+   <a href="../../memorial.html"><button>Visit the memorial without playing</button></a>
+    
+  </div>
+</main>
+
+
+
+
+
+:: game-intro [nobr] {"position":"425,450","size":"100,100"}
+<<set $prevpass to "resistance-glitch">>
+<<set $passage to "game-intro">>
+<<set $nextpass to "">>
+<<set $showBackwards to true>>
+
+<main class="main-section backpack">
+<div class="main-container">
+  <br/>
+ <p> 4 x illustrations with key words highlighted (e.g. humanitarian, welcomed): people can click and it unlocks 4 super quick games about different parts of history</p>
+ <div id="mount"></div>
+ <br/>
+  <div class="backpack-container">
+   <div class="backpack-item">
+          <<button "Game 1">>
+          <<set $nextpass to "game1">><<goto "loading">>
+          <</button>>
+          <<if hasVisited("game1complete")>><span class="complete">Complete!</span>
+      <<else>>
+           <span class="todo">To do</span><</if>>
+      </div>
+    
+      <div class="backpack-item">
+          <<button "Game 2">>
+          <<set $nextpass to "game2">><<goto "loading">><</button>>
+           <<if hasVisited("game2complete")>><span class="complete">Complete!</span>
+           <<else>>
+           <span class="todo">To do</span>
+           <</if>>
+      </div>
+      <div class="backpack-item">
+          <<button "Game 3">><<set $nextpass to "game3">><<goto "loading">><</button>>
+           <<if hasVisited("game3complete")>><span class="complete">Complete!</span>
+           <<else>>
+           <span class="todo">To do</span>
+           <</if>>
+      </div>
+      <div class="backpack-item">
+          <<button "Game 4">><<set $nextpass to "game4">><<goto "loading">>
+          <</button>>
+       <<if hasVisited("game4complete")>><span class="complete">Complete!</span>
+       <<else>>
+           <span class="todo">To do</span>
+      <</if>>
+      </div>
+     
+      /* This one based on codeword */
+  <div class="backpack-item">
+    <<if hasVisited("game1complete", "game2complete", "game3complete", "game4complete")>>
+<<timed 0.5s>>
+  <<replace "#mount">>
+    <strong>You've played all the games</strong>
+  <</replace>>
+  <</timed>>
+        <<timed 5s>>
+          <<goto "welldone">>
+          <</timed>>
+        
+    <</if>>
+    </div>
+  
+      
+  </div>
+  
+  /* <<button "back">><<goto "intro">><</button>> */
+  
+</div>
+</main>
+<<include "footer">>
+
+
+
+
+
+:: game1
+<<set $prevpass to "game-intro">>
+<<set $passage to "game1">>
+<<set $nextpass to "">>
+<main>
+<h2>Game 1</h2>
+ <div class="main-container">
+  <<button "Solved">><<goto "game1complete">><</button>>
+  </div>
+</main>
+
+:: game1complete
+<main>
+<h2>Game 1 - Complete</h2>
+ <div class="main-container">
+  <<button "Next Game">><<goto "game-intro">><</button>>
+  </div>
+</main>
+
+:: game2
+<<set $prevpass to "game-intro">>
+<<set $passage to "game2">>
+<main>
+<h2>Game 2</h2>
+ <div class="main-container">
+  <<button "Solved">><<goto "game2complete">><</button>>
+  </div>
+</main>
+
+:: game2complete
+<main>
+<h2>Game 2 - Complete</h2>
+ <div class="main-container">
+  <<button "Next Game">><<goto "game-intro">><</button>>
+  </div>
+</main>
+
+
+:: game3
+<<set $prevpass to "game-intro">>
+<<set $passage to "game3">>
+<main>
+<h2>Game 3</h2>
+ <div class="main-container">
+  <<button "Solved">><<goto "game3complete">><</button>>
+  </div>
+</main>
+
+:: game3complete
+<main>
+<h2>Game 3 - Complete</h2>
+ <div class="main-container">
+  <<button "Next Game">><<goto "game-intro">><</button>>
+  </div>
+</main>
+
+
+:: game4
+<<set $prevpass to "game-intro">>
+<<set $passage to "game4">>
+<main>
+<h2>Game 4</h2>
+ <div class="main-container">
+  <<button "Solved">><<goto "game4complete">><</button>>
+  </div>
+</main>
+
+:: game4complete
+<main>
+<h2>Game 4 - Complete</h2>
+ <div class="main-container">
+  <<button "Next Game">><<goto "game-intro">><</button>>
+  </div>
+</main>
+
+
+:: welldone
+<<set $prevpass to "game-intro">>
+<<set $passage to "welldone">>
+
+<main>
+<h2>Well done</h2>
+ <div class="main-container">
+<p> You’ve debunked the myths about history. Now it’s time to record your own, or share any thoughts about how this experience made you feel, etc</p>
+
+   <a href="../../memorial.html"><button>Take me to the 1884 memorial</button></a>
+
+    <<button "Back to Start">><<goto "intro">><</button>>
+  </div>
+</main>
+
+
+
+:: closing
+
+<main>
+ <div class="main-container">
+Thanks for playing. 
+
+ <p>
+    <a href="#">More info about 1884 by Rhianna Ilube & Coney (link to Coney website)</a>
+      <a href="#">Sign up to Coney’s newsletter</a>
+       <a href="#">Follow Coney on socials</a>
+ </p>
+  </div>
+    <<button "Back to Start">><<goto "intro">><</button>>
+</main>
