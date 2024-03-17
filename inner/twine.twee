@@ -181,6 +181,44 @@ setup.backThirty = () => {
   
 </footer>
 
+:: footerquiz [nobr]{"position":"100,375","size":"100,100"}
+<footer>
+<<if $showBackwards is true>>
+  <div class="nav-wrapper">
+    <div class="nav-item">
+        [img[Back|assets/img/back.png][$prevpass]]
+    </div>
+  </div>
+  <</if>>
+  <div class="nav-wrapper">
+<div class="tally-container" id="tallyMount"><<include "tally">></div>
+  </div>
+</footer>
+
+:: footerws [nobr]
+<footer>
+<<if $showBackwards is true>>
+  <div class="nav-wrapper">
+    <div class="nav-item">
+        [img[Back|assets/img/back.png][$prevpass]]
+    </div>
+  </div>
+  <</if>>
+  
+<div id="skipMount"></div>
+  
+</footer>
+<<timed 3s>>
+  <<replace "#skipMount">>
+        <div class="nav-wrapper">
+    <<button "Skip to the answer">> 
+      <<set $sound to false>>
+      <<goto $nextpass>>
+        <</button>>
+      </div>
+  <</replace>>
+  <</timed>>
+
 :: soundonoff [nobr]
 <div class="icon-container"> 
   <<if $sound is true>>
@@ -348,38 +386,51 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
  <br/>
   <div class="backpack-container">
    <div class="backpack-item">
+      <<if hasVisited("game1complete")>>
+        <<button [img[./../assets/img/AFTER-conference.jpg]]>>
+          <<set $nextpass to "game1">><<goto "loading">>
+          <</button>>
+      <<else>>
           <<button [img[./../assets/img/BEFORE-conference.jpg]]>>
           <<set $nextpass to "game1">><<goto "loading">>
           <</button>>
-          <<if hasVisited("game1complete")>><span class="complete">Complete!</span>
-      <<else>>
-           <span class="todo">To do</span><</if>>
+           <</if>>
       </div>
     
       <div class="backpack-item">
-          <<button [img[./../assets/img/BEFORE-nations.jpg]]>>
-          <<set $nextpass to "game2">><<goto "loading">><</button>>
-           <<if hasVisited("game2complete")>><span class="complete">Complete!</span>
-           <<else>>
-           <span class="todo">To do</span>
-           <</if>>
-      </div>
-      <div class="backpack-item">
-         <<button [img[./../assets/img/BEFORE-goal.jpg]]>>
-
-          <<set $nextpass to "game3">><<goto "loading">><</button>>
-           <<if hasVisited("game3complete")>><span class="complete">Complete!</span>
-           <<else>>
-           <span class="todo">To do</span>
-           <</if>>
-      </div>
-      <div class="backpack-item">
-         <<button [img[./../assets/img/BEFORE-reaction.jpg]]>>
-            <<set $nextpass to "game4">><<goto "loading">>
+       
+           <<if hasVisited("game3complete")>>
+            <<button [img[./../assets/img/AFTER-nations.jpg]]>>
+          <<set $nextpass to "game3">><<goto "loading">>
           <</button>>
-       <<if hasVisited("game4complete")>><span class="complete">Complete!</span>
-       <<else>>
-           <span class="todo">To do</span>
+      <<else>>
+          <<button [img[./../assets/img/BEFORE-nations.jpg]]>>
+          <<set $nextpass to "game3">><<goto "loading">>
+          <</button>>
+           <</if>>
+      </div>
+      <div class="backpack-item">
+      
+           <<if hasVisited("game2complete")>>
+         <<button [img[./../assets/img/AFTER-goal.jpg]]>>
+          <<set $nextpass to "game2">><<goto "loading">>
+          <</button>>
+      <<else>>
+          <<button [img[./../assets/img/BEFORE-goal.jpg]]>>
+          <<set $nextpass to "game2">><<goto "loading">>
+          <</button>>
+           <</if>>
+      </div>
+      <div class="backpack-item">
+     
+       <<if hasVisited("game4complete")>>
+      <<button [img[./../assets/img/AFTER-reaction.jpg]]>>
+          <<set $nextpass to "game4">><<goto "loading">>
+          <</button>>
+      <<else>>
+          <<button [img[./../assets/img/BEFORE-reaction.jpg]]>>
+          <<set $nextpass to "game4">><<goto "loading">>
+          <</button>>
       <</if>>
       </div>
      
@@ -428,30 +479,48 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
 </main>
 
 
-:: game1a [nobr]
+:: game1a [nobr t8n typewriter]
 <<set $prevpass to "game1a">>
 <<set $passage to "game1a">>
-<<set $nextpass to "game1b">>
+<<set $nextpass to "game1complete">>
 
 <main>
  <div class="main-container">
-<div class="tally-container" id="tallyMount"></div>
 
+<div id="answerMount"></div>
 <h3>1. The Berlin Conference of 1884 marked the beginning of European colonisation of Africa.</h3>
+<br/>
   <div class="answerBtn-container" id="btnContainer">
     <div class="truth answerBtn"  id="truthBtn">
       <<button "Truth">>
         <<timed 1s>>
-           <<addclass "#truthBtn" "wrong">>
-           <<addclass "#mythBtn" "correct">>
-         <<replace "#tallyMount">>
+            <<replace "#btnContainer">>
+              <p></p>
+          <</replace>>
+               /* Refresh tally count  */
+          <<replace "#tallyMount">>
             <<include "tally">>
           <</replace>>
-        <<replace "#textMount">>
-            <<include "game1afact">>
+        <</timed>>
+        <<timed 2s>>
+            <<replace "#btnContainer">>
+              <p>Incorrect</p>
           <</replace>>
-          <</timed>>
+        <</timed>>
         <<timed 3s>>
+             <<replace "#btnContainer">>
+          <</replace>>
+            <<replace "#answerMount">>
+              <h2>MYTH</h2>
+          <</replace>>
+         <</timed>>
+      <<timed 4s>>
+          <<replace "#textMount">>
+              <<include "game1afact">>
+            <</replace>>
+       
+       <</timed>>
+        <<timed 5s>>
         <<replace "#btnMount">>
             <<button "Next">><<goto $nextpass>><</button>>
           <</replace>>
@@ -460,24 +529,35 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
     </div>
    <div class="myth answerBtn" id="mythBtn">
       <<button "Myth">>
-        <<set $tally += 1>>
         <<timed 1s>>
-        /* Change btn  colours    */
-        <<addclass "#truthBtn" "wrong">>
-         <<addclass "#mythBtn" "correct">>
-         /* Disable the buttons  */
-         <<run $("#mythBtn button").prop("disabled", true)>>
-         <<run $("#truthBtn button").prop("disabled", true)>>
-         /* Refresh tally count  */
+          <<set $tally += 1>>
+            <<replace "#btnContainer">>
+              <p></p>
+          <</replace>>
+               /* Refresh tally count  */
           <<replace "#tallyMount">>
             <<include "tally">>
           <</replace>>
-        /* Show the fact */
-        <<replace "#textMount">>
-            <<include "game1afact">>
+        <</timed>>
+        <<timed 2s>>
+            <<replace "#btnContainer">>
+              <p>Correct</p>
           <</replace>>
-          <</timed>>
+        <</timed>>
         <<timed 3s>>
+             <<replace "#btnContainer">>
+          <</replace>>
+            <<replace "#answerMount">>
+              <h2>TRUTH</h2>
+          <</replace>>
+         <</timed>>
+      <<timed 4s>>
+          <<replace "#textMount">>
+              <<include "game1afact">>
+            <</replace>>
+       
+       <</timed>>
+        <<timed 5s>>
         <<replace "#btnMount">>
             <<button "Next">><<goto $nextpass>><</button>>
           <</replace>>
@@ -492,52 +572,267 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
 
   </div>
 </main>
+<<include "footerquiz">>
 
 :: game1afact
 <p>The Berlin conference represented a rapid increase in the pace and scale of colonisation, but not the start. The transatlantic slave trade started in the 16th century, and the desire for more resources and land led to the ‘scramble’ to colonise Africa in the late 19th century. The interior of the continent was still largely a ‘mystery’ to Europeans by the late 1800s; this changed after European powers gathered for 104 days in 1884 to discuss the future of Africa.</p>
 
-:: game1aa [nobr]
-<<set $prevpass to "game1a">>
-<<set $passage to "game1aa">>
-<<set $nextpass to "">>
 
-<main>
-<h2>CONFERENCE</h2>
- <div class="main-container">
- <span>$tally</span>
-
-<h4></h4>
-<h3>1. The Berlin Conference of 1884 marked the beginning of European colonisation of Africa.</h3>
-  <<button "Truth">><<goto "game1complete">><</button>>
-  <<button "Myth">><<goto "game1complete">><</button>>
-
-  <<button "Solved">><<goto "game1complete">><</button>>
-  </div>
-</main>
 
 :: game1complete
 <main>
 <h2>CONFERENCE</h2>
  <div class="main-container">
-  <<button "Next Game">><<goto "game-intro">><</button>>
+ <p>Now that you’ve got your key facts sorted, try out another one of our activities to dive deeper into the history.</p>
+  <<button "Debunk another myth">><<goto "game-intro">><</button>>
   </div>
 </main>
 
-:: game2
+:: game2 [nobr]
 <<set $prevpass to "game-intro">>
 <<set $passage to "game2">>
+<<set $nextpass to "game2a">>
 <main>
-<h2>Game 2</h2>
+
  <div class="main-container">
-  <<button "Solved">><<goto "game2complete">><</button>>
+ <h2>GOAL</h2>
+ <p>So what was the conference all about then? Let's dig a little deeper into the specifics! This next activity celebrates the noble aims that the European conference attendees - and especially King Leopold of Belgium - had for the African continent. </p>
+  <<button "Noble aims, really? ">><<goto $nextpass>><</button>>
   </div>
 </main>
 
-:: game2complete
+:: game2a [nobr]
+<<set $prevpass to "game2">>
+<<set $passage to "game2a">>
+<<set $nextpass to "game2b">>
 <main>
-<h2>Game 2 - Complete</h2>
  <div class="main-container">
-  <<button "Next Game">><<goto "game-intro">><</button>>
+
+ <p>Yes my dear 188.4FM listeners, Leopold II created the International Society of Congo with the humanitarian goal of ending slavery, civilising Central Africa, and bringing religion and the benefits of modern life to the Congolese. 
+
+In the wordsearch below, see if you can find out what interested Leopold in the Congo. Can you spot the 3 words in this puzzle and type them in the boxes below?
+</p>
+  <<button "Let's go!">><<goto $nextpass>><</button>>
+  </div>
+</main>
+
+:: game2b [nobr]
+<<set $prevpass to "game2a">>
+<<set $passage to "game2b">>
+<<set $nextpass to "game2complete">>
+<<set $correctans to []>>
+<main>
+ <div class="main-container wordsearch">
+<div class="wordsearch-container">
+  <table class="wordsearch-table">
+    <tr>
+      <td class="wordsearch-cell letter-cell">P</td>
+      <td class="wordsearch-cell letter-cell">F</td>
+      <td class="wordsearch-cell letter-cell">I</td>
+      <td class="wordsearch-cell letter-cell">V</td>
+      <td class="wordsearch-cell letter-cell">O</td>
+      <td class="wordsearch-cell letter-cell">R</td>
+      <td class="wordsearch-cell letter-cell">Y</td>
+    </tr>
+     <tr>
+      <td class="wordsearch-cell letter-cell">R</td>
+      <td class="wordsearch-cell letter-cell">D</td>
+      <td class="wordsearch-cell letter-cell">P</td>
+      <td class="wordsearch-cell letter-cell">E</td>
+      <td class="wordsearch-cell letter-cell">A</td>
+      <td class="wordsearch-cell letter-cell">C</td>
+      <td class="wordsearch-cell letter-cell">E</td>
+    </tr>
+     <tr>
+      <td class="wordsearch-cell letter-cell">I</td>
+      <td class="wordsearch-cell letter-cell">S</td>
+      <td class="wordsearch-cell letter-cell">C</td>
+      <td class="wordsearch-cell letter-cell">H</td>
+      <td class="wordsearch-cell letter-cell">O</td>
+      <td class="wordsearch-cell letter-cell">O</td>
+      <td class="wordsearch-cell letter-cell">L</td>
+    </tr>
+     <tr>
+      <td class="wordsearch-cell letter-cell">V</td>
+      <td class="wordsearch-cell letter-cell">F</td>
+      <td class="wordsearch-cell letter-cell">A</td>
+      <td class="wordsearch-cell letter-cell">I</td>
+      <td class="wordsearch-cell letter-cell">T</td>
+      <td class="wordsearch-cell letter-cell">H</td>
+      <td class="wordsearch-cell letter-cell">D</td>
+    </tr>
+      <tr>
+      <td class="wordsearch-cell letter-cell">E</td>
+      <td class="wordsearch-cell letter-cell">I</td>
+      <td class="wordsearch-cell letter-cell">Y</td>
+      <td class="wordsearch-cell letter-cell">F</td>
+      <td class="wordsearch-cell letter-cell">P</td>
+      <td class="wordsearch-cell letter-cell">B</td>
+      <td class="wordsearch-cell letter-cell">J</td>
+    </tr>
+      <tr>
+      <td class="wordsearch-cell letter-cell">R</td>
+      <td class="wordsearch-cell letter-cell">J</td>
+      <td class="wordsearch-cell letter-cell">K</td>
+      <td class="wordsearch-cell letter-cell">U</td>
+      <td class="wordsearch-cell letter-cell">T</td>
+      <td class="wordsearch-cell letter-cell">N</td>
+      <td class="wordsearch-cell letter-cell">N</td>
+    </tr>
+     <tr>
+      <td class="wordsearch-cell letter-cell">R</td>
+      <td class="wordsearch-cell letter-cell">U</td>
+      <td class="wordsearch-cell letter-cell">B</td>
+      <td class="wordsearch-cell letter-cell">B</td>
+      <td class="wordsearch-cell letter-cell">E</td>
+      <td class="wordsearch-cell letter-cell">R</td>
+      <td class="wordsearch-cell letter-cell">P</td>
+    </tr>
+    <!-- Add more rows similarly -->
+  </table>
+</div>
+<div class="codewords-container">
+<<include "codewordws1">>
+<<include "codewordws2">>
+<<include "codewordws3">>
+</div>
+
+  </div>
+
+</main>
+<<include "footerws">>
+
+:: checkcorrectans
+<<if $correctans.includesAll("RIVER", "RUBBER", "IVORY")>>
+  <<timed 3s>>
+  <<goto $nextpass>>
+  <</timed>>
+<</if>>
+$correctans
+
+:: codewordws1 [nobr]
+
+<div id="coderesult1"></div>
+/% CODEWORD FEEDBACK %/
+<div id="resultbutton1">
+/% CODEWORD INPUT %/
+<div class="code-input">
+<<textbox "$codeword1" "">></div>
+<<button "Enter">>
+</div>
+/% STANDARDISE INPUT %/
+<<set $codeword1 to $codeword1.toUpperCase()>>
+/% HANDLE RESPONSES %/
+<<set _response = "try again!">>
+<<switch $codeword1>>
+<<case "RIVER", "RUBBER", "IVORY">>
+    <<set _response = "correct!">>
+     <<run $correctans.push($codeword1)>>
+    <<timed 3s>>
+  <<replace "#resultbutton1">>
+    $codeword1
+    <</replace>>
+<</timed>>
+<<case "PEACE", "FAITH", "SCHOOL">>
+    <<set _response = "nah, that’s a myth!">>
+<</switch>>
+/% DISPLAY RESPONSE %/
+<<replace "#coderesult1">>_response<</replace>>
+/% CONTINUE %/
+<<timed 3s>>
+  <<include "checkcorrectans">>
+  <<replace "#coderesult1">>
+    <</replace>>
+<</timed>>
+<</button>>
+
+:: codewordws2 [nobr]
+
+<div id="coderesult2"></div>
+/% CODEWORD FEEDBACK %/
+<div id="resultbutton2">
+/% CODEWORD INPUT %/
+<div class="code-input">
+<<textbox "$codeword2" "">></div>
+<<button "Enter">>
+</div>
+/% STANDARDISE INPUT %/
+<<set $codeword2 to $codeword2.toUpperCase()>>
+/% HANDLE RESPONSES %/
+<<set _response = "try again!">>
+<<switch $codeword2>>
+<<case "RIVER", "RUBBER", "IVORY">>
+    <<set _response = "correct!">>
+     <<run $correctans.push($codeword2)>>
+    <<timed 3s>>
+  <<replace "#resultbutton2">>
+    $codeword2
+    <</replace>>
+<</timed>>
+<<case "PEACE", "FAITH", "SCHOOL">>
+    <<set _response = "nah, that’s a myth!">>
+<</switch>>
+/% DISPLAY RESPONSE %/
+<<replace "#coderesult2">>_response<</replace>>
+/% CONTINUE %/
+<<timed 3s>>
+  <<include "checkcorrectans">>
+  <<replace "#coderesult2">>
+    <</replace>>
+<</timed>>
+<</button>>
+
+
+:: codewordws3 [nobr]
+
+<div id="coderesult3"></div>
+/% CODEWORD FEEDBACK %/
+<div id="resultbutton3">
+/% CODEWORD INPUT %/
+<div class="code-input">
+<<textbox "$codeword3" "">></div>
+<<button "Enter">>
+</div>
+/% STANDARDISE INPUT %/
+<<set $codeword3 to $codeword3.toUpperCase()>>
+/% HANDLE RESPONSES %/
+<<set _response = "try again!">>
+<<switch $codeword3>>
+<<case "RIVER", "RUBBER", "IVORY">>
+    <<set _response = "correct!">>
+     <<run $correctans.push($codeword3)>>
+    <<timed 3s>>
+  <<replace "#resultbutton3">>
+    $codeword3
+    <</replace>>
+<</timed>>
+<<case "PEACE", "FAITH", "SCHOOL">>
+    <<set _response = "nah, that’s a myth!">>
+<</switch>>
+/% DISPLAY RESPONSE %/
+<<replace "#coderesult3">>_response<</replace>>
+/% CONTINUE %/
+<<timed 3s>>
+  <<include "checkcorrectans">>
+  <<replace "#coderesult3">>
+    <</replace>>
+<</timed>>
+<</button>>
+
+
+
+
+:: game2complete [nobr]
+<<set $prevpass to "game2b">>
+<<set $passage to "game2complete">>
+<<set $nextpass to "game-intro">>
+<main>
+ <div class="main-container">
+ <p>Here’s the resistance here - well done on uncovering that one. Here’s some of the truth. </p>
+
+<p>
+Despite his ‘civilising mission’, natural resources were the main reasons that attracted King Leopold to the Congo. As a result of the conference, Leopold of Belgium personally received 905,355 sq miles of land, including the whole 3,000-mile length of the Congo River. This led to the creation of the Congo Free State, in which Leopold devised a system of terror in which entire Congolese villages were forced to harvest rubber, or face death by their Belgian overseers. Ivory was another resource extracted through forced labour. </p>
+  <<button "Debunk another myth">><<goto "game-intro">><</button>>
   </div>
 </main>
 

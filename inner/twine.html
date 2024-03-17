@@ -98,7 +98,7 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<!-- UUID://C28EDFFA-24CE-4675-9620-21F28525BD27// --><tw-storydata name="1884 Twine" startnode="5" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="C28EDFFA-24CE-4675-9620-21F28525BD27" zoom="0.6" format="SugarCube" format-version="2.36.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap");
+	<!-- UUID://C28EDFFA-24CE-4675-9620-21F28525BD27// --><tw-storydata name="1884 Twine" startnode="7" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="C28EDFFA-24CE-4675-9620-21F28525BD27" zoom="0.6" format="SugarCube" format-version="2.36.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap");
 
 @import url("/styles/generics.css");
 @import url("/styles/main.css");
@@ -249,7 +249,39 @@ setup.backThirty = () => {
   &lt;/div&gt;
 
   
-&lt;/footer&gt;</tw-passagedata><tw-passagedata pid="4" name="soundonoff" tags="nobr" position="475,100" size="100,100">&lt;div class=&quot;icon-container&quot;&gt; 
+&lt;/footer&gt;</tw-passagedata><tw-passagedata pid="4" name="footerquiz" tags="nobr" position="100,375" size="100,100">&lt;footer&gt;
+&lt;&lt;if $showBackwards is true&gt;&gt;
+  &lt;div class=&quot;nav-wrapper&quot;&gt;
+    &lt;div class=&quot;nav-item&quot;&gt;
+        [img[Back|assets/img/back.png][$prevpass]]
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;&lt;/if&gt;&gt;
+  &lt;div class=&quot;nav-wrapper&quot;&gt;
+&lt;div class=&quot;tally-container&quot; id=&quot;tallyMount&quot;&gt;&lt;&lt;include &quot;tally&quot;&gt;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;</tw-passagedata><tw-passagedata pid="5" name="footerws" tags="nobr" position="600,100" size="100,100">&lt;footer&gt;
+&lt;&lt;if $showBackwards is true&gt;&gt;
+  &lt;div class=&quot;nav-wrapper&quot;&gt;
+    &lt;div class=&quot;nav-item&quot;&gt;
+        [img[Back|assets/img/back.png][$prevpass]]
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;&lt;/if&gt;&gt;
+  
+&lt;div id=&quot;skipMount&quot;&gt;&lt;/div&gt;
+  
+&lt;/footer&gt;
+&lt;&lt;timed 3s&gt;&gt;
+  &lt;&lt;replace &quot;#skipMount&quot;&gt;&gt;
+        &lt;div class=&quot;nav-wrapper&quot;&gt;
+    &lt;&lt;button &quot;Skip to the answer&quot;&gt;&gt; 
+      &lt;&lt;set $sound to false&gt;&gt;
+      &lt;&lt;goto $nextpass&gt;&gt;
+        &lt;&lt;/button&gt;&gt;
+      &lt;/div&gt;
+  &lt;&lt;/replace&gt;&gt;
+  &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="soundonoff" tags="nobr" position="725,100" size="100,100">&lt;div class=&quot;icon-container&quot;&gt; 
   &lt;&lt;if $sound is true&gt;&gt;
     &lt;&lt;button [img[&quot;./../assets/img/audio.png&quot; ]]&gt;&gt; 
   &lt;&lt;set $sound to false&gt;&gt;
@@ -262,13 +294,13 @@ setup.backThirty = () => {
    &lt;&lt;goto $passage&gt;&gt;
     &lt;&lt;/button&gt;&gt;
   &lt;&lt;/if&gt;&gt;
-  &lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="landing" tags="nobr" position="600,100" size="100,100">&lt;&lt;set $prevpass to &quot;landing&quot;&gt;&gt;
+  &lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="landing" tags="nobr" position="850,100" size="100,100">&lt;&lt;set $prevpass to &quot;landing&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;landing&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;preintro1&quot;&gt;&gt;
 &lt;&lt;set $sound to true&gt;&gt;
 &lt;p&gt;Landing Image&lt;/p&gt;
 
-  &lt;&lt;button &quot;Start now&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="preintro1" tags="nobr" position="725,100" size="100,100">&lt;&lt;set $prevpass to &quot;landing&quot;&gt;&gt;
+  &lt;&lt;button &quot;Start now&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="preintro1" tags="nobr" position="975,100" size="100,100">&lt;&lt;set $prevpass to &quot;landing&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;preintro1&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;preintro2&quot;&gt;&gt;
 &lt;main&gt;
@@ -281,7 +313,7 @@ We just have a few practical housekeeping questions before we connect you to our
     &lt;/p&gt;
     &lt;&lt;button &quot;Next&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
  &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="7" name="preintro2" tags="nobr" position="850,100" size="100,100">&lt;&lt;set $prevpass to &quot;preintro2&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="9" name="preintro2" tags="nobr" position="1100,100" size="100,100">&lt;&lt;set $prevpass to &quot;preintro2&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;preintro2&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;preintro3&quot;&gt;&gt;
 &lt;main&gt;
@@ -293,7 +325,7 @@ Are you playing on your smartphone or desktop?
     &lt;&lt;button &quot;Smartphone&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
         &lt;&lt;button &quot;Desktop&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
  &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="8" name="preintro3" tags="nobr" position="975,100" size="100,100">&lt;&lt;set $prevpass to &quot;preintro2&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="10" name="preintro3" tags="nobr" position="1225,100" size="100,100">&lt;&lt;set $prevpass to &quot;preintro2&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;preintro3&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;intro&quot;&gt;&gt;
 &lt;&lt;include &quot;footer&quot;&gt;&gt;
@@ -306,7 +338,7 @@ Press this icon now - or at any time during the experience - if you wish to turn
 &lt;br/&gt;
   &lt;&lt;button &quot;Next&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="9" name="intro" tags="nobr" position="1100,100" size="100,100">&lt;&lt;set $prevpass to &quot;intro&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="11" name="intro" tags="nobr" position="100,225" size="100,100">&lt;&lt;set $prevpass to &quot;intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;intro&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;intro-highlight&quot;&gt;&gt;
 &lt;main&gt;
@@ -318,7 +350,7 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
     &lt;&lt;button &quot;Sorry, can you repeat that?&quot;&gt;&gt;&lt;&lt;goto &quot;intro-highlight&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
    
  &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="10" name="intro-highlight" tags="nobr" position="1225,100" size="100,100">&lt;&lt;set $prevpass to &quot;intro&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="12" name="intro-highlight" tags="nobr" position="225,225" size="100,100">&lt;&lt;set $prevpass to &quot;intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;intro-highlight&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;resistance-glitch&quot;&gt;&gt;
 &lt;&lt;set $showBackwards to true&gt;&gt;
@@ -338,7 +370,7 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
   &lt;&lt;button &quot;Seriously?&quot;&gt;&gt;&lt;&lt;goto &quot;resistance-glitch&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="loading" tags="nobr t8n.typewriter.4" position="100,225" size="100,100">&lt;main class=&quot;main-section loading&quot;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="loading" tags="nobr t8n.typewriter.4" position="350,225" size="100,100">&lt;main class=&quot;main-section loading&quot;&gt;
 
 &lt;div class=&quot;menu-wrapper&quot;&gt;
 &lt;div id=&quot;mount&quot;&gt;&lt;/div&gt;&lt;/div&gt;
@@ -352,7 +384,7 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
 
 &lt;&lt;timed 5s&gt;&gt;
 &lt;&lt;goto $nextpass&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="resistance-glitch" tags="nobr" position="225,225" size="100,100">&lt;&lt;set $prevpass to &quot;intro-highlight&quot;&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="resistance-glitch" tags="nobr" position="475,225" size="100,100">&lt;&lt;set $prevpass to &quot;intro-highlight&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;resistance-glitch&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game-intro&quot;&gt;&gt;
 &lt;main&gt;
@@ -368,7 +400,7 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
    &lt;a href=&quot;../../memorial.html&quot;&gt;&lt;button&gt;Visit the memorial directly&lt;/button&gt;&lt;/a&gt;
     
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="13" name="game-intro" tags="nobr" position="425,450" size="100,100">&lt;&lt;set $prevpass to &quot;resistance-glitch&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="15" name="game-intro" tags="nobr" position="425,450" size="100,100">&lt;&lt;set $prevpass to &quot;resistance-glitch&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;&quot;&gt;&gt;
 &lt;&lt;set $showBackwards to true&gt;&gt;
@@ -380,38 +412,51 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
  &lt;br/&gt;
   &lt;div class=&quot;backpack-container&quot;&gt;
    &lt;div class=&quot;backpack-item&quot;&gt;
+      &lt;&lt;if hasVisited(&quot;game1complete&quot;)&gt;&gt;
+        &lt;&lt;button [img[./../assets/img/AFTER-conference.jpg]]&gt;&gt;
+          &lt;&lt;set $nextpass to &quot;game1&quot;&gt;&gt;&lt;&lt;goto &quot;loading&quot;&gt;&gt;
+          &lt;&lt;/button&gt;&gt;
+      &lt;&lt;else&gt;&gt;
           &lt;&lt;button [img[./../assets/img/BEFORE-conference.jpg]]&gt;&gt;
           &lt;&lt;set $nextpass to &quot;game1&quot;&gt;&gt;&lt;&lt;goto &quot;loading&quot;&gt;&gt;
           &lt;&lt;/button&gt;&gt;
-          &lt;&lt;if hasVisited(&quot;game1complete&quot;)&gt;&gt;&lt;span class=&quot;complete&quot;&gt;Complete!&lt;/span&gt;
-      &lt;&lt;else&gt;&gt;
-           &lt;span class=&quot;todo&quot;&gt;To do&lt;/span&gt;&lt;&lt;/if&gt;&gt;
+           &lt;&lt;/if&gt;&gt;
       &lt;/div&gt;
     
       &lt;div class=&quot;backpack-item&quot;&gt;
-          &lt;&lt;button [img[./../assets/img/BEFORE-nations.jpg]]&gt;&gt;
-          &lt;&lt;set $nextpass to &quot;game2&quot;&gt;&gt;&lt;&lt;goto &quot;loading&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
-           &lt;&lt;if hasVisited(&quot;game2complete&quot;)&gt;&gt;&lt;span class=&quot;complete&quot;&gt;Complete!&lt;/span&gt;
-           &lt;&lt;else&gt;&gt;
-           &lt;span class=&quot;todo&quot;&gt;To do&lt;/span&gt;
-           &lt;&lt;/if&gt;&gt;
-      &lt;/div&gt;
-      &lt;div class=&quot;backpack-item&quot;&gt;
-         &lt;&lt;button [img[./../assets/img/BEFORE-goal.jpg]]&gt;&gt;
-
-          &lt;&lt;set $nextpass to &quot;game3&quot;&gt;&gt;&lt;&lt;goto &quot;loading&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
-           &lt;&lt;if hasVisited(&quot;game3complete&quot;)&gt;&gt;&lt;span class=&quot;complete&quot;&gt;Complete!&lt;/span&gt;
-           &lt;&lt;else&gt;&gt;
-           &lt;span class=&quot;todo&quot;&gt;To do&lt;/span&gt;
-           &lt;&lt;/if&gt;&gt;
-      &lt;/div&gt;
-      &lt;div class=&quot;backpack-item&quot;&gt;
-         &lt;&lt;button [img[./../assets/img/BEFORE-reaction.jpg]]&gt;&gt;
-            &lt;&lt;set $nextpass to &quot;game4&quot;&gt;&gt;&lt;&lt;goto &quot;loading&quot;&gt;&gt;
+       
+           &lt;&lt;if hasVisited(&quot;game3complete&quot;)&gt;&gt;
+            &lt;&lt;button [img[./../assets/img/AFTER-nations.jpg]]&gt;&gt;
+          &lt;&lt;set $nextpass to &quot;game3&quot;&gt;&gt;&lt;&lt;goto &quot;loading&quot;&gt;&gt;
           &lt;&lt;/button&gt;&gt;
-       &lt;&lt;if hasVisited(&quot;game4complete&quot;)&gt;&gt;&lt;span class=&quot;complete&quot;&gt;Complete!&lt;/span&gt;
-       &lt;&lt;else&gt;&gt;
-           &lt;span class=&quot;todo&quot;&gt;To do&lt;/span&gt;
+      &lt;&lt;else&gt;&gt;
+          &lt;&lt;button [img[./../assets/img/BEFORE-nations.jpg]]&gt;&gt;
+          &lt;&lt;set $nextpass to &quot;game3&quot;&gt;&gt;&lt;&lt;goto &quot;loading&quot;&gt;&gt;
+          &lt;&lt;/button&gt;&gt;
+           &lt;&lt;/if&gt;&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;backpack-item&quot;&gt;
+      
+           &lt;&lt;if hasVisited(&quot;game2complete&quot;)&gt;&gt;
+         &lt;&lt;button [img[./../assets/img/AFTER-goal.jpg]]&gt;&gt;
+          &lt;&lt;set $nextpass to &quot;game2&quot;&gt;&gt;&lt;&lt;goto &quot;loading&quot;&gt;&gt;
+          &lt;&lt;/button&gt;&gt;
+      &lt;&lt;else&gt;&gt;
+          &lt;&lt;button [img[./../assets/img/BEFORE-goal.jpg]]&gt;&gt;
+          &lt;&lt;set $nextpass to &quot;game2&quot;&gt;&gt;&lt;&lt;goto &quot;loading&quot;&gt;&gt;
+          &lt;&lt;/button&gt;&gt;
+           &lt;&lt;/if&gt;&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;backpack-item&quot;&gt;
+     
+       &lt;&lt;if hasVisited(&quot;game4complete&quot;)&gt;&gt;
+      &lt;&lt;button [img[./../assets/img/AFTER-reaction.jpg]]&gt;&gt;
+          &lt;&lt;set $nextpass to &quot;game4&quot;&gt;&gt;&lt;&lt;goto &quot;loading&quot;&gt;&gt;
+          &lt;&lt;/button&gt;&gt;
+      &lt;&lt;else&gt;&gt;
+          &lt;&lt;button [img[./../assets/img/BEFORE-reaction.jpg]]&gt;&gt;
+          &lt;&lt;set $nextpass to &quot;game4&quot;&gt;&gt;&lt;&lt;goto &quot;loading&quot;&gt;&gt;
+          &lt;&lt;/button&gt;&gt;
       &lt;&lt;/if&gt;&gt;
       &lt;/div&gt;
      
@@ -438,7 +483,7 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
   
 &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="tally" tags="" position="475,225" size="100,100">&lt;span&gt;Correct answers: $tally&lt;/span&gt;</tw-passagedata><tw-passagedata pid="15" name="game1" tags="nobr" position="600,225" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="tally" tags="" position="725,225" size="100,100">&lt;span&gt;Correct answers: $tally&lt;/span&gt;</tw-passagedata><tw-passagedata pid="17" name="game1" tags="nobr" position="850,225" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game1&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game1a&quot;&gt;&gt;
 &lt;&lt;set $tally to 0&gt;&gt;
@@ -450,29 +495,47 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
 
   &lt;&lt;button &quot;Let&#39;s go&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="16" name="game1a" tags="nobr" position="725,225" size="100,100">&lt;&lt;set $prevpass to &quot;game1a&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="18" name="game1a" tags="nobr t8n typewriter" position="975,225" size="100,100">&lt;&lt;set $prevpass to &quot;game1a&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game1a&quot;&gt;&gt;
-&lt;&lt;set $nextpass to &quot;game1b&quot;&gt;&gt;
+&lt;&lt;set $nextpass to &quot;game1complete&quot;&gt;&gt;
 
 &lt;main&gt;
  &lt;div class=&quot;main-container&quot;&gt;
-&lt;div class=&quot;tally-container&quot; id=&quot;tallyMount&quot;&gt;&lt;/div&gt;
 
+&lt;div id=&quot;answerMount&quot;&gt;&lt;/div&gt;
 &lt;h3&gt;1. The Berlin Conference of 1884 marked the beginning of European colonisation of Africa.&lt;/h3&gt;
+&lt;br/&gt;
   &lt;div class=&quot;answerBtn-container&quot; id=&quot;btnContainer&quot;&gt;
     &lt;div class=&quot;truth answerBtn&quot;  id=&quot;truthBtn&quot;&gt;
       &lt;&lt;button &quot;Truth&quot;&gt;&gt;
         &lt;&lt;timed 1s&gt;&gt;
-           &lt;&lt;addclass &quot;#truthBtn&quot; &quot;wrong&quot;&gt;&gt;
-           &lt;&lt;addclass &quot;#mythBtn&quot; &quot;correct&quot;&gt;&gt;
-         &lt;&lt;replace &quot;#tallyMount&quot;&gt;&gt;
+            &lt;&lt;replace &quot;#btnContainer&quot;&gt;&gt;
+              &lt;p&gt;&lt;/p&gt;
+          &lt;&lt;/replace&gt;&gt;
+               /* Refresh tally count  */
+          &lt;&lt;replace &quot;#tallyMount&quot;&gt;&gt;
             &lt;&lt;include &quot;tally&quot;&gt;&gt;
           &lt;&lt;/replace&gt;&gt;
-        &lt;&lt;replace &quot;#textMount&quot;&gt;&gt;
-            &lt;&lt;include &quot;game1afact&quot;&gt;&gt;
+        &lt;&lt;/timed&gt;&gt;
+        &lt;&lt;timed 2s&gt;&gt;
+            &lt;&lt;replace &quot;#btnContainer&quot;&gt;&gt;
+              &lt;p&gt;Incorrect&lt;/p&gt;
           &lt;&lt;/replace&gt;&gt;
-          &lt;&lt;/timed&gt;&gt;
+        &lt;&lt;/timed&gt;&gt;
         &lt;&lt;timed 3s&gt;&gt;
+             &lt;&lt;replace &quot;#btnContainer&quot;&gt;&gt;
+          &lt;&lt;/replace&gt;&gt;
+            &lt;&lt;replace &quot;#answerMount&quot;&gt;&gt;
+              &lt;h2&gt;MYTH&lt;/h2&gt;
+          &lt;&lt;/replace&gt;&gt;
+         &lt;&lt;/timed&gt;&gt;
+      &lt;&lt;timed 4s&gt;&gt;
+          &lt;&lt;replace &quot;#textMount&quot;&gt;&gt;
+              &lt;&lt;include &quot;game1afact&quot;&gt;&gt;
+            &lt;&lt;/replace&gt;&gt;
+       
+       &lt;&lt;/timed&gt;&gt;
+        &lt;&lt;timed 5s&gt;&gt;
         &lt;&lt;replace &quot;#btnMount&quot;&gt;&gt;
             &lt;&lt;button &quot;Next&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
           &lt;&lt;/replace&gt;&gt;
@@ -481,24 +544,35 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
     &lt;/div&gt;
    &lt;div class=&quot;myth answerBtn&quot; id=&quot;mythBtn&quot;&gt;
       &lt;&lt;button &quot;Myth&quot;&gt;&gt;
-        &lt;&lt;set $tally += 1&gt;&gt;
         &lt;&lt;timed 1s&gt;&gt;
-        /* Change btn  colours    */
-        &lt;&lt;addclass &quot;#truthBtn&quot; &quot;wrong&quot;&gt;&gt;
-         &lt;&lt;addclass &quot;#mythBtn&quot; &quot;correct&quot;&gt;&gt;
-         /* Disable the buttons  */
-         &lt;&lt;run $(&quot;#mythBtn button&quot;).prop(&quot;disabled&quot;, true)&gt;&gt;
-         &lt;&lt;run $(&quot;#truthBtn button&quot;).prop(&quot;disabled&quot;, true)&gt;&gt;
-         /* Refresh tally count  */
+          &lt;&lt;set $tally += 1&gt;&gt;
+            &lt;&lt;replace &quot;#btnContainer&quot;&gt;&gt;
+              &lt;p&gt;&lt;/p&gt;
+          &lt;&lt;/replace&gt;&gt;
+               /* Refresh tally count  */
           &lt;&lt;replace &quot;#tallyMount&quot;&gt;&gt;
             &lt;&lt;include &quot;tally&quot;&gt;&gt;
           &lt;&lt;/replace&gt;&gt;
-        /* Show the fact */
-        &lt;&lt;replace &quot;#textMount&quot;&gt;&gt;
-            &lt;&lt;include &quot;game1afact&quot;&gt;&gt;
+        &lt;&lt;/timed&gt;&gt;
+        &lt;&lt;timed 2s&gt;&gt;
+            &lt;&lt;replace &quot;#btnContainer&quot;&gt;&gt;
+              &lt;p&gt;Correct&lt;/p&gt;
           &lt;&lt;/replace&gt;&gt;
-          &lt;&lt;/timed&gt;&gt;
+        &lt;&lt;/timed&gt;&gt;
         &lt;&lt;timed 3s&gt;&gt;
+             &lt;&lt;replace &quot;#btnContainer&quot;&gt;&gt;
+          &lt;&lt;/replace&gt;&gt;
+            &lt;&lt;replace &quot;#answerMount&quot;&gt;&gt;
+              &lt;h2&gt;TRUTH&lt;/h2&gt;
+          &lt;&lt;/replace&gt;&gt;
+         &lt;&lt;/timed&gt;&gt;
+      &lt;&lt;timed 4s&gt;&gt;
+          &lt;&lt;replace &quot;#textMount&quot;&gt;&gt;
+              &lt;&lt;include &quot;game1afact&quot;&gt;&gt;
+            &lt;&lt;/replace&gt;&gt;
+       
+       &lt;&lt;/timed&gt;&gt;
+        &lt;&lt;timed 5s&gt;&gt;
         &lt;&lt;replace &quot;#btnMount&quot;&gt;&gt;
             &lt;&lt;button &quot;Next&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
           &lt;&lt;/replace&gt;&gt;
@@ -512,64 +586,255 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
   &lt;div id=&quot;btnMount&quot;&gt;&lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="17" name="game1afact" tags="" position="850,225" size="100,100">&lt;p&gt;The Berlin conference represented a rapid increase in the pace and scale of colonisation, but not the start. The transatlantic slave trade started in the 16th century, and the desire for more resources and land led to the ‘scramble’ to colonise Africa in the late 19th century. The interior of the continent was still largely a ‘mystery’ to Europeans by the late 1800s; this changed after European powers gathered for 104 days in 1884 to discuss the future of Africa.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="18" name="game1aa" tags="nobr" position="975,225" size="100,100">&lt;&lt;set $prevpass to &quot;game1a&quot;&gt;&gt;
-&lt;&lt;set $passage to &quot;game1aa&quot;&gt;&gt;
-&lt;&lt;set $nextpass to &quot;&quot;&gt;&gt;
-
-&lt;main&gt;
+&lt;/main&gt;
+&lt;&lt;include &quot;footerquiz&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="game1afact" tags="" position="1100,225" size="100,100">&lt;p&gt;The Berlin conference represented a rapid increase in the pace and scale of colonisation, but not the start. The transatlantic slave trade started in the 16th century, and the desire for more resources and land led to the ‘scramble’ to colonise Africa in the late 19th century. The interior of the continent was still largely a ‘mystery’ to Europeans by the late 1800s; this changed after European powers gathered for 104 days in 1884 to discuss the future of Africa.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="20" name="game1complete" tags="" position="1225,225" size="100,100">&lt;main&gt;
 &lt;h2&gt;CONFERENCE&lt;/h2&gt;
  &lt;div class=&quot;main-container&quot;&gt;
- &lt;span&gt;$tally&lt;/span&gt;
-
-&lt;h4&gt;&lt;/h4&gt;
-&lt;h3&gt;1. The Berlin Conference of 1884 marked the beginning of European colonisation of Africa.&lt;/h3&gt;
-  &lt;&lt;button &quot;Truth&quot;&gt;&gt;&lt;&lt;goto &quot;game1complete&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
-  &lt;&lt;button &quot;Myth&quot;&gt;&gt;&lt;&lt;goto &quot;game1complete&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
-
-  &lt;&lt;button &quot;Solved&quot;&gt;&gt;&lt;&lt;goto &quot;game1complete&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+ &lt;p&gt;Now that you’ve got your key facts sorted, try out another one of our activities to dive deeper into the history.&lt;/p&gt;
+  &lt;&lt;button &quot;Debunk another myth&quot;&gt;&gt;&lt;&lt;goto &quot;game-intro&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="19" name="game1complete" tags="" position="1100,225" size="100,100">&lt;main&gt;
-&lt;h2&gt;CONFERENCE&lt;/h2&gt;
- &lt;div class=&quot;main-container&quot;&gt;
-  &lt;&lt;button &quot;Next Game&quot;&gt;&gt;&lt;&lt;goto &quot;game-intro&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
-  &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="20" name="game2" tags="" position="1225,225" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="21" name="game2" tags="nobr" position="100,350" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game2&quot;&gt;&gt;
+&lt;&lt;set $nextpass to &quot;game2a&quot;&gt;&gt;
 &lt;main&gt;
-&lt;h2&gt;Game 2&lt;/h2&gt;
+
  &lt;div class=&quot;main-container&quot;&gt;
-  &lt;&lt;button &quot;Solved&quot;&gt;&gt;&lt;&lt;goto &quot;game2complete&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+ &lt;h2&gt;GOAL&lt;/h2&gt;
+ &lt;p&gt;So what was the conference all about then? Let&#39;s dig a little deeper into the specifics! This next activity celebrates the noble aims that the European conference attendees - and especially King Leopold of Belgium - had for the African continent. &lt;/p&gt;
+  &lt;&lt;button &quot;Noble aims, really? &quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="21" name="game2complete" tags="" position="100,350" size="100,100">&lt;main&gt;
-&lt;h2&gt;Game 2 - Complete&lt;/h2&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="22" name="game2a" tags="nobr" position="225,350" size="100,100">&lt;&lt;set $prevpass to &quot;game2&quot;&gt;&gt;
+&lt;&lt;set $passage to &quot;game2a&quot;&gt;&gt;
+&lt;&lt;set $nextpass to &quot;game2b&quot;&gt;&gt;
+&lt;main&gt;
  &lt;div class=&quot;main-container&quot;&gt;
-  &lt;&lt;button &quot;Next Game&quot;&gt;&gt;&lt;&lt;goto &quot;game-intro&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+
+ &lt;p&gt;Yes my dear 188.4FM listeners, Leopold II created the International Society of Congo with the humanitarian goal of ending slavery, civilising Central Africa, and bringing religion and the benefits of modern life to the Congolese. 
+
+In the wordsearch below, see if you can find out what interested Leopold in the Congo. Can you spot the 3 words in this puzzle and type them in the boxes below?
+&lt;/p&gt;
+  &lt;&lt;button &quot;Let&#39;s go!&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="22" name="game3" tags="" position="225,350" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="23" name="game2b" tags="nobr" position="350,350" size="100,100">&lt;&lt;set $prevpass to &quot;game2a&quot;&gt;&gt;
+&lt;&lt;set $passage to &quot;game2b&quot;&gt;&gt;
+&lt;&lt;set $nextpass to &quot;game2complete&quot;&gt;&gt;
+&lt;&lt;set $correctans to []&gt;&gt;
+&lt;main&gt;
+ &lt;div class=&quot;main-container wordsearch&quot;&gt;
+&lt;div class=&quot;wordsearch-container&quot;&gt;
+  &lt;table class=&quot;wordsearch-table&quot;&gt;
+    &lt;tr&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;P&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;F&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;I&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;V&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;O&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;R&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;Y&lt;/td&gt;
+    &lt;/tr&gt;
+     &lt;tr&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;R&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;D&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;P&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;E&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;A&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;C&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;E&lt;/td&gt;
+    &lt;/tr&gt;
+     &lt;tr&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;I&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;S&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;C&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;H&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;O&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;O&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;L&lt;/td&gt;
+    &lt;/tr&gt;
+     &lt;tr&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;V&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;F&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;A&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;I&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;T&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;H&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;D&lt;/td&gt;
+    &lt;/tr&gt;
+      &lt;tr&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;E&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;I&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;Y&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;F&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;P&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;B&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;J&lt;/td&gt;
+    &lt;/tr&gt;
+      &lt;tr&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;R&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;J&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;K&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;U&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;T&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;N&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;N&lt;/td&gt;
+    &lt;/tr&gt;
+     &lt;tr&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;R&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;U&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;B&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;B&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;E&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;R&lt;/td&gt;
+      &lt;td class=&quot;wordsearch-cell letter-cell&quot;&gt;P&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;!-- Add more rows similarly --&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;codewords-container&quot;&gt;
+&lt;&lt;include &quot;codewordws1&quot;&gt;&gt;
+&lt;&lt;include &quot;codewordws2&quot;&gt;&gt;
+&lt;&lt;include &quot;codewordws3&quot;&gt;&gt;
+&lt;/div&gt;
+
+  &lt;/div&gt;
+
+&lt;/main&gt;
+&lt;&lt;include &quot;footerws&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="checkcorrectans" tags="" position="475,350" size="100,100">&lt;&lt;if $correctans.includesAll(&quot;RIVER&quot;, &quot;RUBBER&quot;, &quot;IVORY&quot;)&gt;&gt;
+  &lt;&lt;timed 3s&gt;&gt;
+  &lt;&lt;goto $nextpass&gt;&gt;
+  &lt;&lt;/timed&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+$correctans</tw-passagedata><tw-passagedata pid="25" name="codewordws1" tags="nobr" position="600,350" size="100,100">&lt;div id=&quot;coderesult1&quot;&gt;&lt;/div&gt;
+/% CODEWORD FEEDBACK %/
+&lt;div id=&quot;resultbutton1&quot;&gt;
+/% CODEWORD INPUT %/
+&lt;div class=&quot;code-input&quot;&gt;
+&lt;&lt;textbox &quot;$codeword1&quot; &quot;&quot;&gt;&gt;&lt;/div&gt;
+&lt;&lt;button &quot;Enter&quot;&gt;&gt;
+&lt;/div&gt;
+/% STANDARDISE INPUT %/
+&lt;&lt;set $codeword1 to $codeword1.toUpperCase()&gt;&gt;
+/% HANDLE RESPONSES %/
+&lt;&lt;set _response = &quot;try again!&quot;&gt;&gt;
+&lt;&lt;switch $codeword1&gt;&gt;
+&lt;&lt;case &quot;RIVER&quot;, &quot;RUBBER&quot;, &quot;IVORY&quot;&gt;&gt;
+    &lt;&lt;set _response = &quot;correct!&quot;&gt;&gt;
+     &lt;&lt;run $correctans.push($codeword1)&gt;&gt;
+    &lt;&lt;timed 3s&gt;&gt;
+  &lt;&lt;replace &quot;#resultbutton1&quot;&gt;&gt;
+    $codeword1
+    &lt;&lt;/replace&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;case &quot;PEACE&quot;, &quot;FAITH&quot;, &quot;SCHOOL&quot;&gt;&gt;
+    &lt;&lt;set _response = &quot;nah, that’s a myth!&quot;&gt;&gt;
+&lt;&lt;/switch&gt;&gt;
+/% DISPLAY RESPONSE %/
+&lt;&lt;replace &quot;#coderesult1&quot;&gt;&gt;_response&lt;&lt;/replace&gt;&gt;
+/% CONTINUE %/
+&lt;&lt;timed 3s&gt;&gt;
+  &lt;&lt;include &quot;checkcorrectans&quot;&gt;&gt;
+  &lt;&lt;replace &quot;#coderesult1&quot;&gt;&gt;
+    &lt;&lt;/replace&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="codewordws2" tags="nobr" position="725,350" size="100,100">&lt;div id=&quot;coderesult2&quot;&gt;&lt;/div&gt;
+/% CODEWORD FEEDBACK %/
+&lt;div id=&quot;resultbutton2&quot;&gt;
+/% CODEWORD INPUT %/
+&lt;div class=&quot;code-input&quot;&gt;
+&lt;&lt;textbox &quot;$codeword2&quot; &quot;&quot;&gt;&gt;&lt;/div&gt;
+&lt;&lt;button &quot;Enter&quot;&gt;&gt;
+&lt;/div&gt;
+/% STANDARDISE INPUT %/
+&lt;&lt;set $codeword2 to $codeword2.toUpperCase()&gt;&gt;
+/% HANDLE RESPONSES %/
+&lt;&lt;set _response = &quot;try again!&quot;&gt;&gt;
+&lt;&lt;switch $codeword2&gt;&gt;
+&lt;&lt;case &quot;RIVER&quot;, &quot;RUBBER&quot;, &quot;IVORY&quot;&gt;&gt;
+    &lt;&lt;set _response = &quot;correct!&quot;&gt;&gt;
+     &lt;&lt;run $correctans.push($codeword2)&gt;&gt;
+    &lt;&lt;timed 3s&gt;&gt;
+  &lt;&lt;replace &quot;#resultbutton2&quot;&gt;&gt;
+    $codeword2
+    &lt;&lt;/replace&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;case &quot;PEACE&quot;, &quot;FAITH&quot;, &quot;SCHOOL&quot;&gt;&gt;
+    &lt;&lt;set _response = &quot;nah, that’s a myth!&quot;&gt;&gt;
+&lt;&lt;/switch&gt;&gt;
+/% DISPLAY RESPONSE %/
+&lt;&lt;replace &quot;#coderesult2&quot;&gt;&gt;_response&lt;&lt;/replace&gt;&gt;
+/% CONTINUE %/
+&lt;&lt;timed 3s&gt;&gt;
+  &lt;&lt;include &quot;checkcorrectans&quot;&gt;&gt;
+  &lt;&lt;replace &quot;#coderesult2&quot;&gt;&gt;
+    &lt;&lt;/replace&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="27" name="codewordws3" tags="nobr" position="850,350" size="100,100">&lt;div id=&quot;coderesult3&quot;&gt;&lt;/div&gt;
+/% CODEWORD FEEDBACK %/
+&lt;div id=&quot;resultbutton3&quot;&gt;
+/% CODEWORD INPUT %/
+&lt;div class=&quot;code-input&quot;&gt;
+&lt;&lt;textbox &quot;$codeword3&quot; &quot;&quot;&gt;&gt;&lt;/div&gt;
+&lt;&lt;button &quot;Enter&quot;&gt;&gt;
+&lt;/div&gt;
+/% STANDARDISE INPUT %/
+&lt;&lt;set $codeword3 to $codeword3.toUpperCase()&gt;&gt;
+/% HANDLE RESPONSES %/
+&lt;&lt;set _response = &quot;try again!&quot;&gt;&gt;
+&lt;&lt;switch $codeword3&gt;&gt;
+&lt;&lt;case &quot;RIVER&quot;, &quot;RUBBER&quot;, &quot;IVORY&quot;&gt;&gt;
+    &lt;&lt;set _response = &quot;correct!&quot;&gt;&gt;
+     &lt;&lt;run $correctans.push($codeword3)&gt;&gt;
+    &lt;&lt;timed 3s&gt;&gt;
+  &lt;&lt;replace &quot;#resultbutton3&quot;&gt;&gt;
+    $codeword3
+    &lt;&lt;/replace&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;case &quot;PEACE&quot;, &quot;FAITH&quot;, &quot;SCHOOL&quot;&gt;&gt;
+    &lt;&lt;set _response = &quot;nah, that’s a myth!&quot;&gt;&gt;
+&lt;&lt;/switch&gt;&gt;
+/% DISPLAY RESPONSE %/
+&lt;&lt;replace &quot;#coderesult3&quot;&gt;&gt;_response&lt;&lt;/replace&gt;&gt;
+/% CONTINUE %/
+&lt;&lt;timed 3s&gt;&gt;
+  &lt;&lt;include &quot;checkcorrectans&quot;&gt;&gt;
+  &lt;&lt;replace &quot;#coderesult3&quot;&gt;&gt;
+    &lt;&lt;/replace&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="game2complete" tags="nobr" position="975,350" size="100,100">&lt;&lt;set $prevpass to &quot;game2b&quot;&gt;&gt;
+&lt;&lt;set $passage to &quot;game2complete&quot;&gt;&gt;
+&lt;&lt;set $nextpass to &quot;game-intro&quot;&gt;&gt;
+&lt;main&gt;
+ &lt;div class=&quot;main-container&quot;&gt;
+ &lt;p&gt;Here’s the resistance here - well done on uncovering that one. Here’s some of the truth. &lt;/p&gt;
+
+&lt;p&gt;
+Despite his ‘civilising mission’, natural resources were the main reasons that attracted King Leopold to the Congo. As a result of the conference, Leopold of Belgium personally received 905,355 sq miles of land, including the whole 3,000-mile length of the Congo River. This led to the creation of the Congo Free State, in which Leopold devised a system of terror in which entire Congolese villages were forced to harvest rubber, or face death by their Belgian overseers. Ivory was another resource extracted through forced labour. &lt;/p&gt;
+  &lt;&lt;button &quot;Debunk another myth&quot;&gt;&gt;&lt;&lt;goto &quot;game-intro&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+  &lt;/div&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="29" name="game3" tags="" position="1100,350" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game3&quot;&gt;&gt;
 &lt;main&gt;
 &lt;h2&gt;Game 3&lt;/h2&gt;
  &lt;div class=&quot;main-container&quot;&gt;
   &lt;&lt;button &quot;Solved&quot;&gt;&gt;&lt;&lt;goto &quot;game3complete&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="23" name="game3complete" tags="" position="350,350" size="100,100">&lt;main&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="30" name="game3complete" tags="" position="1225,350" size="100,100">&lt;main&gt;
 &lt;h2&gt;Game 3 - Complete&lt;/h2&gt;
  &lt;div class=&quot;main-container&quot;&gt;
   &lt;&lt;button &quot;Next Game&quot;&gt;&gt;&lt;&lt;goto &quot;game-intro&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="24" name="game4" tags="" position="475,350" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="31" name="game4" tags="" position="100,475" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game4&quot;&gt;&gt;
 &lt;main&gt;
 &lt;h2&gt;Game 4&lt;/h2&gt;
  &lt;div class=&quot;main-container&quot;&gt;
   &lt;&lt;button &quot;Solved&quot;&gt;&gt;&lt;&lt;goto &quot;game4complete&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="25" name="game4complete" tags="" position="600,350" size="100,100">&lt;main&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="32" name="game4complete" tags="" position="225,475" size="100,100">&lt;main&gt;
 &lt;h2&gt;Game 4 - Complete&lt;/h2&gt;
  &lt;div class=&quot;main-container&quot;&gt;
   &lt;&lt;button &quot;Next Game&quot;&gt;&gt;&lt;&lt;goto &quot;game-intro&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="26" name="welldone" tags="" position="725,350" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="33" name="welldone" tags="" position="350,475" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;welldone&quot;&gt;&gt;
 
 &lt;main&gt;
@@ -581,7 +846,7 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
 
     &lt;&lt;button &quot;Back to Start&quot;&gt;&gt;&lt;&lt;goto &quot;intro&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="27" name="closing" tags="" position="850,350" size="100,100">&lt;main&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="34" name="closing" tags="" position="475,475" size="100,100">&lt;main&gt;
  &lt;div class=&quot;main-container&quot;&gt;
 Thanks for playing. 
 
