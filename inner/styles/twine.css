@@ -1,23 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Secular+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Spinnaker&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap");
 /* CONSTANTS  */
 
 :root {
-  --main-bg-color: #1b1a1f;
-  --accent-color-primary: #5c97d1;
-  --accent-color-secondary: #7a548a;
-  --accent-color-shadow: #140246;
-  --color-yellow: #fea602;
-  --color-red: #ff0200;
-  --color-purple: #a094bf;
-  --color-pink: #ff007c;
-  --color-orange: #f75146;
-  --font-headings: "Courier", sans-serif;
-  --font-body: "Courier", sans-serif;
-  --padding: 2rem;
 }
 /* GET RID OF TWINE STYLES */
 #story {
@@ -127,16 +110,6 @@ main {
 } */
 
 /* footer  */
-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: fixed;
-  bottom: 0;
-  padding: var(--padding);
-  width: 100%;
-  background-color: var(--main-bg-color);
-}
 
 nav {
   display: flex;
@@ -263,22 +236,30 @@ textarea {
 
 /* BACKPACK  */
 
-main.backpack {
-  min-height: 60vh;
+main.backpack > .main-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .backpack-container {
   display: flex;
   /* flex-direction: column; */
-  justify-content: space-around;
-  gap: 1rem;
+  justify-content: center;
+  gap: 3rem;
   padding: 1.5rem 1.5rem 1.5rem 0;
+  flex-wrap: wrap;
+  max-width: 60%;
+}
+
+.backpack-container > .backpack-item {
+  max-width: 40%;
 }
 
 .backpack-container > .backpack-item > button {
   color: black;
-  border: black 1px solid;
-  background-color: var(--accent-color-secondary);
-  /* max-width: 75%; */
+  border: black 2px solid;
+  background-color: transparent;
   width: fit-content;
   text-align: left;
 }
@@ -346,8 +327,25 @@ span.todo {
   background-color: rgb(255, 85, 0);
 }
 
-@media screen and (min-width: 350px) {
+@media screen and (max-width: 700px) {
   .backpack-container {
     flex-direction: column;
   }
+}
+
+/* QUIZ  */
+
+.answerBtn-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.answerBtn.wrong > button {
+  background-color: var(--color-grey);
+  color: black;
+}
+
+.answerBtn.correct > button {
+  background-color: var(--color-yellow);
+  color: black;
 }

@@ -7,7 +7,7 @@
 	 "ifid": "C28EDFFA-24CE-4675-9620-21F28525BD27",
 	"format": "SugarCube",
 	"format-version": "2.36.1",
-	"start": "intro",
+	"start": "landing",
 	"zoom": 0.6
 }
 
@@ -172,9 +172,88 @@ setup.backThirty = () => {
     </div>
   </div>
   <</if>>
+  <div class="nav-wrapper">
+    <div class="nav-item">
+    <<button "Start">><<goto "landing">><</button>>
+    </div>
+  </div>
 
   
 </footer>
+
+:: soundonoff [nobr]
+<div class="icon-container"> 
+  <<if $sound is true>>
+    <<button [img["./../assets/img/audio.png" ]]>> 
+  <<set $sound to false>>
+  <<goto $passage>>
+    <</button>>
+  <</if>>
+   <<if $sound is false>>
+    <<button [img["./../assets/img/audiooff2.png" ]]>> 
+  <<set $sound to true>>
+   <<goto $passage>>
+    <</button>>
+  <</if>>
+  </div>
+
+:: landing [nobr]
+<<set $prevpass to "landing">>
+<<set $passage to "landing">>
+<<set $nextpass to "preintro1">>
+<<set $sound to true>>
+<p>Landing Image</p>
+
+  <<button "Start now">><<goto $nextpass>><</button>>
+
+:: preintro1 [nobr]
+<<set $prevpass to "landing">>
+<<set $passage to "preintro1">>
+<<set $nextpass to "preintro2">>
+<main>
+ <div class="main-container">
+    <p>
+Welcome to 188.4FM, the best and only radio station taking you through the corridors of history.
+
+We just have a few practical housekeeping questions before we connect you to our host. 
+  
+    </p>
+    <<button "Next">><<goto $nextpass>><</button>>
+ </div>
+</main>
+
+
+:: preintro2 [nobr]
+<<set $prevpass to "preintro2">>
+<<set $passage to "preintro2">>
+<<set $nextpass to "preintro3">>
+<main>
+ <div class="main-container">
+    <p>
+Are you playing on your smartphone or desktop?
+  
+    </p>
+    <<button "Smartphone">><<goto $nextpass>><</button>>
+        <<button "Desktop">><<goto $nextpass>><</button>>
+ </div>
+</main>
+
+:: preintro3 [nobr]
+<<set $prevpass to "preintro2">>
+<<set $passage to "preintro3">>
+<<set $nextpass to "intro">>
+<<include "footer">>
+<main>
+ <div class="main-container">
+    <p>
+    $sound
+Press this icon now - or at any time during the experience - if you wish to turn on / off sound and only display captions.</p>
+<<include "soundonoff">>
+<br/>
+  <<button "Next">><<goto $nextpass>><</button>>
+</div>
+</main>
+
 
 :: intro [nobr]
 <<set $prevpass to "intro">>
@@ -183,10 +262,11 @@ setup.backThirty = () => {
 <main>
  <div class="main-container">
     <p>
-      super quick intro from the DJ (30 sec max) welcoming people to 188.4FM website, a radio station sharing the truth about history. “Our station’s name was inspired by the history of bla bla blah. “
-  
+Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’re locked into the 188.4 FM Experience, and today we are taking you through the stories and events that inspired the founding of this radio station. 188.4 FM was inspired by the legacy of the 1884 Berlin Conference... a moment in history that led to a better life on the African continent...
+
     </p>
-    <<button "Wait. Can you repeat that?">><<goto "intro-highlight">><</button>>
+    <<button "Sorry, can you repeat that?">><<goto "intro-highlight">><</button>>
+   
  </div>
 </main>
 
@@ -199,9 +279,18 @@ setup.backThirty = () => {
 <<set $showBackwards to true>>
 <main>
  <div class="main-container">
-  <p>The 1884 Berlin //conference//, a moment in history where //Europeans// tried to come together for a //humanitarian// conference to abolish slavery and colonialism in Africa. The conference was //welcomed// on the African continent and did not have much impact on actual events on the ground but we still remember its legacy through this radio station etc… </p>
+<p>Sure. A better life… let me get down some facts:</p>
 
-  <<button " Is that true?">><<goto "resistance-glitch">><</button>>
+<p>The 1884 Berlin //conference// was a moment in history where Europeans tried to come together with the humanitarian goal to abolish slavery and colonialism in Africa. </p>
+
+<p>Most African //nations// chose not to attend the conference. </p>
+
+<p>The conference received a positive //reaction// across the African continent. </p>
+
+<p>Although the conference did not have much impact on actual events on the ground, we still remember its legacy and ambitions through 188.4 FM - our radio station serving you the key historical facts and top bangers. </p>
+
+
+  <<button "Seriously?">><<goto "resistance-glitch">><</button>>
   </div>
 </main>
 <<include "footer">>
@@ -229,12 +318,15 @@ setup.backThirty = () => {
 <<set $nextpass to "game-intro">>
 <main>
  <div class="main-container">
-<p> Short audio (30’) with captions, with glitch sound and voice from the resistance movement, inviting people to deconstruct the myths and untold stories about history; something isn’t right about this radio station and it needs to be dismantled. It is a game, if people manage to debunk these 4 myths and find out the truth, they’ll be able to record their own history as part of an online memorial.</p>
+<p> “Humanitarian goal?” “Chose not to attend?” We don’t believe it. </p>
+
+<p>We are the resistance, and we call on 188.4 FM to speak the truth, or else be dismantled. Will you help us to uncover the truth? The station is about to have you play four activities related to their version of the history, but can you discern fact from fiction? Play the games, and then find the truth that is hidden below them. At the end, you’ll be able to record your own history and explore our virtual memorial, to help us keep the truth alive. 
+</p>
 
 
-  <<button "let’s play and debunk history">><<goto "game-intro">><</button>>
+  <<button "Play and debunk history">><<goto "game-intro">><</button>>
 <br/><br/>
-   <a href="../../memorial.html"><button>Visit the memorial without playing</button></a>
+   <a href="../../memorial.html"><button>Visit the memorial directly</button></a>
     
   </div>
 </main>
@@ -252,12 +344,11 @@ setup.backThirty = () => {
 <main class="main-section backpack">
 <div class="main-container">
   <br/>
- <p> 4 x illustrations with key words highlighted (e.g. humanitarian, welcomed): people can click and it unlocks 4 super quick games about different parts of history</p>
  <div id="mount"></div>
  <br/>
   <div class="backpack-container">
    <div class="backpack-item">
-          <<button "Game 1">>
+          <<button [img[./../assets/img/BEFORE-conference.jpg]]>>
           <<set $nextpass to "game1">><<goto "loading">>
           <</button>>
           <<if hasVisited("game1complete")>><span class="complete">Complete!</span>
@@ -266,7 +357,7 @@ setup.backThirty = () => {
       </div>
     
       <div class="backpack-item">
-          <<button "Game 2">>
+          <<button [img[./../assets/img/BEFORE-nations.jpg]]>>
           <<set $nextpass to "game2">><<goto "loading">><</button>>
            <<if hasVisited("game2complete")>><span class="complete">Complete!</span>
            <<else>>
@@ -274,14 +365,17 @@ setup.backThirty = () => {
            <</if>>
       </div>
       <div class="backpack-item">
-          <<button "Game 3">><<set $nextpass to "game3">><<goto "loading">><</button>>
+         <<button [img[./../assets/img/BEFORE-goal.jpg]]>>
+
+          <<set $nextpass to "game3">><<goto "loading">><</button>>
            <<if hasVisited("game3complete")>><span class="complete">Complete!</span>
            <<else>>
            <span class="todo">To do</span>
            <</if>>
       </div>
       <div class="backpack-item">
-          <<button "Game 4">><<set $nextpass to "game4">><<goto "loading">>
+         <<button [img[./../assets/img/BEFORE-reaction.jpg]]>>
+            <<set $nextpass to "game4">><<goto "loading">>
           <</button>>
        <<if hasVisited("game4complete")>><span class="complete">Complete!</span>
        <<else>>
@@ -289,8 +383,9 @@ setup.backThirty = () => {
       <</if>>
       </div>
      
-      /* This one based on codeword */
-  <div class="backpack-item">
+
+      /* This one based on completing all the games */
+
     <<if hasVisited("game1complete", "game2complete", "game3complete", "game4complete")>>
 <<timed 0.5s>>
   <<replace "#mount">>
@@ -302,7 +397,7 @@ setup.backThirty = () => {
           <</timed>>
         
     <</if>>
-    </div>
+
   
       
   </div>
@@ -314,23 +409,115 @@ setup.backThirty = () => {
 <<include "footer">>
 
 
+:: tally
+ <span>Correct answers: $tally</span>
 
-
-
-:: game1
+:: game1 [nobr]
 <<set $prevpass to "game-intro">>
 <<set $passage to "game1">>
-<<set $nextpass to "">>
+<<set $nextpass to "game1a">>
+<<set $tally to 0>>
 <main>
-<h2>Game 1</h2>
+<h2>CONFERENCE</h2>
  <div class="main-container">
+
+ <p>Few of our listeners know about the 1884 Berlin Conference - here at Radio 188.4 FM, we want to change that! Here’s some key facts about the conference… what do you already know?! </p>
+
+  <<button "Let's go">><<goto $nextpass>><</button>>
+  </div>
+</main>
+
+
+:: game1a [nobr]
+<<set $prevpass to "game1a">>
+<<set $passage to "game1a">>
+<<set $nextpass to "game1b">>
+
+<main>
+ <div class="main-container">
+<div class="tally-container" id="tallyMount"></div>
+
+<h3>1. The Berlin Conference of 1884 marked the beginning of European colonisation of Africa.</h3>
+  <div class="answerBtn-container" id="btnContainer">
+    <div class="truth answerBtn"  id="truthBtn">
+      <<button "Truth">>
+        <<timed 1s>>
+           <<addclass "#truthBtn" "wrong">>
+           <<addclass "#mythBtn" "correct">>
+         <<replace "#tallyMount">>
+            <<include "tally">>
+          <</replace>>
+        <<replace "#textMount">>
+            <<include "game1afact">>
+          <</replace>>
+          <</timed>>
+        <<timed 3s>>
+        <<replace "#btnMount">>
+            <<button "Next">><<goto $nextpass>><</button>>
+          <</replace>>
+          <</timed>>
+      <</button>>
+    </div>
+   <div class="myth answerBtn" id="mythBtn">
+      <<button "Myth">>
+        <<set $tally += 1>>
+        <<timed 1s>>
+        /* Change btn  colours    */
+        <<addclass "#truthBtn" "wrong">>
+         <<addclass "#mythBtn" "correct">>
+         /* Disable the buttons  */
+         <<run $("#mythBtn button").prop("disabled", true)>>
+         <<run $("#truthBtn button").prop("disabled", true)>>
+         /* Refresh tally count  */
+          <<replace "#tallyMount">>
+            <<include "tally">>
+          <</replace>>
+        /* Show the fact */
+        <<replace "#textMount">>
+            <<include "game1afact">>
+          <</replace>>
+          <</timed>>
+        <<timed 3s>>
+        <<replace "#btnMount">>
+            <<button "Next">><<goto $nextpass>><</button>>
+          <</replace>>
+          <</timed>>
+      <</button>>
+   </div>
+  </div>
+  <br/>
+ <div id="textMount"></div>
+   <br/>
+  <div id="btnMount"></div>
+
+  </div>
+</main>
+
+:: game1afact
+<p>The Berlin conference represented a rapid increase in the pace and scale of colonisation, but not the start. The transatlantic slave trade started in the 16th century, and the desire for more resources and land led to the ‘scramble’ to colonise Africa in the late 19th century. The interior of the continent was still largely a ‘mystery’ to Europeans by the late 1800s; this changed after European powers gathered for 104 days in 1884 to discuss the future of Africa.</p>
+
+:: game1aa [nobr]
+<<set $prevpass to "game1a">>
+<<set $passage to "game1aa">>
+<<set $nextpass to "">>
+
+<main>
+<h2>CONFERENCE</h2>
+ <div class="main-container">
+ <span>$tally</span>
+
+<h4></h4>
+<h3>1. The Berlin Conference of 1884 marked the beginning of European colonisation of Africa.</h3>
+  <<button "Truth">><<goto "game1complete">><</button>>
+  <<button "Myth">><<goto "game1complete">><</button>>
+
   <<button "Solved">><<goto "game1complete">><</button>>
   </div>
 </main>
 
 :: game1complete
 <main>
-<h2>Game 1 - Complete</h2>
+<h2>CONFERENCE</h2>
  <div class="main-container">
   <<button "Next Game">><<goto "game-intro">><</button>>
   </div>

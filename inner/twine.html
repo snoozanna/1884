@@ -98,7 +98,7 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<!-- UUID://C28EDFFA-24CE-4675-9620-21F28525BD27// --><tw-storydata name="1884 Twine" startnode="4" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="C28EDFFA-24CE-4675-9620-21F28525BD27" zoom="0.6" format="SugarCube" format-version="2.36.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap");
+	<!-- UUID://C28EDFFA-24CE-4675-9620-21F28525BD27// --><tw-storydata name="1884 Twine" startnode="5" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="C28EDFFA-24CE-4675-9620-21F28525BD27" zoom="0.6" format="SugarCube" format-version="2.36.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap");
 
 @import url("/styles/generics.css");
 @import url("/styles/main.css");
@@ -242,31 +242,103 @@ setup.backThirty = () => {
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;&lt;/if&gt;&gt;
+  &lt;div class=&quot;nav-wrapper&quot;&gt;
+    &lt;div class=&quot;nav-item&quot;&gt;
+    &lt;&lt;button &quot;Start&quot;&gt;&gt;&lt;&lt;goto &quot;landing&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
 
   
-&lt;/footer&gt;</tw-passagedata><tw-passagedata pid="4" name="intro" tags="nobr" position="475,100" size="100,100">&lt;&lt;set $prevpass to &quot;intro&quot;&gt;&gt;
+&lt;/footer&gt;</tw-passagedata><tw-passagedata pid="4" name="soundonoff" tags="nobr" position="475,100" size="100,100">&lt;div class=&quot;icon-container&quot;&gt; 
+  &lt;&lt;if $sound is true&gt;&gt;
+    &lt;&lt;button [img[&quot;./../assets/img/audio.png&quot; ]]&gt;&gt; 
+  &lt;&lt;set $sound to false&gt;&gt;
+  &lt;&lt;goto $passage&gt;&gt;
+    &lt;&lt;/button&gt;&gt;
+  &lt;&lt;/if&gt;&gt;
+   &lt;&lt;if $sound is false&gt;&gt;
+    &lt;&lt;button [img[&quot;./../assets/img/audiooff2.png&quot; ]]&gt;&gt; 
+  &lt;&lt;set $sound to true&gt;&gt;
+   &lt;&lt;goto $passage&gt;&gt;
+    &lt;&lt;/button&gt;&gt;
+  &lt;&lt;/if&gt;&gt;
+  &lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="landing" tags="nobr" position="600,100" size="100,100">&lt;&lt;set $prevpass to &quot;landing&quot;&gt;&gt;
+&lt;&lt;set $passage to &quot;landing&quot;&gt;&gt;
+&lt;&lt;set $nextpass to &quot;preintro1&quot;&gt;&gt;
+&lt;&lt;set $sound to true&gt;&gt;
+&lt;p&gt;Landing Image&lt;/p&gt;
+
+  &lt;&lt;button &quot;Start now&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="preintro1" tags="nobr" position="725,100" size="100,100">&lt;&lt;set $prevpass to &quot;landing&quot;&gt;&gt;
+&lt;&lt;set $passage to &quot;preintro1&quot;&gt;&gt;
+&lt;&lt;set $nextpass to &quot;preintro2&quot;&gt;&gt;
+&lt;main&gt;
+ &lt;div class=&quot;main-container&quot;&gt;
+    &lt;p&gt;
+Welcome to 188.4FM, the best and only radio station taking you through the corridors of history.
+
+We just have a few practical housekeeping questions before we connect you to our host. 
+  
+    &lt;/p&gt;
+    &lt;&lt;button &quot;Next&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
+ &lt;/div&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="7" name="preintro2" tags="nobr" position="850,100" size="100,100">&lt;&lt;set $prevpass to &quot;preintro2&quot;&gt;&gt;
+&lt;&lt;set $passage to &quot;preintro2&quot;&gt;&gt;
+&lt;&lt;set $nextpass to &quot;preintro3&quot;&gt;&gt;
+&lt;main&gt;
+ &lt;div class=&quot;main-container&quot;&gt;
+    &lt;p&gt;
+Are you playing on your smartphone or desktop?
+  
+    &lt;/p&gt;
+    &lt;&lt;button &quot;Smartphone&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
+        &lt;&lt;button &quot;Desktop&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
+ &lt;/div&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="8" name="preintro3" tags="nobr" position="975,100" size="100,100">&lt;&lt;set $prevpass to &quot;preintro2&quot;&gt;&gt;
+&lt;&lt;set $passage to &quot;preintro3&quot;&gt;&gt;
+&lt;&lt;set $nextpass to &quot;intro&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;
+&lt;main&gt;
+ &lt;div class=&quot;main-container&quot;&gt;
+    &lt;p&gt;
+    $sound
+Press this icon now - or at any time during the experience - if you wish to turn on / off sound and only display captions.&lt;/p&gt;
+&lt;&lt;include &quot;soundonoff&quot;&gt;&gt;
+&lt;br/&gt;
+  &lt;&lt;button &quot;Next&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;/div&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="9" name="intro" tags="nobr" position="1100,100" size="100,100">&lt;&lt;set $prevpass to &quot;intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;intro&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;intro-highlight&quot;&gt;&gt;
 &lt;main&gt;
  &lt;div class=&quot;main-container&quot;&gt;
     &lt;p&gt;
-      super quick intro from the DJ (30 sec max) welcoming people to 188.4FM website, a radio station sharing the truth about history. “Our station’s name was inspired by the history of bla bla blah. “
-  
+Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’re locked into the 188.4 FM Experience, and today we are taking you through the stories and events that inspired the founding of this radio station. 188.4 FM was inspired by the legacy of the 1884 Berlin Conference... a moment in history that led to a better life on the African continent...
+
     &lt;/p&gt;
-    &lt;&lt;button &quot;Wait. Can you repeat that?&quot;&gt;&gt;&lt;&lt;goto &quot;intro-highlight&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+    &lt;&lt;button &quot;Sorry, can you repeat that?&quot;&gt;&gt;&lt;&lt;goto &quot;intro-highlight&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+   
  &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="5" name="intro-highlight" tags="nobr" position="600,100" size="100,100">&lt;&lt;set $prevpass to &quot;intro&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="10" name="intro-highlight" tags="nobr" position="1225,100" size="100,100">&lt;&lt;set $prevpass to &quot;intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;intro-highlight&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;resistance-glitch&quot;&gt;&gt;
 &lt;&lt;set $showBackwards to true&gt;&gt;
 &lt;main&gt;
  &lt;div class=&quot;main-container&quot;&gt;
-  &lt;p&gt;The 1884 Berlin //conference//, a moment in history where //Europeans// tried to come together for a //humanitarian// conference to abolish slavery and colonialism in Africa. The conference was //welcomed// on the African continent and did not have much impact on actual events on the ground but we still remember its legacy through this radio station etc… &lt;/p&gt;
+&lt;p&gt;Sure. A better life… let me get down some facts:&lt;/p&gt;
 
-  &lt;&lt;button &quot; Is that true?&quot;&gt;&gt;&lt;&lt;goto &quot;resistance-glitch&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;p&gt;The 1884 Berlin //conference// was a moment in history where Europeans tried to come together with the humanitarian goal to abolish slavery and colonialism in Africa. &lt;/p&gt;
+
+&lt;p&gt;Most African //nations// chose not to attend the conference. &lt;/p&gt;
+
+&lt;p&gt;The conference received a positive //reaction// across the African continent. &lt;/p&gt;
+
+&lt;p&gt;Although the conference did not have much impact on actual events on the ground, we still remember its legacy and ambitions through 188.4 FM - our radio station serving you the key historical facts and top bangers. &lt;/p&gt;
+
+
+  &lt;&lt;button &quot;Seriously?&quot;&gt;&gt;&lt;&lt;goto &quot;resistance-glitch&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="loading" tags="nobr t8n.typewriter.4" position="725,100" size="100,100">&lt;main class=&quot;main-section loading&quot;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="loading" tags="nobr t8n.typewriter.4" position="100,225" size="100,100">&lt;main class=&quot;main-section loading&quot;&gt;
 
 &lt;div class=&quot;menu-wrapper&quot;&gt;
 &lt;div id=&quot;mount&quot;&gt;&lt;/div&gt;&lt;/div&gt;
@@ -280,20 +352,23 @@ setup.backThirty = () => {
 
 &lt;&lt;timed 5s&gt;&gt;
 &lt;&lt;goto $nextpass&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="resistance-glitch" tags="nobr" position="850,100" size="100,100">&lt;&lt;set $prevpass to &quot;intro-highlight&quot;&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="resistance-glitch" tags="nobr" position="225,225" size="100,100">&lt;&lt;set $prevpass to &quot;intro-highlight&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;resistance-glitch&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game-intro&quot;&gt;&gt;
 &lt;main&gt;
  &lt;div class=&quot;main-container&quot;&gt;
-&lt;p&gt; Short audio (30’) with captions, with glitch sound and voice from the resistance movement, inviting people to deconstruct the myths and untold stories about history; something isn’t right about this radio station and it needs to be dismantled. It is a game, if people manage to debunk these 4 myths and find out the truth, they’ll be able to record their own history as part of an online memorial.&lt;/p&gt;
+&lt;p&gt; “Humanitarian goal?” “Chose not to attend?” We don’t believe it. &lt;/p&gt;
+
+&lt;p&gt;We are the resistance, and we call on 188.4 FM to speak the truth, or else be dismantled. Will you help us to uncover the truth? The station is about to have you play four activities related to their version of the history, but can you discern fact from fiction? Play the games, and then find the truth that is hidden below them. At the end, you’ll be able to record your own history and explore our virtual memorial, to help us keep the truth alive. 
+&lt;/p&gt;
 
 
-  &lt;&lt;button &quot;let’s play and debunk history&quot;&gt;&gt;&lt;&lt;goto &quot;game-intro&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+  &lt;&lt;button &quot;Play and debunk history&quot;&gt;&gt;&lt;&lt;goto &quot;game-intro&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;br/&gt;&lt;br/&gt;
-   &lt;a href=&quot;../../memorial.html&quot;&gt;&lt;button&gt;Visit the memorial without playing&lt;/button&gt;&lt;/a&gt;
+   &lt;a href=&quot;../../memorial.html&quot;&gt;&lt;button&gt;Visit the memorial directly&lt;/button&gt;&lt;/a&gt;
     
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="8" name="game-intro" tags="nobr" position="425,450" size="100,100">&lt;&lt;set $prevpass to &quot;resistance-glitch&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="13" name="game-intro" tags="nobr" position="425,450" size="100,100">&lt;&lt;set $prevpass to &quot;resistance-glitch&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;&quot;&gt;&gt;
 &lt;&lt;set $showBackwards to true&gt;&gt;
@@ -301,12 +376,11 @@ setup.backThirty = () => {
 &lt;main class=&quot;main-section backpack&quot;&gt;
 &lt;div class=&quot;main-container&quot;&gt;
   &lt;br/&gt;
- &lt;p&gt; 4 x illustrations with key words highlighted (e.g. humanitarian, welcomed): people can click and it unlocks 4 super quick games about different parts of history&lt;/p&gt;
  &lt;div id=&quot;mount&quot;&gt;&lt;/div&gt;
  &lt;br/&gt;
   &lt;div class=&quot;backpack-container&quot;&gt;
    &lt;div class=&quot;backpack-item&quot;&gt;
-          &lt;&lt;button &quot;Game 1&quot;&gt;&gt;
+          &lt;&lt;button [img[./../assets/img/BEFORE-conference.jpg]]&gt;&gt;
           &lt;&lt;set $nextpass to &quot;game1&quot;&gt;&gt;&lt;&lt;goto &quot;loading&quot;&gt;&gt;
           &lt;&lt;/button&gt;&gt;
           &lt;&lt;if hasVisited(&quot;game1complete&quot;)&gt;&gt;&lt;span class=&quot;complete&quot;&gt;Complete!&lt;/span&gt;
@@ -315,7 +389,7 @@ setup.backThirty = () => {
       &lt;/div&gt;
     
       &lt;div class=&quot;backpack-item&quot;&gt;
-          &lt;&lt;button &quot;Game 2&quot;&gt;&gt;
+          &lt;&lt;button [img[./../assets/img/BEFORE-nations.jpg]]&gt;&gt;
           &lt;&lt;set $nextpass to &quot;game2&quot;&gt;&gt;&lt;&lt;goto &quot;loading&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
            &lt;&lt;if hasVisited(&quot;game2complete&quot;)&gt;&gt;&lt;span class=&quot;complete&quot;&gt;Complete!&lt;/span&gt;
            &lt;&lt;else&gt;&gt;
@@ -323,14 +397,17 @@ setup.backThirty = () => {
            &lt;&lt;/if&gt;&gt;
       &lt;/div&gt;
       &lt;div class=&quot;backpack-item&quot;&gt;
-          &lt;&lt;button &quot;Game 3&quot;&gt;&gt;&lt;&lt;set $nextpass to &quot;game3&quot;&gt;&gt;&lt;&lt;goto &quot;loading&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+         &lt;&lt;button [img[./../assets/img/BEFORE-goal.jpg]]&gt;&gt;
+
+          &lt;&lt;set $nextpass to &quot;game3&quot;&gt;&gt;&lt;&lt;goto &quot;loading&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
            &lt;&lt;if hasVisited(&quot;game3complete&quot;)&gt;&gt;&lt;span class=&quot;complete&quot;&gt;Complete!&lt;/span&gt;
            &lt;&lt;else&gt;&gt;
            &lt;span class=&quot;todo&quot;&gt;To do&lt;/span&gt;
            &lt;&lt;/if&gt;&gt;
       &lt;/div&gt;
       &lt;div class=&quot;backpack-item&quot;&gt;
-          &lt;&lt;button &quot;Game 4&quot;&gt;&gt;&lt;&lt;set $nextpass to &quot;game4&quot;&gt;&gt;&lt;&lt;goto &quot;loading&quot;&gt;&gt;
+         &lt;&lt;button [img[./../assets/img/BEFORE-reaction.jpg]]&gt;&gt;
+            &lt;&lt;set $nextpass to &quot;game4&quot;&gt;&gt;&lt;&lt;goto &quot;loading&quot;&gt;&gt;
           &lt;&lt;/button&gt;&gt;
        &lt;&lt;if hasVisited(&quot;game4complete&quot;)&gt;&gt;&lt;span class=&quot;complete&quot;&gt;Complete!&lt;/span&gt;
        &lt;&lt;else&gt;&gt;
@@ -338,8 +415,9 @@ setup.backThirty = () => {
       &lt;&lt;/if&gt;&gt;
       &lt;/div&gt;
      
-      /* This one based on codeword */
-  &lt;div class=&quot;backpack-item&quot;&gt;
+
+      /* This one based on completing all the games */
+
     &lt;&lt;if hasVisited(&quot;game1complete&quot;, &quot;game2complete&quot;, &quot;game3complete&quot;, &quot;game4complete&quot;)&gt;&gt;
 &lt;&lt;timed 0.5s&gt;&gt;
   &lt;&lt;replace &quot;#mount&quot;&gt;&gt;
@@ -351,7 +429,7 @@ setup.backThirty = () => {
           &lt;&lt;/timed&gt;&gt;
         
     &lt;&lt;/if&gt;&gt;
-    &lt;/div&gt;
+
   
       
   &lt;/div&gt;
@@ -360,56 +438,138 @@ setup.backThirty = () => {
   
 &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="9" name="game1" tags="" position="1100,100" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="tally" tags="" position="475,225" size="100,100">&lt;span&gt;Correct answers: $tally&lt;/span&gt;</tw-passagedata><tw-passagedata pid="15" name="game1" tags="nobr" position="600,225" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game1&quot;&gt;&gt;
-&lt;&lt;set $nextpass to &quot;&quot;&gt;&gt;
+&lt;&lt;set $nextpass to &quot;game1a&quot;&gt;&gt;
+&lt;&lt;set $tally to 0&gt;&gt;
 &lt;main&gt;
-&lt;h2&gt;Game 1&lt;/h2&gt;
+&lt;h2&gt;CONFERENCE&lt;/h2&gt;
  &lt;div class=&quot;main-container&quot;&gt;
+
+ &lt;p&gt;Few of our listeners know about the 1884 Berlin Conference - here at Radio 188.4 FM, we want to change that! Here’s some key facts about the conference… what do you already know?! &lt;/p&gt;
+
+  &lt;&lt;button &quot;Let&#39;s go&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
+  &lt;/div&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="16" name="game1a" tags="nobr" position="725,225" size="100,100">&lt;&lt;set $prevpass to &quot;game1a&quot;&gt;&gt;
+&lt;&lt;set $passage to &quot;game1a&quot;&gt;&gt;
+&lt;&lt;set $nextpass to &quot;game1b&quot;&gt;&gt;
+
+&lt;main&gt;
+ &lt;div class=&quot;main-container&quot;&gt;
+&lt;div class=&quot;tally-container&quot; id=&quot;tallyMount&quot;&gt;&lt;/div&gt;
+
+&lt;h3&gt;1. The Berlin Conference of 1884 marked the beginning of European colonisation of Africa.&lt;/h3&gt;
+  &lt;div class=&quot;answerBtn-container&quot; id=&quot;btnContainer&quot;&gt;
+    &lt;div class=&quot;truth answerBtn&quot;  id=&quot;truthBtn&quot;&gt;
+      &lt;&lt;button &quot;Truth&quot;&gt;&gt;
+        &lt;&lt;timed 1s&gt;&gt;
+           &lt;&lt;addclass &quot;#truthBtn&quot; &quot;wrong&quot;&gt;&gt;
+           &lt;&lt;addclass &quot;#mythBtn&quot; &quot;correct&quot;&gt;&gt;
+         &lt;&lt;replace &quot;#tallyMount&quot;&gt;&gt;
+            &lt;&lt;include &quot;tally&quot;&gt;&gt;
+          &lt;&lt;/replace&gt;&gt;
+        &lt;&lt;replace &quot;#textMount&quot;&gt;&gt;
+            &lt;&lt;include &quot;game1afact&quot;&gt;&gt;
+          &lt;&lt;/replace&gt;&gt;
+          &lt;&lt;/timed&gt;&gt;
+        &lt;&lt;timed 3s&gt;&gt;
+        &lt;&lt;replace &quot;#btnMount&quot;&gt;&gt;
+            &lt;&lt;button &quot;Next&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
+          &lt;&lt;/replace&gt;&gt;
+          &lt;&lt;/timed&gt;&gt;
+      &lt;&lt;/button&gt;&gt;
+    &lt;/div&gt;
+   &lt;div class=&quot;myth answerBtn&quot; id=&quot;mythBtn&quot;&gt;
+      &lt;&lt;button &quot;Myth&quot;&gt;&gt;
+        &lt;&lt;set $tally += 1&gt;&gt;
+        &lt;&lt;timed 1s&gt;&gt;
+        /* Change btn  colours    */
+        &lt;&lt;addclass &quot;#truthBtn&quot; &quot;wrong&quot;&gt;&gt;
+         &lt;&lt;addclass &quot;#mythBtn&quot; &quot;correct&quot;&gt;&gt;
+         /* Disable the buttons  */
+         &lt;&lt;run $(&quot;#mythBtn button&quot;).prop(&quot;disabled&quot;, true)&gt;&gt;
+         &lt;&lt;run $(&quot;#truthBtn button&quot;).prop(&quot;disabled&quot;, true)&gt;&gt;
+         /* Refresh tally count  */
+          &lt;&lt;replace &quot;#tallyMount&quot;&gt;&gt;
+            &lt;&lt;include &quot;tally&quot;&gt;&gt;
+          &lt;&lt;/replace&gt;&gt;
+        /* Show the fact */
+        &lt;&lt;replace &quot;#textMount&quot;&gt;&gt;
+            &lt;&lt;include &quot;game1afact&quot;&gt;&gt;
+          &lt;&lt;/replace&gt;&gt;
+          &lt;&lt;/timed&gt;&gt;
+        &lt;&lt;timed 3s&gt;&gt;
+        &lt;&lt;replace &quot;#btnMount&quot;&gt;&gt;
+            &lt;&lt;button &quot;Next&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
+          &lt;&lt;/replace&gt;&gt;
+          &lt;&lt;/timed&gt;&gt;
+      &lt;&lt;/button&gt;&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;br/&gt;
+ &lt;div id=&quot;textMount&quot;&gt;&lt;/div&gt;
+   &lt;br/&gt;
+  &lt;div id=&quot;btnMount&quot;&gt;&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="17" name="game1afact" tags="" position="850,225" size="100,100">&lt;p&gt;The Berlin conference represented a rapid increase in the pace and scale of colonisation, but not the start. The transatlantic slave trade started in the 16th century, and the desire for more resources and land led to the ‘scramble’ to colonise Africa in the late 19th century. The interior of the continent was still largely a ‘mystery’ to Europeans by the late 1800s; this changed after European powers gathered for 104 days in 1884 to discuss the future of Africa.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="18" name="game1aa" tags="nobr" position="975,225" size="100,100">&lt;&lt;set $prevpass to &quot;game1a&quot;&gt;&gt;
+&lt;&lt;set $passage to &quot;game1aa&quot;&gt;&gt;
+&lt;&lt;set $nextpass to &quot;&quot;&gt;&gt;
+
+&lt;main&gt;
+&lt;h2&gt;CONFERENCE&lt;/h2&gt;
+ &lt;div class=&quot;main-container&quot;&gt;
+ &lt;span&gt;$tally&lt;/span&gt;
+
+&lt;h4&gt;&lt;/h4&gt;
+&lt;h3&gt;1. The Berlin Conference of 1884 marked the beginning of European colonisation of Africa.&lt;/h3&gt;
+  &lt;&lt;button &quot;Truth&quot;&gt;&gt;&lt;&lt;goto &quot;game1complete&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+  &lt;&lt;button &quot;Myth&quot;&gt;&gt;&lt;&lt;goto &quot;game1complete&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+
   &lt;&lt;button &quot;Solved&quot;&gt;&gt;&lt;&lt;goto &quot;game1complete&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="10" name="game1complete" tags="" position="1225,100" size="100,100">&lt;main&gt;
-&lt;h2&gt;Game 1 - Complete&lt;/h2&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="19" name="game1complete" tags="" position="1100,225" size="100,100">&lt;main&gt;
+&lt;h2&gt;CONFERENCE&lt;/h2&gt;
  &lt;div class=&quot;main-container&quot;&gt;
   &lt;&lt;button &quot;Next Game&quot;&gt;&gt;&lt;&lt;goto &quot;game-intro&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="11" name="game2" tags="" position="100,225" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="20" name="game2" tags="" position="1225,225" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game2&quot;&gt;&gt;
 &lt;main&gt;
 &lt;h2&gt;Game 2&lt;/h2&gt;
  &lt;div class=&quot;main-container&quot;&gt;
   &lt;&lt;button &quot;Solved&quot;&gt;&gt;&lt;&lt;goto &quot;game2complete&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="12" name="game2complete" tags="" position="225,225" size="100,100">&lt;main&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="21" name="game2complete" tags="" position="100,350" size="100,100">&lt;main&gt;
 &lt;h2&gt;Game 2 - Complete&lt;/h2&gt;
  &lt;div class=&quot;main-container&quot;&gt;
   &lt;&lt;button &quot;Next Game&quot;&gt;&gt;&lt;&lt;goto &quot;game-intro&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="13" name="game3" tags="" position="350,225" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="22" name="game3" tags="" position="225,350" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game3&quot;&gt;&gt;
 &lt;main&gt;
 &lt;h2&gt;Game 3&lt;/h2&gt;
  &lt;div class=&quot;main-container&quot;&gt;
   &lt;&lt;button &quot;Solved&quot;&gt;&gt;&lt;&lt;goto &quot;game3complete&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="14" name="game3complete" tags="" position="475,225" size="100,100">&lt;main&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="23" name="game3complete" tags="" position="350,350" size="100,100">&lt;main&gt;
 &lt;h2&gt;Game 3 - Complete&lt;/h2&gt;
  &lt;div class=&quot;main-container&quot;&gt;
   &lt;&lt;button &quot;Next Game&quot;&gt;&gt;&lt;&lt;goto &quot;game-intro&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="15" name="game4" tags="" position="600,225" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="24" name="game4" tags="" position="475,350" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game4&quot;&gt;&gt;
 &lt;main&gt;
 &lt;h2&gt;Game 4&lt;/h2&gt;
  &lt;div class=&quot;main-container&quot;&gt;
   &lt;&lt;button &quot;Solved&quot;&gt;&gt;&lt;&lt;goto &quot;game4complete&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="16" name="game4complete" tags="" position="725,225" size="100,100">&lt;main&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="25" name="game4complete" tags="" position="600,350" size="100,100">&lt;main&gt;
 &lt;h2&gt;Game 4 - Complete&lt;/h2&gt;
  &lt;div class=&quot;main-container&quot;&gt;
   &lt;&lt;button &quot;Next Game&quot;&gt;&gt;&lt;&lt;goto &quot;game-intro&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="17" name="welldone" tags="" position="850,225" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="26" name="welldone" tags="" position="725,350" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;welldone&quot;&gt;&gt;
 
 &lt;main&gt;
@@ -421,7 +581,7 @@ setup.backThirty = () => {
 
     &lt;&lt;button &quot;Back to Start&quot;&gt;&gt;&lt;&lt;goto &quot;intro&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="18" name="closing" tags="" position="975,225" size="100,100">&lt;main&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="27" name="closing" tags="" position="850,350" size="100,100">&lt;main&gt;
  &lt;div class=&quot;main-container&quot;&gt;
 Thanks for playing. 
 
