@@ -46,7 +46,7 @@ body {
 }
 
 main {
-  display: none !important;
+  /* display: none !important; */
   justify-content: center;
   align-items: center;
   width: 100%;
