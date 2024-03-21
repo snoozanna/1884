@@ -413,3 +413,21 @@ span.todo {
   background-color: var(--accent-color-primary);
   border: solid var(--accent-color-primary) 1px;
 }
+
+/* PLACARD */
+
+.placard-container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-offwhite);
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.placard-container > span {
+  text-transform: uppercase;
+  font-family: "Single Day", sans-serif;
+  color: black;
+  font-size: 4rem;
+  text-align: center;
+}

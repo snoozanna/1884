@@ -1175,12 +1175,13 @@ When clicked remove from array  */
 <main>
  <div class="main-container">
 <h3>Placard</h3>
+<div class="placard-container">
 <<for _i to 0; _i lt $placardWords.length; _i++>>
     <<capture _i>>
-      <<print $placardWords[_i] >>
+      <span>$placardWords[_i]</span>
       <</capture>>
   <</for>>
-
+</div>
   </div>
     <<button "Next">><<goto $nextpass>><</button>>
 </main>

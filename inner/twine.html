@@ -1113,12 +1113,13 @@ When clicked remove from array  */
 &lt;main&gt;
  &lt;div class=&quot;main-container&quot;&gt;
 &lt;h3&gt;Placard&lt;/h3&gt;
+&lt;div class=&quot;placard-container&quot;&gt;
 &lt;&lt;for _i to 0; _i lt $placardWords.length; _i++&gt;&gt;
     &lt;&lt;capture _i&gt;&gt;
-      &lt;&lt;print $placardWords[_i] &gt;&gt;
+      &lt;span&gt;$placardWords[_i]&lt;/span&gt;
       &lt;&lt;/capture&gt;&gt;
   &lt;&lt;/for&gt;&gt;
-
+&lt;/div&gt;
   &lt;/div&gt;
     &lt;&lt;button &quot;Next&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;/main&gt;
