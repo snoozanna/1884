@@ -302,7 +302,7 @@ setup.backThirty = () => {
 
   &lt;&lt;button &quot;Start now&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="preintro1" tags="nobr" position="975,100" size="100,100">&lt;&lt;set $prevpass to &quot;landing&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;preintro1&quot;&gt;&gt;
-&lt;&lt;set $nextpass to &quot;preintro2&quot;&gt;&gt;
+&lt;&lt;set $nextpass to &quot;preintro3&quot;&gt;&gt;
 &lt;main&gt;
  &lt;div class=&quot;main-container&quot;&gt;
     &lt;p&gt;
@@ -313,19 +313,7 @@ We just have a few practical housekeeping questions before we connect you to our
     &lt;/p&gt;
     &lt;&lt;button &quot;Next&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
  &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="9" name="preintro2" tags="nobr" position="1100,100" size="100,100">&lt;&lt;set $prevpass to &quot;preintro2&quot;&gt;&gt;
-&lt;&lt;set $passage to &quot;preintro2&quot;&gt;&gt;
-&lt;&lt;set $nextpass to &quot;preintro3&quot;&gt;&gt;
-&lt;main&gt;
- &lt;div class=&quot;main-container&quot;&gt;
-    &lt;p&gt;
-Are you playing on your smartphone or desktop?
-  
-    &lt;/p&gt;
-    &lt;&lt;button &quot;Smartphone&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
-        &lt;&lt;button &quot;Desktop&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
- &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="10" name="preintro3" tags="nobr" position="1225,100" size="100,100">&lt;&lt;set $prevpass to &quot;preintro2&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="9" name="preintro3" tags="nobr" position="1100,100" size="100,100">&lt;&lt;set $prevpass to &quot;preintro1&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;preintro3&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;intro&quot;&gt;&gt;
 &lt;&lt;include &quot;footer&quot;&gt;&gt;
@@ -338,7 +326,7 @@ Press this icon now - or at any time during the experience - if you wish to turn
 &lt;br/&gt;
   &lt;&lt;button &quot;Next&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="11" name="intro" tags="nobr" position="100,225" size="100,100">&lt;&lt;set $prevpass to &quot;intro&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="10" name="intro" tags="nobr" position="1225,100" size="100,100">&lt;&lt;set $prevpass to &quot;intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;intro&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;intro-highlight&quot;&gt;&gt;
 &lt;main&gt;
@@ -350,7 +338,7 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
     &lt;&lt;button &quot;Sorry, can you repeat that?&quot;&gt;&gt;&lt;&lt;goto &quot;intro-highlight&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
    
  &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="12" name="intro-highlight" tags="nobr" position="225,225" size="100,100">&lt;&lt;set $prevpass to &quot;intro&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="11" name="intro-highlight" tags="nobr" position="100,225" size="100,100">&lt;&lt;set $prevpass to &quot;intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;intro-highlight&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;resistance-glitch&quot;&gt;&gt;
 &lt;&lt;set $showBackwards to true&gt;&gt;
@@ -370,7 +358,7 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
   &lt;&lt;button &quot;Seriously?&quot;&gt;&gt;&lt;&lt;goto &quot;resistance-glitch&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="loading" tags="nobr t8n.typewriter.4" position="350,225" size="100,100">&lt;main class=&quot;main-section loading&quot;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="loading" tags="nobr t8n.typewriter.4" position="225,225" size="100,100">&lt;main class=&quot;main-section loading&quot;&gt;
 
 &lt;div class=&quot;menu-wrapper&quot;&gt;
 &lt;div id=&quot;mount&quot;&gt;&lt;/div&gt;&lt;/div&gt;
@@ -384,7 +372,7 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
 
 &lt;&lt;timed 5s&gt;&gt;
 &lt;&lt;goto $nextpass&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="resistance-glitch" tags="nobr" position="475,225" size="100,100">&lt;&lt;set $prevpass to &quot;intro-highlight&quot;&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="resistance-glitch" tags="nobr" position="350,225" size="100,100">&lt;&lt;set $prevpass to &quot;intro-highlight&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;resistance-glitch&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game-intro&quot;&gt;&gt;
 &lt;main&gt;
@@ -400,7 +388,7 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
    &lt;a href=&quot;../../memorial.html&quot;&gt;&lt;button&gt;Visit the memorial directly&lt;/button&gt;&lt;/a&gt;
     
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="15" name="game-intro" tags="nobr" position="425,450" size="100,100">&lt;&lt;set $prevpass to &quot;resistance-glitch&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="14" name="game-intro" tags="nobr" position="425,450" size="100,100">&lt;&lt;set $prevpass to &quot;resistance-glitch&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;&quot;&gt;&gt;
 &lt;&lt;set $showBackwards to true&gt;&gt;
@@ -464,14 +452,9 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
       /* This one based on completing all the games */
 
     &lt;&lt;if hasVisited(&quot;game1complete&quot;, &quot;game2complete&quot;, &quot;game3complete&quot;, &quot;game4complete&quot;)&gt;&gt;
-&lt;&lt;timed 0.5s&gt;&gt;
-  &lt;&lt;replace &quot;#mount&quot;&gt;&gt;
-    &lt;strong&gt;You&#39;ve played all the games&lt;/strong&gt;
-  &lt;&lt;/replace&gt;&gt;
-  &lt;&lt;/timed&gt;&gt;
-        &lt;&lt;timed 5s&gt;&gt;
-          &lt;&lt;goto &quot;welldone&quot;&gt;&gt;
-          &lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 6s&gt;&gt;
+ &lt;&lt;goto &quot;welldone&quot;&gt;&gt;
+     &lt;&lt;/timed&gt;&gt;
         
     &lt;&lt;/if&gt;&gt;
 
@@ -483,7 +466,7 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
   
 &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="tally" tags="" position="725,225" size="100,100">&lt;span&gt;Correct answers: $tally&lt;/span&gt;</tw-passagedata><tw-passagedata pid="17" name="game1" tags="nobr" position="850,225" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="15" name="tally" tags="" position="600,225" size="100,100">&lt;span&gt;Correct answers: $tally&lt;/span&gt;</tw-passagedata><tw-passagedata pid="16" name="game1" tags="nobr" position="725,225" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game1&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game1a&quot;&gt;&gt;
 &lt;&lt;set $tally to 0&gt;&gt;
@@ -495,7 +478,7 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
 
   &lt;&lt;button &quot;Let&#39;s go&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="18" name="game1a" tags="nobr t8n typewriter" position="975,225" size="100,100">&lt;&lt;set $prevpass to &quot;game1a&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="17" name="game1a" tags="nobr t8n typewriter" position="850,225" size="100,100">&lt;&lt;set $prevpass to &quot;game1a&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game1a&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game1complete&quot;&gt;&gt;
 
@@ -587,13 +570,13 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
 
   &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footerquiz&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="game1afact" tags="" position="1100,225" size="100,100">&lt;p&gt;The Berlin conference represented a rapid increase in the pace and scale of colonisation, but not the start. The transatlantic slave trade started in the 16th century, and the desire for more resources and land led to the ‘scramble’ to colonise Africa in the late 19th century. The interior of the continent was still largely a ‘mystery’ to Europeans by the late 1800s; this changed after European powers gathered for 104 days in 1884 to discuss the future of Africa.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="20" name="game1complete" tags="" position="1225,225" size="100,100">&lt;main&gt;
+&lt;&lt;include &quot;footerquiz&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="game1afact" tags="" position="975,225" size="100,100">&lt;p&gt;The Berlin conference represented a rapid increase in the pace and scale of colonisation, but not the start. The transatlantic slave trade started in the 16th century, and the desire for more resources and land led to the ‘scramble’ to colonise Africa in the late 19th century. The interior of the continent was still largely a ‘mystery’ to Europeans by the late 1800s; this changed after European powers gathered for 104 days in 1884 to discuss the future of Africa.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="19" name="game1complete" tags="" position="1100,225" size="100,100">&lt;main&gt;
 &lt;h2&gt;CONFERENCE&lt;/h2&gt;
  &lt;div class=&quot;main-container&quot;&gt;
  &lt;p&gt;Now that you’ve got your key facts sorted, try out another one of our activities to dive deeper into the history.&lt;/p&gt;
   &lt;&lt;button &quot;Debunk another myth&quot;&gt;&gt;&lt;&lt;goto &quot;game-intro&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="21" name="game2" tags="nobr" position="100,350" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="20" name="game2" tags="nobr" position="1225,225" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game2&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game2a&quot;&gt;&gt;
 &lt;main&gt;
@@ -603,7 +586,7 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
  &lt;p&gt;So what was the conference all about then? Let&#39;s dig a little deeper into the specifics! This next activity celebrates the noble aims that the European conference attendees - and especially King Leopold of Belgium - had for the African continent. &lt;/p&gt;
   &lt;&lt;button &quot;Noble aims, really? &quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="22" name="game2a" tags="nobr" position="225,350" size="100,100">&lt;&lt;set $prevpass to &quot;game2&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="21" name="game2a" tags="nobr" position="100,350" size="100,100">&lt;&lt;set $prevpass to &quot;game2&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game2a&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game2b&quot;&gt;&gt;
 &lt;main&gt;
@@ -615,7 +598,7 @@ In the wordsearch below, see if you can find out what interested Leopold in the 
 &lt;/p&gt;
   &lt;&lt;button &quot;Let&#39;s go!&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="23" name="game2b" tags="nobr" position="350,350" size="100,100">&lt;&lt;set $prevpass to &quot;game2a&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="22" name="game2b" tags="nobr" position="225,350" size="100,100">&lt;&lt;set $prevpass to &quot;game2a&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game2b&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game2complete&quot;&gt;&gt;
 &lt;&lt;set $correctans to []&gt;&gt;
@@ -691,19 +674,20 @@ In the wordsearch below, see if you can find out what interested Leopold in the 
 &lt;/div&gt;
 &lt;div class=&quot;codewords-container&quot;&gt;
 &lt;&lt;include &quot;codewordws1&quot;&gt;&gt;
+&lt;br/&gt;
 &lt;&lt;include &quot;codewordws2&quot;&gt;&gt;
+&lt;br/&gt;
 &lt;&lt;include &quot;codewordws3&quot;&gt;&gt;
 &lt;/div&gt;
 
   &lt;/div&gt;
 
 &lt;/main&gt;
-&lt;&lt;include &quot;footerws&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="checkcorrectans" tags="" position="475,350" size="100,100">&lt;&lt;if $correctans.includesAll(&quot;RIVER&quot;, &quot;RUBBER&quot;, &quot;IVORY&quot;)&gt;&gt;
+&lt;&lt;include &quot;footerws&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="checkcorrectans" tags="" position="350,350" size="100,100">&lt;&lt;if $correctans.includesAll(&quot;RIVER&quot;, &quot;RUBBER&quot;, &quot;IVORY&quot;)&gt;&gt;
   &lt;&lt;timed 3s&gt;&gt;
   &lt;&lt;goto $nextpass&gt;&gt;
   &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/if&gt;&gt;
-$correctans</tw-passagedata><tw-passagedata pid="25" name="codewordws1" tags="nobr" position="600,350" size="100,100">&lt;div id=&quot;coderesult1&quot;&gt;&lt;/div&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="codewordws1" tags="nobr" position="475,350" size="100,100">&lt;div id=&quot;coderesult1&quot;&gt;&lt;/div&gt;
 /% CODEWORD FEEDBACK %/
 &lt;div id=&quot;resultbutton1&quot;&gt;
 /% CODEWORD INPUT %/
@@ -735,7 +719,7 @@ $correctans</tw-passagedata><tw-passagedata pid="25" name="codewordws1" tags="no
   &lt;&lt;replace &quot;#coderesult1&quot;&gt;&gt;
     &lt;&lt;/replace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="codewordws2" tags="nobr" position="725,350" size="100,100">&lt;div id=&quot;coderesult2&quot;&gt;&lt;/div&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="codewordws2" tags="nobr" position="600,350" size="100,100">&lt;div id=&quot;coderesult2&quot;&gt;&lt;/div&gt;
 /% CODEWORD FEEDBACK %/
 &lt;div id=&quot;resultbutton2&quot;&gt;
 /% CODEWORD INPUT %/
@@ -767,7 +751,7 @@ $correctans</tw-passagedata><tw-passagedata pid="25" name="codewordws1" tags="no
   &lt;&lt;replace &quot;#coderesult2&quot;&gt;&gt;
     &lt;&lt;/replace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="27" name="codewordws3" tags="nobr" position="850,350" size="100,100">&lt;div id=&quot;coderesult3&quot;&gt;&lt;/div&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="codewordws3" tags="nobr" position="725,350" size="100,100">&lt;div id=&quot;coderesult3&quot;&gt;&lt;/div&gt;
 /% CODEWORD FEEDBACK %/
 &lt;div id=&quot;resultbutton3&quot;&gt;
 /% CODEWORD INPUT %/
@@ -799,7 +783,7 @@ $correctans</tw-passagedata><tw-passagedata pid="25" name="codewordws1" tags="no
   &lt;&lt;replace &quot;#coderesult3&quot;&gt;&gt;
     &lt;&lt;/replace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="game2complete" tags="nobr" position="975,350" size="100,100">&lt;&lt;set $prevpass to &quot;game2b&quot;&gt;&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="27" name="game2complete" tags="nobr" position="850,350" size="100,100">&lt;&lt;set $prevpass to &quot;game2b&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game2complete&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game-intro&quot;&gt;&gt;
 &lt;main&gt;
@@ -810,31 +794,343 @@ $correctans</tw-passagedata><tw-passagedata pid="25" name="codewordws1" tags="no
 Despite his ‘civilising mission’, natural resources were the main reasons that attracted King Leopold to the Congo. As a result of the conference, Leopold of Belgium personally received 905,355 sq miles of land, including the whole 3,000-mile length of the Congo River. This led to the creation of the Congo Free State, in which Leopold devised a system of terror in which entire Congolese villages were forced to harvest rubber, or face death by their Belgian overseers. Ivory was another resource extracted through forced labour. &lt;/p&gt;
   &lt;&lt;button &quot;Debunk another myth&quot;&gt;&gt;&lt;&lt;goto &quot;game-intro&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="29" name="game3" tags="" position="1100,350" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="28" name="game3" tags="nobr" position="975,350" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game3&quot;&gt;&gt;
+&lt;&lt;set $nextpass to &quot;game3a&quot;&gt;&gt;
 &lt;main&gt;
-&lt;h2&gt;Game 3&lt;/h2&gt;
+&lt;h2&gt;Nations&lt;/h2&gt;
  &lt;div class=&quot;main-container&quot;&gt;
-  &lt;&lt;button &quot;Solved&quot;&gt;&gt;&lt;&lt;goto &quot;game3complete&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+ &lt;p&gt;Here at 188.4 FM, we have found no evidence to show that African leaders wanted to attend the Berlin Conference of 1884. African populations knew of the noble aims of the Europeans and trusted that the conference attendees would take the African continent in a positive direction. &lt;/p&gt;
+  &lt;&lt;button &quot;Feels like a myth to me&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="30" name="game3complete" tags="" position="1225,350" size="100,100">&lt;main&gt;
-&lt;h2&gt;Game 3 - Complete&lt;/h2&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="29" name="game3a" tags="nobr" position="1100,350" size="100,100">&lt;&lt;set $prevpass to &quot;game3&quot;&gt;&gt;
+&lt;&lt;set $passage to &quot;game3a&quot;&gt;&gt;
+&lt;&lt;set $nextpass to &quot;game3b&quot;&gt;&gt;
+&lt;main&gt;
  &lt;div class=&quot;main-container&quot;&gt;
-  &lt;&lt;button &quot;Next Game&quot;&gt;&gt;&lt;&lt;goto &quot;game-intro&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+ &lt;p&gt;Feels like a myth to us too! The resistance has discovered there is evidence in a locked archive, proving that African leaders wanted to be at the conference. Answer the questions below as fast as you can to prove your expertise, to gain access to the archive.  &lt;/p&gt;
+  &lt;&lt;button &quot;I&#39;m ready&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="31" name="game4" tags="" position="100,475" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="30" name="timer" tags="nobr" position="1225,350" size="100,100">&lt;&lt;set $seconds to 60&gt;&gt;
+Countdown: &lt;span id=&quot;countdown&quot;&gt;$seconds seconds remaining&lt;/span&gt;
+
+
+&lt;&lt;silently&gt;&gt;
+	&lt;&lt;repeat 1s&gt;&gt;
+		&lt;&lt;set $seconds to $seconds - 1&gt;&gt;
+		&lt;&lt;if $seconds gt 0&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;$seconds seconds remaining&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;Too Late&lt;&lt;/replace&gt;&gt;
+
+			&lt;&lt;stop&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/repeat&gt;&gt;
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="31" name="checkcorrectgame3" tags="" position="100,475" size="100,100">&lt;&lt;if $correctgame3 gte 5&gt;&gt;
+  &lt;&lt;timed 8s&gt;&gt;
+  &lt;&lt;goto $nextpass&gt;&gt;
+  &lt;&lt;/timed&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="32" name="game3b" tags="nobr" position="225,475" size="100,100">&lt;&lt;set $prevpass to &quot;game3a&quot;&gt;&gt;
+&lt;&lt;set $passage to &quot;game3b&quot;&gt;&gt;
+&lt;&lt;set $nextpass to &quot;game3complete&quot;&gt;&gt;
+&lt;&lt;set $correctgame3 to 0&gt;&gt;
+  &lt;&lt;include &quot;timer&quot;&gt;&gt;
+&lt;main&gt;
+ &lt;div class=&quot;main-container&quot;&gt;
+&lt;div class=&quot;question-container&quot; id=&quot;q1&quot;&gt;
+  &lt;h3&gt; How many days did the conference last? &lt;/h3&gt;
+ &lt;div class=&quot;answers-container&quot; id=&quot;a1&quot;&gt;
+    &lt;div id=&quot;mount1&quot;&gt;&lt;/div&gt;
+    &lt;&lt;button &quot;104&quot;&gt;&gt;
+      &lt;&lt;timed 0.1s&gt;&gt;
+        &lt;&lt;replace &quot;#mount1&quot;&gt;&gt;
+          &lt;span&gt;Incorrect. Try again...&lt;/span&gt;
+          &lt;&lt;/replace&gt;&gt;
+        &lt;&lt;/timed&gt;&gt;
+        &lt;&lt;timed 3s&gt;&gt;
+        &lt;&lt;replace &quot;#mount1&quot;&gt;&gt;
+          &lt;&lt;/replace&gt;&gt;
+        &lt;&lt;/timed&gt;&gt;
+    &lt;&lt;/button&gt;&gt; 
+    &lt;&lt;button &quot;365&quot;&gt;&gt;
+      &lt;&lt;timed 0.1s&gt;&gt;
+        &lt;&lt;replace &quot;#mount1&quot;&gt;&gt;
+          &lt;span&gt;Incorrect. Try again...&lt;/span&gt;
+          &lt;&lt;/replace&gt;&gt;
+        &lt;&lt;/timed&gt;&gt;
+        &lt;&lt;timed 3s&gt;&gt;
+        &lt;&lt;replace &quot;#mount1&quot;&gt;&gt;
+          &lt;&lt;/replace&gt;&gt;
+        &lt;&lt;/timed&gt;&gt;
+    &lt;&lt;/button&gt;&gt; 
+    &lt;&lt;button &quot;720&quot;&gt;&gt;
+      &lt;&lt;timed 0.1s&gt;&gt;
+          &lt;&lt;set $correctgame3 += 1&gt;&gt;
+          &lt;&lt;include &quot;checkcorrectgame3&quot;&gt;&gt;
+        &lt;&lt;replace &quot;#mount1&quot;&gt;&gt;
+      &lt;span&gt;Correct!&lt;/span&gt; 
+          &lt;&lt;/replace&gt;&gt;
+        &lt;&lt;/timed&gt;&gt;
+        &lt;&lt;timed 3s&gt;&gt;
+        &lt;&lt;replace &quot;#a1&quot;&gt;&gt;
+    &lt;p&gt;720&lt;/p&gt;
+          &lt;&lt;/replace&gt;&gt;
+        &lt;&lt;/timed&gt;&gt;
+    &lt;&lt;/button&gt;&gt; 
+  
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;question-container&quot; id=&quot;q2&quot;&gt;
+  &lt;h3&gt;The leader of which country sent a written request to attend the conference?&lt;/h3&gt;
+  &lt;div class=&quot;answers-container&quot; id=&quot;a2&quot;&gt;
+    &lt;div id=&quot;mount2&quot;&gt;&lt;/div&gt;
+    &lt;&lt;button &quot;Nigeria&quot;&gt;&gt;
+      &lt;&lt;timed 0.1s&gt;&gt;
+        &lt;&lt;replace &quot;#mount2&quot;&gt;&gt;
+          &lt;span&gt;Incorrect. Try again...&lt;/span&gt;
+        &lt;&lt;/replace&gt;&gt;
+      &lt;&lt;/timed&gt;&gt;
+      &lt;&lt;timed 3s&gt;&gt;
+        &lt;&lt;replace &quot;#mount2&quot;&gt;&gt;
+        &lt;&lt;/replace&gt;&gt;
+      &lt;&lt;/timed&gt;&gt;
+    &lt;&lt;/button&gt;&gt;
+    &lt;&lt;button &quot;Zanzibar&quot;&gt;&gt;
+      &lt;&lt;timed 0.1s&gt;&gt;
+         &lt;&lt;set $correctgame3 += 1&gt;&gt;
+          &lt;&lt;include &quot;checkcorrectgame3&quot;&gt;&gt;
+        &lt;&lt;replace &quot;#mount2&quot;&gt;&gt;
+      &lt;span&gt;Correct!&lt;/span&gt; 
+          &lt;&lt;/replace&gt;&gt;
+        &lt;&lt;/timed&gt;&gt;
+        &lt;&lt;timed 3s&gt;&gt;
+        &lt;&lt;replace &quot;#a2&quot;&gt;&gt;
+    &lt;p&gt;Zanzibar&lt;/p&gt;
+          &lt;&lt;/replace&gt;&gt;
+        &lt;&lt;/timed&gt;&gt;
+    &lt;&lt;/button&gt;&gt; 
+    
+    &lt;&lt;button &quot;Egypt&quot;&gt;&gt;
+      &lt;&lt;timed 0.1s&gt;&gt;
+        &lt;&lt;replace &quot;#mount2&quot;&gt;&gt;
+          &lt;span&gt;Incorrect. Try again...&lt;/span&gt;
+        &lt;&lt;/replace&gt;&gt;
+      &lt;&lt;/timed&gt;&gt;
+      &lt;&lt;timed 3s&gt;&gt;
+        &lt;&lt;replace &quot;#mount2&quot;&gt;&gt;
+        &lt;&lt;/replace&gt;&gt;
+      &lt;&lt;/timed&gt;&gt;
+    &lt;&lt;/button&gt;&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;question-container&quot; id=&quot;q3&quot;&gt;
+  &lt;h3&gt;How many countries were represented at the conference?&lt;/h3&gt;
+  &lt;div class=&quot;answers-container&quot; id=&quot;a3&quot;&gt;
+    &lt;div id=&quot;mount3&quot;&gt;&lt;/div&gt;
+    &lt;&lt;button &quot;100&quot;&gt;&gt;
+      &lt;&lt;timed 0.1s&gt;&gt;
+        &lt;&lt;replace &quot;#mount3&quot;&gt;&gt;
+          &lt;span&gt;Incorrect. Try again...&lt;/span&gt;
+        &lt;&lt;/replace&gt;&gt;
+      &lt;&lt;/timed&gt;&gt;
+      &lt;&lt;timed 3s&gt;&gt;
+        &lt;&lt;replace &quot;#mount3&quot;&gt;&gt;
+        &lt;&lt;/replace&gt;&gt;
+      &lt;&lt;/timed&gt;&gt;
+    &lt;&lt;/button&gt;&gt;
+     &lt;&lt;button &quot;14&quot;&gt;&gt;
+      &lt;&lt;timed 0.1s&gt;&gt;
+         &lt;&lt;set $correctgame3 += 1&gt;&gt;
+          &lt;&lt;include &quot;checkcorrectgame3&quot;&gt;&gt;
+        &lt;&lt;replace &quot;#mount3&quot;&gt;&gt;
+      &lt;span&gt;Correct!&lt;/span&gt; 
+          &lt;&lt;/replace&gt;&gt;
+        &lt;&lt;/timed&gt;&gt;
+        &lt;&lt;timed 3s&gt;&gt;
+        &lt;&lt;replace &quot;#a3&quot;&gt;&gt;
+    &lt;p&gt;14&lt;/p&gt;
+          &lt;&lt;/replace&gt;&gt;
+        &lt;&lt;/timed&gt;&gt;
+    &lt;&lt;/button&gt;&gt; 
+    &lt;&lt;button &quot;32&quot;&gt;&gt;
+      &lt;&lt;timed 0.1s&gt;&gt;
+        &lt;&lt;replace &quot;#mount3&quot;&gt;&gt;
+          &lt;span&gt;Incorrect. Try again...&lt;/span&gt;
+        &lt;&lt;/replace&gt;&gt;
+      &lt;&lt;/timed&gt;&gt;
+      &lt;&lt;timed 3s&gt;&gt;
+        &lt;&lt;replace &quot;#mount3&quot;&gt;&gt;
+        &lt;&lt;/replace&gt;&gt;
+      &lt;&lt;/timed&gt;&gt;
+    &lt;&lt;/button&gt;&gt;
+   
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;question-container&quot; id=&quot;q4&quot;&gt;
+  &lt;h3&gt;How trustworthy are you?&lt;/h3&gt;
+  &lt;div class=&quot;answers-container&quot; id=&quot;a4&quot;&gt;
+    &lt;div id=&quot;mount4&quot;&gt;&lt;/div&gt;
+    &lt;&lt;button &quot;Very&quot;&gt;&gt;
+      &lt;&lt;timed 0.1s&gt;&gt;
+         &lt;&lt;set $correctgame3 += 1&gt;&gt;
+          &lt;&lt;include &quot;checkcorrectgame3&quot;&gt;&gt;
+        &lt;&lt;replace &quot;#a4&quot;&gt;&gt;
+          &lt;p&gt;Very&lt;/p&gt;
+        &lt;&lt;/replace&gt;&gt;
+      &lt;&lt;/timed&gt;&gt;
+    &lt;&lt;/button&gt;&gt;
+    &lt;&lt;button &quot;Nothing suspicious here&quot;&gt;&gt;
+      &lt;&lt;timed 0.1s&gt;&gt;
+         &lt;&lt;set $correctgame3 += 1&gt;&gt;
+          &lt;&lt;include &quot;checkcorrectgame3&quot;&gt;&gt;
+        &lt;&lt;replace &quot;#a4&quot;&gt;&gt;
+            &lt;p&gt;Nothing suspicious here&lt;/p&gt;
+        &lt;&lt;/replace&gt;&gt;
+      &lt;&lt;/timed&gt;&gt;
+    &lt;&lt;/button&gt;&gt;
+    &lt;&lt;button &quot;Extremely trustworthy&quot;&gt;&gt;
+      &lt;&lt;timed 0.1s&gt;&gt;
+         &lt;&lt;set $correctgame3 += 1&gt;&gt;
+          &lt;&lt;include &quot;checkcorrectgame3&quot;&gt;&gt;
+        &lt;&lt;replace &quot;#a4&quot;&gt;&gt;
+             &lt;p&gt;Extremely trustworthy&lt;/p&gt;
+        &lt;&lt;/replace&gt;&gt;
+      &lt;&lt;/timed&gt;&gt;
+    &lt;&lt;/button&gt;&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;question-container&quot; id=&quot;q5&quot;&gt;
+  &lt;h3&gt;What will you do with this evidence?&lt;/h3&gt;
+  &lt;div class=&quot;answers-container&quot; id=&quot;a5&quot;&gt;
+    &lt;div id=&quot;mount5&quot;&gt;&lt;/div&gt;
+ &lt;&lt;button &quot;Neutral purposes&quot;&gt;&gt;
+      &lt;&lt;timed 0.1s&gt;&gt;
+         &lt;&lt;set $correctgame3 += 1&gt;&gt;
+          &lt;&lt;include &quot;checkcorrectgame3&quot;&gt;&gt;
+        &lt;&lt;replace &quot;#a5&quot;&gt;&gt;
+          &lt;p&gt;Neutral purposes&lt;/p&gt;
+        &lt;&lt;/replace&gt;&gt;
+      &lt;&lt;/timed&gt;&gt;
+    &lt;&lt;/button&gt;&gt;
+    &lt;&lt;button &quot;PhD research&quot;&gt;&gt;
+      &lt;&lt;timed 0.1s&gt;&gt;
+         &lt;&lt;set $correctgame3 += 1&gt;&gt;
+          &lt;&lt;include &quot;checkcorrectgame3&quot;&gt;&gt;
+        &lt;&lt;replace &quot;#a5&quot;&gt;&gt;
+            &lt;p&gt;PhD research&lt;/p&gt;
+        &lt;&lt;/replace&gt;&gt;
+      &lt;&lt;/timed&gt;&gt;
+    &lt;&lt;/button&gt;&gt;
+    &lt;&lt;button &quot;Non-political purposes&quot;&gt;&gt;
+      &lt;&lt;timed 0.1s&gt;&gt;
+         &lt;&lt;set $correctgame3 += 1&gt;&gt;
+          &lt;&lt;include &quot;checkcorrectgame3&quot;&gt;&gt;
+        &lt;&lt;replace &quot;#a5&quot;&gt;&gt;
+             &lt;p&gt;Non-political purposes&lt;/p&gt;
+        &lt;&lt;/replace&gt;&gt;
+      &lt;&lt;/timed&gt;&gt;
+    &lt;&lt;/button&gt;&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/main&gt;
+&lt;&lt;include &quot;footerws&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="33" name="game3complete" tags="nobr" position="350,475" size="100,100">&lt;&lt;set $prevpass to &quot;game3b&quot;&gt;&gt;
+&lt;&lt;set $passage to &quot;game3complete&quot;&gt;&gt;
+&lt;&lt;set $nextpass to &quot;game-intro&quot;&gt;&gt;
+&lt;main&gt;
+ &lt;div class=&quot;main-container&quot;&gt;
+ &lt;p&gt;Congratulations - you’ve unlocked it. The Sultan of Zanzibar put in a request to join the conference, which was laughed off by the conference attendees. The opinions of Africans were not considered necessary to the future of the continent, but over the decades before and after 1884, widespread resistance was seen by African leaders and populations.&lt;/p&gt;
+  &lt;&lt;button &quot;Debunk another myth&quot;&gt;&gt;&lt;&lt;goto &quot;game-intro&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+  &lt;/div&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="34" name="game4" tags="nobr" position="475,475" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game4&quot;&gt;&gt;
+&lt;&lt;set $nextpass to &quot;game4a&quot;&gt;&gt;
 &lt;main&gt;
-&lt;h2&gt;Game 4&lt;/h2&gt;
+&lt;h2&gt;REACTION&lt;/h2&gt;
  &lt;div class=&quot;main-container&quot;&gt;
-  &lt;&lt;button &quot;Solved&quot;&gt;&gt;&lt;&lt;goto &quot;game4complete&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+ &lt;p&gt;The Berlin Conference was an event to stop the horror and terror of slavery, colonialism and European domination of Africa. Some critics say that the conference led to the destruction, devastation and disaster across the continent. But there was no outrage, fight or resistance from impacted populations. At 188.4 FM, we remember the efforts of the conference diplomats to create peace abroad.&lt;/p&gt;
+  &lt;&lt;button &quot;I don’t believe this&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="32" name="game4complete" tags="" position="225,475" size="100,100">&lt;main&gt;
-&lt;h2&gt;Game 4 - Complete&lt;/h2&gt;
+&lt;/main&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="35" name="displayWords" tags="nobr" position="600,475" size="100,100">&lt;&lt;for _i to 0; _i lt $placardWords.length; _i++&gt;&gt;
+  &lt;&lt;capture _i&gt;&gt;
+ &lt;&lt;link $placardWords[_i]&gt;&gt;
+  &lt;&lt;set $toDelete to $placardWords[_i]&gt;&gt;
+  &lt;&lt;timed 0.1s&gt;&gt;
+  &lt;&lt;run $placardWords.delete($toDelete)&gt;&gt;
+  &lt;&lt;/timed&gt;&gt;
+  &lt;&lt;timed 0.2s&gt;&gt;
+ &lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+ &lt;&lt;/timed&gt;&gt;&lt;&lt;/link&gt;&gt; 
+ &lt;&lt;/capture&gt;&gt;
+&lt;&lt;/for&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="game4a" tags="nobr" position="725,475" size="100,100">&lt;&lt;set $prevpass to &quot;game4&quot;&gt;&gt;
+&lt;&lt;set $passage to &quot;game4a&quot;&gt;&gt;
+&lt;&lt;set $nextpass to &quot;game4b&quot;&gt;&gt;
+&lt;&lt;set $placardWords to []&gt;&gt;
+&lt;main&gt;
  &lt;div class=&quot;main-container&quot;&gt;
-  &lt;&lt;button &quot;Next Game&quot;&gt;&gt;&lt;&lt;goto &quot;game-intro&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+ /* &lt;div id=&quot;wordsMount&quot;&gt;$placardWords&lt;/div&gt; */
+
+
+  Words for my placard:&lt;div id=&quot;wordsMount&quot;&gt; &lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;/div&gt;
+
+
+&lt;br/&gt;
+&lt;br/&gt;
+ &lt;p&gt;You don’t believe there was no resistance on the African continent? Neither do we! Help us turn this myth into a protest. &lt;/p&gt;
+
+&lt;p&gt;Click on words from the below statement to write your own protest placard.&lt;/p&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;p&gt;
+The &lt;&lt;link &quot;Berlin&quot;&gt;&gt;&lt;&lt;run $placardWords.push(&quot;Berlin&quot;)&gt;&gt;&lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt; &lt;&lt;link &quot;Conference&quot;&gt;&gt;&lt;&lt;run $placardWords.push(&quot;Conference&quot;)&gt;&gt;&lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt; was an event to stop the &lt;&lt;link &quot;horror&quot;&gt;&gt;&lt;&lt;run $placardWords.push(&quot;horror&quot;)&gt;&gt;&lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt; and &lt;&lt;link &quot;terror&quot;&gt;&gt;&lt;&lt;run $placardWords.push(&quot;terror&quot;)&gt;&gt;&lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt; of &lt;&lt;link &quot;slavery&quot;&gt;&gt;&lt;&lt;run $placardWords.push(&quot;slavery&quot;)&gt;&gt;&lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;, &lt;&lt;link &quot;colonialism&quot;&gt;&gt;&lt;&lt;run $placardWords.push(&quot;colonialism&quot;)&gt;&gt;&lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt; and &lt;&lt;link &quot;European&quot;&gt;&gt;&lt;&lt;run $placardWords.push(&quot;European&quot;)&gt;&gt;&lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt; domination of &lt;&lt;link &quot;Africa&quot;&gt;&gt;&lt;&lt;run $placardWords.push(&quot;Africa&quot;)&gt;&gt;&lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;. Some critics say that the &lt;&lt;link &quot;conference&quot;&gt;&gt;&lt;&lt;run $placardWords.push(&quot;conference&quot;)&gt;&gt;&lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt; led to the &lt;&lt;link &quot;destruction&quot;&gt;&gt;&lt;&lt;run $placardWords.push(&quot;destruction&quot;)&gt;&gt;&lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;, &lt;&lt;link &quot;devastation&quot;&gt;&gt;&lt;&lt;run $placardWords.push(&quot;devastation&quot;)&gt;&gt;&lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt; and &lt;&lt;link &quot;disaster&quot;&gt;&gt;&lt;&lt;run $placardWords.push(&quot;disaster&quot;)&gt;&gt;&lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt; across the &lt;&lt;link &quot;continent&quot;&gt;&gt;&lt;&lt;run $placardWords.push(&quot;continent&quot;)&gt;&gt;&lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;. But there was no &lt;&lt;link &quot;outrage&quot;&gt;&gt;&lt;&lt;run $placardWords.push(&quot;outrage&quot;)&gt;&gt;&lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;, &lt;&lt;link &quot;fight&quot;&gt;&gt;&lt;&lt;run $placardWords.push(&quot;fight&quot;)&gt;&gt;&lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt; or &lt;&lt;link &quot;resistance&quot;&gt;&gt;&lt;&lt;run $placardWords.push(&quot;resistance&quot;)&gt;&gt;&lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt; from impacted &lt;&lt;link &quot;populations&quot;&gt;&gt;&lt;&lt;run $placardWords.push(&quot;populations&quot;)&gt;&gt;&lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;. At 188.4 FM, it is key that we &lt;&lt;link &quot;remember&quot;&gt;&gt;&lt;&lt;run $placardWords.push(&quot;remember&quot;)&gt;&gt;&lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt; the &lt;&lt;link &quot;efforts&quot;&gt;&gt;&lt;&lt;run $placardWords.push(&quot;efforts&quot;)&gt;&gt;&lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt; of the &lt;&lt;link &quot;conference&quot;&gt;&gt;&lt;&lt;run $placardWords.push(&quot;conference&quot;)&gt;&gt;&lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt; diplomats to &lt;&lt;link &quot;create&quot;&gt;&gt;&lt;&lt;run $placardWords.push(&quot;create&quot;)&gt;&gt;&lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt; &lt;&lt;link &quot;peace&quot;&gt;&gt;&lt;&lt;run $placardWords.push(&quot;peace&quot;)&gt;&gt;&lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt; &lt;&lt;link &quot;abroad&quot;&gt;&gt;&lt;&lt;run $placardWords.push(&quot;abroad&quot;)&gt;&gt;&lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;.
+&lt;/p&gt;
+&lt;br/&gt;
+
+
+&lt;br/&gt;
+
+  &lt;&lt;button &quot; I’m ready to protest&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="33" name="welldone" tags="" position="350,475" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
+
+/* Display placardWords
+Map through array
+List the words
+Make them links
+When clicked remove from array  */
+
+&lt;/main&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="37" name="game4b" tags="nobr" position="850,475" size="100,100">&lt;&lt;set $prevpass to &quot;game4a&quot;&gt;&gt;
+&lt;&lt;set $passage to &quot;game4b&quot;&gt;&gt;
+&lt;&lt;set $nextpass to &quot;game4complete&quot;&gt;&gt;
+
+&lt;main&gt;
+ &lt;div class=&quot;main-container&quot;&gt;
+&lt;h3&gt;Placard&lt;/h3&gt;
+&lt;&lt;for _i to 0; _i lt $placardWords.length; _i++&gt;&gt;
+    &lt;&lt;capture _i&gt;&gt;
+      &lt;&lt;print $placardWords[_i] &gt;&gt;
+      &lt;&lt;/capture&gt;&gt;
+  &lt;&lt;/for&gt;&gt;
+
+  &lt;/div&gt;
+    &lt;&lt;button &quot;Next&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;/main&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="game4complete" tags="nobr" position="975,475" size="100,100">&lt;&lt;set $prevpass to &quot;game4b&quot;&gt;&gt;
+&lt;&lt;set $passage to &quot;game4complete&quot;&gt;&gt;
+&lt;&lt;set $nextpass to &quot;game-intro&quot;&gt;&gt;
+&lt;main&gt;
+ &lt;div class=&quot;main-container&quot;&gt;
+ &lt;p&gt;After 1884, many rebellions and resistance movements were organised across Africa, in response to the rapid colonisation and brutal treatment of local populations. Examples include the Igbo Women’s War of 1929, the First Matabele War (1893-94) in Zimbabwe against the British, and the large-scale resistance movement led by Samory Toure of the Mandinka Empire (1882-1898) against the French. In Berlin, activists and volunteers have found ways to memorialise the conference publicly, against the lack of official memorials about the conference in the city. &lt;/p&gt;
+  &lt;&lt;button &quot;Debunk another myth&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
+  &lt;/div&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="39" name="welldone" tags="" position="1100,475" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;welldone&quot;&gt;&gt;
 
 &lt;main&gt;
@@ -846,7 +1142,7 @@ Despite his ‘civilising mission’, natural resources were the main reasons th
 
     &lt;&lt;button &quot;Back to Start&quot;&gt;&gt;&lt;&lt;goto &quot;intro&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="34" name="closing" tags="" position="475,475" size="100,100">&lt;main&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="40" name="closing" tags="" position="1225,475" size="100,100">&lt;main&gt;
  &lt;div class=&quot;main-container&quot;&gt;
 Thanks for playing. 
 

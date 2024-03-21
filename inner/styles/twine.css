@@ -18,11 +18,11 @@
   content: "";
 }
 
-button:focus,
+/* button:focus,
 .inline-btn-wrapper > a {
   transform: translate(2px, 2px);
   box-shadow: var(--accent-color-shadow) 1px 1px;
-}
+} */
 
 a {
   color: var(--accent-color-secondary);
@@ -334,7 +334,7 @@ span.todo {
   }
 }
 
-/* QUIZ  */
+/* GAME 1 QUIZ  */
 
 .answerBtn-container {
   display: flex;
@@ -351,7 +351,7 @@ span.todo {
   color: black;
 }
 
-/* WORDSEARCH  */
+/* GAME 2 WORDSEARCH  */
 .main-container.wordsearch {
   display: flex;
   align-items: center;
@@ -392,4 +392,24 @@ span.todo {
   background-color: var(--color-offwhite);
   font-weight: bold;
   padding: 0.5rem 1.5rem;
+}
+
+/* GAME 3  */
+
+.question-container {
+  margin-block-end: 2rem;
+}
+
+.question-container > h3 {
+  color: var(--color-pink);
+}
+
+.answers-container > button {
+  background-color: transparent;
+  border: solid var(--accent-color-primary) 1px;
+}
+
+.answers-container > button:hover {
+  background-color: var(--accent-color-primary);
+  border: solid var(--accent-color-primary) 1px;
 }

@@ -247,7 +247,7 @@ setup.backThirty = () => {
 :: preintro1 [nobr]
 <<set $prevpass to "landing">>
 <<set $passage to "preintro1">>
-<<set $nextpass to "preintro2">>
+<<set $nextpass to "preintro3">>
 <main>
  <div class="main-container">
     <p>
@@ -261,23 +261,9 @@ We just have a few practical housekeeping questions before we connect you to our
 </main>
 
 
-:: preintro2 [nobr]
-<<set $prevpass to "preintro2">>
-<<set $passage to "preintro2">>
-<<set $nextpass to "preintro3">>
-<main>
- <div class="main-container">
-    <p>
-Are you playing on your smartphone or desktop?
-  
-    </p>
-    <<button "Smartphone">><<goto $nextpass>><</button>>
-        <<button "Desktop">><<goto $nextpass>><</button>>
- </div>
-</main>
 
 :: preintro3 [nobr]
-<<set $prevpass to "preintro2">>
+<<set $prevpass to "preintro1">>
 <<set $passage to "preintro3">>
 <<set $nextpass to "intro">>
 <<include "footer">>
@@ -438,14 +424,9 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
       /* This one based on completing all the games */
 
     <<if hasVisited("game1complete", "game2complete", "game3complete", "game4complete")>>
-<<timed 0.5s>>
-  <<replace "#mount">>
-    <strong>You've played all the games</strong>
-  <</replace>>
-  <</timed>>
-        <<timed 5s>>
-          <<goto "welldone">>
-          <</timed>>
+<<timed 6s>>
+ <<goto "welldone">>
+     <</timed>>
         
     <</if>>
 
@@ -693,7 +674,9 @@ In the wordsearch below, see if you can find out what interested Leopold in the 
 </div>
 <div class="codewords-container">
 <<include "codewordws1">>
+<br/>
 <<include "codewordws2">>
+<br/>
 <<include "codewordws3">>
 </div>
 
@@ -708,7 +691,7 @@ In the wordsearch below, see if you can find out what interested Leopold in the 
   <<goto $nextpass>>
   <</timed>>
 <</if>>
-$correctans
+
 
 :: codewordws1 [nobr]
 
@@ -837,42 +820,384 @@ Despite his ‘civilising mission’, natural resources were the main reasons th
 </main>
 
 
-:: game3
+:: game3 [nobr]
 <<set $prevpass to "game-intro">>
 <<set $passage to "game3">>
+<<set $nextpass to "game3a">>
 <main>
-<h2>Game 3</h2>
+<h2>Nations</h2>
  <div class="main-container">
-  <<button "Solved">><<goto "game3complete">><</button>>
+ <p>Here at 188.4 FM, we have found no evidence to show that African leaders wanted to attend the Berlin Conference of 1884. African populations knew of the noble aims of the Europeans and trusted that the conference attendees would take the African continent in a positive direction. </p>
+  <<button "Feels like a myth to me">><<goto $nextpass>><</button>>
   </div>
 </main>
 
-:: game3complete
+:: game3a [nobr]
+<<set $prevpass to "game3">>
+<<set $passage to "game3a">>
+<<set $nextpass to "game3b">>
 <main>
-<h2>Game 3 - Complete</h2>
  <div class="main-container">
-  <<button "Next Game">><<goto "game-intro">><</button>>
+ <p>Feels like a myth to us too! The resistance has discovered there is evidence in a locked archive, proving that African leaders wanted to be at the conference. Answer the questions below as fast as you can to prove your expertise, to gain access to the archive.  </p>
+  <<button "I'm ready">><<goto $nextpass>><</button>>
+  </div>
+</main>
+
+:: timer [nobr]
+<<set $seconds to 60>>
+Countdown: <span id="countdown">$seconds seconds remaining</span>
+
+
+<<silently>>
+	<<repeat 1s>>
+		<<set $seconds to $seconds - 1>>
+		<<if $seconds gt 0>>
+			<<replace "#countdown">>$seconds seconds remaining<</replace>>
+		<<else>>
+			<<replace "#countdown">>Too Late<</replace>>
+
+			<<stop>>
+		<</if>>
+	<</repeat>>
+<</silently>>
+
+:: checkcorrectgame3
+<<if $correctgame3 gte 5>>
+  <<timed 8s>>
+  <<goto $nextpass>>
+  <</timed>>
+<</if>>
+
+:: game3b [nobr]
+<<set $prevpass to "game3a">>
+<<set $passage to "game3b">>
+<<set $nextpass to "game3complete">>
+<<set $correctgame3 to 0>>
+  <<include "timer">>
+<main>
+ <div class="main-container">
+<div class="question-container" id="q1">
+  <h3> How many days did the conference last? </h3>
+ <div class="answers-container" id="a1">
+    <div id="mount1"></div>
+    <<button "104">>
+      <<timed 0.1s>>
+        <<replace "#mount1">>
+          <span>Incorrect. Try again...</span>
+          <</replace>>
+        <</timed>>
+        <<timed 3s>>
+        <<replace "#mount1">>
+          <</replace>>
+        <</timed>>
+    <</button>> 
+    <<button "365">>
+      <<timed 0.1s>>
+        <<replace "#mount1">>
+          <span>Incorrect. Try again...</span>
+          <</replace>>
+        <</timed>>
+        <<timed 3s>>
+        <<replace "#mount1">>
+          <</replace>>
+        <</timed>>
+    <</button>> 
+    <<button "720">>
+      <<timed 0.1s>>
+          <<set $correctgame3 += 1>>
+          <<include "checkcorrectgame3">>
+        <<replace "#mount1">>
+      <span>Correct!</span> 
+          <</replace>>
+        <</timed>>
+        <<timed 3s>>
+        <<replace "#a1">>
+    <p>720</p>
+          <</replace>>
+        <</timed>>
+    <</button>> 
+  
+ </div>
+</div>
+
+<div class="question-container" id="q2">
+  <h3>The leader of which country sent a written request to attend the conference?</h3>
+  <div class="answers-container" id="a2">
+    <div id="mount2"></div>
+    <<button "Nigeria">>
+      <<timed 0.1s>>
+        <<replace "#mount2">>
+          <span>Incorrect. Try again...</span>
+        <</replace>>
+      <</timed>>
+      <<timed 3s>>
+        <<replace "#mount2">>
+        <</replace>>
+      <</timed>>
+    <</button>>
+    <<button "Zanzibar">>
+      <<timed 0.1s>>
+         <<set $correctgame3 += 1>>
+          <<include "checkcorrectgame3">>
+        <<replace "#mount2">>
+      <span>Correct!</span> 
+          <</replace>>
+        <</timed>>
+        <<timed 3s>>
+        <<replace "#a2">>
+    <p>Zanzibar</p>
+          <</replace>>
+        <</timed>>
+    <</button>> 
+    
+    <<button "Egypt">>
+      <<timed 0.1s>>
+        <<replace "#mount2">>
+          <span>Incorrect. Try again...</span>
+        <</replace>>
+      <</timed>>
+      <<timed 3s>>
+        <<replace "#mount2">>
+        <</replace>>
+      <</timed>>
+    <</button>>
+  </div>
+</div>
+
+<div class="question-container" id="q3">
+  <h3>How many countries were represented at the conference?</h3>
+  <div class="answers-container" id="a3">
+    <div id="mount3"></div>
+    <<button "100">>
+      <<timed 0.1s>>
+        <<replace "#mount3">>
+          <span>Incorrect. Try again...</span>
+        <</replace>>
+      <</timed>>
+      <<timed 3s>>
+        <<replace "#mount3">>
+        <</replace>>
+      <</timed>>
+    <</button>>
+     <<button "14">>
+      <<timed 0.1s>>
+         <<set $correctgame3 += 1>>
+          <<include "checkcorrectgame3">>
+        <<replace "#mount3">>
+      <span>Correct!</span> 
+          <</replace>>
+        <</timed>>
+        <<timed 3s>>
+        <<replace "#a3">>
+    <p>14</p>
+          <</replace>>
+        <</timed>>
+    <</button>> 
+    <<button "32">>
+      <<timed 0.1s>>
+        <<replace "#mount3">>
+          <span>Incorrect. Try again...</span>
+        <</replace>>
+      <</timed>>
+      <<timed 3s>>
+        <<replace "#mount3">>
+        <</replace>>
+      <</timed>>
+    <</button>>
+   
+  </div>
+</div>
+
+<div class="question-container" id="q4">
+  <h3>How trustworthy are you?</h3>
+  <div class="answers-container" id="a4">
+    <div id="mount4"></div>
+    <<button "Very">>
+      <<timed 0.1s>>
+         <<set $correctgame3 += 1>>
+          <<include "checkcorrectgame3">>
+        <<replace "#a4">>
+          <p>Very</p>
+        <</replace>>
+      <</timed>>
+    <</button>>
+    <<button "Nothing suspicious here">>
+      <<timed 0.1s>>
+         <<set $correctgame3 += 1>>
+          <<include "checkcorrectgame3">>
+        <<replace "#a4">>
+            <p>Nothing suspicious here</p>
+        <</replace>>
+      <</timed>>
+    <</button>>
+    <<button "Extremely trustworthy">>
+      <<timed 0.1s>>
+         <<set $correctgame3 += 1>>
+          <<include "checkcorrectgame3">>
+        <<replace "#a4">>
+             <p>Extremely trustworthy</p>
+        <</replace>>
+      <</timed>>
+    <</button>>
+  </div>
+</div>
+
+<div class="question-container" id="q5">
+  <h3>What will you do with this evidence?</h3>
+  <div class="answers-container" id="a5">
+    <div id="mount5"></div>
+ <<button "Neutral purposes">>
+      <<timed 0.1s>>
+         <<set $correctgame3 += 1>>
+          <<include "checkcorrectgame3">>
+        <<replace "#a5">>
+          <p>Neutral purposes</p>
+        <</replace>>
+      <</timed>>
+    <</button>>
+    <<button "PhD research">>
+      <<timed 0.1s>>
+         <<set $correctgame3 += 1>>
+          <<include "checkcorrectgame3">>
+        <<replace "#a5">>
+            <p>PhD research</p>
+        <</replace>>
+      <</timed>>
+    <</button>>
+    <<button "Non-political purposes">>
+      <<timed 0.1s>>
+         <<set $correctgame3 += 1>>
+          <<include "checkcorrectgame3">>
+        <<replace "#a5">>
+             <p>Non-political purposes</p>
+        <</replace>>
+      <</timed>>
+    <</button>>
+
+  </div>
+</div>
+  </div>
+
+</main>
+<<include "footerws">>
+
+
+
+:: game3complete [nobr]
+<<set $prevpass to "game3b">>
+<<set $passage to "game3complete">>
+<<set $nextpass to "game-intro">>
+<main>
+ <div class="main-container">
+ <p>Congratulations - you’ve unlocked it. The Sultan of Zanzibar put in a request to join the conference, which was laughed off by the conference attendees. The opinions of Africans were not considered necessary to the future of the continent, but over the decades before and after 1884, widespread resistance was seen by African leaders and populations.</p>
+  <<button "Debunk another myth">><<goto "game-intro">><</button>>
   </div>
 </main>
 
 
-:: game4
+:: game4 [nobr]
 <<set $prevpass to "game-intro">>
 <<set $passage to "game4">>
+<<set $nextpass to "game4a">>
 <main>
-<h2>Game 4</h2>
+<h2>REACTION</h2>
  <div class="main-container">
-  <<button "Solved">><<goto "game4complete">><</button>>
+ <p>The Berlin Conference was an event to stop the horror and terror of slavery, colonialism and European domination of Africa. Some critics say that the conference led to the destruction, devastation and disaster across the continent. But there was no outrage, fight or resistance from impacted populations. At 188.4 FM, we remember the efforts of the conference diplomats to create peace abroad.</p>
+  <<button "I don’t believe this">><<goto $nextpass>><</button>>
+  </div>
+</main>
+<<include "footer">>
+
+:: displayWords [nobr]
+
+<<for _i to 0; _i lt $placardWords.length; _i++>>
+  <<capture _i>>
+ <<link $placardWords[_i]>>
+  <<set $toDelete to $placardWords[_i]>>
+  <<timed 0.1s>>
+  <<run $placardWords.delete($toDelete)>>
+  <</timed>>
+  <<timed 0.2s>>
+ <<replace "#wordsMount">><<include "displayWords">><</replace>>
+ <</timed>><</link>> 
+ <</capture>>
+<</for>>
+
+
+
+
+
+:: game4a [nobr]
+<<set $prevpass to "game4">>
+<<set $passage to "game4a">>
+<<set $nextpass to "game4b">>
+<<set $placardWords to []>>
+<main>
+ <div class="main-container">
+ /* <div id="wordsMount">$placardWords</div> */
+
+
+  Words for my placard:<div id="wordsMount"> <<include "displayWords">></div>
+
+
+<br/>
+<br/>
+ <p>You don’t believe there was no resistance on the African continent? Neither do we! Help us turn this myth into a protest. </p>
+
+<p>Click on words from the below statement to write your own protest placard.</p>
+<br/>
+<br/>
+<p>
+The <<link "Berlin">><<run $placardWords.push("Berlin")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "Conference">><<run $placardWords.push("Conference")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> was an event to stop the <<link "horror">><<run $placardWords.push("horror")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> and <<link "terror">><<run $placardWords.push("terror")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> of <<link "slavery">><<run $placardWords.push("slavery")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>>, <<link "colonialism">><<run $placardWords.push("colonialism")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> and <<link "European">><<run $placardWords.push("European")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> domination of <<link "Africa">><<run $placardWords.push("Africa")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>>. Some critics say that the <<link "conference">><<run $placardWords.push("conference")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> led to the <<link "destruction">><<run $placardWords.push("destruction")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>>, <<link "devastation">><<run $placardWords.push("devastation")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> and <<link "disaster">><<run $placardWords.push("disaster")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> across the <<link "continent">><<run $placardWords.push("continent")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>>. But there was no <<link "outrage">><<run $placardWords.push("outrage")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>>, <<link "fight">><<run $placardWords.push("fight")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> or <<link "resistance">><<run $placardWords.push("resistance")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> from impacted <<link "populations">><<run $placardWords.push("populations")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>>. At 188.4 FM, it is key that we <<link "remember">><<run $placardWords.push("remember")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> the <<link "efforts">><<run $placardWords.push("efforts")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> of the <<link "conference">><<run $placardWords.push("conference")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> diplomats to <<link "create">><<run $placardWords.push("create")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "peace">><<run $placardWords.push("peace")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "abroad">><<run $placardWords.push("abroad")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>>.
+</p>
+<br/>
+
+
+<br/>
+
+  <<button " I’m ready to protest">><<goto $nextpass>><</button>>
+  </div>
+
+/* Display placardWords
+Map through array
+List the words
+Make them links
+When clicked remove from array  */
+
+</main>
+<<include "footer">>
+
+:: game4b [nobr]
+<<set $prevpass to "game4a">>
+<<set $passage to "game4b">>
+<<set $nextpass to "game4complete">>
+
+<main>
+ <div class="main-container">
+<h3>Placard</h3>
+<<for _i to 0; _i lt $placardWords.length; _i++>>
+    <<capture _i>>
+      <<print $placardWords[_i] >>
+      <</capture>>
+  <</for>>
+
+  </div>
+    <<button "Next">><<goto $nextpass>><</button>>
+</main>
+<<include "footer">>
+
+
+:: game4complete [nobr]
+<<set $prevpass to "game4b">>
+<<set $passage to "game4complete">>
+<<set $nextpass to "game-intro">>
+<main>
+ <div class="main-container">
+ <p>After 1884, many rebellions and resistance movements were organised across Africa, in response to the rapid colonisation and brutal treatment of local populations. Examples include the Igbo Women’s War of 1929, the First Matabele War (1893-94) in Zimbabwe against the British, and the large-scale resistance movement led by Samory Toure of the Mandinka Empire (1882-1898) against the French. In Berlin, activists and volunteers have found ways to memorialise the conference publicly, against the lack of official memorials about the conference in the city. </p>
+  <<button "Debunk another myth">><<goto $nextpass>><</button>>
   </div>
 </main>
 
-:: game4complete
-<main>
-<h2>Game 4 - Complete</h2>
- <div class="main-container">
-  <<button "Next Game">><<goto "game-intro">><</button>>
-  </div>
-</main>
 
 
 :: welldone
