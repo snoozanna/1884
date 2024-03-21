@@ -6,7 +6,7 @@
 } */
 
 :root {
-  --main-bg-color: var(--color-brown);
+  --main-bg-color: var(--color-peach2);
   --accent-color-primary: var(--color-peach);
   --accent-color-secondary: var(--color-pink);
   --accent-color-shadow: var(--color-peach2);
@@ -56,8 +56,27 @@ main.landing {
   align-items: center;
   width: 100%;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  margin: -(var(--padding));
+  grid-template-areas:
+    " lockup tower"
+    ". tower"
+    ". tower";
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 7fr 0.5fr;
+}
+
+main.landing > .lockup {
+  grid-area: lockup;
+}
+
+main.landing > .wave {
+  grid-area: lockup / lockup / tower / tower;
+  z-index: -1;
+}
+
+main.landing > .tower {
+  grid-area: tower;
 }
 
 section {
