@@ -90,10 +90,6 @@ main {
   padding: var(--padding);
   min-height: 80vh;
   margin-block-end: 10rem !important;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
 }
 
 /* inline button  */
