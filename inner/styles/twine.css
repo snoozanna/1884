@@ -243,8 +243,8 @@ main.backpack > .main-container {
   display: flex;
   /* flex-direction: column; */
   justify-content: center;
-  gap: 3rem;
-  padding: 1.5rem 1.5rem 1.5rem 0;
+  /* gap: 3rem; */
+  /* padding: 1.5rem 1.5rem 1.5rem 0; */
   flex-wrap: wrap;
   max-width: 60%;
 }
@@ -255,10 +255,15 @@ main.backpack > .main-container {
 
 .backpack-container > .backpack-item > button {
   color: black;
-  border: black 2px solid;
+  /* border: black 2px solid; */
   background-color: transparent;
   width: fit-content;
   text-align: left;
+  padding: 0;
+}
+
+.backpack-container > .backpack-item > button:hover {
+  border: none;
 }
 
 header.backpack,
