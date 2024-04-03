@@ -73,6 +73,10 @@ main.landing > .lockup {
   z-index: 1;
 }
 
+main.landing > .lockup.mem {
+  max-width: 40%;
+}
+
 main.landing > .wave {
   grid-area: lockup / lockup / tower / tower;
   z-index: -1;
@@ -161,45 +165,44 @@ a:hover {
 }
 
 @media screen and (max-width: 450px) {
-  @media screen and (max-width: 450px) {
-    .main-container.text {
-      width: 100%;
-    }
-    main.landing {
-      display: flex;
-      margin: -3rem;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      background-image: url("/assets/img/1884components-24.png");
-      background-position: center;
-      background-size: contain;
-      background-repeat: no-repeat;
-    }
+  .main-container.text {
+    width: 100%;
+  }
+  main.landing {
+    display: flex;
+    margin: -3rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("/assets/img/1884components-24.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 
-    main.landing > .lockup {
-      max-width: 80%;
-    }
+  main.landing > .lockup,
+  main.landing > .lockup.mem {
+    max-width: 80%;
+  }
 
-    main.landing > .wave {
-      display: none;
-    }
+  main.landing > .wave {
+    display: none;
+  }
 
-    main.landing > .tower {
-      position: fixed;
-      right: -33%;
-      bottom: -1rem;
-      z-index: -1;
-      height: 100vh;
-    }
+  main.landing > .tower {
+    position: fixed;
+    right: -33%;
+    bottom: -1rem;
+    z-index: -1;
+    height: 100vh;
+  }
 
-    main.landing > .landing-btn {
-      grid-area: btn;
-    }
+  main.landing > .landing-btn {
+    grid-area: btn;
+  }
 
-    .main-container.text {
-      width: 100%;
-    }
+  .main-container.text {
+    width: 100%;
   }
 }
 

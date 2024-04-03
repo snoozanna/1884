@@ -1,10 +1,10 @@
 :: StoryTitle
-1884 Twine
+1884 Twine Experience
 
 
 :: StoryData
 {
-	 "ifid": "C28EDFFA-24CE-4675-9620-21F28525BD27",
+	"ifid": "CBA206BA-1CB0-4945-B4F6-859B50163F93",
 	"format": "SugarCube",
 	"format-version": "2.36.1",
 	"start": "landing",
@@ -160,7 +160,13 @@ setup.backThirty = () => {
 
 :: StoryInit {"position":"100,100","size":"100,100"}
 
-:: header
+:: header [nobr]
+<header class="listen" >
+<div class="logo-container"><img src="/assets/img/1884components-23.png"/></div>
+ <div class="nav-item">
+ 
+ </div>
+</header>
 
 :: footer [nobr]{"position":"100,375","size":"100,100"}
 <footer>
@@ -307,6 +313,7 @@ setup.backThirty = () => {
 <<set $prevpass to "landing">>
 <<set $passage to "preintro1">>
 <<set $nextpass to "preintro3">>
+/* <<include "header">> */
 <main>
  <div class="main-container text">
  <div id="textMount"></div>
