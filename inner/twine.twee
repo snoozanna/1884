@@ -7,13 +7,12 @@
 	 "ifid": "C28EDFFA-24CE-4675-9620-21F28525BD27",
 	"format": "SugarCube",
 	"format-version": "2.36.1",
-	"start": "game4",
+	"start": "landing",
 	"zoom": 0.6
 }
 
 
 :: Story Stylesheet [stylesheet]
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap");
 
 @import url("/styles/generics.css");
 @import url("/styles/main.css");
@@ -165,31 +164,83 @@ setup.backThirty = () => {
 
 :: footer [nobr]{"position":"100,375","size":"100,100"}
 <footer>
-<<if $showBackwards is true>>
+
   <div class="nav-wrapper">
     <div class="nav-item">
-        [img[Back|assets/img/back.png][$prevpass]]
-    </div>
-  </div>
-  <</if>>
-  <div class="nav-wrapper">
-    <div class="nav-item">
-    <<button "Start">><<goto "landing">><</button>>
+        [img[Back|/assets/img/back.png][$prevpass]]
     </div>
   </div>
 
+
+<div class="nav-wrapper">
+    <div class="nav-item">
+        [img[Replay|/assets/img/replay.png][$passage]]
+    </div>
+  </div>
+  
+
+
+  <div class="nav-wrapper">
+      <div class="nav-item">
+      <div class="icon-container" id="audioContainer"> 
+    <<if $sound is true>>
+        <<link [img["./../assets/img/audio.png" ]]>> 
+        <<set $sound to false>>
+        <<goto $passage>>
+        <</link>>
+    <</if>>
+     <<if $sound is false>>
+        <<link [img["./../assets/img/audiooff2.png" ]]>> 
+            <<set $sound to true>>
+            <<goto $passage>>
+          <</link>>
+    <</if>>
+    </div>
+  </div>
+    </div>
+
   
 </footer>
+
+:: footerplacard [nobr]{"position":"100,375","size":"100,100"}
+<footer>
+
+  <div class="nav-wrapper">
+    <div class="nav-item">
+        [img[Back|/assets/img/back.png][$prevpass]]
+    </div>
+  </div>
+
+
+<div id="skipMount"></div>
+  
+</footer>
+<<timed 3s>>
+  <<replace "#skipMount">>
+        <div class="nav-wrapper">
+    <<button "Next">> 
+      <<set $sound to false>>
+      <<goto $nextpass>>
+        <</button>>
+      </div>
+  <</replace>>
+  <</timed>>
+
 
 :: footerquiz [nobr]{"position":"100,375","size":"100,100"}
 <footer>
 <<if $showBackwards is true>>
   <div class="nav-wrapper">
     <div class="nav-item">
-        [img[Back|assets/img/back.png][$prevpass]]
+        [img[Back|/assets/img/back.png][$prevpass]]
     </div>
   </div>
   <</if>>
+  <div class="nav-wrapper">
+    <div class="nav-item">
+        [img[Replay|/assets/img/replay.png][$passage]]
+    </div>
+  </div>
   <div class="nav-wrapper">
 <div class="tally-container" id="tallyMount"><<include "tally">></div>
   </div>
@@ -200,10 +251,15 @@ setup.backThirty = () => {
 <<if $showBackwards is true>>
   <div class="nav-wrapper">
     <div class="nav-item">
-        [img[Back|assets/img/back.png][$prevpass]]
+        [img[Back|/assets/img/back.png][$prevpass]]
     </div>
   </div>
   <</if>>
+  <div class="nav-wrapper">
+    <div class="nav-item">
+        [img[Replay|/assets/img/replay.png][$passage]]
+    </div>
+  </div>
   
 <div id="skipMount"></div>
   
@@ -220,18 +276,18 @@ setup.backThirty = () => {
   <</timed>>
 
 :: soundonoff [nobr]
-<div class="icon-container"> 
+<div class="icon-container inline"> 
   <<if $sound is true>>
-    <<button [img["./../assets/img/audio.png" ]]>> 
+    <<link [img["./../assets/img/audio.png" ]]>> 
   <<set $sound to false>>
   <<goto $passage>>
-    <</button>>
+    <</link>>
   <</if>>
    <<if $sound is false>>
-    <<button [img["./../assets/img/audiooff2.png" ]]>> 
+    <<link [img["./../assets/img/audiooff2.png" ]]>> 
   <<set $sound to true>>
    <<goto $passage>>
-    <</button>>
+    <</link>>
   <</if>>
   </div>
 
@@ -240,25 +296,44 @@ setup.backThirty = () => {
 <<set $passage to "landing">>
 <<set $nextpass to "preintro1">>
 <<set $sound to true>>
-<p>Landing Image</p>
+<main>
+  <p>Ready?</p>
+  /* UI.restart() */
+  
+    <<button "Yes">><<goto $nextpass>><</button>>
+</main>
 
-  <<button "Start now">><<goto $nextpass>><</button>>
-
-:: preintro1 [nobr]
+:: preintro1 [nobr t8n]
 <<set $prevpass to "landing">>
 <<set $passage to "preintro1">>
 <<set $nextpass to "preintro3">>
 <main>
- <div class="main-container">
-    <p>
-Welcome to 188.4FM, the best and only radio station taking you through the corridors of history.
+ <div class="main-container text">
+ <div id="textMount"></div>
+<<timed 0.5s>> 
+  <<replace "#textMount">>
+        <p>Welcome to 188.4FM, the best and only radio station taking you through the corridors of history.</p>
+  <</replace>>
+<</timed>>
 
-We just have a few practical housekeeping questions before we connect you to our host. 
-  
-    </p>
-    <<button "Next">><<goto $nextpass>><</button>>
+<<timed 4s>> 
+  <<append "#textMount">>
+
+<p>We just have a few practical housekeeping questions before we connect you to our host. </p>
+
+<</append>>
+<</timed>>
+
+<<timed 8s>> 
+  <<append "#textMount">>
+ <<button "Next">><<goto $nextpass>><</button>>
+<</append>>
+<</timed>>
+
+   
  </div>
 </main>
+<<include "footer">>
 
 
 
@@ -268,33 +343,94 @@ We just have a few practical housekeeping questions before we connect you to our
 <<set $nextpass to "intro">>
 <<include "footer">>
 <main>
- <div class="main-container">
-    <p>
-    $sound
-Press this icon now - or at any time during the experience - if you wish to turn on / off sound and only display captions.</p>
-<<include "soundonoff">>
-<br/>
+ <div class="main-container text">
+  <div id="textMount"></div>
+<<timed 1s>> 
+  <<append "#textMount">>
+<p>Press this icon now   <<include "soundonoff">></p> 
+
+<</append>>
+<</timed>>
+
+<<timed 2s>> 
+  <<append "#textMount">>
+<p>or at any time during the experience </p>
+<</append>>
+<</timed>>
+
+<<timed 4s>> 
+  <<append "#textMount">>
+<p>if you wish to turn on / off sound and only display captions.</p>
+<</append>>
+<</timed>>
+
+<<timed 4s>> 
+  <<append "#textMount">>
+
+<br/><br/>
+<</append>>
+<</timed>>
+
+<<timed 6s>> 
+  <<append "#textMount">>
   <<button "Next">><<goto $nextpass>><</button>>
+<</append>>
+<</timed>>
+
+<br/>
+
 </div>
 </main>
 
 
 :: intro [nobr]
-<<set $prevpass to "intro">>
+<<set $prevpass to "preintro3">>
 <<set $passage to "intro">>
 <<set $nextpass to "intro-highlight">>
-<main>
- <div class="main-container">
-    <p>
-Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’re locked into the 188.4 FM Experience, and today we are taking you through the stories and events that inspired the founding of this radio station. 188.4 FM was inspired by the legacy of the 1884 Berlin Conference... a moment in history that led to a better life on the African continent...
+<audio id="audio" autoplay></audio>
 
+<<if $sound is true>>
+  <<timed 0.1s>>
+    <<replace "#audio">><source  src="/assets/sound/DJIntro.mp3"><</replace>> 
+  <</timed>>
+  <</if>>
+<main>
+ <div class="main-container text">
+   <div id="textMount" class="dj"></div>
+<<timed 1s>> 
+    <<append "#textMount">>
+  <p>Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! </p>
+  <</append>>
+<</timed>>
+<<timed 4s>> 
+    <<append "#textMount">>
+  <p>You’re locked into the 188.4 FM Experience, and today we are taking you through the stories and events that inspired the founding of this radio station. </p>
+  <</append>>
+<</timed>>
+
+<<timed 10s>> 
+    <<append "#textMount">>
+  <p> 188.4 FM was inspired by the legacy of the 1884 Berlin Conference... </p>
+  <</append>>
+<</timed>>
+<<timed 13s>> 
+    <<append "#textMount">>
+  <p>a moment in history that led to a better life on the African continent...
     </p>
+  <</append>>
+<</timed>>
+
+<<timed 15s>> 
+    <<append "#textMount">>
     <<button "Sorry, can you repeat that?">><<goto "intro-highlight">><</button>>
+  <</append>>
+<</timed>>
+   
+ 
    
  </div>
 </main>
-
-
+<<include "footer">>
 
 :: intro-highlight  [nobr]
 <<set $prevpass to "intro">>
@@ -302,60 +438,123 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
 <<set $nextpass to "resistance-glitch">>
 <<set $showBackwards to true>>
 <main>
- <div class="main-container">
-<p>Sure. A better life… let me get down some facts:</p>
+ <div class="main-container text">
+   <div id="textMount" class="dj"></div>
 
-<p>The 1884 Berlin //conference// was a moment in history where Europeans tried to come together with the humanitarian goal to abolish slavery and colonialism in Africa. </p>
+<<timed 1s>> 
+    <<append "#textMount">>
+<p>Sure. A better life... let me get down some facts:</p>
+  <</append>>
+<</timed>>
 
-<p>Most African //nations// chose not to attend the conference. </p>
+<<timed 4s>> 
+    <<append "#textMount">>
+<p>The 1884 Berlin <span class="emph">conference</span> was a moment in history where Europeans tried to come together with the humanitarian <span class="emph">goal</span> to abolish slavery and colonialism in Africa. </p>
+  <</append>>
+<</timed>>
 
-<p>The conference received a positive //reaction// across the African continent. </p>
+<<timed 6s>> 
+    <<append "#textMount">>
+<p>Most African <span class="emph">nations</span> chose not to attend the conference. </p>
+  <</append>>
+<</timed>>
 
+<<timed 8s>> 
+    <<append "#textMount">>
+<p>The conference received a positive <span class="emph">reaction</span> across the African continent. </p>
+  <</append>>
+<</timed>>
+
+<<timed 16s>> 
+    <<replace "#textMount">>
 <p>Although the conference did not have much impact on actual events on the ground, we still remember its legacy and ambitions through 188.4 FM - our radio station serving you the key historical facts and top bangers. </p>
+  <</replace>>
+<</timed>>
 
-
+<<timed 20s>> 
+    <<append "#textMount">>
   <<button "Seriously?">><<goto "resistance-glitch">><</button>>
+  <</append>>
+<</timed>>
+
+
   </div>
 </main>
 <<include "footer">>
 
 :: loading [nobr t8n.typewriter.4]
 <main class="main-section loading">
-
-<div class="menu-wrapper">
-<div id="mount"></div></div>
-</main>
-
-
-<<timed 0.5s>>
-    <<replace "#mount">>
-    <<type 40ms>><h3>Loading...</h3><</type>>
-    <</replace>><</timed>>
-
+<<type 200ms>><h3 class="loading">Loading...</h3><</type>>
 <<timed 5s>>
 <<goto $nextpass>>
 <</timed>>
+</main>
+
 
 :: resistance-glitch [nobr]
 <<set $prevpass to "intro-highlight">>
 <<set $passage to "resistance-glitch">>
 <<set $nextpass to "game-intro">>
+<audio id="audio" autoplay></audio>
+
+<<if $sound is true>>
+  <<timed 0.1s>>
+    <<replace "#audio">><source  src="/assets/sound/ResistanceIntro.mp3"><</replace>> 
+  <</timed>>
+  <</if>>
 <main>
- <div class="main-container">
-<p> “Humanitarian goal?” “Chose not to attend?” We don’t believe it. </p>
+ <div class="main-container text">
+    <div id="textMount"></div>
+<<timed 1s>> 
+    <<append "#textMount">>
+  <p> “Humanitarian goal?” “Chose not to attend?” We don’t believe it. </p>
+  <</append>>
+<</timed>>
 
-<p>We are the resistance, and we call on 188.4 FM to speak the truth, or else be dismantled. Will you help us to uncover the truth? The station is about to have you play four activities related to their version of the history, but can you discern fact from fiction? Play the games, and then find the truth that is hidden below them. At the end, you’ll be able to record your own history and explore our virtual memorial, to help us keep the truth alive. 
-</p>
+<<timed 4s>> 
+    <<append "#textMount">>
+  <p> We are the resistance, and we call on 188.4 FM to speak the truth, or else be dismantled. </p>
+  <</append>>
+<</timed>>
 
+<<timed 7s>> 
+    <<append "#textMount">>
+  <p> Will you help us to uncover the truth?  </p>
+  <</append>>
+<</timed>>
 
+<<timed 9s>> 
+    <<append "#textMount">>
+  <p> The station is about to have you play four activities related to their version of the history, but can you discern fact from fiction?  </p>
+  <</append>>
+<</timed>>
+
+<<timed 11s>> 
+    <<replace "#textMount">>
+  <p>Play the games, and then find the truth that is hidden below them. </p>
+  <</replace>>
+<</timed>>
+
+<<timed 13s>> 
+    <<append "#textMount">>
+  <p>At the end, you’ll be able to record your own history and explore our virtual memorial, to help us keep the truth alive. </p>
+  <</append>>
+<</timed>>
+
+<<timed 15s>> 
+    <<append "#textMount">>
   <<button "Play and debunk history">><<goto "game-intro">><</button>>
 <br/><br/>
-   <a href="../../memorial.html"><button>Visit the memorial directly</button></a>
+   <a href="../../memorial/index.html"><button>Visit the memorial directly</button></a>
+  <</append>>
+<</timed>>
+
+
     
   </div>
 </main>
 
-
+<<include "footer">>
 
 
 
@@ -366,10 +565,12 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
 <<set $showBackwards to true>>
 
 <main class="main-section backpack">
-<div class="main-container">
+<div class="main-container backpack">
   <br/>
- <div id="mount"></div>
- <br/>
+<<if not hasVisited("game1complete", "game2complete", "game3complete", "game4complete")>>
+ <p class="dj">Click on the four images to discover the myths about the 1884 Berlin Conference, and uncover the history behind it.</p>
+ <</if>>
+
   <div class="backpack-container">
    <div class="backpack-item">
       <<if hasVisited("game1complete")>>
@@ -425,7 +626,7 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
 
     <<if hasVisited("game1complete", "game2complete", "game3complete", "game4complete")>>
 <<timed 6s>>
- <<goto "welldone">>
+ <<goto "closing">>
      <</timed>>
         
     <</if>>
@@ -450,26 +651,54 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
 <<set $nextpass to "game1a">>
 <<set $tally to 0>>
 <main>
-<h2>CONFERENCE</h2>
- <div class="main-container">
 
- <p>Few of our listeners know about the 1884 Berlin Conference - here at Radio 188.4 FM, we want to change that! Here’s some key facts about the conference… what do you already know?! </p>
+ <div class="main-container text">
+ <h2>CONFERENCE</h2>
+  <div id="textMount"></div>
+<<timed 0.5s>> 
+  <<replace "#textMount">>
+    <p>Few of our listeners know about the 1884 Berlin Conference -</p>
+  <</replace>>
+<</timed>>
 
-  <<button "Let's go">><<goto $nextpass>><</button>>
+<<timed 4s>> 
+  <<append "#textMount">>
+    <p>here at Radio 188.4 FM, we want to change that!</p>
+  <</append>>
+<</timed>>
+
+<<timed 8s>> 
+  <<append "#textMount">>
+    <p>Here’s some key facts about the conference… what do you already know?! </p>
+  <</append>>
+<</timed>>
+
+<<timed 10s>> 
+  <<append "#textMount">>
+   <<button "Let's go">><<goto $nextpass>><</button>>
+  <</append>>
+<</timed>>
+
+
+
   </div>
 </main>
+<<include "footer">>
 
 
 :: game1a [nobr t8n typewriter]
-<<set $prevpass to "game1a">>
+<<set $prevpass to "game1">>
 <<set $passage to "game1a">>
-<<set $nextpass to "game1complete">>
-
-<main>
- <div class="main-container">
-
+<<set $nextpass to "game1b">>
+<header class="quiz">
 <div id="answerMount"></div>
+</header>
+<main class="quiz">
+ <div class="main-container text">
+
+
 <h3>1. The Berlin Conference of 1884 marked the beginning of European colonisation of Africa.</h3>
+
 <br/>
   <div class="answerBtn-container" id="btnContainer">
     <div class="truth answerBtn"  id="truthBtn">
@@ -529,7 +758,7 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
              <<replace "#btnContainer">>
           <</replace>>
             <<replace "#answerMount">>
-              <h2>TRUTH</h2>
+              <h2>MYTH</h2>
           <</replace>>
          <</timed>>
       <<timed 4s>>
@@ -546,7 +775,7 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
       <</button>>
    </div>
   </div>
-  <br/>
+
  <div id="textMount"></div>
    <br/>
   <div id="btnMount"></div>
@@ -559,15 +788,424 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
 <p>The Berlin conference represented a rapid increase in the pace and scale of colonisation, but not the start. The transatlantic slave trade started in the 16th century, and the desire for more resources and land led to the ‘scramble’ to colonise Africa in the late 19th century. The interior of the continent was still largely a ‘mystery’ to Europeans by the late 1800s; this changed after European powers gathered for 104 days in 1884 to discuss the future of Africa.</p>
 
 
+:: game1b [nobr t8n typewriter]
+<<set $prevpass to "game1a">>
+<<set $passage to "game1b">>
+<<set $nextpass to "game1c">>
+<header class="quiz">
+<div id="answerMount"></div>
+</header>
+<main class="quiz">
+ <div class="main-container text">
+
+
+<h3>2. The Berlin Conference was initially billed as an anti-slavery and humanitarian reform conference. </h3>
+
+<br/>
+  <div class="answerBtn-container" id="btnContainer">
+    <div class="truth answerBtn"  id="truthBtn">
+      <<button "Truth">>
+        <<timed 1s>>
+               <<set $tally += 1>>
+            <<replace "#btnContainer">>
+              <p></p>
+          <</replace>>
+               /* Refresh tally count  */
+          <<replace "#tallyMount">>
+            <<include "tally">>
+          <</replace>>
+        <</timed>>
+        <<timed 2s>>
+            <<replace "#btnContainer">>
+              <p>Correct</p>
+          <</replace>>
+        <</timed>>
+        <<timed 3s>>
+             <<replace "#btnContainer">>
+          <</replace>>
+            <<replace "#answerMount">>
+              <h2>TRUTH</h2>
+          <</replace>>
+         <</timed>>
+      <<timed 4s>>
+          <<replace "#textMount">>
+              <<include "game1bfact">>
+            <</replace>>
+       
+       <</timed>>
+        <<timed 5s>>
+        <<replace "#btnMount">>
+            <<button "Next">><<goto $nextpass>><</button>>
+          <</replace>>
+          <</timed>>
+      <</button>>
+    </div>
+   <div class="myth answerBtn" id="mythBtn">
+      <<button "Myth">>
+        <<timed 1s>>
+     
+            <<replace "#btnContainer">>
+              <p></p>
+          <</replace>>
+               /* Refresh tally count  */
+          <<replace "#tallyMount">>
+            <<include "tally">>
+          <</replace>>
+        <</timed>>
+        <<timed 2s>>
+            <<replace "#btnContainer">>
+              <p>Incorrect</p>
+          <</replace>>
+        <</timed>>
+        <<timed 3s>>
+             <<replace "#btnContainer">>
+          <</replace>>
+            <<replace "#answerMount">>
+              <h2>TRUTH</h2>
+          <</replace>>
+         <</timed>>
+      <<timed 4s>>
+          <<replace "#textMount">>
+              <<include "game1bfact">>
+            <</replace>>
+       
+       <</timed>>
+        <<timed 5s>>
+        <<replace "#btnMount">>
+            <<button "Next">><<goto $nextpass>><</button>>
+          <</replace>>
+          <</timed>>
+      <</button>>
+   </div>
+  </div>
+
+ <div id="textMount"></div>
+   <br/>
+  <div id="btnMount"></div>
+
+  </div>
+</main>
+<<include "footerquiz">>
+
+:: game1bfact
+<p>The Berlin conference of 1884 was ‘dressed up’ as a humanitarian summit to look after the welfare of Africans and ensure the end of slavery. However, the Europeans used the conference as a pretext to reinforce colonial practices, notably in Congo, through African trade and "civilisation". At the 1884 conference, King Leopold II of Belgium promised to focus on abolishing the slave trade in central Africa. This was only said, however, to convince the international community to let him become the absolute and despotic monarch of the Independent State of Congo.</p>
+
+:: game1c [nobr t8n typewriter]
+<<set $prevpass to "game1b">>
+<<set $passage to "game1c">>
+<<set $nextpass to "game1d">>
+<header class="quiz">
+<div id="answerMount"></div>
+</header>
+<main class="quiz">
+ <div class="main-container text">
+
+
+<h3>3. Representatives from Ethiopia and Zanzibar attended the Berlin conference, alongside 14 European nations and the USA. </h3>
+
+<br/>
+  <div class="answerBtn-container" id="btnContainer">
+    <div class="truth answerBtn"  id="truthBtn">
+      <<button "Truth">>
+        <<timed 1s>>
+            <<replace "#btnContainer">>
+              <p></p>
+          <</replace>>
+               /* Refresh tally count  */
+          <<replace "#tallyMount">>
+            <<include "tally">>
+          <</replace>>
+        <</timed>>
+        <<timed 2s>>
+            <<replace "#btnContainer">>
+              <p>Incorrect</p>
+          <</replace>>
+        <</timed>>
+        <<timed 3s>>
+             <<replace "#btnContainer">>
+          <</replace>>
+            <<replace "#answerMount">>
+              <h2>MYTH</h2>
+          <</replace>>
+         <</timed>>
+      <<timed 4s>>
+          <<replace "#textMount">>
+              <<include "game1cfact">>
+            <</replace>>
+       
+       <</timed>>
+        <<timed 5s>>
+        <<replace "#btnMount">>
+            <<button "Next">><<goto $nextpass>><</button>>
+          <</replace>>
+          <</timed>>
+      <</button>>
+    </div>
+   <div class="myth answerBtn" id="mythBtn">
+      <<button "Myth">>
+        <<timed 1s>>
+          <<set $tally += 1>>
+            <<replace "#btnContainer">>
+              <p></p>
+          <</replace>>
+               /* Refresh tally count  */
+          <<replace "#tallyMount">>
+            <<include "tally">>
+          <</replace>>
+        <</timed>>
+        <<timed 2s>>
+            <<replace "#btnContainer">>
+              <p>Correct</p>
+          <</replace>>
+        <</timed>>
+        <<timed 3s>>
+             <<replace "#btnContainer">>
+          <</replace>>
+            <<replace "#answerMount">>
+              <h2>MYTH</h2>
+          <</replace>>
+         <</timed>>
+      <<timed 4s>>
+          <<replace "#textMount">>
+              <<include "game1cfact">>
+            <</replace>>
+       
+       <</timed>>
+        <<timed 5s>>
+        <<replace "#btnMount">>
+            <<button "Next">><<goto $nextpass>><</button>>
+          <</replace>>
+          <</timed>>
+      <</button>>
+   </div>
+  </div>
+
+ <div id="textMount"></div>
+   <br/>
+  <div id="btnMount"></div>
+
+  </div>
+</main>
+<<include "footerquiz">>
+
+:: game1cfact
+<p>No representatives from Africa were included in the conference. In 1884, the leaders of 14 European countries, the Ottoman empire, and the USA came together to negotiate the future of Africa. Of the 14, Portugal, France, Britain and Germany were the major players in the conference, controlling most of colonial Africa at the time. </p>
+
+
+:: game1d [nobr t8n typewriter]
+<<set $prevpass to "game1c">>
+<<set $passage to "game1d">>
+<<set $nextpass to "game1e">>
+<header class="quiz">
+<div id="answerMount"></div>
+</header>
+<main class="quiz">
+ <div class="main-container text">
+
+
+<h3>4. King Leopold II of Belgium attended the conference to lead the drive for humanitarian reforms for the African continent.</h3>
+
+<br/>
+  <div class="answerBtn-container" id="btnContainer">
+    <div class="truth answerBtn"  id="truthBtn">
+      <<button "Truth">>
+        <<timed 1s>>
+            <<replace "#btnContainer">>
+              <p></p>
+          <</replace>>
+               /* Refresh tally count  */
+          <<replace "#tallyMount">>
+            <<include "tally">>
+          <</replace>>
+        <</timed>>
+        <<timed 2s>>
+            <<replace "#btnContainer">>
+              <p>Incorrect</p>
+          <</replace>>
+        <</timed>>
+        <<timed 3s>>
+             <<replace "#btnContainer">>
+          <</replace>>
+            <<replace "#answerMount">>
+              <h2>MYTH</h2>
+          <</replace>>
+         <</timed>>
+      <<timed 4s>>
+          <<replace "#textMount">>
+              <<include "game1dfact">>
+            <</replace>>
+       
+       <</timed>>
+        <<timed 5s>>
+        <<replace "#btnMount">>
+            <<button "Next">><<goto $nextpass>><</button>>
+          <</replace>>
+          <</timed>>
+      <</button>>
+    </div>
+   <div class="myth answerBtn" id="mythBtn">
+      <<button "Myth">>
+        <<timed 1s>>
+          <<set $tally += 1>>
+            <<replace "#btnContainer">>
+              <p></p>
+          <</replace>>
+               /* Refresh tally count  */
+          <<replace "#tallyMount">>
+            <<include "tally">>
+          <</replace>>
+        <</timed>>
+        <<timed 2s>>
+            <<replace "#btnContainer">>
+              <p>Correct</p>
+          <</replace>>
+        <</timed>>
+        <<timed 3s>>
+             <<replace "#btnContainer">>
+          <</replace>>
+            <<replace "#answerMount">>
+              <h2>MYTH</h2>
+          <</replace>>
+         <</timed>>
+      <<timed 4s>>
+          <<replace "#textMount">>
+              <<include "game1dfact">>
+            <</replace>>
+       
+       <</timed>>
+        <<timed 5s>>
+        <<replace "#btnMount">>
+            <<button "Next">><<goto $nextpass>><</button>>
+          <</replace>>
+          <</timed>>
+      <</button>>
+   </div>
+  </div>
+
+ <div id="textMount"></div>
+   <br/>
+  <div id="btnMount"></div>
+
+  </div>
+</main>
+<<include "footerquiz">>
+
+:: game1dfact
+<p>King Leopold II did not attend the conference, but had well placed representatives (such as ‘explorer’ Henry Morton Stanely) to make sure he got what he wanted. By convincing everyone his interests were purely altruistic, Leopold left the conference as the sole ruler of 905,355 sq miles and 30 million people in central Africa, without ever stepping foot on the continent. Under his rule, an estimated 5-10 million people died as a direct result of the atrocities imposed by his rule. </p>
+
+
+:: game1e [nobr t8n typewriter]
+<<set $prevpass to "game1d">>
+<<set $passage to "game1e">>
+<<set $nextpass to "game1complete">>
+<header class="quiz">
+<div id="answerMount"></div>
+</header>
+<main class="quiz">
+ <div class="main-container text">
+
+
+<h3>5. After the conference, by 1902, around 10% of Africa still remained under traditional and local control. </h3>
+
+<br/>
+  <div class="answerBtn-container" id="btnContainer">
+    <div class="truth answerBtn"  id="truthBtn">
+      <<button "Truth">>
+        <<timed 1s>>
+            <<replace "#btnContainer">>
+              <p></p>
+          <</replace>>
+               /* Refresh tally count  */
+          <<replace "#tallyMount">>
+            <<include "tally">>
+          <</replace>>
+        <</timed>>
+        <<timed 2s>>
+            <<set $tally += 1>>
+            <<replace "#btnContainer">>
+              <p>Correct</p>
+          <</replace>>
+        <</timed>>
+        <<timed 3s>>
+             <<replace "#btnContainer">>
+          <</replace>>
+            <<replace "#answerMount">>
+              <h2>TRUTH</h2>
+          <</replace>>
+         <</timed>>
+      <<timed 4s>>
+          <<replace "#textMount">>
+              <<include "game1efact">>
+            <</replace>>
+       
+       <</timed>>
+        <<timed 5s>>
+        <<replace "#btnMount">>
+            <<button "Next">><<goto $nextpass>><</button>>
+          <</replace>>
+          <</timed>>
+      <</button>>
+    </div>
+   <div class="myth answerBtn" id="mythBtn">
+      <<button "Myth">>
+        <<timed 1s>>
+        
+            <<replace "#btnContainer">>
+              <p></p>
+          <</replace>>
+               /* Refresh tally count  */
+          <<replace "#tallyMount">>
+            <<include "tally">>
+          <</replace>>
+        <</timed>>
+        <<timed 2s>>
+            <<replace "#btnContainer">>
+              <p>Inorrect</p>
+          <</replace>>
+        <</timed>>
+        <<timed 3s>>
+             <<replace "#btnContainer">>
+          <</replace>>
+            <<replace "#answerMount">>
+              <h2>TRUTH</h2>
+          <</replace>>
+         <</timed>>
+      <<timed 4s>>
+          <<replace "#textMount">>
+              <<include "game1efact">>
+            <</replace>>
+       
+       <</timed>>
+        <<timed 5s>>
+        <<replace "#btnMount">>
+            <<button "Next">><<goto $nextpass>><</button>>
+          <</replace>>
+          <</timed>>
+      <</button>>
+   </div>
+  </div>
+
+ <div id="textMount"></div>
+   <br/>
+  <div id="btnMount"></div>
+
+  </div>
+</main>
+<<include "footerquiz">>
+
+:: game1efact
+<p>Though the 1884 Berlin conference didn’t technically lead to the partition of Africa, it was a pivotal event in accelerating and formalising the colonial expansion of European powers into Africa. Before the Conference, betw. 80-90% of Africa remained under traditional and local control. After the Conference, by 1902, 90% of Africa had come under tight colonial bondage. Apart from slavery – both transatlantic and Arab – there is no single event in modern African history whose consequences have been so dire for the continent as the Berlin Conference of 1884-85. </p>
 
 :: game1complete
 <main>
-<h2>CONFERENCE</h2>
+
  <div class="main-container">
+ <h2>CONFERENCE</h2>
  <p>Now that you’ve got your key facts sorted, try out another one of our activities to dive deeper into the history.</p>
   <<button "Debunk another myth">><<goto "game-intro">><</button>>
   </div>
 </main>
+<<include "footer">>
 
 :: game2 [nobr]
 <<set $prevpass to "game-intro">>
@@ -575,34 +1213,64 @@ Hello everybody, this is your favourite, your beloved DJ Charles Marlowe! You’
 <<set $nextpass to "game2a">>
 <main>
 
- <div class="main-container">
+ <div class="main-container text">
  <h2>GOAL</h2>
- <p>So what was the conference all about then? Let's dig a little deeper into the specifics! This next activity celebrates the noble aims that the European conference attendees - and especially King Leopold of Belgium - had for the African continent. </p>
-  <<button "Noble aims, really? ">><<goto $nextpass>><</button>>
+   <div id="textMount" class="dj"></div>
+     <<timed 0.5s>> 
+  <<replace "#textMount">>
+    <p>So what was the conference all about then? Let's dig a little deeper into the specifics!</p>
+  <</replace>>
+<</timed>>
+ <<timed 6s>> 
+  <<append "#textMount">>
+    <p>This next activity celebrates the noble aims that the European conference attendees - and especially King Leopold of Belgium - had for the African continent.</p>
+  <</append>>
+<</timed>>
+ <<timed 8s>> 
+  <<append "#textMount">>
+     <<button "Noble aims, really? ">><<goto $nextpass>><</button>>
+  <</append>>
+<</timed>>
+
   </div>
 </main>
+<<include "footer">>
 
 :: game2a [nobr]
 <<set $prevpass to "game2">>
 <<set $passage to "game2a">>
 <<set $nextpass to "game2b">>
 <main>
- <div class="main-container">
+ <div class="main-container text">
+ <div id="textMount"></div>
+<<timed 0.5s>> 
+  <<replace "#textMount">>
+     <p>Yes my dear 188.4FM listeners, Leopold II created the International Society of Congo with the humanitarian goal of ending slavery, civilising Central Africa, and bringing religion and the benefits of modern life to the Congolese. </p>
+  <</replace>>
+<</timed>>
 
- <p>Yes my dear 188.4FM listeners, Leopold II created the International Society of Congo with the humanitarian goal of ending slavery, civilising Central Africa, and bringing religion and the benefits of modern life to the Congolese. 
+<<timed 5s>> 
+  <<append "#textMount">>
+     <p>In the wordsearch below, see if you can find out what interested Leopold in the Congo. Can you spot the 3 words in this puzzle and type them in the boxes below?</p>
+  <</append>>
+<</timed>>
 
-In the wordsearch below, see if you can find out what interested Leopold in the Congo. Can you spot the 3 words in this puzzle and type them in the boxes below?
-</p>
-  <<button "Let's go!">><<goto $nextpass>><</button>>
+<<timed 8s>> 
+  <<append "#textMount">>
+     <<button "Let's go!">><<goto $nextpass>><</button>>
+  <</append>>
+<</timed>>
+
   </div>
 </main>
+<<include "footer">>
 
 :: game2b [nobr]
 <<set $prevpass to "game2a">>
 <<set $passage to "game2b">>
 <<set $nextpass to "game2complete">>
 <<set $correctans to []>>
-<main>
+<main class="wordsearch">
  <div class="main-container wordsearch">
 <div class="wordsearch-container">
   <table class="wordsearch-table">
@@ -697,7 +1365,7 @@ In the wordsearch below, see if you can find out what interested Leopold in the 
 
 <div id="coderesult1"></div>
 /% CODEWORD FEEDBACK %/
-<div id="resultbutton1">
+<div id="resultbutton1" class="result-wrapper">
 /% CODEWORD INPUT %/
 <div class="code-input">
 <<textbox "$codeword1" "">></div>
@@ -709,13 +1377,17 @@ In the wordsearch below, see if you can find out what interested Leopold in the 
 <<set _response = "try again!">>
 <<switch $codeword1>>
 <<case "RIVER", "RUBBER", "IVORY">>
+    <<if $correctans.includes($codeword1)>>
+      <<set _response = "You've already said that!">>
+      <<else>>
     <<set _response = "correct!">>
      <<run $correctans.push($codeword1)>>
     <<timed 3s>>
   <<replace "#resultbutton1">>
-    $codeword1
+    <h3>$codeword1</h3>
     <</replace>>
 <</timed>>
+<</if>>
 <<case "PEACE", "FAITH", "SCHOOL">>
     <<set _response = "nah, that’s a myth!">>
 <</switch>>
@@ -733,7 +1405,7 @@ In the wordsearch below, see if you can find out what interested Leopold in the 
 
 <div id="coderesult2"></div>
 /% CODEWORD FEEDBACK %/
-<div id="resultbutton2">
+<div id="resultbutton2" class="result-wrapper">
 /% CODEWORD INPUT %/
 <div class="code-input">
 <<textbox "$codeword2" "">></div>
@@ -745,13 +1417,17 @@ In the wordsearch below, see if you can find out what interested Leopold in the 
 <<set _response = "try again!">>
 <<switch $codeword2>>
 <<case "RIVER", "RUBBER", "IVORY">>
-    <<set _response = "correct!">>
-     <<run $correctans.push($codeword2)>>
-    <<timed 3s>>
-  <<replace "#resultbutton2">>
-    $codeword2
-    <</replace>>
-<</timed>>
+    <<if $correctans.includes($codeword2)>>
+        <<set _response = "You've already said that!">>
+        <<else>>
+      <<set _response = "correct!">>
+      <<run $correctans.push($codeword2)>>
+      <<timed 3s>>
+    <<replace "#resultbutton2">>
+      <h3>$codeword2</h3>
+      <</replace>>
+  <</timed>>
+  <</if>>
 <<case "PEACE", "FAITH", "SCHOOL">>
     <<set _response = "nah, that’s a myth!">>
 <</switch>>
@@ -770,7 +1446,7 @@ In the wordsearch below, see if you can find out what interested Leopold in the 
 
 <div id="coderesult3"></div>
 /% CODEWORD FEEDBACK %/
-<div id="resultbutton3">
+<div id="resultbutton3" class="result-wrapper">
 /% CODEWORD INPUT %/
 <div class="code-input">
 <<textbox "$codeword3" "">></div>
@@ -782,13 +1458,17 @@ In the wordsearch below, see if you can find out what interested Leopold in the 
 <<set _response = "try again!">>
 <<switch $codeword3>>
 <<case "RIVER", "RUBBER", "IVORY">>
-    <<set _response = "correct!">>
-     <<run $correctans.push($codeword3)>>
-    <<timed 3s>>
-  <<replace "#resultbutton3">>
-    $codeword3
-    <</replace>>
-<</timed>>
+     <<if $correctans.includes($codeword3)>>
+        <<set _response = "You've already said that!">>
+        <<else>>
+      <<set _response = "correct!">>
+      <<run $correctans.push($codeword3)>>
+      <<timed 3s>>
+    <<replace "#resultbutton3">>
+      <h3>$codeword3</h3>
+      <</replace>>
+    <</timed>>
+    <</if>>
 <<case "PEACE", "FAITH", "SCHOOL">>
     <<set _response = "nah, that’s a myth!">>
 <</switch>>
@@ -810,14 +1490,49 @@ In the wordsearch below, see if you can find out what interested Leopold in the 
 <<set $passage to "game2complete">>
 <<set $nextpass to "game-intro">>
 <main>
- <div class="main-container">
- <p>Here’s the resistance here - well done on uncovering that one. Here’s some of the truth. </p>
+ <div class="main-container text">
+   <div id="textMount"></div>
+<<timed 0.5s>> 
+  <<replace "#textMount">>
+    <p>Here’s the resistance here - well done on uncovering that one. Here’s some of the truth. </p>
+  <</replace>>
+<</timed>>
+ 
+ <<timed 4s>> 
+  <<append "#textMount">>
+    <p>Despite his ‘civilising mission’, natural resources were the main reasons that attracted King Leopold to the Congo.</p>
+  <</append>>
+<</timed>>
 
-<p>
-Despite his ‘civilising mission’, natural resources were the main reasons that attracted King Leopold to the Congo. As a result of the conference, Leopold of Belgium personally received 905,355 sq miles of land, including the whole 3,000-mile length of the Congo River. This led to the creation of the Congo Free State, in which Leopold devised a system of terror in which entire Congolese villages were forced to harvest rubber, or face death by their Belgian overseers. Ivory was another resource extracted through forced labour. </p>
+<<timed 8s>> 
+  <<append "#textMount">>
+    <p>As a result of the conference, Leopold of Belgium personally received 905,355 sq miles of land, including the whole 3,000-mile length of the Congo River. </p>
+  <</append>>
+<</timed>>
+
+<<timed 12s>> 
+  <<replace "#textMount">>
+    <p>This led to the creation of the Congo Free State, in which Leopold devised a system of terror in which entire Congolese villages were forced to harvest rubber, or face death by their Belgian overseers. </p>
+  <</replace>>
+<</timed>>
+
+<<timed 16s>> 
+  <<append "#textMount">>
+    <p> Ivory was another resource extracted through forced labour. </p>
+  <</append>>
+<</timed>>
+
+<<timed 18s>> 
+  <<append "#textMount">>
   <<button "Debunk another myth">><<goto "game-intro">><</button>>
+  <</append>>
+<</timed>>
+
+
   </div>
 </main>
+
+<<include "footer">>
 
 
 :: game3 [nobr]
@@ -825,34 +1540,78 @@ Despite his ‘civilising mission’, natural resources were the main reasons th
 <<set $passage to "game3">>
 <<set $nextpass to "game3a">>
 <main>
-<h2>Nations</h2>
- <div class="main-container">
- <p>Here at 188.4 FM, we have found no evidence to show that African leaders wanted to attend the Berlin Conference of 1884. African populations knew of the noble aims of the Europeans and trusted that the conference attendees would take the African continent in a positive direction. </p>
-  <<button "Feels like a myth to me">><<goto $nextpass>><</button>>
+
+ <div class="main-container text">
+ <h2>NATIONS</h2>
+   <div id="textMount"></div>
+   <<timed 0.5s>> 
+  <<replace "#textMount">>
+    <p>Here at 188.4 FM, we have found no evidence to show that African leaders wanted to attend the Berlin Conference of 1884.</p>
+  <</replace>>
+<</timed>>
+
+ <<timed 5s>> 
+  <<append "#textMount">>
+    <p>African populations knew of the noble aims of the Europeans and trusted that the conference attendees would take the African continent in a positive direction.</p>
+  <</append>>
+<</timed>>
+
+<<timed 8s>> 
+  <<append "#textMount">>
+     <<button "Feels like a myth to me">><<goto $nextpass>><</button>>
+  <</append>>
+<</timed>>
+
+
   </div>
 </main>
+<<include "footer">>
 
 :: game3a [nobr]
 <<set $prevpass to "game3">>
 <<set $passage to "game3a">>
 <<set $nextpass to "game3b">>
 <main>
- <div class="main-container">
- <p>Feels like a myth to us too! The resistance has discovered there is evidence in a locked archive, proving that African leaders wanted to be at the conference. Answer the questions below as fast as you can to prove your expertise, to gain access to the archive.  </p>
-  <<button "I'm ready">><<goto $nextpass>><</button>>
+ <div class="main-container text">
+
+  <div id="textMount"></div>
+   <<timed 0.5s>> 
+  <<replace "#textMount">>
+    <p>Feels like a myth to us too! </p>
+  <</replace>>
+<</timed>>
+
+ <<timed 3s>> 
+  <<append "#textMount">>
+    <p>The resistance has discovered there is evidence in a locked archive, proving that African leaders wanted to be at the conference. </p>
+  <</append>>
+<</timed>>
+
+ <<timed 8s>> 
+  <<append "#textMount">>
+    <p>Answer the questions below as fast as you can to prove your expertise, to gain access to the archive.  </p>
+  <</append>>
+<</timed>>
+
+<<timed 10s>> 
+  <<append "#textMount">>
+      <<button "I'm ready">><<goto $nextpass>><</button>>
+  <</append>>
+<</timed>>
   </div>
 </main>
+<<include "footer">>
 
 :: timer [nobr]
 <<set $seconds to 60>>
-Countdown: <span id="countdown">$seconds seconds remaining</span>
+<span id="countdown"><span class="secs">$seconds</span> <span class="extra">seconds</span></span>
 
 
 <<silently>>
 	<<repeat 1s>>
 		<<set $seconds to $seconds - 1>>
 		<<if $seconds gt 0>>
-			<<replace "#countdown">>$seconds seconds remaining<</replace>>
+			<<replace "#countdown">><span class="secs">$seconds</span> <span class="extra">seconds</span><</replace>>
 		<<else>>
 			<<replace "#countdown">>Too Late<</replace>>
 
@@ -863,7 +1622,7 @@ Countdown: <span id="countdown">$seconds seconds remaining</span>
 
 :: checkcorrectgame3
 <<if $correctgame3 gte 5>>
-  <<timed 8s>>
+  <<timed 5s>>
   <<goto $nextpass>>
   <</timed>>
 <</if>>
@@ -873,7 +1632,10 @@ Countdown: <span id="countdown">$seconds seconds remaining</span>
 <<set $passage to "game3b">>
 <<set $nextpass to "game3complete">>
 <<set $correctgame3 to 0>>
+<header class="quiz">
   <<include "timer">>
+</header>
+
 <main>
  <div class="main-container">
 <div class="question-container" id="q1">
@@ -906,11 +1668,11 @@ Countdown: <span id="countdown">$seconds seconds remaining</span>
       <<timed 0.1s>>
           <<set $correctgame3 += 1>>
           <<include "checkcorrectgame3">>
-        <<replace "#mount1">>
+        <<replace "#a1">>
       <span>Correct!</span> 
           <</replace>>
         <</timed>>
-        <<timed 3s>>
+        <<timed 2s>>
         <<replace "#a1">>
     <p>720</p>
           <</replace>>
@@ -926,9 +1688,9 @@ Countdown: <span id="countdown">$seconds seconds remaining</span>
     <div id="mount2"></div>
     <<button "Nigeria">>
       <<timed 0.1s>>
-        <<replace "#mount2">>
+        <<append  "#mount2">>
           <span>Incorrect. Try again...</span>
-        <</replace>>
+        <</append>>
       <</timed>>
       <<timed 3s>>
         <<replace "#mount2">>
@@ -939,11 +1701,11 @@ Countdown: <span id="countdown">$seconds seconds remaining</span>
       <<timed 0.1s>>
          <<set $correctgame3 += 1>>
           <<include "checkcorrectgame3">>
-        <<replace "#mount2">>
+        <<replace "#a2">>
       <span>Correct!</span> 
           <</replace>>
         <</timed>>
-        <<timed 3s>>
+        <<timed 2s>>
         <<replace "#a2">>
     <p>Zanzibar</p>
           <</replace>>
@@ -983,11 +1745,11 @@ Countdown: <span id="countdown">$seconds seconds remaining</span>
       <<timed 0.1s>>
          <<set $correctgame3 += 1>>
           <<include "checkcorrectgame3">>
-        <<replace "#mount3">>
+        <<replace "#a3">>
       <span>Correct!</span> 
           <</replace>>
         <</timed>>
-        <<timed 3s>>
+        <<timed 2s>>
         <<replace "#a3">>
     <p>14</p>
           <</replace>>
@@ -1088,11 +1850,37 @@ Countdown: <span id="countdown">$seconds seconds remaining</span>
 <<set $passage to "game3complete">>
 <<set $nextpass to "game-intro">>
 <main>
- <div class="main-container">
- <p>Congratulations - you’ve unlocked it. The Sultan of Zanzibar put in a request to join the conference, which was laughed off by the conference attendees. The opinions of Africans were not considered necessary to the future of the continent, but over the decades before and after 1884, widespread resistance was seen by African leaders and populations.</p>
-  <<button "Debunk another myth">><<goto "game-intro">><</button>>
+ <div class="main-container text">
+
+   <div id="textMount"> <h3>Congratulations</h3></div>
+   <<timed 0.5s>> 
+    <<append "#textMount">>
+      <p>You’ve unlocked it.</p>
+    <</append>>
+  <</timed>>
+  <<timed 2s>> 
+      <<append "#textMount">>
+        <p>The Sultan of Zanzibar put in a request to join the conference, which was laughed off by the conference attendees. </p>
+      <</append>>
+  <</timed>>
+   <<timed 7s>> 
+      <<append "#textMount">>
+        <p>The Sultan of Zanzibar put in a request to join the conference, which was laughed off by the conference attendees. </p>
+      <</append>>
+  <</timed>>
+  <<timed 10s>> 
+      <<replace "#textMount">>
+        <p> The opinions of Africans were not considered necessary to the future of the continent, but over the decades before and after 1884, widespread resistance was seen by African leaders and populations.</p>
+      <</replace>>
+  <</timed>>
+  <<timed 13s>> 
+      <<append "#textMount">>
+       <<button "Debunk another myth">><<goto "game-intro">><</button>>
+      <</append>>
+  <</timed>>
   </div>
 </main>
+<<include "footer">>
 
 
 :: game4 [nobr]
@@ -1100,10 +1888,42 @@ Countdown: <span id="countdown">$seconds seconds remaining</span>
 <<set $passage to "game4">>
 <<set $nextpass to "game4a">>
 <main>
-<h2>REACTION</h2>
- <div class="main-container">
- <p>The Berlin Conference was an event to stop the horror and terror of slavery, colonialism and European domination of Africa. Some critics say that the conference led to the destruction, devastation and disaster across the continent. But there was no outrage, fight or resistance from impacted populations. At 188.4 FM, we remember the efforts of the conference diplomats to create peace abroad.</p>
-  <<button "I don’t believe this">><<goto $nextpass>><</button>>
+
+ <div class="main-container text">
+ <h2>REACTION</h2>
+   <div id="textMount" class="dj"></div>
+ 
+
+ <<timed 0.5s>> 
+  <<replace "#textMount">>
+    <p>The Berlin Conference was an event to stop the horror and terror of slavery, colonialism and European domination of Africa.</p>
+  <</replace>>
+<</timed>>
+
+<<timed 4s>> 
+  <<append "#textMount">>
+    <p>Some critics say that the conference led to the destruction, devastation and disaster across the continent.</p>
+  <</append>>
+<</timed>>
+
+<<timed 8s>> 
+  <<replace "#textMount">>
+    <p>But there was no outrage, fight or resistance from impacted populations.</p>
+  <</replace>>
+<</timed>>
+
+<<timed 10s>> 
+  <<append "#textMount">>
+  <p>At 188.4 FM, we remember the efforts of the conference diplomats to create peace abroad.</p>
+  <</append>>
+<</timed>>
+
+<<timed 12s>> 
+  <<append "#textMount">>
+<<button "I don’t believe this">><<goto $nextpass>><</button>>
+  <</append>>
+<</timed>>
+  
   </div>
 </main>
 <<include "footer">>
@@ -1126,33 +1946,71 @@ Countdown: <span id="countdown">$seconds seconds remaining</span>
 
 
 
-
 :: game4a [nobr]
 <<set $prevpass to "game4">>
 <<set $passage to "game4a">>
 <<set $nextpass to "game4b">>
 <<set $placardWords to []>>
-<main>
- <div class="main-container">
+<main class="placard">
+ <div class="main-container text placardPrep">
  /* <div id="wordsMount">$placardWords</div> */
+  <div id="textMount"></div>
+   <div id="placardMount"></div>
+<<silently>>
+  <<timed 0.5s>> 
+  <<replace "#textMount">>
+    <p>You don’t believe there was no resistance on the African continent? </p>
+  <</replace>>
+<</timed>>
+  <<timed 2s>> 
+  <<append "#textMount">>
+    <p>Neither do we!</p>
+  <</append>>
+<</timed>>
+<<timed 3s>> 
+  <<append "#textMount">>
+    <p>Help us turn this myth into a protest.</p>
+  <</append>>
+<</timed>>
 
+<<timed 6s>> 
+  <<replace "#textMount">>
+    <p>Click on words from the below statement to write your own protest placard.</p>
+  <</replace>>
+<</timed>>
+<</silently>>
+<<timed 9s>> 
+  <<append "#textMount">>
+  <p class="word-choices">
+<<link "The">><<run $placardWords.push("The")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> 
 
-  Words for my placard:<div id="wordsMount"> <<include "displayWords">></div>
+<<link "Berlin">><<run $placardWords.push("Berlin")>>
+<<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> 
 
-
-<br/>
-<br/>
- <p>You don’t believe there was no resistance on the African continent? Neither do we! Help us turn this myth into a protest. </p>
-
-<p>Click on words from the below statement to write your own protest placard.</p>
-<br/>
-<br/>
-<p>
-<<link "The">><<run $placardWords.push("The")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "Berlin">><<run $placardWords.push("Berlin")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "Conference">><<run $placardWords.push("Conference")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "was">><<run $placardWords.push("was")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "an">><<run $placardWords.push("an")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "event">><<run $placardWords.push("event")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "to">><<run $placardWords.push("to")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "stop">><<run $placardWords.push("stop")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "the">><<run $placardWords.push("the")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "horror">><<run $placardWords.push("horror")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "and">><<run $placardWords.push("and")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "terror">><<run $placardWords.push("terror")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "of">><<run $placardWords.push("of")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "slavery">><<run $placardWords.push("slavery")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>>, <<link "colonialism">><<run $placardWords.push("colonialism")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "and">><<run $placardWords.push("and")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "European">><<run $placardWords.push("European")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "domination">><<run $placardWords.push("domination")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "of">><<run $placardWords.push("of")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "Africa">><<run $placardWords.push("Africa")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>>. <<link "Some">><<run $placardWords.push("Some")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "critics">><<run $placardWords.push("critics")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "say">><<run $placardWords.push("say")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "that">><<run $placardWords.push("that")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "the">><<run $placardWords.push("the")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "conference">><<run $placardWords.push("conference")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "led">><<run $placardWords.push("led")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "to">><<run $placardWords.push("to")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "the">><<run $placardWords.push("the")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "destruction">><<run $placardWords.push("destruction")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>>, <<link "devastation">><<run $placardWords.push("devastation")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "and">><<run $placardWords.push("and")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "disaster">><<run $placardWords.push("disaster")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "across">><<run $placardWords.push("across")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "the">><<run $placardWords.push("the")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "continent">><<run $placardWords.push("continent")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>>. <<link "But">><<run $placardWords.push("But")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "But">><<run $placardWords.push("But")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "there">><<run $placardWords.push("there")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "was">><<run $placardWords.push("was")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "no">><<run $placardWords.push("no")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "outrage">><<run $placardWords.push("outrage")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>>, <<link "fight">><<run $placardWords.push("fight")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "or">><<run $placardWords.push("or")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "resistance">><<run $placardWords.push("resistance")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "from">><<run $placardWords.push("from")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "impacted">><<run $placardWords.push("impacted")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "populations">><<run $placardWords.push("populations")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>>. <<link "At">><<run $placardWords.push("At")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "188.4">><<run $placardWords.push("188.4")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "FM">><<run $placardWords.push("FM")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>>, <<link "it">><<run $placardWords.push("it")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "is">><<run $placardWords.push("is")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "key">><<run $placardWords.push("key")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "that">><<run $placardWords.push("that")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "we">><<run $placardWords.push("we")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "remember">><<run $placardWords.push("remember")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "the">><<run $placardWords.push("the")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "efforts">><<run $placardWords.push("efforts")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "of">><<run $placardWords.push("of")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "the">><<run $placardWords.push("the")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "conference">><<run $placardWords.push("conference")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "diplomats">><<run $placardWords.push("diplomats")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "to">><<run $placardWords.push("to")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "create">><<run $placardWords.push("create")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "peace">><<run $placardWords.push("peace")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "abroad">><<run $placardWords.push("abroad")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>>.
+<<link "Conference">><<run $placardWords.push("Conference")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "was">><<run $placardWords.push("was")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "an">><<run $placardWords.push("an")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "event">><<run $placardWords.push("event")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "to">><<run $placardWords.push("to")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "stop">><<run $placardWords.push("stop")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "the">><<run $placardWords.push("the")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "horror">><<run $placardWords.push("horror")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "and">><<run $placardWords.push("and")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "terror">><<run $placardWords.push("terror")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "of">><<run $placardWords.push("of")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "slavery">><<run $placardWords.push("slavery")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>>, <<link "colonialism">><<run $placardWords.push("colonialism")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "and">><<run $placardWords.push("and")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "European">><<run $placardWords.push("European")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "domination">><<run $placardWords.push("domination")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "of">><<run $placardWords.push("of")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "Africa">><<run $placardWords.push("Africa")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>>. <<link "Some">><<run $placardWords.push("Some")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "critics">><<run $placardWords.push("critics")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "say">><<run $placardWords.push("say")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "that">><<run $placardWords.push("that")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "the">><<run $placardWords.push("the")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "conference">><<run $placardWords.push("conference")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "led">><<run $placardWords.push("led")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "to">><<run $placardWords.push("to")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "the">><<run $placardWords.push("the")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "destruction">><<run $placardWords.push("destruction")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>>, <<link "devastation">><<run $placardWords.push("devastation")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "and">><<run $placardWords.push("and")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "disaster">><<run $placardWords.push("disaster")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "across">><<run $placardWords.push("across")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "the">><<run $placardWords.push("the")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "continent">><<run $placardWords.push("continent")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>>. <<link "But">><<run $placardWords.push("But")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "there">><<run $placardWords.push("there")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "was">><<run $placardWords.push("was")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "no">><<run $placardWords.push("no")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "outrage">><<run $placardWords.push("outrage")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>>, <<link "fight">><<run $placardWords.push("fight")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "or">><<run $placardWords.push("or")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "resistance">><<run $placardWords.push("resistance")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "from">><<run $placardWords.push("from")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "impacted">><<run $placardWords.push("impacted")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "populations">><<run $placardWords.push("populations")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>>. <<link "At">><<run $placardWords.push("At")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "188.4">><<run $placardWords.push("188.4")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "FM">><<run $placardWords.push("FM")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>>, <<link "it">><<run $placardWords.push("it")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "is">><<run $placardWords.push("is")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "key">><<run $placardWords.push("key")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "that">><<run $placardWords.push("that")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "we">><<run $placardWords.push("we")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "remember">><<run $placardWords.push("remember")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "the">><<run $placardWords.push("the")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "efforts">><<run $placardWords.push("efforts")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "of">><<run $placardWords.push("of")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "the">><<run $placardWords.push("the")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "conference">><<run $placardWords.push("conference")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "diplomats">><<run $placardWords.push("diplomats")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "to">><<run $placardWords.push("to")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "create">><<run $placardWords.push("create")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "peace">><<run $placardWords.push("peace")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>> <<link "abroad">><<run $placardWords.push("abroad")>><<replace "#wordsMount">><<include "displayWords">><</replace>><</link>>.
 </p>
 <br/>
+  <</append>>
+<</timed>>
 
+
+<<silently>>
+  <<timed 9s>> 
+    <<replace "#placardMount">>
+    <div class="placardPrep">
+    <h3> MY PLACARD</h3>
+    <div id="wordsMount"> <<include "displayWords">></div>
+  </div>
+    <</replace>>
+  <</timed>>
+
+  <<timed 15s>> 
+    <<append "#textMount">>
   <<button " I’m ready to protest">><<goto $nextpass>><</button>>
+    <</append>>
+  <</timed>>
+
+<</silently>> 
   </div>
 
 /* Display placardWords
@@ -1164,25 +2022,29 @@ When clicked remove from array  */
 </main>
 <<include "footer">>
 
+:: myplacard[nobr]
+<div class="placard-container">
+  <<for _i to 0; _i lt $placardWords.length; _i++>>
+      <<capture _i>>
+        <span>$placardWords[_i]</span>
+        <</capture>>
+    <</for>>
+  </div>
+
 :: game4b [nobr]
 <<set $prevpass to "game4a">>
 <<set $passage to "game4b">>
 <<set $nextpass to "game4complete">>
 
-<main>
- <div class="main-container">
-<h3>Placard</h3>
-<div class="placard-container">
-<<for _i to 0; _i lt $placardWords.length; _i++>>
-    <<capture _i>>
-      <span>$placardWords[_i]</span>
-      <</capture>>
-  <</for>>
+<main class="placard-main">
+<div class="people-container">
+  <<include "myplacard">>
 </div>
-  </div>
-    <<button "Next">><<goto $nextpass>><</button>>
+<div id="mount"></div>
+
+
 </main>
-<<include "footer">>
+<<include "footerplacard">>
 
 
 :: game4complete [nobr]
@@ -1190,42 +2052,71 @@ When clicked remove from array  */
 <<set $passage to "game4complete">>
 <<set $nextpass to "game-intro">>
 <main>
- <div class="main-container">
- <p>After 1884, many rebellions and resistance movements were organised across Africa, in response to the rapid colonisation and brutal treatment of local populations. Examples include the Igbo Women’s War of 1929, the First Matabele War (1893-94) in Zimbabwe against the British, and the large-scale resistance movement led by Samory Toure of the Mandinka Empire (1882-1898) against the French. In Berlin, activists and volunteers have found ways to memorialise the conference publicly, against the lack of official memorials about the conference in the city. </p>
+ <div class="main-container text">
+  <div id="textMount"></div>
+
+  <<timed 1s>> 
+  <<replace "#textMount">>
+        <p>After 1884, many rebellions and resistance movements were organised across Africa, in response to the rapid colonisation and brutal treatment of local populations.</p>
+  <</replace>>
+<</timed>>
+
+ <<timed 5s>> 
+  <<append "#textMount">>
+        <p>Examples include the Igbo Women’s War of 1929, the First Matabele War (1893-94) in Zimbabwe against the British, and the large-scale resistance movement led by Samory Toure of the Mandinka Empire (1882-1898) against the French.</p>
+  <</append>>
+<</timed>>
+
+ <<timed 10s>> 
+  <<replace "#textMount">>
+ <p> In Berlin, activists and volunteers have found ways to memorialise the conference publicly, against the lack of official memorials about the conference in the city. </p>
+  <</replace>>
+<</timed>>
+
+ <<timed 12s>> 
+  <<append "#textMount">>
   <<button "Debunk another myth">><<goto $nextpass>><</button>>
+  <</append>>
+<</timed>>
+ 
+
   </div>
 </main>
 
+<<include "footer">>
 
 
-:: welldone
+
+:: closing [nobr]
 <<set $prevpass to "game-intro">>
-<<set $passage to "welldone">>
+<<set $passage to "closing">>
 
 <main>
-<h2>Well done</h2>
- <div class="main-container">
-<p> You’ve debunked the myths about history. Now it’s time to record your own, or share any thoughts about how this experience made you feel, etc</p>
 
-   <a href="../../memorial.html"><button>Take me to the 1884 memorial</button></a>
+ <div class="main-container text">
 
-    <<button "Back to Start">><<goto "intro">><</button>>
+ <h2>This is a message from the resistance: </h2>
+  <div id="textMount"></div>
+ <<timed 2s>> 
+  <<replace "#textMount">>
+   <p>Thank you for helping us to debunk the false histories, we are so grateful for your help. </p>
+  <</replace>>
+<</timed>>
+
+ <<timed 5s>> 
+  <<append "#textMount">>
+   <p>You can now enter our online memorial to hear the stories and truths of others. </p>
+  <</append>>
+<</timed>>
+
+ <<timed 7s>> 
+  <<append "#textMount">>
+    <a href="../../memorial/index.html"><button>Visit the 1884 memorial</button></a>
+  <</append>>
+<</timed>>
   </div>
 </main>
 
+<<include "footer">>
 
 
-:: closing
-
-<main>
- <div class="main-container">
-Thanks for playing. 
-
- <p>
-    <a href="#">More info about 1884 by Rhianna Ilube & Coney (link to Coney website)</a>
-      <a href="#">Sign up to Coney’s newsletter</a>
-       <a href="#">Follow Coney on socials</a>
- </p>
-  </div>
-    <<button "Back to Start">><<goto "intro">><</button>>
-</main>

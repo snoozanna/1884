@@ -1,19 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Single+Day&display=swap");
-
-/* @font-face {
-  font-family: "Big John";
-  src: url("/assets/fonts/bigjohn.otf") format("opentype");
-} */
+@import url("https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap");
 
 :root {
   --main-bg-color: var(--color-peach2);
   --accent-color-primary: var(--color-peach);
   --accent-color-secondary: var(--color-pink);
   --accent-color-shadow: var(--color-peach2);
-  --font-headings: "Space Grotesk", sans-serif;
+  --font-headings: "Hammersmith One", sans-serif;
   --font-body: "Space Grotesk", sans-serif;
+  --font-placard: "Hammersmith One", sans-serif;
   --padding: 2rem;
+  --padding-mob: 1.5rem;
   --color-brown: #701d1c;
   --color-brown1: #dc8c74;
   --color-brown2: #a44141;
@@ -36,7 +33,7 @@ body {
   grid-gap: 2rem;
   font-size: 10px;
   background-color: var(--main-bg-color);
-  padding: var(--padding);
+
   padding-top: 0;
   /* font-family: "IBM Plex Mono", monospace; */
   font-family: var(--font-body);
@@ -52,25 +49,26 @@ main {
   width: 100%;
   max-width: 1080px;
 }
+.main-container.text {
+  width: 60%;
+}
 
 main.landing {
+  display: flex;
+  margin: -3rem;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  flex-direction: column;
+  background-image: url("/assets/img/1884components-24.png");
+  background-position: 0% 22%;
+  background-size: contain;
+  background-repeat: no-repeat;
   height: 100vh;
-  display: grid;
-  margin: -(var(--padding));
-  grid-template-areas:
-    " lockup tower"
-    ". tower"
-    ". tower";
-  grid-template-columns: 3fr 1fr;
-  grid-template-rows: 7fr 0.5fr;
-  /* display: none; */
 }
 
 main.landing > .lockup {
-  grid-area: lockup;
+  max-width: 50%;
+  z-index: 1;
 }
 
 main.landing > .wave {
@@ -79,7 +77,15 @@ main.landing > .wave {
 }
 
 main.landing > .tower {
-  grid-area: tower;
+  position: fixed;
+  right: -3%;
+  bottom: -1rem;
+  z-index: 0;
+  height: 100vh;
+}
+
+main.landing > .landing-btn {
+  grid-area: btn;
 }
 
 section {
@@ -94,40 +100,31 @@ h4,
 h6 {
   font-family: var(--font-headings);
   color: var(--accent-color-primary);
+  text-align: left;
   /* text-transform: uppercase; */
 }
 
 h1 {
   color: var(--accent-color-primary);
-}
-
-h1.title {
-  font-weight: 700;
   font-size: 4rem;
-  margin-block-end: 2.5rem;
-  font-family: var(--font-headings);
 }
 
-h2.title {
+h2 {
   font-size: 3rem;
-  font-weight: 600;
-  margin-block-end: 2rem;
-  font-family: var(--font-headings);
 }
 
-h3.subtitle {
+h3 {
   font-size: 2.5rem;
-  font-weight: 600;
-  margin-block-end: 1rem;
-  font-family: var(--font-headings);
-}
-
-h3.pretitle {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--color-pink);
 }
 
 p {
   font-size: 1.6rem;
+}
+
+section.webtext > p {
+  line-height: 2.4rem;
+  font-weight: 700;
 }
 
 strong {
@@ -161,7 +158,47 @@ a:hover {
   }
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (max-width: 450px) {
+  @media screen and (max-width: 450px) {
+    .main-container.text {
+      width: 100%;
+    }
+    main.landing {
+      display: flex;
+      margin: -3rem;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-image: url("/assets/img/1884components-24.png");
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    main.landing > .lockup {
+      max-width: 80%;
+    }
+
+    main.landing > .wave {
+      display: none;
+    }
+
+    main.landing > .tower {
+      position: fixed;
+      right: -33%;
+      bottom: -1rem;
+      z-index: -1;
+      height: 100vh;
+    }
+
+    main.landing > .landing-btn {
+      grid-area: btn;
+    }
+
+    .main-container.text {
+      width: 100%;
+    }
+  }
 }
 
 /* HEADER  */
@@ -177,6 +214,10 @@ header {
   background-color: transparent;
 }
 
+header > .logo-container > img {
+  max-width: 15rem;
+}
+
 /* FOOTER  */
 footer {
   display: flex;
@@ -187,7 +228,6 @@ footer {
   padding: var(--padding);
   width: 100%;
   background-color: var(--main-bg-color);
-  margin-left: -2rem;
 }
 .footer-outer {
   display: flex;
@@ -235,9 +275,25 @@ footer {
   /* margin-inline-end: 0.5rem; */
 }
 
+.icon-container.inline {
+  display: inline;
+  margin-left: 1rem;
+}
+
+.icon-container > button {
+  background-color: transparent;
+}
+
 .icon-container > img,
-.icon-container > button > img {
+.icon-container > a > img {
   max-width: var(--icon-size);
+}
+
+.icon-container.socials {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  justify-content: flex-start;
 }
 
 /* HAMBURGER MENU */
@@ -368,10 +424,6 @@ button > a > p {
 }
 
 @media screen and (min-width: 450px) {
-  body {
-    padding: 20px;
-  }
-
   main {
     justify-content: center;
     align-items: center;
@@ -435,4 +487,10 @@ h3.subtitle.category {
   #cookiePopup {
     width: 25%;
   }
+}
+
+/* MEMORIAL */
+
+main.record {
+  padding: var(--padding);
 }

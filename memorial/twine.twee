@@ -7,7 +7,7 @@
 	 "ifid": "C28EDFFA-24CE-4675-9620-24F28525BD22",
 	"format": "SugarCube",
 	"format-version": "2.36.1",
-	"start": "start",
+	"start": "",
 	"zoom": 0.6
 }
 
@@ -97,14 +97,22 @@ setup.backTen = () => {
 
 :: StoryInit {"position":"100,100","size":"100,100"}
 
-:: header
+:: headerlisten [nobr]
+<header class="listen" >
+<div class="logo-container"><img src="/assets/img/1884components-23.png"/></div>
+ <div class="nav-item">
+    <<button "Next memory">>
+     <<set $source to $audiooptions[random(0, $audiooptions.length - 1)]>>
+   <<goto $passage>><</button>> 
+ </div>
+</header>
 
 :: footer [nobr]{"position":"100,375","size":"100,100"}
 <footer>
 <<if $showBackwards is true>>
   <div class="nav-wrapper">
     <div class="nav-item">
-        [img[Back|assets/img/back.png][$prevpass]]
+        [img[Back|/assets/img/back.png][$prevpass]]
     </div>
   </div>
   <</if>>
@@ -117,62 +125,96 @@ setup.backTen = () => {
   
 </footer>
 
+:: footerend [nobr]{"position":"100,375","size":"100,100"}
+<footer>
+
+  <div class="nav-wrapper">
+    <div class="nav-item">
+    <<button "Listen again">><<goto "listen">><</button>>
+    </div>
+  </div>
+  <div class="nav-wrapper">
+    <div class="nav-item">
+      <a href="../../index.html"><button>Back to the start</button></a>
+    </div>
+  </div>
+
+
+</footer>
+
+
+
 
 :: soundonoff [nobr]
 <div class="icon-container"> 
   <<if $sound is true>>
-    <<button [img["./../assets/img/audio.png" ]]>> 
+    <<link [img["./../assets/img/audio.png" ]]>> 
   <<set $sound to false>>
   <<goto $passage>>
-    <</button>>
+    <</link>>
   <</if>>
    <<if $sound is false>>
-    <<button [img["./../assets/img/audiooff2.png" ]]>> 
+    <<link [img["./../assets/img/audiooff2.png" ]]>> 
   <<set $sound to true>>
    <<goto $passage>>
-    <</button>>
+    <</link>>
   <</if>>
   </div>
 
-:: start [nobr]
+
+
+
+
+
+:: Start [nobr]
 <<set $prevpass to "start">>
 <<set $passage to "start">>
-<<set $nextpass to "preintro1">>
+<<set $nextpass to "listen">>
 <<set $captions to false>>
 <<set $sound to true>>
+<<set $audiooptions to ["audio1", "audio2", "audio3", "audio4"]>>
+  <<set $source to $audiooptions[random(0, $audiooptions.length - 1)]>>
 <main>
- <div class="main-container">
+ <div class="main-container text">
+   <h1>Listen</h1>
     <p>
       You can  <<button "Listen">><<goto "listen">><</button>> to a selection of reflections of people that visited the memorial before you. They are playing in random order. If you want to play the next one, press the  <<button "Next">><<goto "listen">><</button>> button.
       
     </p>
-    <p>If you want to make another contribution to the memorial, press <a href="../../memorial.html"><button>Record</button></a> . </p>
+    <p>If you want to make another contribution to the memorial, press <a href="../../memorial/record.html"><button>Record</button></a> . </p>
+
+    <p>There is also the option to <<button "Read">><<goto "transcripts">><</button>> some written memories.</p>
+      <<button "Start now">>
+       
+
+      <<goto $nextpass>><</button>>
     </div>
+
 </main>
 
-  <<button "Start now">><<goto $nextpass>><</button>>
+
 
 
 :: listen [nobr t8n.typewriter.4]
 <<set $showCaptionsIcon to true>>
 <<set $showAudioIcon to true>>
 <<set $showBackwards to true>>
+<<set $prevpass to "start">>
 <<set $passage to "listen">>
-<<set $audiooptions to ["audio1", "audio2", "audio3", "audio4"]>>
-/* <<set $source to "audio1">> */
+
+<<include "headerlisten">>
+
 <main class="main-section listen ">
-<audio id="audio" >
+<audio id="audio" autoplay>
 <<if $sound is true>>
   <<include $source>>
   <</if>>
 </audio>
-$source
+
 <<if $captions is true>>
 <div id="caption"></div>
-<</if>>
-<<if $captions is true>>
   <<include `$source + "cap"`>>
-  <</if>>
+<</if>>
 
 </main>
 <<include "footerlisten">>
@@ -201,64 +243,73 @@ $source
     <</if>>
   <<if $showCaptionsIcon is true>>
   <div class="nav-wrapper">
-      <div class="nav-item">
+      <div class="nav-item" id="capIconContainer">
         <<link [img[/assets/img/captions.png]]>>
-        <<if $captionToggle is true>>
+        <<if $captions is true>>
           <<set $captions to false>>
+  
            <<goto $passage>>
-            <<set $captionToggle to false>>
-            <<else>>
-                 <<set $captions to true>>
+       <<else>>
+           <<set $captions to true>>
+  
              <<goto $passage>>
-            <<set $captionToggle to true>>
+          
           <</if>>
         <</link>>
   </div>
     </div>
   <</if>> 
+
+
   
   <<if $showAudioIcon is true>>
   <div class="nav-wrapper">
       <div class="nav-item">
-      <div class="icon-container"> 
+      <div class="icon-container" id="audioContainer"> 
     <<if $sound is true>>
-      <<button [img["./../assets/img/audio.png" ]]>> 
-    <<set $sound to false>>
-    <<goto $passage>>
-      <</button>>
+        <<link [img["./../assets/img/audio.png" ]]>> 
+        <<set $sound to false>>
+        <<goto $passage>>
+        <</link>>
     <</if>>
      <<if $sound is false>>
-      <<button [img["./../assets/img/audiooff2.png" ]]>> 
-    <<set $sound to true>>
-     <<goto $passage>>
-      <</button>>
+        <<link [img["./../assets/img/audiooff2.png" ]]>> 
+            <<set $sound to true>>
+            <<goto $passage>>
+          <</link>>
     <</if>>
     </div>
   </div>
     </div>
   <</if>> 
 </div>
-
-<div class="nav-item">
-<a href="../../memorial.html"><button>Record</button></a>
+<div class="nav-item alone">
+<a href="../../memorial/accept.html"><button>Record</button></a>
 </div>
 <div class="nav-item final">
 
   <<button "Leave">>
   <<goto "closing">>
   <</button>>
-   <<button "Next memory">>
-   <<set $source to $audiooptions[random(0, $audiooptions.length - 1)]>>
- <<goto $passage>><</button>> 
+ 
 </div>
 
 </footer>
 
+<<done>>
+  <<if $captions is true>>
+    <<addclass "#capIconContainer" "activeIcon">>
+  <</if>>
+  <<if $sound is true>>
+   /* <<addclass "#audioContainer" "activeIcon">> */
+  <</if>>
+<</done>>
+
 
 :: audio1
-<source autoplay src="https://withfireandrageliverpool.com/audio/SC/spiritsv2.mp3">
+<source  src="https://withfireandrageliverpool.com/audio/SC/spiritsv2.mp3">
 
-:: audio1cap
+:: audio1cap [nobr]
 <<timed 0.5s>>
   <<replace "#caption">>
     <p>Audio 1 captions</p>
@@ -276,10 +327,10 @@ $source
 <</timed>>
 
 
-:: audio2
-<source autoplay src="/assets/sound/DJIntro.mp3">
+:: audio2 [nobr]
+<source  src="/assets/sound/DJIntro.mp3">
 
-:: audio2cap
+:: audio2cap [nobr]
 <<timed 0.5s>>
   <<replace "#caption">>
     <p>Audio 2 captions</p>
@@ -296,10 +347,10 @@ $source
     <</replace>>
 <</timed>>
 
-:: audio3
-<source autoplay src="/assets/sound/DJIntro.mp3">
+:: audio3 [nobr]
+<source  src="/assets/sound/DJIntro.mp3">
 
-:: audio3cap
+:: audio3cap [nobr]
 <<timed 0.5s>>
   <<replace "#caption">>
     <p>Audio 3 captions</p>
@@ -316,7 +367,7 @@ $source
     <</replace>>
 <</timed>>
 
-:: audio4cap
+:: audio4cap [nobr]
 <<timed 0.5s>>
   <<replace "#caption">>
     <p>Audio 4 captions</p>
@@ -335,12 +386,11 @@ $source
 
 
 
-:: audiolist
 
 
 
 
-:: welldone
+:: welldone [nobr]
 <<set $prevpass to "game-intro">>
 <<set $passage to "welldone">>
 
@@ -360,17 +410,38 @@ You can now enter our online memorial to hear the stories and truths of others.
 
 
 
-:: closing
+:: closing [nobr]
 
 <main>
  <div class="main-container">
 
 <p>Thank you for visiting the 188.4 FM experience. </p>
 
-<p>If you enjoyed it, and think someone you know would enjoy it too, or learn something they didn’t know, then please click on send a postcard. </p>
+<p>If you enjoyed it, and think someone you know would enjoy it too, or learn something they didn’t know, then please click on send a  <<button "Postcard">><<goto "postcard">><</button>> </p>
 
-<p>Or if you want to keep in touch with Coney, and find out more about our next projects, click on the link below to sign up for our newsletter or follow us on social media.</p>
+<p>Or if you want to keep in touch with Coney, and find out more about our next projects, please sign up for our   <a href="https://coneyhq.org/sign-up-to-our-mailing-list/" target="_blank"><button>Newsletter</button></a> or follow us on social media.</p>
 
   </div>
-    <<button "Back to Start">><<goto "intro">><</button>>
+  <div class="icon-container socials"> 
+  <a href="https://www.instagram.com/agencyofconey/" target="_blank">
+    <img src="/assets/img/socials/insta.png" alt="instagram icon"></a>
+ <a href="https://www.facebook.com/coneyhq/" target="_blank">
+    <img src="/assets/img/socials/facebook.png" alt="facebook logo"/></a>
+  <a href="https://twitter.com/agencyofconey" alt="twitter logo" target="_blank">
+    <img src="/assets/img/socials/twitter.png"/></a>
+  </div>
+
 </main>
+<<include "footerend">>
+
+
+:: transcripts
+TBC
+
+<<include "footer">>
+
+
+:: postcard
+
+TBC
+<<include "footer">>

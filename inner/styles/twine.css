@@ -50,13 +50,7 @@ body {
   font-family: var(--font-body);
   overflow: scroll;
   background: var(--main-bg-color);
-  /* background: linear-gradient(
-    -27deg,
-    var(--main-bg-color) 0%,
-    var(--color-orange) 85%,
-    var(--color-yellow) 100%
-  ); */
-  /* padding: 1.5rem */
+
   display: flex;
   flex-direction: column;
 }
@@ -89,7 +83,20 @@ header {
 main {
   padding: var(--padding);
   min-height: 80vh;
-  margin-block-end: 10rem !important;
+  margin-block-end: 8rem;
+}
+
+.dj > p,
+p.dj {
+  font-style: italic;
+}
+
+.dj > p > span.emph {
+  font-family: var(--font-placard);
+  color: black;
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  font-style: normal;
 }
 
 /* inline button  */
@@ -113,6 +120,13 @@ nav {
   justify-content: space-between;
 }
 
+.nav-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2.5rem;
+}
+
 .nav-wrapper {
   display: flex;
   flex-direction: column;
@@ -128,6 +142,18 @@ nav {
   margin-block-end: 1rem;
 }
 
+.nav-item.alone {
+  margin-block-end: 0;
+}
+
+.nav-item.final {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: end;
+  align-items: end;
+}
+
 .nav-item > a > img {
   width: 25px;
 }
@@ -136,8 +162,9 @@ nav {
   margin-block-end: 0;
 }
 
-.nav-item > button {
-  font-size: 1.2rem;
+.nav-item > button,
+.nav-item > a > button {
+  font-size: 1.4rem;
 }
 
 .hide {
@@ -160,6 +187,12 @@ nav {
 
 textarea {
   min-width: 60vw;
+}
+
+@media screen and (max-width: 700px) {
+  .nav-item {
+    margin-block-end: 0;
+  }
 }
 
 .spinning {
@@ -233,11 +266,16 @@ textarea {
 
 /* BACKPACK  */
 
+main.backpack {
+  max-width: inherit;
+}
+
 main.backpack > .main-container {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: var(--padding-mob);
 }
 .backpack-container {
   display: flex;
@@ -329,13 +367,37 @@ span.todo {
   background-color: rgb(255, 85, 0);
 }
 
-@media screen and (max-width: 700px) {
-  .backpack-container {
+@media screen and (max-width: 450px) {
+  main.backpack {
+    padding: 0;
+  }
+  .main-container.backpack {
+    display: flex;
     flex-direction: column;
+  }
+  .backpack-container {
+    max-width: 100%;
+  }
+  .backpack-container > .backpack-item {
+    max-width: 50%;
   }
 }
 
 /* GAME 1 QUIZ  */
+
+header.quiz {
+  display: flex;
+  justify-content: end;
+  position: sticky;
+  min-height: 10rem;
+}
+header.quiz > #answerMount > h2 {
+  font-size: 7rem;
+}
+
+main.quiz {
+  justify-content: flex-start;
+}
 
 .answerBtn-container {
   display: flex;
@@ -353,11 +415,36 @@ span.todo {
 }
 
 /* GAME 2 WORDSEARCH  */
+main.wordsearch {
+  margin: auto;
+}
 .main-container.wordsearch {
   display: flex;
   align-items: center;
   justify-content: space-around;
   width: 100%;
+}
+
+.result-wrapper {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.result-wrapper > h3 {
+  color: var(--color-offwhite);
+}
+
+.result-wrapper > .code-input > input {
+  border-radius: 1rem;
+  padding: 1rem;
+  font-size: 2.5rem;
+  font-family: var(--font-headings);
+  background: var(--color-brown);
+  color: white;
+  text-transform: uppercase;
+  width: fit-content;
+  min-width: 10rem;
 }
 
 /* Style for the word search container */
@@ -377,7 +464,8 @@ span.todo {
   width: 30px;
   height: 30px;
   text-align: center;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  font-family: var(--font-headings);
   color: black;
 }
 
@@ -395,7 +483,21 @@ span.todo {
   padding: 0.5rem 1.5rem;
 }
 
-/* GAME 3  */
+@media screen and (max-width: 450px) {
+  .main-container.wordsearch {
+    flex-direction: column;
+  }
+  .result-wrapper > .code-input > input {
+    border-radius: 1rem;
+    padding: 0.8rem;
+    font-size: 2rem;
+  }
+  .main-container.wordsearch {
+    margin-block-end: 17rem;
+  }
+}
+
+/* GAME 3 - MULTI CHOICE */
 
 .question-container {
   margin-block-end: 2rem;
@@ -407,7 +509,8 @@ span.todo {
 
 .answers-container > button {
   background-color: transparent;
-  border: solid var(--accent-color-primary) 1px;
+  border: solid var(--color-offwhite) 1px;
+  padding: 6px;
 }
 
 .answers-container > button:hover {
@@ -415,20 +518,216 @@ span.todo {
   border: solid var(--accent-color-primary) 1px;
 }
 
-/* PLACARD */
-
-.placard-container {
-  display: flex;
-  flex-direction: column;
-  background-color: var(--color-offwhite);
-  border-radius: 1rem;
-  padding: 2rem;
+.answers-container > p,
+.answers-container > span {
+  font-weight: 700;
 }
 
-.placard-container > span {
-  text-transform: uppercase;
-  font-family: "Single Day", sans-serif;
-  color: black;
-  font-size: 4rem;
+#countdown {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#countdown > .secs {
+  font-family: var(--font-headings);
+  font-size: 7rem;
+  line-height: 5rem;
+}
+
+#countdown > .extra {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.3rem;
+}
+
+/* PLACARD */
+
+main.placard {
+  margin: auto;
+}
+
+.main-container.placardPrep.text {
+  display: flex;
+  width: 80%;
+  gap: 2rem;
+}
+
+.placardPrep > h3 {
   text-align: center;
+}
+
+.main-container.placardPrep.text > #textMount {
+  width: 60%;
+}
+
+.main-container.placardPrep.text > #textMount > p.word-choices > a {
+  color: black;
+  font-style: italic;
+  font-size: 1.6rem;
+  font-style: 900;
+}
+
+main.placard-main {
+  max-width: inherit;
+}
+
+.people-container {
+  background-image: url("/assets/img/Placardbackground-26low.jpg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.placard-container,
+#wordsMount {
+  background-color: var(--color-offwhite);
+  background-image: url("/assets/img/placardtexture-24low.jpg");
+  background-size: cover;
+  border: 3px solid black;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  padding: 2rem;
+  transform: skewY(1deg);
+  width: fit-content;
+  transform: translateY(-6rem);
+}
+
+#wordsMount {
+  transform: inherit;
+  border: 2px solid black;
+  min-width: 20rem;
+  min-height: 10rem;
+}
+
+.placard-container > span,
+#wordsMount > a {
+  text-transform: uppercase;
+  font-family: var(--font-placard);
+  color: black;
+  font-size: 6rem;
+  text-align: center;
+  line-height: 6rem;
+  letter-spacing: 0.2rem;
+  font-weight: 600;
+}
+
+#wordsMount > a {
+  font-size: 4rem;
+}
+
+@media screen and (max-width: 450px) {
+  .main-container.placardPrep.text {
+    flex-direction: column-reverse;
+    margin-block-end: 10rem;
+  }
+
+  .main-container.placardPrep.text {
+    width: 100%;
+  }
+
+  .main-container.placardPrep.text > #textMount {
+    width: 100%;
+  }
+  #wordsMount {
+    margin: auto;
+  }
+
+  .placard-container > span {
+    font-size: 4rem;
+    line-height: 4rem;
+  }
+}
+
+/* LOADING  */
+main.loading {
+  max-width: inherit;
+  background-image: url("/assets/img/soundwaveLAND.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+}
+
+h3.loading {
+  font-family: var(--font-placard);
+  color: white;
+  font-size: 5rem;
+  transform: rotate(-10deg);
+}
+
+@media screen and (max-width: 450px) {
+  main.loading {
+    height: 100vh;
+  }
+
+  h3.loading {
+    font-family: var(--font-placard);
+    color: white;
+    font-size: 3rem;
+    transform: rotate(-10deg);
+  }
+}
+
+/* LISTEN  */
+
+header.listen {
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: var(--padding);
+}
+
+main.listen {
+  max-width: inherit;
+  background-image: url("/assets/img/soundwaveLAND.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: inherit;
+  margin-block-end: inherit;
+}
+
+main.listen > #caption {
+  z-index: 9999;
+  color: #ffff;
+  background: var(--color-offwhite);
+  padding: 1rem;
+  margin: 0;
+  border-radius: 1rem;
+  transform: rotate(-2deg);
+}
+
+main.listen > #caption > p {
+  margin: 0;
+  color: black;
+}
+.icon-container.activeIcon > a,
+.nav-item.activeIcon > a {
+  background-color: var(--accent-color-secondary);
+}
+
+.hide {
+  display: none;
+  opacity: 0;
+}
+
+@media screen and (max-width: 450px) {
+  header.listen {
+    padding: var(--padding-mob);
+  }
+
+  main.listen {
+    display: flex;
+  }
+  main.listen > #caption > p {
+    font-size: 1.6rem;
+  }
 }
