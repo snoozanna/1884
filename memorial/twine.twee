@@ -118,7 +118,7 @@ setup.backTen = () => {
   <</if>>
   <div class="nav-wrapper">
     <div class="nav-item">
-    <<button "Start">><<goto "landing">><</button>>
+    <<button "Start">><<goto "Start">><</button>>
     </div>
   </div>
 
