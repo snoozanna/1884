@@ -100,7 +100,7 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 	</div>
 	<!-- UUID://439AD399-857A-40D7-AD21-B078C527B81F// --><tw-storydata name="1884 Twine Memorial" startnode="6" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="439AD399-857A-40D7-AD21-B078C527B81F" zoom="0.6" format="SugarCube" format-version="2.36.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url("/styles/generics.css");
 @import url("/styles/main.css");
-@import url("/inner/styles/twine.css");</style><script role="script" id="twine-user-script" type="text/twine-javascript">$('#ui-bar').remove();
+@import url("/games/styles/twine.css");</style><script role="script" id="twine-user-script" type="text/twine-javascript">$('#ui-bar').remove();
 $(document.head).find('#style-ui-bar').remove();
 
 
@@ -223,33 +223,97 @@ setup.backTen = () => {
 &lt;&lt;set $nextpass to &quot;listen&quot;&gt;&gt;
 &lt;&lt;set $captions to false&gt;&gt;
 &lt;&lt;set $sound to true&gt;&gt;
-&lt;&lt;set $audiooptions to [&quot;audio1&quot;, &quot;audio2&quot;, &quot;audio3&quot;, &quot;audio4&quot;]&gt;&gt;
-  &lt;&lt;set $source to $audiooptions[random(0, $audiooptions.length - 1)]&gt;&gt;
-&lt;main&gt;
+&lt;&lt;set $showMenu to true&gt;&gt;
+&lt;&lt;set $menuOpen to false&gt;&gt;
+
+
+  &lt;&lt;include &quot;headermenu&quot;&gt;&gt;
+&lt;main id=&quot;main&quot;&gt;
  &lt;div class=&quot;main-container text&quot;&gt;
-   &lt;h1&gt;Listen&lt;/h1&gt;
+   &lt;h1&gt;Memorial&lt;/h1&gt;
     &lt;p&gt;
       You can  &lt;&lt;button &quot;Listen&quot;&gt;&gt;&lt;&lt;goto &quot;listen&quot;&gt;&gt;&lt;&lt;/button&gt;&gt; to a selection of reflections of people that visited the memorial before you. They are playing in random order. If you want to play the next one, press the  &lt;&lt;button &quot;Next&quot;&gt;&gt;&lt;&lt;goto &quot;listen&quot;&gt;&gt;&lt;&lt;/button&gt;&gt; button.
       
     &lt;/p&gt;
-    &lt;p&gt;If you want to make another contribution to the memorial, press &lt;a href=&quot;../../memorial/record.html&quot;&gt;&lt;button&gt;Record&lt;/button&gt;&lt;/a&gt; . &lt;/p&gt;
+    &lt;p&gt;If you want to make another contribution to the memorial, press &lt;a href=&quot;../../memorial/prerecord.html&quot;&gt;&lt;button&gt;Record&lt;/button&gt;&lt;/a&gt; . &lt;/p&gt;
 
-    &lt;p&gt;There is also the option to &lt;&lt;button &quot;Read&quot;&gt;&gt;&lt;&lt;goto &quot;transcripts&quot;&gt;&gt;&lt;&lt;/button&gt;&gt; some written memories.&lt;/p&gt;
+    &lt;p&gt;There is also the option to &lt;&lt;button &quot;Read&quot;&gt;&gt;&lt;&lt;goto &quot;read&quot;&gt;&gt;&lt;&lt;/button&gt;&gt; some written memories.&lt;/p&gt;
       &lt;&lt;button &quot;Start now&quot;&gt;&gt;
        
 
       &lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
     &lt;/div&gt;
 
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="7" name="listen" tags="nobr t8n.typewriter.4" position="850,100" size="100,100">&lt;&lt;set $showCaptionsIcon to true&gt;&gt;
+&lt;/main&gt;
+&lt;footer&gt;&lt;/footer&gt;</tw-passagedata><tw-passagedata pid="7" name="menu" tags="nobr t8n" position="850,100" size="100,100">&lt;&lt;set $showLogo to true&gt;&gt;
+ &lt;&lt;set $menuOpen to true&gt;&gt;
+
+&lt;div id=&quot;menu&quot;&gt;
+&lt;div class=&quot;nav-wrapper menu-header&quot;&gt;
+    &lt;div class=&quot;nav-item&quot;&gt;
+        &lt;&lt;link [img[./../assets/img/crossRed.png]]&gt;&gt;
+          &lt;&lt;if $menuOpen is false &gt;&gt;
+
+            &lt;&lt;set $menuOpen to true&gt;&gt;
+            &lt;&lt;append &quot;#main&quot;&gt;&gt;
+               &lt;&lt;include &quot;menu&quot;&gt;&gt;
+              &lt;&lt;/append&gt;&gt;
+           
+          &lt;&lt;elseif $menuOpen is true&gt;&gt;
+             &lt;&lt;set $menuOpen to false&gt;&gt;
+               &lt;&lt;remove &quot;#menu&quot;&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+            
+          &lt;&lt;/link&gt;&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;h2 class=&quot;menu-title&quot;&gt; MENU &lt;/h2&gt; 
+&lt;h3 class=&quot;menu-item&quot;&gt;&lt;a href=&quot;../../games/index.html&quot;&gt;Games&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 class=&quot;menu-item&quot;&gt;&lt;&lt;link &quot;Memorial&quot;&gt;&gt;
+      &lt;&lt;goto &quot;Start&quot;&gt;&gt;
+    &lt;&lt;/link&gt;&gt;&lt;/h3&gt;
+&lt;h3 class=&quot;menu-item&quot;&gt;&lt;a href=&quot;../../history/index.html&quot;&gt;History&lt;/a&gt;&lt;/h3&gt;
+  &lt;br/&gt;
+  &lt;br/&gt;
+&lt;&lt;button &quot;Close Menu&quot;&gt;&gt;
+ &lt;&lt;set $menuOpen to false&gt;&gt;
+&lt;&lt;remove &quot;#menu&quot;&gt;&gt;
+&lt;&lt;/button&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="8" name="headermenu" tags="nobr" position="975,100" size="100,100">&lt;header class=&quot;general menu&quot; &gt;
+&lt;&lt;if $showMenu is true&gt;&gt;
+  &lt;div class=&quot;nav-wrapper&quot;&gt;
+    &lt;div class=&quot;nav-item&quot;&gt;
+        &lt;&lt;link [img[./../assets/img/menu.png]]&gt;&gt;
+          &lt;&lt;if $menuOpen is false &gt;&gt;
+
+            &lt;&lt;set $menuOpen to true&gt;&gt;
+            &lt;&lt;append &quot;#main&quot;&gt;&gt;
+               &lt;&lt;include &quot;menu&quot;&gt;&gt;
+              &lt;&lt;/append&gt;&gt;
+           
+          &lt;&lt;elseif $menuOpen is true&gt;&gt;
+             &lt;&lt;set $menuOpen to false&gt;&gt;
+               &lt;&lt;remove &quot;#menu&quot;&gt;&gt;
+          &lt;&lt;/if&gt;&gt;
+            
+          &lt;&lt;/link&gt;&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;&lt;/if&gt;&gt;
+&lt;/header&gt;</tw-passagedata><tw-passagedata pid="9" name="listen" tags="nobr t8n.typewriter.4" position="1100,100" size="100,100">&lt;&lt;set $showCaptionsIcon to true&gt;&gt;
 &lt;&lt;set $showAudioIcon to true&gt;&gt;
 &lt;&lt;set $showBackwards to true&gt;&gt;
-&lt;&lt;set $prevpass to &quot;start&quot;&gt;&gt;
+&lt;&lt;set $showMenu to false&gt;&gt;
+&lt;&lt;set $menuOpen to false&gt;&gt;
+&lt;&lt;set $prevpass to &quot;Start&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;listen&quot;&gt;&gt;
+&lt;&lt;set $audiooptions to [&quot;audio1&quot;, &quot;audio2&quot;, &quot;audio3&quot;, &quot;audio4&quot;]&gt;&gt;
 
 &lt;&lt;include &quot;headerlisten&quot;&gt;&gt;
 
-&lt;main class=&quot;main-section listen &quot;&gt;
+&lt;main class=&quot;main-section listen &quot; id=&quot;main&quot;&gt;
 &lt;audio id=&quot;audio&quot; autoplay&gt;
 &lt;&lt;if $sound is true&gt;&gt;
   &lt;&lt;include $source&gt;&gt;
@@ -262,17 +326,17 @@ setup.backTen = () => {
 &lt;&lt;/if&gt;&gt;
 
 &lt;/main&gt;
-&lt;&lt;include &quot;footerlisten&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="findcap" tags="" position="975,100" size="100,100">&lt;&lt;if $source is &quot;audio1&quot; &gt;&gt;
+&lt;&lt;include &quot;footerlisten&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="findcap" tags="" position="1225,100" size="100,100">&lt;&lt;if $source is &quot;audio1&quot; &gt;&gt;
   &lt;&lt;include &quot;audio1cap&quot;&gt;&gt;
   &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $source is &quot;audio2&quot; &gt;&gt;
   &lt;&lt;include &quot;audio2cap&quot;&gt;&gt;
-  &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="9" name="footerlisten" tags="nobr" position="1100,100" size="100,100">&lt;footer&gt;
+  &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="footerlisten" tags="nobr" position="100,225" size="100,100">&lt;footer&gt;
 &lt;div class=&quot;nav-container&quot;&gt;
   &lt;&lt;if $showBackwards is true&gt;&gt;
     &lt;div class=&quot;nav-wrapper&quot;&gt;
       &lt;div class=&quot;nav-item&quot;&gt;
-          [img[Back|/assets/img/back.png][$prevpass]]
+          [img[Back|/assets/img/back.png][Start]]
       &lt;/div&gt;
     &lt;/div&gt;
     &lt;&lt;/if&gt;&gt;
@@ -319,13 +383,17 @@ setup.backTen = () => {
   &lt;&lt;/if&gt;&gt; 
 &lt;/div&gt;
 &lt;div class=&quot;nav-item alone&quot;&gt;
-&lt;a href=&quot;../../memorial/accept.html&quot;&gt;&lt;button&gt;Record&lt;/button&gt;&lt;/a&gt;
+&lt;a href=&quot;../../memorial/prerecord.html&quot;&gt;&lt;button&gt;Record&lt;/button&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class=&quot;nav-item alone&quot;&gt;
+ &lt;&lt;button &quot;Read&quot;&gt;&gt; 
+            &lt;&lt;goto &quot;read&quot;&gt;&gt;
+        &lt;&lt;/button&gt;&gt;
+
 &lt;/div&gt;
 &lt;div class=&quot;nav-item final&quot;&gt;
 
-  &lt;&lt;button &quot;Leave&quot;&gt;&gt;
-  &lt;&lt;goto &quot;closing&quot;&gt;&gt;
-  &lt;&lt;/button&gt;&gt;
+  &lt;a href=&quot;../../thanks.html&quot;&gt;&lt;button&gt;Leave&lt;/button&gt;&lt;/a&gt;
  
 &lt;/div&gt;
 
@@ -338,7 +406,41 @@ setup.backTen = () => {
   &lt;&lt;if $sound is true&gt;&gt;
    /* &lt;&lt;addclass &quot;#audioContainer&quot; &quot;activeIcon&quot;&gt;&gt; */
   &lt;&lt;/if&gt;&gt;
-&lt;&lt;/done&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="audio1" tags="" position="1225,100" size="100,100">&lt;source  src=&quot;https://withfireandrageliverpool.com/audio/SC/spiritsv2.mp3&quot;&gt;</tw-passagedata><tw-passagedata pid="11" name="audio1cap" tags="nobr" position="100,225" size="100,100">&lt;&lt;timed 0.5s&gt;&gt;
+&lt;&lt;/done&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="footerread" tags="nobr" position="225,225" size="100,100">&lt;footer&gt;
+&lt;div class=&quot;nav-container&quot;&gt;
+  &lt;&lt;if $showBackwards is true&gt;&gt;
+    &lt;div class=&quot;nav-wrapper&quot;&gt;
+      &lt;div class=&quot;nav-item&quot;&gt;
+          [img[Back|/assets/img/back.png][Start]]
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;&lt;/if&gt;&gt;
+&lt;/div&gt;
+&lt;div class=&quot;nav-item alone &quot;&gt;
+ &lt;&lt;button &quot;Listen&quot;&gt;&gt; 
+            &lt;&lt;goto &quot;listen&quot;&gt;&gt;
+        &lt;&lt;/button&gt;&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;nav-item alone&quot;&gt;
+&lt;a href=&quot;../../memorial/prerecord.html&quot;&gt;&lt;button&gt;Record&lt;/button&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class=&quot;nav-item final&quot;&gt;
+
+  &lt;a href=&quot;../../thanks.html&quot;&gt;&lt;button&gt;Leave&lt;/button&gt;&lt;/a&gt;
+ 
+&lt;/div&gt;
+
+&lt;/footer&gt;
+
+&lt;&lt;done&gt;&gt;
+  &lt;&lt;if $captions is true&gt;&gt;
+    &lt;&lt;addclass &quot;#capIconContainer&quot; &quot;activeIcon&quot;&gt;&gt;
+  &lt;&lt;/if&gt;&gt;
+  &lt;&lt;if $sound is true&gt;&gt;
+   /* &lt;&lt;addclass &quot;#audioContainer&quot; &quot;activeIcon&quot;&gt;&gt; */
+  &lt;&lt;/if&gt;&gt;
+&lt;&lt;/done&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="audio1" tags="" position="350,225" size="100,100">&lt;source  src=&quot;https://withfireandrageliverpool.com/audio/SC/spiritsv2.mp3&quot;&gt;</tw-passagedata><tw-passagedata pid="14" name="audio1cap" tags="nobr" position="475,225" size="100,100">&lt;&lt;timed 0.5s&gt;&gt;
   &lt;&lt;replace &quot;#caption&quot;&gt;&gt;
     &lt;p&gt;Audio 1 captions&lt;/p&gt;
     &lt;&lt;/replace&gt;&gt;
@@ -352,7 +454,7 @@ setup.backTen = () => {
   &lt;&lt;replace &quot;#caption&quot;&gt;&gt;
     &lt;p&gt;And more captions&lt;/p&gt;
     &lt;&lt;/replace&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="audio2" tags="nobr" position="225,225" size="100,100">&lt;source  src=&quot;/assets/sound/DJIntro.mp3&quot;&gt;</tw-passagedata><tw-passagedata pid="13" name="audio2cap" tags="nobr" position="350,225" size="100,100">&lt;&lt;timed 0.5s&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="15" name="audio2" tags="nobr" position="600,225" size="100,100">&lt;source  src=&quot;/assets/sound/DJIntro.mp3&quot;&gt;</tw-passagedata><tw-passagedata pid="16" name="audio2cap" tags="nobr" position="725,225" size="100,100">&lt;&lt;timed 0.5s&gt;&gt;
   &lt;&lt;replace &quot;#caption&quot;&gt;&gt;
     &lt;p&gt;Audio 2 captions&lt;/p&gt;
     &lt;&lt;/replace&gt;&gt;
@@ -366,7 +468,7 @@ setup.backTen = () => {
   &lt;&lt;replace &quot;#caption&quot;&gt;&gt;
     &lt;p&gt;And more captions&lt;/p&gt;
     &lt;&lt;/replace&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="audio3" tags="nobr" position="475,225" size="100,100">&lt;source  src=&quot;/assets/sound/DJIntro.mp3&quot;&gt;</tw-passagedata><tw-passagedata pid="15" name="audio3cap" tags="nobr" position="600,225" size="100,100">&lt;&lt;timed 0.5s&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="audio3" tags="nobr" position="850,225" size="100,100">&lt;source  src=&quot;/assets/sound/DJIntro.mp3&quot;&gt;</tw-passagedata><tw-passagedata pid="18" name="audio3cap" tags="nobr" position="975,225" size="100,100">&lt;&lt;timed 0.5s&gt;&gt;
   &lt;&lt;replace &quot;#caption&quot;&gt;&gt;
     &lt;p&gt;Audio 3 captions&lt;/p&gt;
     &lt;&lt;/replace&gt;&gt;
@@ -380,7 +482,7 @@ setup.backTen = () => {
   &lt;&lt;replace &quot;#caption&quot;&gt;&gt;
     &lt;p&gt;And more captions&lt;/p&gt;
     &lt;&lt;/replace&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="audio4cap" tags="nobr" position="725,225" size="100,100">&lt;&lt;timed 0.5s&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="audio4cap" tags="nobr" position="1100,225" size="100,100">&lt;&lt;timed 0.5s&gt;&gt;
   &lt;&lt;replace &quot;#caption&quot;&gt;&gt;
     &lt;p&gt;Audio 4 captions&lt;/p&gt;
     &lt;&lt;/replace&gt;&gt;
@@ -394,44 +496,49 @@ setup.backTen = () => {
   &lt;&lt;replace &quot;#caption&quot;&gt;&gt;
     &lt;p&gt;And more captions&lt;/p&gt;
     &lt;&lt;/replace&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="welldone" tags="nobr" position="850,225" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
-&lt;&lt;set $passage to &quot;welldone&quot;&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="headerread" tags="nobr" position="1225,225" size="100,100">&lt;header class=&quot;listen&quot; &gt;
+&lt;div class=&quot;logo-container&quot;&gt;&lt;/div&gt;
+ &lt;div class=&quot;nav-item&quot;&gt;
+    &lt;&lt;button &quot;Next memory&quot;&gt;&gt;
+     &lt;&lt;set $source to $readoptions[random(0, $readoptions.length - 1)]&gt;&gt;
+   &lt;&lt;goto $passage&gt;&gt;&lt;&lt;/button&gt;&gt; 
+ &lt;/div&gt;
+&lt;/header&gt;</tw-passagedata><tw-passagedata pid="21" name="read" tags="nobr t8n.typewriter.4" position="100,350" size="100,100">&lt;&lt;set $showCaptionsIcon to false&gt;&gt;
+&lt;&lt;set $showAudioIcon to false&gt;&gt;
+&lt;&lt;set $showBackwards to true&gt;&gt;
+&lt;&lt;set $showMenu to false&gt;&gt;
+&lt;&lt;set $menuOpen to false&gt;&gt;
+&lt;&lt;set $prevpass to &quot;Start&quot;&gt;&gt;
+&lt;&lt;set $passage to &quot;read&quot;&gt;&gt;
+&lt;&lt;set $readoptions to [&quot;read1&quot;, &quot;read2&quot;, &quot;read3&quot;, &quot;read4&quot;]&gt;&gt;
+  &lt;&lt;set $readsource to $readoptions[random(0, $readoptions.length - 1)]&gt;&gt;
 
-&lt;main&gt;
-&lt;h2&gt;This is a message from the resistance: &lt;/h2&gt;
- &lt;div class=&quot;main-container&quot;&gt;
-&lt;p&gt;Thank you for helping us to debunk the false histories, we are so grateful for your help. 
+&lt;&lt;include &quot;headerread&quot;&gt;&gt;
 
-You can now enter our online memorial to hear the stories and truths of others. 
-&lt;/p&gt;
+&lt;main class=&quot;main-section text &quot; id=&quot;main&quot;&gt;
 
-   &lt;a href=&quot;../../memorial.html&quot;&gt;&lt;button&gt;Take me to the 1884 memorial&lt;/button&gt;&lt;/a&gt;
+&lt;&lt;include $readsource&gt;&gt;
 
-    &lt;&lt;button &quot;Back to Start&quot;&gt;&gt;&lt;&lt;goto &quot;intro&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
-  &lt;/div&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="18" name="closing" tags="nobr" position="975,225" size="100,100">&lt;main&gt;
- &lt;div class=&quot;main-container&quot;&gt;
-
-&lt;p&gt;Thank you for visiting the 188.4 FM experience. &lt;/p&gt;
-
-&lt;p&gt;If you enjoyed it, and think someone you know would enjoy it too, or learn something they didn’t know, then please click on send a  &lt;&lt;button &quot;Postcard&quot;&gt;&gt;&lt;&lt;goto &quot;postcard&quot;&gt;&gt;&lt;&lt;/button&gt;&gt; &lt;/p&gt;
-
-&lt;p&gt;Or if you want to keep in touch with Coney, and find out more about our next projects, please sign up for our   &lt;a href=&quot;https://coneyhq.org/sign-up-to-our-mailing-list/&quot; target=&quot;_blank&quot;&gt;&lt;button&gt;Newsletter&lt;/button&gt;&lt;/a&gt; or follow us on social media.&lt;/p&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;icon-container socials&quot;&gt; 
-  &lt;a href=&quot;https://www.instagram.com/agencyofconey/&quot; target=&quot;_blank&quot;&gt;
-    &lt;img src=&quot;/assets/img/socials/insta.png&quot; alt=&quot;instagram icon&quot;&gt;&lt;/a&gt;
- &lt;a href=&quot;https://www.facebook.com/coneyhq/&quot; target=&quot;_blank&quot;&gt;
-    &lt;img src=&quot;/assets/img/socials/facebook.png&quot; alt=&quot;facebook logo&quot;/&gt;&lt;/a&gt;
-  &lt;a href=&quot;https://twitter.com/agencyofconey&quot; alt=&quot;twitter logo&quot; target=&quot;_blank&quot;&gt;
-    &lt;img src=&quot;/assets/img/socials/twitter.png&quot;/&gt;&lt;/a&gt;
-  &lt;/div&gt;
 
 &lt;/main&gt;
-&lt;&lt;include &quot;footerend&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="transcripts" tags="" position="1100,225" size="100,100">TBC
+&lt;&lt;include &quot;footerread&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="transcripts" tags="" position="225,350" size="100,100">&lt;&lt;goto &quot;read&quot;&gt;&gt;
 
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="postcard" tags="" position="1225,225" size="100,100">TBC
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="read1" tags="nobr" position="350,350" size="100,100">&lt;h3&gt;Title 1&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec mauris tincidunt, placerat diam ac, auctor odio. Suspendisse tristique bibendum neque, sed laoreet ex bibendum et. Nam ornare felis lobortis lobortis gravida. Nulla condimentum malesuada magna a vulputate. Aenean congue turpis quam. Aenean consequat neque consectetur dui laoreet, eget venenatis mauris laoreet. Donec sodales accumsan diam, vitae tristique ligula lobortis eu. Sed et pretium risus, sed placerat lectus. Nulla ex tortor, vehicula id risus at, molestie ullamcorper dui.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="24" name="read2" tags="nobr" position="475,350" size="100,100">&lt;h3&gt;Title 2&lt;/h3&gt;
+&lt;p&gt;Quisque pellentesque nec tellus sit amet tempor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas sapien ipsum, pulvinar eu nunc quis, cursus iaculis ante. Ut ut rutrum elit. Nulla faucibus accumsan congue. Suspendisse dictum ipsum vitae eros malesuada, nec pellentesque nibh dapibus. &lt;/p&gt;
+
+&lt;p&gt;Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis sem lacus, rutrum vitae commodo quis, faucibus ac tellus. Nunc vel faucibus tellus. Nam egestas lacinia diam, a elementum lacus ullamcorper non. Nulla facilisi. Aenean aliquet nisl non lectus elementum semper. Curabitur et sapien nibh. Integer metus odio, consectetur vel arcu nec, aliquet eleifend nulla. Fusce neque sapien, tristique vitae rhoncus id, tincidunt quis nisl. Nunc non erat mi.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="25" name="read3" tags="nobr" position="600,350" size="100,100">&lt;h3&gt;Title 3&lt;/h3&gt;
+&lt;p&gt;Fusce molestie euismod ligula, sed porttitor tellus viverra non. Donec sed nisl sapien. Proin congue orci sit amet nibh hendrerit, a sagittis velit facilisis. Praesent a placerat magna. In hac habitasse platea dictumst.&lt;/p&gt; 
+
+&lt;p&gt;Maecenas hendrerit lectus ante, at porta lectus accumsan eu. Praesent ornare commodo massa. Nulla dignissim a odio sed facilisis. Donec mollis vitae nunc egestas facilisis. Nulla vulputate nec est eget scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at lorem nec sem lacinia sagittis. Aenean interdum vestibulum augue, non volutpat nisl ultrices accumsan. Curabitur eu pulvinar turpis, nec porttitor eros. Vestibulum lobortis dolor vel tempor vestibulum. Curabitur in lobortis diam.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="26" name="read4" tags="nobr" position="725,350" size="100,100">&lt;h3&gt;Title 4&lt;/h3&gt;
+&lt;p&gt;Donec viverra sem nisl, eget aliquam nisl volutpat id. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras iaculis faucibus velit fringilla feugiat. Aenean mollis mattis vehicula. Proin ultricies semper purus, sed luctus odio ultrices ut. In feugiat faucibus odio, vitae tempus arcu luctus eget. &lt;/p&gt;
+
+&lt;p&gt;Curabitur dapibus tincidunt leo, quis placerat arcu pulvinar in. Vestibulum molestie massa quis tellus volutpat imperdiet. Donec pellentesque lacus eu rhoncus aliquam. Curabitur ut quam et purus porttitor facilisis et in tortor. Etiam posuere tempor tortor, id vulputate erat interdum cursus. Aenean egestas vehicula libero et dictum. Cras imperdiet porta pulvinar. Aenean efficitur ut ex vel elementum. Morbi vulputate, enim quis facilisis mattis, mi justo condimentum quam, et elementum sem sapien id dolor.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="27" name="read5" tags="nobr" position="850,350" size="100,100">&lt;h3&gt;Title 5&lt;/h3&gt;
+&lt;p&gt;Praesent eget quam non tellus accumsan facilisis. Vestibulum a felis lacinia, tincidunt orci a, sollicitudin erat. Aliquam erat volutpat. &lt;/p&gt;
+
+&lt;p&gt;Sed consequat ut quam sit amet fringilla. Praesent a lacinia lorem, ac faucibus turpis. Morbi congue aliquam metus. Vestibulum odio diam, volutpat quis vehicula in, mollis sit amet risus.&lt;/p&gt; 
+
+&lt;p&gt;Nam sit amet elit blandit, rutrum urna sed, viverra nulla. Ut ac sollicitudin mauris. Mauris viverra eget nisi in tristique. Vestibulum nec libero sagittis, finibus eros in, pharetra nunc. Duis nec posuere nisl, eu rhoncus nisl. Suspendisse non hendrerit libero. Proin scelerisque ultricies sem a volutpat. Integer ultricies egestas nisi vel sodales.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="28" name="postcard" tags="" position="975,350" size="100,100">TBC
 &lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
