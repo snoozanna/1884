@@ -46,30 +46,8 @@ a:hover {
 
 /* GENERAL STYLES */
 body {
-  font-size: 1.6rem;
-  font-family: var(--font-body);
-  overflow: scroll;
-  background: var(--main-bg-color);
-
-  display: flex;
-  flex-direction: column;
+  background: var(--twine-bg-color);
 }
-
-h1,
-h2,
-h3,
-h4 {
-  font-family: var(--font-headings);
-  margin-block-end: 0;
-}
-
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: var(--padding);
-}
-
 .header-item > h1 {
   font-size: 2rem;
 }
@@ -80,12 +58,6 @@ header {
   font-family: var(--font-body);
 }
 
-main {
-  padding: var(--padding);
-  min-height: 80vh;
-  margin-block-end: 8rem;
-}
-
 .dj > p,
 p.dj {
   font-style: italic;
@@ -93,9 +65,9 @@ p.dj {
 
 .dj > p > span.emph {
   font-family: var(--font-placard);
-  color: black;
+  color: var(--color-pink);
   text-transform: uppercase;
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   font-style: normal;
 }
 
@@ -277,6 +249,10 @@ main.backpack > .main-container {
   align-items: center;
   padding: var(--padding-mob);
 }
+.main-container > .text-container {
+  display: flex;
+  flex-direction: column;
+}
 .backpack-container {
   display: flex;
   /* flex-direction: column; */
@@ -440,8 +416,8 @@ main.wordsearch {
   padding: 1rem;
   font-size: 2.5rem;
   font-family: var(--font-headings);
-  background: var(--color-brown);
-  color: white;
+  background: var(--color-peach);
+  color: black;
   text-transform: uppercase;
   width: fit-content;
   min-width: 10rem;
@@ -505,12 +481,15 @@ main.wordsearch {
 
 .question-container > h3 {
   color: var(--color-pink);
+  font-size: 3rem;
 }
 
 .answers-container > button {
   background-color: transparent;
   border: solid var(--color-offwhite) 1px;
   padding: 6px;
+  color: var(--color-offwhite);
+  margin-block-end: 1rem;
 }
 
 .answers-container > button:hover {
@@ -551,7 +530,7 @@ main.placard {
 .main-container.placardPrep.text {
   display: flex;
   width: 80%;
-  gap: 2rem;
+  gap: 4rem;
 }
 
 .placardPrep > h3 {
@@ -563,10 +542,10 @@ main.placard {
 }
 
 .main-container.placardPrep.text > #textMount > p.word-choices > a {
-  color: black;
+  color: var(--color-yellow);
   font-style: italic;
-  font-size: 1.6rem;
-  font-style: 900;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 main.placard-main {
@@ -625,8 +604,9 @@ main.placard-main {
 
 @media screen and (max-width: 450px) {
   .main-container.placardPrep.text {
-    flex-direction: column-reverse;
+    flex-direction: column;
     margin-block-end: 10rem;
+    gap: 2rem;
   }
 
   .main-container.placardPrep.text {
@@ -653,7 +633,7 @@ main.loading {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
+  height: 100vh;
   display: flex;
 }
 
@@ -661,7 +641,6 @@ h3.loading {
   font-family: var(--font-placard);
   color: white;
   font-size: 5rem;
-  transform: rotate(-10deg);
 }
 
 @media screen and (max-width: 450px) {
@@ -670,11 +649,18 @@ h3.loading {
   }
 
   h3.loading {
-    font-family: var(--font-placard);
-    color: white;
     font-size: 3rem;
-    transform: rotate(-10deg);
   }
+}
+
+/* BROADCAST  */
+
+h3.loading.broadcast {
+  font-size: 6rem;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--main-bg-color);
+  line-height: 7rem;
 }
 
 /* LISTEN  */
@@ -683,6 +669,7 @@ header.listen {
   justify-content: space-between;
   align-items: flex-start;
   padding: var(--padding);
+  background: var(--color-peach2);
 }
 
 main.listen {
