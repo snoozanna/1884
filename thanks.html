@@ -25,9 +25,10 @@
 
 
   <!-- tp scripts -->
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
 
   <!-- our scripts -->
+  <script src="../scripts/main.js"></script>
 
 
 
@@ -43,15 +44,15 @@
     <div class="dropdown" id="menu">
       <button class="btn btn-secondary dropdown-toggle logo-container" type="button" id="dropdownMenu2"
         data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="/assets/img/menu.png">
+        <img src="assets/img/menu.png">
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
         <h2 class="menu-title"> MENU </h2>
         <h3 class="menu-item">
-          <a href="/games/index.html">Games</a>
+          <a href="games/index.html">Games</a>
         </h3>
-        <h3 class="menu-item"><a href="/memorial/accept.html">Memorial</a></h3>
-        <h3 class="menu-item"><a href="../../history/index.html">History</a></h3>
+        <h3 class="menu-item"><a href="memorial/accept.html">Memorial</a></h3>
+        <h3 class="menu-item"><a href="history/index.html">History</a></h3>
         <a href=""><button>Close Menu</button></a>
         </section>
       </ul>
@@ -60,27 +61,25 @@
   <main class="" id="landing">
     <div class="main-container text">
       <h1>Thank you</h1>
+      <br />
+      <p class="hidden" id="paragraph1">Thank you for visiting the 188.4FM experience. </p>
 
-      <p>Thank you for visiting the 188.4FM experience. </p>
-
-      <p>If you enjoyed it, and think someone you know would enjoy it too, or learn something they didn’t know, then
-        please click on send a <a href="./postcard.html"><button>Postcard</button></a> </p>
-      <p>And if you want to find out more about the making of the show behind 1884, click <a
-          href="./making.html"><button>here</button></a> </p>
+      <p class="hidden" id="paragraph2">If you want to find out more about the making of the show behind 1884, click <a
+          href="making.html"><button>here</button></a> </p>
 
 
-      <p>Or if you want to keep in touch with Coney, and find out more about our next projects, please sign up for our
+      <p class="hidden" id="paragraph3">If you want to find out more about next Coney projects, please sign up for our
         <a href="https://coneyhq.org/sign-up-to-our-mailing-list/" target="_blank"><button>Newsletter</button></a> or
         follow us on social media.
       </p>
-      <br /><br />
-      <div class="icon-container socials">
+      <br />
+      <div id="paragraph4" class="icon-container socials hidden">
         <a href="https://www.instagram.com/agencyofconey/" target="_blank">
-          <img src="/assets/img/socials/insta.png" alt="instagram icon"></a>
+          <img src="assets/img/socials/insta.png" alt="instagram icon"></a>
         <a href="https://www.facebook.com/coneyhq/" target="_blank">
-          <img src="/assets/img/socials/facebook.png" alt="facebook logo" /></a>
+          <img src="assets/img/socials/facebook.png" alt="facebook logo" /></a>
         <a href="https://twitter.com/agencyofconey" alt="twitter logo" target="_blank">
-          <img src="/assets/img/socials/twitter.png" /></a>
+          <img src="assets/img/socials/twitter.png" /></a>
       </div>
     </div>
 
@@ -96,7 +95,7 @@
     </div>
     <div></div>
   </footer>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
     crossorigin="anonymous"></script>

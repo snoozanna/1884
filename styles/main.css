@@ -479,7 +479,7 @@ button#dropdownMenu2:hover {
     z-index: 999999;
   }
   .dropdown-toggle > img {
-    max-width: 40px;
+    max-width: 25px;
   }
 }
 

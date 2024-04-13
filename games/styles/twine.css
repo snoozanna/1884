@@ -343,6 +343,10 @@ span.todo {
   background-color: rgb(255, 85, 0);
 }
 
+.game-menu-mem {
+  margin-block-start: 2rem;
+}
+
 @media screen and (max-width: 450px) {
   main.backpack {
     padding: 0;
@@ -553,12 +557,12 @@ main.placard-main {
 }
 
 .people-container {
-  background-image: url("/assets/img/placardnoback-25.png");
+  background-image: url("../../assets/img/placardnoback-25.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
   width: 100%;
-  min-height: 80vh;
+  min-height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -567,7 +571,7 @@ main.placard-main {
 .placard-container,
 #wordsMount {
   background-color: var(--color-offwhite);
-  background-image: url("/assets/img/placardtexture-24low.jpg");
+  background-image: url("../../assets/img/placardtexture-24low.jpg");
   background-size: cover;
   border: 3px solid black;
   display: flex;
@@ -629,7 +633,7 @@ main.placard-main {
 /* LOADING  */
 main.loading {
   max-width: inherit;
-  background-image: url("/assets/img/soundwaveLAND.gif");
+  background-image: url("../../assets/img/soundwaveLAND.gif");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -674,7 +678,7 @@ header.listen {
 
 main.listen {
   max-width: inherit;
-  background-image: url("/assets/img/soundwaveLAND.gif");
+  background-image: url("../../assets/img/soundwaveLAND.gif");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

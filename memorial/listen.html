@@ -98,9 +98,9 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<!-- UUID://439AD399-857A-40D7-AD21-B078C527B81F// --><tw-storydata name="1884 Twine Memorial" startnode="6" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="439AD399-857A-40D7-AD21-B078C527B81F" zoom="0.6" format="SugarCube" format-version="2.36.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url("/styles/generics.css");
-@import url("/styles/main.css");
-@import url("/games/styles/twine.css");</style><script role="script" id="twine-user-script" type="text/twine-javascript">$('#ui-bar').remove();
+	<!-- UUID://439AD399-857A-40D7-AD21-B078C527B81F// --><tw-storydata name="1884 Twine Memorial" startnode="6" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="439AD399-857A-40D7-AD21-B078C527B81F" zoom="0.6" format="SugarCube" format-version="2.36.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url("../styles/generics.css");
+@import url("../styles/main.css");
+@import url("../games/styles/twine.css");</style><script role="script" id="twine-user-script" type="text/twine-javascript">$('#ui-bar').remove();
 $(document.head).find('#style-ui-bar').remove();
 
 
@@ -170,7 +170,7 @@ setup.backTen = () => {
   const timeHolder = audio.currentTime;
   audio.currentTime = timeHolder -10;
   }</script><tw-passagedata pid="1" name="StoryInit" tags="" position="100,100" size="100,100"></tw-passagedata><tw-passagedata pid="2" name="headerlisten" tags="nobr" position="225,100" size="100,100">&lt;header class=&quot;listen&quot; &gt;
-&lt;div class=&quot;logo-container&quot;&gt;&lt;img src=&quot;/assets/img/1884components-23.png&quot;/&gt;&lt;/div&gt;
+&lt;div class=&quot;logo-container&quot;&gt;&lt;img src=&quot;../assets/img/1884components-23.png&quot;/&gt;&lt;/div&gt;
  &lt;div class=&quot;nav-item&quot;&gt;
     &lt;&lt;button &quot;Next memory&quot;&gt;&gt;
      &lt;&lt;set $source to $audiooptions[random(0, $audiooptions.length - 1)]&gt;&gt;
@@ -180,7 +180,7 @@ setup.backTen = () => {
 &lt;&lt;if $showBackwards is true&gt;&gt;
   &lt;div class=&quot;nav-wrapper&quot;&gt;
     &lt;div class=&quot;nav-item&quot;&gt;
-        [img[Back|/assets/img/back.png][$prevpass]]
+        [img[Back|../assets/img/back.png][$prevpass]]
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;&lt;/if&gt;&gt;
@@ -200,20 +200,20 @@ setup.backTen = () => {
   &lt;/div&gt;
   &lt;div class=&quot;nav-wrapper&quot;&gt;
     &lt;div class=&quot;nav-item&quot;&gt;
-      &lt;a href=&quot;../../index.html&quot;&gt;&lt;button&gt;Back to the start&lt;/button&gt;&lt;/a&gt;
+      &lt;a href=&quot;../index.html&quot;&gt;&lt;button&gt;Back to the start&lt;/button&gt;&lt;/a&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 
 
 &lt;/footer&gt;</tw-passagedata><tw-passagedata pid="5" name="soundonoff" tags="nobr" position="600,100" size="100,100">&lt;div class=&quot;icon-container&quot;&gt; 
   &lt;&lt;if $sound is true&gt;&gt;
-    &lt;&lt;link [img[&quot;./../assets/img/audio.png&quot; ]]&gt;&gt; 
+    &lt;&lt;link [img[&quot;../assets/img/audio.png&quot; ]]&gt;&gt; 
   &lt;&lt;set $sound to false&gt;&gt;
   &lt;&lt;goto $passage&gt;&gt;
     &lt;&lt;/link&gt;&gt;
   &lt;&lt;/if&gt;&gt;
    &lt;&lt;if $sound is false&gt;&gt;
-    &lt;&lt;link [img[&quot;./../assets/img/audiooff2.png&quot; ]]&gt;&gt; 
+    &lt;&lt;link [img[&quot;../assets/img/audiooff2.png&quot; ]]&gt;&gt; 
   &lt;&lt;set $sound to true&gt;&gt;
    &lt;&lt;goto $passage&gt;&gt;
     &lt;&lt;/link&gt;&gt;
@@ -235,7 +235,7 @@ setup.backTen = () => {
       You can  &lt;&lt;button &quot;Listen&quot;&gt;&gt;&lt;&lt;goto &quot;listen&quot;&gt;&gt;&lt;&lt;/button&gt;&gt; to a selection of reflections of people that visited the memorial before you. They are playing in random order. If you want to play the next one, press the  &lt;&lt;button &quot;Next&quot;&gt;&gt;&lt;&lt;goto &quot;listen&quot;&gt;&gt;&lt;&lt;/button&gt;&gt; button.
       
     &lt;/p&gt;
-    &lt;p&gt;If you want to make another contribution to the memorial, press &lt;a href=&quot;../../memorial/prerecord.html&quot;&gt;&lt;button&gt;Record&lt;/button&gt;&lt;/a&gt; . &lt;/p&gt;
+    &lt;p&gt;If you want to make another contribution to the memorial, press &lt;a href=&quot;../memorial/prerecord.html&quot;&gt;&lt;button&gt;Record&lt;/button&gt;&lt;/a&gt; . &lt;/p&gt;
 
     &lt;p&gt;There is also the option to &lt;&lt;button &quot;Read&quot;&gt;&gt;&lt;&lt;goto &quot;read&quot;&gt;&gt;&lt;&lt;/button&gt;&gt; some written memories.&lt;/p&gt;
       &lt;&lt;button &quot;Start now&quot;&gt;&gt;
@@ -251,7 +251,7 @@ setup.backTen = () => {
 &lt;div id=&quot;menu&quot;&gt;
 &lt;div class=&quot;nav-wrapper menu-header&quot;&gt;
     &lt;div class=&quot;nav-item&quot;&gt;
-        &lt;&lt;link [img[./../assets/img/crossRed.png]]&gt;&gt;
+        &lt;&lt;link [img[../assets/img/crossRed.png]]&gt;&gt;
           &lt;&lt;if $menuOpen is false &gt;&gt;
 
             &lt;&lt;set $menuOpen to true&gt;&gt;
@@ -269,11 +269,11 @@ setup.backTen = () => {
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;h2 class=&quot;menu-title&quot;&gt; MENU &lt;/h2&gt; 
-&lt;h3 class=&quot;menu-item&quot;&gt;&lt;a href=&quot;../../games/index.html&quot;&gt;Games&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 class=&quot;menu-item&quot;&gt;&lt;a href=&quot;../games/index.html&quot;&gt;Games&lt;/a&gt;&lt;/h3&gt;
 &lt;h3 class=&quot;menu-item&quot;&gt;&lt;&lt;link &quot;Memorial&quot;&gt;&gt;
       &lt;&lt;goto &quot;Start&quot;&gt;&gt;
     &lt;&lt;/link&gt;&gt;&lt;/h3&gt;
-&lt;h3 class=&quot;menu-item&quot;&gt;&lt;a href=&quot;../../history/index.html&quot;&gt;History&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 class=&quot;menu-item&quot;&gt;&lt;a href=&quot;../history/index.html&quot;&gt;History&lt;/a&gt;&lt;/h3&gt;
   &lt;br/&gt;
   &lt;br/&gt;
 &lt;&lt;button &quot;Close Menu&quot;&gt;&gt;
@@ -284,7 +284,7 @@ setup.backTen = () => {
 &lt;&lt;if $showMenu is true&gt;&gt;
   &lt;div class=&quot;nav-wrapper&quot;&gt;
     &lt;div class=&quot;nav-item&quot;&gt;
-        &lt;&lt;link [img[./../assets/img/menu.png]]&gt;&gt;
+        &lt;&lt;link [img[../assets/img/menu.png]]&gt;&gt;
           &lt;&lt;if $menuOpen is false &gt;&gt;
 
             &lt;&lt;set $menuOpen to true&gt;&gt;
@@ -336,14 +336,14 @@ setup.backTen = () => {
   &lt;&lt;if $showBackwards is true&gt;&gt;
     &lt;div class=&quot;nav-wrapper&quot;&gt;
       &lt;div class=&quot;nav-item&quot;&gt;
-          [img[Back|/assets/img/back.png][Start]]
+          [img[Back|../assets/img/back.png][Start]]
       &lt;/div&gt;
     &lt;/div&gt;
     &lt;&lt;/if&gt;&gt;
   &lt;&lt;if $showCaptionsIcon is true&gt;&gt;
   &lt;div class=&quot;nav-wrapper&quot;&gt;
       &lt;div class=&quot;nav-item&quot; id=&quot;capIconContainer&quot;&gt;
-        &lt;&lt;link [img[/assets/img/captions.png]]&gt;&gt;
+        &lt;&lt;link [img[../assets/img/captions.png]]&gt;&gt;
         &lt;&lt;if $captions is true&gt;&gt;
           &lt;&lt;set $captions to false&gt;&gt;
   
@@ -366,13 +366,13 @@ setup.backTen = () => {
       &lt;div class=&quot;nav-item&quot;&gt;
       &lt;div class=&quot;icon-container&quot; id=&quot;audioContainer&quot;&gt; 
     &lt;&lt;if $sound is true&gt;&gt;
-        &lt;&lt;link [img[&quot;./../assets/img/audio.png&quot; ]]&gt;&gt; 
+        &lt;&lt;link [img[&quot;../assets/img/audio.png&quot; ]]&gt;&gt; 
         &lt;&lt;set $sound to false&gt;&gt;
         &lt;&lt;goto $passage&gt;&gt;
         &lt;&lt;/link&gt;&gt;
     &lt;&lt;/if&gt;&gt;
      &lt;&lt;if $sound is false&gt;&gt;
-        &lt;&lt;link [img[&quot;./../assets/img/audiooff2.png&quot; ]]&gt;&gt; 
+        &lt;&lt;link [img[&quot;../assets/img/audiooff2.png&quot; ]]&gt;&gt; 
             &lt;&lt;set $sound to true&gt;&gt;
             &lt;&lt;goto $passage&gt;&gt;
           &lt;&lt;/link&gt;&gt;
@@ -383,7 +383,7 @@ setup.backTen = () => {
   &lt;&lt;/if&gt;&gt; 
 &lt;/div&gt;
 &lt;div class=&quot;nav-item alone&quot;&gt;
-&lt;a href=&quot;../../memorial/prerecord.html&quot;&gt;&lt;button&gt;Record&lt;/button&gt;&lt;/a&gt;
+&lt;a href=&quot;../memorial/prerecord.html&quot;&gt;&lt;button&gt;Record&lt;/button&gt;&lt;/a&gt;
 &lt;/div&gt;
 &lt;div class=&quot;nav-item alone&quot;&gt;
  &lt;&lt;button &quot;Read&quot;&gt;&gt; 
@@ -393,7 +393,7 @@ setup.backTen = () => {
 &lt;/div&gt;
 &lt;div class=&quot;nav-item final&quot;&gt;
 
-  &lt;a href=&quot;../../thanks.html&quot;&gt;&lt;button&gt;Leave&lt;/button&gt;&lt;/a&gt;
+  &lt;a href=&quot;../thanks.html&quot;&gt;&lt;button&gt;Leave&lt;/button&gt;&lt;/a&gt;
  
 &lt;/div&gt;
 
@@ -411,7 +411,7 @@ setup.backTen = () => {
   &lt;&lt;if $showBackwards is true&gt;&gt;
     &lt;div class=&quot;nav-wrapper&quot;&gt;
       &lt;div class=&quot;nav-item&quot;&gt;
-          [img[Back|/assets/img/back.png][Start]]
+          [img[Back|../assets/img/back.png][Start]]
       &lt;/div&gt;
     &lt;/div&gt;
     &lt;&lt;/if&gt;&gt;
@@ -423,11 +423,11 @@ setup.backTen = () => {
 
 &lt;/div&gt;
 &lt;div class=&quot;nav-item alone&quot;&gt;
-&lt;a href=&quot;../../memorial/prerecord.html&quot;&gt;&lt;button&gt;Record&lt;/button&gt;&lt;/a&gt;
+&lt;a href=&quot;../memorial/prerecord.html&quot;&gt;&lt;button&gt;Record&lt;/button&gt;&lt;/a&gt;
 &lt;/div&gt;
 &lt;div class=&quot;nav-item final&quot;&gt;
 
-  &lt;a href=&quot;../../thanks.html&quot;&gt;&lt;button&gt;Leave&lt;/button&gt;&lt;/a&gt;
+  &lt;a href=&quot;../thanks.html&quot;&gt;&lt;button&gt;Leave&lt;/button&gt;&lt;/a&gt;
  
 &lt;/div&gt;
 
@@ -454,7 +454,7 @@ setup.backTen = () => {
   &lt;&lt;replace &quot;#caption&quot;&gt;&gt;
     &lt;p&gt;And more captions&lt;/p&gt;
     &lt;&lt;/replace&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="15" name="audio2" tags="nobr" position="600,225" size="100,100">&lt;source  src=&quot;/assets/sound/DJIntro.mp3&quot;&gt;</tw-passagedata><tw-passagedata pid="16" name="audio2cap" tags="nobr" position="725,225" size="100,100">&lt;&lt;timed 0.5s&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="15" name="audio2" tags="nobr" position="600,225" size="100,100">&lt;source  src=&quot;../assets/sound/DJIntro.mp3&quot;&gt;</tw-passagedata><tw-passagedata pid="16" name="audio2cap" tags="nobr" position="725,225" size="100,100">&lt;&lt;timed 0.5s&gt;&gt;
   &lt;&lt;replace &quot;#caption&quot;&gt;&gt;
     &lt;p&gt;Audio 2 captions&lt;/p&gt;
     &lt;&lt;/replace&gt;&gt;
@@ -468,7 +468,7 @@ setup.backTen = () => {
   &lt;&lt;replace &quot;#caption&quot;&gt;&gt;
     &lt;p&gt;And more captions&lt;/p&gt;
     &lt;&lt;/replace&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="audio3" tags="nobr" position="850,225" size="100,100">&lt;source  src=&quot;/assets/sound/DJIntro.mp3&quot;&gt;</tw-passagedata><tw-passagedata pid="18" name="audio3cap" tags="nobr" position="975,225" size="100,100">&lt;&lt;timed 0.5s&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="audio3" tags="nobr" position="850,225" size="100,100">&lt;source  src=&quot;../assets/sound/DJIntro.mp3&quot;&gt;</tw-passagedata><tw-passagedata pid="18" name="audio3cap" tags="nobr" position="975,225" size="100,100">&lt;&lt;timed 0.5s&gt;&gt;
   &lt;&lt;replace &quot;#caption&quot;&gt;&gt;
     &lt;p&gt;Audio 3 captions&lt;/p&gt;
     &lt;&lt;/replace&gt;&gt;

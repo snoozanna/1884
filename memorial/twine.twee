@@ -14,9 +14,9 @@
 
 :: Story Stylesheet [stylesheet]
 
-@import url("/styles/generics.css");
-@import url("/styles/main.css");
-@import url("/games/styles/twine.css");
+@import url("../styles/generics.css");
+@import url("../styles/main.css");
+@import url("../games/styles/twine.css");
 
 
 
@@ -101,7 +101,7 @@ setup.backTen = () => {
 
 :: headerlisten [nobr]
 <header class="listen" >
-<div class="logo-container"><img src="/assets/img/1884components-23.png"/></div>
+<div class="logo-container"><img src="../assets/img/1884components-23.png"/></div>
  <div class="nav-item">
     <<button "Next memory">>
      <<set $source to $audiooptions[random(0, $audiooptions.length - 1)]>>
@@ -114,7 +114,7 @@ setup.backTen = () => {
 <<if $showBackwards is true>>
   <div class="nav-wrapper">
     <div class="nav-item">
-        [img[Back|/assets/img/back.png][$prevpass]]
+        [img[Back|../assets/img/back.png][$prevpass]]
     </div>
   </div>
   <</if>>
@@ -137,7 +137,7 @@ setup.backTen = () => {
   </div>
   <div class="nav-wrapper">
     <div class="nav-item">
-      <a href="../../index.html"><button>Back to the start</button></a>
+      <a href="../index.html"><button>Back to the start</button></a>
     </div>
   </div>
 
@@ -150,13 +150,13 @@ setup.backTen = () => {
 :: soundonoff [nobr]
 <div class="icon-container"> 
   <<if $sound is true>>
-    <<link [img["./../assets/img/audio.png" ]]>> 
+    <<link [img["../assets/img/audio.png" ]]>> 
   <<set $sound to false>>
   <<goto $passage>>
     <</link>>
   <</if>>
    <<if $sound is false>>
-    <<link [img["./../assets/img/audiooff2.png" ]]>> 
+    <<link [img["../assets/img/audiooff2.png" ]]>> 
   <<set $sound to true>>
    <<goto $passage>>
     <</link>>
@@ -186,7 +186,7 @@ setup.backTen = () => {
       You can  <<button "Listen">><<goto "listen">><</button>> to a selection of reflections of people that visited the memorial before you. They are playing in random order. If you want to play the next one, press the  <<button "Next">><<goto "listen">><</button>> button.
       
     </p>
-    <p>If you want to make another contribution to the memorial, press <a href="../../memorial/prerecord.html"><button>Record</button></a> . </p>
+    <p>If you want to make another contribution to the memorial, press <a href="../memorial/prerecord.html"><button>Record</button></a> . </p>
 
     <p>There is also the option to <<button "Read">><<goto "read">><</button>> some written memories.</p>
       <<button "Start now">>
@@ -206,7 +206,7 @@ setup.backTen = () => {
 <div id="menu">
 <div class="nav-wrapper menu-header">
     <div class="nav-item">
-        <<link [img[./../assets/img/crossRed.png]]>>
+        <<link [img[../assets/img/crossRed.png]]>>
           <<if $menuOpen is false >>
 
             <<set $menuOpen to true>>
@@ -224,11 +224,11 @@ setup.backTen = () => {
     </div>
   </div>
   <h2 class="menu-title"> MENU </h2> 
-<h3 class="menu-item"><a href="../../games/index.html">Games</a></h3>
+<h3 class="menu-item"><a href="../games/index.html">Games</a></h3>
 <h3 class="menu-item"><<link "Memorial">>
       <<goto "Start">>
     <</link>></h3>
-<h3 class="menu-item"><a href="../../history/index.html">History</a></h3>
+<h3 class="menu-item"><a href="../history/index.html">History</a></h3>
   <br/>
   <br/>
 <<button "Close Menu">>
@@ -242,7 +242,7 @@ setup.backTen = () => {
 <<if $showMenu is true>>
   <div class="nav-wrapper">
     <div class="nav-item">
-        <<link [img[./../assets/img/menu.png]]>>
+        <<link [img[../assets/img/menu.png]]>>
           <<if $menuOpen is false >>
 
             <<set $menuOpen to true>>
@@ -307,14 +307,14 @@ setup.backTen = () => {
   <<if $showBackwards is true>>
     <div class="nav-wrapper">
       <div class="nav-item">
-          [img[Back|/assets/img/back.png][Start]]
+          [img[Back|../assets/img/back.png][Start]]
       </div>
     </div>
     <</if>>
   <<if $showCaptionsIcon is true>>
   <div class="nav-wrapper">
       <div class="nav-item" id="capIconContainer">
-        <<link [img[/assets/img/captions.png]]>>
+        <<link [img[../assets/img/captions.png]]>>
         <<if $captions is true>>
           <<set $captions to false>>
   
@@ -337,13 +337,13 @@ setup.backTen = () => {
       <div class="nav-item">
       <div class="icon-container" id="audioContainer"> 
     <<if $sound is true>>
-        <<link [img["./../assets/img/audio.png" ]]>> 
+        <<link [img["../assets/img/audio.png" ]]>> 
         <<set $sound to false>>
         <<goto $passage>>
         <</link>>
     <</if>>
      <<if $sound is false>>
-        <<link [img["./../assets/img/audiooff2.png" ]]>> 
+        <<link [img["../assets/img/audiooff2.png" ]]>> 
             <<set $sound to true>>
             <<goto $passage>>
           <</link>>
@@ -354,7 +354,7 @@ setup.backTen = () => {
   <</if>> 
 </div>
 <div class="nav-item alone">
-<a href="../../memorial/prerecord.html"><button>Record</button></a>
+<a href="../memorial/prerecord.html"><button>Record</button></a>
 </div>
 <div class="nav-item alone">
  <<button "Read">> 
@@ -364,7 +364,7 @@ setup.backTen = () => {
 </div>
 <div class="nav-item final">
 
-  <a href="../../thanks.html"><button>Leave</button></a>
+  <a href="../thanks.html"><button>Leave</button></a>
  
 </div>
 
@@ -387,7 +387,7 @@ setup.backTen = () => {
   <<if $showBackwards is true>>
     <div class="nav-wrapper">
       <div class="nav-item">
-          [img[Back|/assets/img/back.png][Start]]
+          [img[Back|../assets/img/back.png][Start]]
       </div>
     </div>
     <</if>>
@@ -399,11 +399,11 @@ setup.backTen = () => {
 
 </div>
 <div class="nav-item alone">
-<a href="../../memorial/prerecord.html"><button>Record</button></a>
+<a href="../memorial/prerecord.html"><button>Record</button></a>
 </div>
 <div class="nav-item final">
 
-  <a href="../../thanks.html"><button>Leave</button></a>
+  <a href="../thanks.html"><button>Leave</button></a>
  
 </div>
 
@@ -440,7 +440,7 @@ setup.backTen = () => {
 
 
 :: audio2 [nobr]
-<source  src="/assets/sound/DJIntro.mp3">
+<source  src="../assets/sound/DJIntro.mp3">
 
 :: audio2cap [nobr]
 <<timed 0.5s>>
@@ -460,7 +460,7 @@ setup.backTen = () => {
 <</timed>>
 
 :: audio3 [nobr]
-<source  src="/assets/sound/DJIntro.mp3">
+<source  src="../assets/sound/DJIntro.mp3">
 
 :: audio3cap [nobr]
 <<timed 0.5s>>

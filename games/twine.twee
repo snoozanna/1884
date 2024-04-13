@@ -14,9 +14,9 @@
 
 :: Story Stylesheet [stylesheet]
 
-@import url("/styles/generics.css");
-@import url("/styles/main.css");
-@import url("/games/styles/twine.css");
+@import url("../styles/generics.css");
+@import url("../styles/main.css");
+@import url("../games/styles/twine.css");
 
 
 
@@ -163,14 +163,14 @@ setup.backThirty = () => {
 :: header [nobr]
 <header class="general" >
 <<if $showLogo is true>>
-<div class="logo-container"><img src="/assets/img/1884components-23.png"/></div>
+<div class="logo-container"><img src="../assets/img/1884components-23.png"/></div>
  <div class="nav-item">
  </div>
   <</if>>
 <<if $showMenu is true>>
   <div class="nav-wrapper">
     <div class="nav-item">
-        <<link [img[./../assets/img/menu.png]]>>
+        <<link [img[../assets/img/menu.png]]>>
           <<if $menuOpen is false >>
 
             <<set $menuOpen to true>>
@@ -198,7 +198,7 @@ setup.backThirty = () => {
 <div id="menu">
 <div class="nav-wrapper menu-header">
     <div class="nav-item">
-        <<link [img[./../assets/img/crossRed.png]]>>
+        <<link [img[../assets/img/crossRed.png]]>>
           <<if $menuOpen is false >>
 
             <<set $menuOpen to true>>
@@ -217,15 +217,17 @@ setup.backThirty = () => {
   </div>
   <h2 class="menu-title"> MENU </h2>
 <h3 class="menu-item"><<link "Games">>
-      <<goto "intro">>
+<<goto "intro">>
     <</link>></h3>
     <ul>
-    <li>> <<link "Reset & Start again">>
+    <li> <<link "Reset & Start again">>
+        <<script>>Engine.restart()<</script>>
       <<goto "intro">>
     <</link>></li>
     </ul>
-<h3 class="menu-item"><a href="../../memorial/accept.html">Memorial</a></h3>
-<h3 class="menu-item"><a href="../../history/index.html">History</a></h3>
+
+<h3 class="menu-item"><a href="../memorial/accept.html">Memorial</a></h3>
+<h3 class="menu-item"><a href="../history/index.html">History</a></h3>
   <br/>
   <br/>
 <<button "Close Menu">>
@@ -237,13 +239,12 @@ setup.backThirty = () => {
 
 
 
-
 :: headermenu [nobr]
 <header class="general menu" >
 <<if $showMenu is true>>
   <div class="nav-wrapper">
     <div class="nav-item">
-        <<link [img[./../assets/img/menu.png]]>>
+        <<link [img[../assets/img/menu.png]]>>
           <<if $menuOpen is false >>
 
             <<set $menuOpen to true>>
@@ -269,7 +270,7 @@ setup.backThirty = () => {
 <<if $showMenu is true>>
   <div class="nav-wrapper">
     <div class="nav-item">
-        <<link [img[./../assets/img/menu.png]]>>
+        <<link [img[../assets/img/menu.png]]>>
           <<if $menuOpen is false >>
 
             <<set $menuOpen to true>>
@@ -295,20 +296,20 @@ setup.backThirty = () => {
 
   <div class="nav-wrapper">
     <div class="nav-item">
-        [img[Back|/assets/img/back.png][$prevpass]]
+        [img[Back|../assets/img/back.png][$prevpass]]
     </div>
   </div>
 
 
 <div class="nav-wrapper">
     <div class="nav-item">
-        [img[Replay|/assets/img/replay.png][$passage]]
+        [img[Replay|../assets/img/replay.png][$passage]]
     </div>
   </div>
 
 <div class="nav-wrapper">
     <div class="nav-item">
-        [img[Next|/assets/img/for.png][$nextpass]]
+        [img[Next|../assets/img/for.png][$nextpass]]
     </div>
   </div>
   
@@ -319,14 +320,14 @@ setup.backThirty = () => {
 
   <div class="nav-wrapper">
     <div class="nav-item">
-        [img[Back|/assets/img/back.png][$prevpass]]
+        [img[Back|../assets/img/back.png][$prevpass]]
     </div>
   </div>
 
 
 <div class="nav-wrapper">
     <div class="nav-item">
-        [img[Replay|/assets/img/replay.png][$passage]]
+        [img[Replay|../assets/img/replay.png][$passage]]
     </div>
   </div>
 
@@ -338,12 +339,16 @@ setup.backThirty = () => {
 
   <div class="nav-wrapper">
     <div class="nav-item">
-        [img[Back|/assets/img/back.png][$prevpass]]
+        [img[Back|../assets/img/back.png][$prevpass]]
     </div>
   </div>
 
 
-<div id="skipMount"></div>
+<div class="nav-wrapper">
+    <div class="nav-item">
+        [img[Next|../assets/img/for.png][$nextpass]]
+    </div>
+  </div>
   
 </footer>
 <<timed 3s>>
@@ -363,13 +368,13 @@ setup.backThirty = () => {
 <<if $showBackwards is true>>
   <div class="nav-wrapper">
     <div class="nav-item">
-        [img[Back|/assets/img/back.png][$prevpass]]
+        [img[Back|../assets/img/back.png][$prevpass]]
     </div>
   </div>
   <</if>>
   <div class="nav-wrapper">
     <div class="nav-item">
-        [img[Replay|/assets/img/replay.png][$passage]]
+        [img[Replay|../assets/img/replay.png][$passage]]
     </div>
   </div>
   <div class="nav-wrapper">
@@ -382,13 +387,13 @@ setup.backThirty = () => {
 <<if $showBackwards is true>>
   <div class="nav-wrapper">
     <div class="nav-item">
-        [img[Back|/assets/img/back.png][$prevpass]]
+        [img[Back|../assets/img/back.png][$prevpass]]
     </div>
   </div>
   <</if>>
   <div class="nav-wrapper">
     <div class="nav-item">
-        [img[Replay|/assets/img/replay.png][$passage]]
+        [img[Replay|../assets/img/replay.png][$passage]]
     </div>
   </div>
   
@@ -409,13 +414,13 @@ setup.backThirty = () => {
 :: soundonoff [nobr]
 <div class="icon-container inline"> 
   <<if $sound is true>>
-    <<link [img["./../assets/img/audio.png" ]]>> 
+    <<link [img["../assets/img/audio.png" ]]>> 
   <<set $sound to false>>
   <<goto $passage>>
     <</link>>
   <</if>>
    <<if $sound is false>>
-    <<link [img["./../assets/img/audiooff2.png" ]]>> 
+    <<link [img["../assets/img/audiooff2.png" ]]>> 
   <<set $sound to true>>
    <<goto $passage>>
     <</link>>
@@ -437,7 +442,7 @@ setup.backThirty = () => {
 
 <<if $sound is true>>
   <<timed 0.1s>>
-    <<replace "#audio">><source  src="/assets/sound/DJIntro.mp3"><</replace>> 
+    <<replace "#audio">><source  src="../assets/sound/DJIntro.mp3"><</replace>> 
   <</timed>>
   <</if>>
   <<include "header">>
@@ -535,7 +540,7 @@ setup.backThirty = () => {
   <</append>>
 <</timed>>
 
-<<timed 7s>> 
+<<timed 8s>> 
     <<append "#textMount">>
 <p>with the humanitarian <span class="emph">goal</span> to abolish slavery and colonialism in Africa. </p>
 
@@ -543,20 +548,20 @@ setup.backThirty = () => {
 <</timed>>
 
 
-<<timed 10s>> 
+<<timed 12s>> 
     <<append "#textMount">>
 <p>Most African <span class="emph">nations</span> chose not to attend the conference. </p>
   <</append>>
 <</timed>>
 
-<<timed 12s>> 
+<<timed 16s>> 
     <<append "#textMount">>
 <p>The conference received a positive <span class="emph">reaction</span> across the African continent. </p>
   <</append>>
 <</timed>>
 
 
-<<timed 14s>> 
+<<timed 19s>> 
     <<append "#textMount">>
   <<button "Continue">><<goto $nextpass>><</button>>
   <</append>>
@@ -579,13 +584,26 @@ setup.backThirty = () => {
  <div class="main-container text">
    <div id="textMount" class="dj"></div>
 
-<<timed 1s>> 
+<<timed 0.1s>> 
     <<append "#textMount">>
-<p>Although the conference did not have much impact on actual events on the ground, we still remember its legacy and ambitions through 188.4FM - our radio station serving you the key historical facts and top bangers. </p>
+<p>Although the conference did not have much impact on actual events on the ground,  </p>
   <</append>>
 <</timed>>
 
-<<timed 5s>> 
+<<timed 4s>> 
+    <<append "#textMount">>
+<p>we still remember its legacy and ambitions through 188.4FM - </p>
+  <</append>>
+<</timed>>
+
+<<timed 8s>> 
+    <<append "#textMount">>
+<p>our radio station serving you the key historical facts and top bangers. </p>
+
+  <</append>>
+<</timed>>
+
+<<timed 11s>> 
     <<append "#textMount">>
   <<button "Seriously?">><<goto $nextpass>><</button>>
   <</append>>
@@ -611,7 +629,7 @@ setup.backThirty = () => {
 <main id="main" class="main-section loading">
 <<type 70ms>><h3 class="loading broadcast">Broadcast from the Resistance</h3><</type>>
 <<timed 8s>>
-/* <<goto $nextpass>> */
+<<goto $nextpass>>
 <</timed>>
 </main>
 <<include "footer">>
@@ -628,7 +646,7 @@ setup.backThirty = () => {
 
 <<if $sound is true>>
   <<timed 0.1s>>
-    <<replace "#audio">><source  src="/assets/sound/ResistanceIntro.mp3"><</replace>> 
+    <<replace "#audio">><source  src="../assets/sound/ResistanceIntro.mp3"><</replace>> 
   <</timed>>
   <</if>>
 <main id="main" class="resistance">
@@ -683,7 +701,7 @@ setup.backThirty = () => {
 
 <<if $sound is true>>
   <<timed 0.1s>>
-    <<replace "#audio">><source  src="/assets/sound/ResistanceIntro.mp3"><</replace>> 
+    <<replace "#audio">><source  src="../assets/sound/ResistanceIntro.mp3"><</replace>> 
   <</timed>>
   <</if>>
 <main id="main" class="resistance">
@@ -692,44 +710,47 @@ setup.backThirty = () => {
 
 <<timed 0.1s>> 
     <<replace "#textMount">>
-  <p>Play the games, and then find the truth that is hidden below them. </p>
+  <p>Play the games, and then find the truth that is hidden below them.</p>
   <</replace>>
 <</timed>>
 
 <<timed 3s>> 
     <<append "#textMount">>
-  <p>At the end, you’ll be able to record your own history and explore our virtual memorial, to help us keep the truth alive. </p>
+  <p>At the end, you'll be able to record your own history in a virtual memorial.</p>
   <</append>>
 <</timed>>
 
 <<timed 5s>> 
     <<append "#textMount">>
-  <p>And if you think history is a serious matter that shouldn’t be played about, the resistance also gathered some links for you to learn about historical facts in a more respectable way.
-  <br/>  <br/>
-   <a href="../../history/index.html" class="serious highlighted"> > Learn the serious way</a>
+  <p>And if you think history shouldn't be played about, we also gathered some serious historical links for you.
 </p>
   <</append>>
 <</timed>>
-
-
-
-<<timed 7s>> 
-    <<append "#textMount">>
-  <p>You'll be able to skip to the memorial page, go back to the games at any time, by clicking on the menu icon on the top right corner.</p>
-  <</append>>
-<</timed>>
-
 
 <<timed 8s>> 
     <<append "#textMount">>
   <<button "Play and debunk history">><<goto "game-intro">><</button>>
 <br/><br/>
-   <a href="../../memorial/index.html"><button>Visit the memorial directly</button></a>
   <</append>>
 <</timed>>
 
-
-    
+<<timed 9s>> 
+    <<append "#textMount">>
+   <a href="../memorial/index.html"><button>Visit the memorial directly</button></a>
+<br/><br/>
+  <</append>>
+<</timed>>
+<<timed 10s>> 
+    <<append "#textMount">>
+ <a href="../history/index.html"> <button>Learn the serious way</button></a>
+<br/><br/>
+  <</append>>
+<</timed>>
+    <<timed 12s>> 
+    <<append "#textMount">>
+  <p>You'll be able to visit any of these pages at any time by clicking on the menu icon in the top right corner.</p>
+  <</append>>
+<</timed>>
   </div>
 </main>
 
@@ -760,11 +781,11 @@ setup.backThirty = () => {
   <div class="backpack-container">
    <div class="backpack-item">
       <<if hasVisited("game1complete")>>
-        <<button [img[./../assets/img/AFTER-conference.jpg]]>>
+        <<button [img[../assets/img/AFTER-conference.jpg]]>>
           <<set $nextpass to "game1">><<goto "loading">>
           <</button>>
       <<else>>
-          <<button [img[./../assets/img/BEFORE-conference.jpg]]>>
+          <<button [img[../assets/img/BEFORE-conference.jpg]]>>
           <<set $nextpass to "game1">><<goto "loading">>
           <</button>>
            <</if>>
@@ -773,11 +794,11 @@ setup.backThirty = () => {
       <div class="backpack-item">
        
            <<if hasVisited("game3complete")>>
-            <<button [img[./../assets/img/AFTER-nations.jpg]]>>
+            <<button [img[../assets/img/AFTER-nations.jpg]]>>
           <<set $nextpass to "game3">><<goto "loading">>
           <</button>>
       <<else>>
-          <<button [img[./../assets/img/BEFORE-nations.jpg]]>>
+          <<button [img[../assets/img/BEFORE-nations.jpg]]>>
           <<set $nextpass to "game3">><<goto "loading">>
           <</button>>
            <</if>>
@@ -785,11 +806,11 @@ setup.backThirty = () => {
       <div class="backpack-item">
       
            <<if hasVisited("game2complete")>>
-         <<button [img[./../assets/img/AFTER-goal.jpg]]>>
+         <<button [img[../assets/img/AFTER-goal.jpg]]>>
           <<set $nextpass to "game2">><<goto "loading">>
           <</button>>
       <<else>>
-          <<button [img[./../assets/img/BEFORE-goal.jpg]]>>
+          <<button [img[../assets/img/BEFORE-goal.jpg]]>>
           <<set $nextpass to "game2">><<goto "loading">>
           <</button>>
            <</if>>
@@ -797,16 +818,16 @@ setup.backThirty = () => {
       <div class="backpack-item">
      
        <<if hasVisited("game4complete")>>
-      <<button [img[./../assets/img/AFTER-reaction.jpg]]>>
+      <<button [img[../assets/img/AFTER-reaction.jpg]]>>
           <<set $nextpass to "game4">><<goto "loading">>
           <</button>>
       <<else>>
-          <<button [img[./../assets/img/BEFORE-reaction.jpg]]>>
+          <<button [img[../assets/img/BEFORE-reaction.jpg]]>>
           <<set $nextpass to "game4">><<goto "loading">>
           <</button>>
       <</if>>
       </div>
-     
+     <a href="../memorial/index.html" class="game-menu-mem"><button>Visit the memorial directly</button></a>
 
       /* This one based on completing all the games */
 
@@ -902,7 +923,7 @@ setup.backThirty = () => {
             <<include "tally">>
           <</replace>>
         <</timed>>
-        <<timed 2s>>
+        <<timed 1s>>
             <<replace "#question">>
               Incorrect
           <</replace>>
@@ -913,13 +934,13 @@ setup.backThirty = () => {
               <h2>MYTH</h2>
           <</replace>>
          <</timed>> */
-      <<timed 3s>>
+      <<timed 1s>>
           <<replace "#textMount">>
               <<include "game1afact">>
             <</replace>>
        
        <</timed>>
-        <<timed 5s>>
+        <<timed 3s>>
         <<replace "#btnMount">>
             <<button "Next">><<goto $nextpass>><</button>>
           <</replace>>
@@ -936,7 +957,7 @@ setup.backThirty = () => {
             <<include "tally">>
           <</replace>>
         <</timed>>
-        <<timed 2s>>
+        <<timed 1s>>
             <<replace "#question">>
               Correct
           <</replace>>
@@ -948,12 +969,12 @@ setup.backThirty = () => {
               <h2>MYTH</h2>
           <</replace>>
          <</timed>> */
-      <<timed 3s>>
+      <<timed 1s>>
           <<replace "#textMount">>
               <<include "game1afact">>
             <</replace>>
        <</timed>>
-        <<timed 5s>>
+        <<timed 3s>>
         <<replace "#btnMount">>
             <<button "Next">><<goto $nextpass>><</button>>
           <</replace>>
@@ -1006,7 +1027,7 @@ setup.backThirty = () => {
             <<include "tally">>
           <</replace>>
         <</timed>>
-        <<timed 2s>>
+        <<timed 1s>>
             <<replace "#question">>
               Correct
           <</replace>>
@@ -1016,12 +1037,12 @@ setup.backThirty = () => {
               <h2>TRUTH</h2>
           <</replace>>
          <</timed>> */
-      <<timed 3s>>
+      <<timed 1s>>
           <<replace "#textMount">>
               <<include "game1bfact">>
             <</replace>>
        <</timed>>
-        <<timed 5s>>
+        <<timed 3s>>
         <<replace "#btnMount">>
             <<button "Next">><<goto $nextpass>><</button>>
           <</replace>>
@@ -1037,7 +1058,7 @@ setup.backThirty = () => {
             <<include "tally">>
           <</replace>>
         <</timed>>
-        <<timed 2s>>
+        <<timed 1s>>
             <<replace "#question">>
               Incorrect
           <</replace>>
@@ -1049,12 +1070,12 @@ setup.backThirty = () => {
               <h2>TRUTH</h2>
           <</replace>>
          <</timed>> */
-      <<timed 3s>>
+      <<timed 1s>>
           <<replace "#textMount">>
               <<include "game1bfact">>
             <</replace>>
        <</timed>>
-        <<timed 5s>>
+        <<timed 3s>>
         <<replace "#btnMount">>
             <<button "Next">><<goto $nextpass>><</button>>
           <</replace>>
@@ -1103,7 +1124,7 @@ setup.backThirty = () => {
             <<include "tally">>
           <</replace>>
         <</timed>>
-        <<timed 2s>>
+        <<timed 1s>>
             <<replace "#question">>
               Incorrect
           <</replace>>
@@ -1115,13 +1136,13 @@ setup.backThirty = () => {
               <h2>MYTH</h2>
           <</replace>>
          <</timed>> */
-      <<timed 3s>>
+      <<timed 1s>>
           <<replace "#textMount">>
               <<include "game1cfact">>
             <</replace>>
        
        <</timed>>
-        <<timed 5s>>
+        <<timed 3s>>
         <<replace "#btnMount">>
             <<button "Next">><<goto $nextpass>><</button>>
           <</replace>>
@@ -1138,7 +1159,7 @@ setup.backThirty = () => {
             <<include "tally">>
           <</replace>>
         <</timed>>
-        <<timed 2s>>
+        <<timed 1s>>
             <<replace "#question">>
             Correct
           <</replace>>
@@ -1150,13 +1171,13 @@ setup.backThirty = () => {
               <h2>MYTH</h2>
           <</replace>>
          <</timed>> */
-      <<timed 3s>>
+      <<timed 1s>>
           <<replace "#textMount">>
               <<include "game1cfact">>
             <</replace>>
        
        <</timed>>
-        <<timed 5s>>
+        <<timed 3s>>
         <<replace "#btnMount">>
             <<button "Next">><<goto $nextpass>><</button>>
           <</replace>>
@@ -1206,7 +1227,7 @@ setup.backThirty = () => {
             <<include "tally">>
           <</replace>>
         <</timed>>
-        <<timed 2s>>
+        <<timed 1s>>
             <<replace "#question">>
               Incorrect
           <</replace>>
@@ -1218,13 +1239,13 @@ setup.backThirty = () => {
               <h2>MYTH</h2>
           <</replace>>
          <</timed>> */
-      <<timed 3s>>
+      <<timed 1s>>
           <<replace "#textMount">>
               <<include "game1dfact">>
             <</replace>>
        
        <</timed>>
-        <<timed 5s>>
+        <<timed 3s>>
         <<replace "#btnMount">>
             <<button "Next">><<goto $nextpass>><</button>>
           <</replace>>
@@ -1241,7 +1262,7 @@ setup.backThirty = () => {
             <<include "tally">>
           <</replace>>
         <</timed>>
-        <<timed 2s>>
+        <<timed 1s>>
             <<replace "#question">>
               Correct
           <</replace>>
@@ -1253,13 +1274,13 @@ setup.backThirty = () => {
               <h2>MYTH</h2>
           <</replace>>
          <</timed>> */
-      <<timed 3s>>
+      <<timed 1s>>
           <<replace "#textMount">>
               <<include "game1dfact">>
             <</replace>>
        
        <</timed>>
-        <<timed 5s>>
+        <<timed 3s>>
         <<replace "#btnMount">>
             <<button "Next">><<goto $nextpass>><</button>>
           <</replace>>
@@ -1277,7 +1298,7 @@ setup.backThirty = () => {
 <<include "footerquiz">>
 
 :: game1dfact
-<p>King Leopold II did not attend the conference, but had well placed representatives (such as ‘explorer’ Henry Morton Stanely) to make sure he got what he wanted. By convincing everyone his interests were purely altruistic, Leopold left the conference as the sole ruler of 905,355 sq miles and 30 million people in central Africa, without ever stepping foot on the continent. </p>
+<p>King Leopold II did not attend the conference, but had well placed representatives (such as ‘explorer’ Henry Morton Stanley) to make sure he got what he wanted. By convincing everyone his interests were purely altruistic, Leopold left the conference as the sole ruler of 905,355 sq miles and 30 million people in central Africa, without ever stepping foot on the continent. </p>
 <p>Under his rule, an estimated 5-10 million people died as a direct result of the atrocities imposed by his rule. </p>
 
 
@@ -1309,7 +1330,7 @@ setup.backThirty = () => {
             <<include "tally">>
           <</replace>>
         <</timed>>
-        <<timed 2s>>
+        <<timed 1s>>
             <<set $tally += 1>>
             <<replace "#question">>
               Correct
@@ -1322,13 +1343,13 @@ setup.backThirty = () => {
               <h2>TRUTH</h2>
           <</replace>>
          <</timed>> */
-      <<timed 3s>>
+      <<timed 1s>>
           <<replace "#textMount">>
               <<include "game1efact">>
             <</replace>>
        
        <</timed>>
-        <<timed 5s>>
+        <<timed 3s>>
         <<replace "#btnMount">>
             <<button "Next">><<goto $nextpass>><</button>>
           <</replace>>
@@ -1344,9 +1365,9 @@ setup.backThirty = () => {
             <<include "tally">>
           <</replace>>
         <</timed>>
-        <<timed 2s>>
+        <<timed 1s>>
             <<replace "#question">>
-              Inorrect
+              Incorrect
           <</replace>>
         <</timed>>
         /* <<timed 3s>>
@@ -1356,13 +1377,13 @@ setup.backThirty = () => {
               <h2>TRUTH</h2>
           <</replace>>
          <</timed>> */
-      <<timed 3s>>
+      <<timed 1s>>
           <<replace "#textMount">>
               <<include "game1efact">>
             <</replace>>
        
        <</timed>>
-        <<timed 5s>>
+        <<timed 3s>>
         <<replace "#btnMount">>
             <<button "Next">><<goto $nextpass>><</button>>
           <</replace>>
@@ -2080,7 +2101,7 @@ setup.backThirty = () => {
 :: game3complete [nobr]
 <<set $prevpass to "game3b">>
 <<set $passage to "game3complete">>
-<<set $nextpass to "game3complete2">>
+<<set $nextpass to "game-intro">>
 <<set $showLogo to false>>
 <<set $showMenu to true>>
 <<set $menuOpen to false>>
@@ -2101,37 +2122,10 @@ setup.backThirty = () => {
   <</timed>>
    <<timed 7s>> 
       <<append "#textMount">>
-        <p>The Sultan of Zanzibar put in a request to join the conference, which was laughed off by the conference attendees. </p>
+         <p> The opinions of Africans were not considered necessary to the future of the continent, but over the decades before and after 1884, widespread resistance was seen by African leaders and populations.</p>
       <</append>>
   <</timed>>
-  <<timed 10s>> 
-      <<append "#textMount">>
-       <<button "Next">><<goto $nextpass>><</button>>
-      <</append>>
-  <</timed>>
-  </div>
-</main>
-<<include "footer">>
-
-:: game3complete2 [nobr]
-<<set $prevpass to "game3complete">>
-<<set $passage to "game3complete2">>
-<<set $nextpass to "game-intro">>
-<<set $showLogo to false>>
-<<set $showMenu to true>>
-<<set $menuOpen to false>>
-<<include "header">>
-<main id="main"> 
- <div class="main-container text">
-
-   <div id="textMount"></div>
-   <<timed 0.5s>> 
-    <<replace "#textMount">>
-        <p> The opinions of Africans were not considered necessary to the future of the continent, but over the decades before and after 1884, widespread resistance was seen by African leaders and populations.</p>
-      <</replace>>
-  <</timed>>
-  
-  <<timed 5s>> 
+  <<timed 12s>> 
       <<append "#textMount">>
        <<button "Debunk another myth">><<goto "game-intro">><</button>>
       <</append>>
@@ -2139,6 +2133,8 @@ setup.backThirty = () => {
   </div>
 </main>
 <<include "footer">>
+
+
 
 :: game4 [nobr]
 <<set $prevpass to "game-intro">>
@@ -2323,7 +2319,7 @@ When clicked remove from array  */
   <<include "myplacard">>
 </div>
 <div id="mount"></div>
-
+<div id="skipMount"></div>
 
 </main>
 <<include "footerplacard">>
@@ -2377,12 +2373,12 @@ When clicked remove from array  */
 <<set $passage to "broadcastmessage">>
 <<set $nextpass to "closing">>
 <main id="main" class="main-section loading">
-<<type 70ms>><h3 class="loading broadcast">This is a message from the Resistance</h3><</type>>
+<<type 70ms>><h3 class="loading broadcast">Broadcast from the Resistance</h3><</type>>
 <<timed 8s>>
 <<goto $nextpass>>
 <</timed>>
 </main>
-
+<<include "footer">>
 
 :: closing [nobr]
 <<set $prevpass to "game-intro">>
@@ -2408,7 +2404,7 @@ When clicked remove from array  */
 
  <<timed 7s>> 
   <<append "#textMount">>
-    <a href="../../memorial/index.html"><button>Visit the 1884 memorial</button></a>
+    <a href="../memorial/index.html"><button>Visit the 1884 memorial</button></a>
   <</append>>
 <</timed>>
   </div>

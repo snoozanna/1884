@@ -20,15 +20,15 @@
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <!-- our styles -->
 
-  <link rel="stylesheet" href="/styles/generics.css">
-  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="../styles/generics.css">
+  <link rel="stylesheet" href="../styles/main.css">
 
 
   <!-- tp scripts -->
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
 
   <!-- our scripts -->
-
+  <script src="../scripts/main.js"></script>
 
 
   <title>Memorial - Menu</title>
@@ -43,15 +43,15 @@
     <div class="dropdown" id="menu">
       <button class="btn btn-secondary dropdown-toggle logo-container" type="button" id="dropdownMenu2"
         data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="/assets/img/menu.png">
+        <img src="../assets/img/menu.png">
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
         <h2 class="menu-title"> MENU </h2>
         <h3 class="menu-item">
-          <a href="/games/index.html">Games</a>
+          <a href="../games/index.html">Games</a>
         </h3>
-        <h3 class="menu-item"><a href="/memorial/accept.html">Memorial</a></h3>
-        <h3 class="menu-item"><a href="../../history/index.html">History</a></h3>
+        <h3 class="menu-item"><a href="../memorial/accept.html">Memorial</a></h3>
+        <h3 class="menu-item"><a href="../history/index.html">History</a></h3>
         <a href=""><button>Close Menu</button></a>
         </section>
       </ul>
@@ -63,12 +63,14 @@
 
     <div class="main-container text">
       <section class="">
-        <h1>Memorial<br /> Listen or Record</h1>
+        <h1>1884 Memorial<br /> Listen or Record</h1>
         <br />
-        <p> We recommend first to <a href="./prerecord.html"><button>Record</button></a> your own contribution to the
+        <p class="hidden" id="paragraph1"> We recommend first to <a href="prerecord.html"><button>Record</button></a>
+          your own contribution to the
           memorial.</p>
 
-        <p> But if you prefer, you can skip this stage and <a href="../memorial/listen.html"><button>Listen</button></a>
+        <p class="hidden" id="paragraph2"> But if you prefer, you can skip this stage and <a
+            href="listen.html"><button>Listen</button></a>
           to the
           stream of memories.</p>
 
@@ -81,13 +83,13 @@
   <footer>
     <div class="nav-wrapper">
       <div class="nav-item">
-        <a href="../../memorial/index.html"><button>Back</button></a>
+        <a href="../memorial/index.html"><button>Back</button></a>
       </div>
     </div>
 
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+
   <script async src="https://www.speakpipe.com/widget/loader.js" charset="utf-8"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
