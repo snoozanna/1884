@@ -217,7 +217,7 @@ setup.backThirty = () => {
   </div>
   <h2 class="menu-title"> MENU </h2>
 <h3 class="menu-item"><<link "Games">>
-<<goto "intro">>
+<<goto "game-intro">>
     <</link>></h3>
     <ul>
     <li> <<link "Reset & Start again">>
