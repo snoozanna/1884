@@ -7,30 +7,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Primary Meta Tags -->
-  <title>1884 Experience | Memorial - Menu | Coney</title>
-  <meta name="title" content="1884 Experience | Coney" />
-  <meta name="description" content="Discover the myths about the 1884 Berlin Conference, and uncover the history behind it.
-" />
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://metatags.io/" />
-  <meta property="og:title" content="1884 Experience | Coney" />
-  <meta property="og:description" content="Discover the myths about the 1884 Berlin Conference, and uncover the history behind it.
-" />
-  <meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://metatags.io/" />
-  <meta property="twitter:title" content="1884 Experience | Coney" />
-  <meta property="twitter:description" content="Discover the myths about the 1884 Berlin Conference, and uncover the history behind it.
-" />
-  <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
-
-  <!-- Meta Tags Generated with https://metatags.io -->
-
+  <meta name="title" content="">
+  <meta name="description" content="">
 
 
 
@@ -40,6 +18,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
   <!-- our styles -->
 
   <link rel="stylesheet" href="../styles/generics.css">
@@ -47,11 +26,13 @@
 
 
   <!-- tp scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
   <!-- our scripts -->
-  <script src="../scripts/main.js"></script>
+  <script src="../scripts/email.js"></script>
 
+
+  <title>Submit Written Memory</title>
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -73,50 +54,68 @@
         <h3 class="menu-item"><a href="../memorial/accept.html">Memorial</a></h3>
         <h3 class="menu-item"><a href="../history/index.html">History</a></h3>
         <a href=""><button>Close Menu</button></a>
-        </section>
+
       </ul>
     </div>
   </header>
-  <main class="" id="landing">
-
-
-
+  <main class="text" id="landing">
     <div class="main-container text">
-      <section class="">
-        <h1>1884 Memorial</h1>
-        <br />
-        <p class="hidden" id="paragraph1"> We recommend first to <a href="prerecord.html"><button>Record</button></a>
-          your own contribution to the
+
+      <!-- <h1>Memorial</h1>
+        <p>We recommend is first to <a href="./record.html"><button>Record</button></a> your own contribution to the
           memorial.</p>
+  
+        <p> But if you prefer, you can skip this stage and <a href="./listen.html"><button>Listen</button></a> to the
+          stream of memories.</p> -->
 
-        <p class="hidden" id="paragraph2"> But if you prefer, you can skip this stage and <a
-            href="listen.html"><button>Listen</button></a>
-          to the
-          stream of memories.</p>
-        <p class="hidden" id="paragraph3"> You can also <a href="submit.html"><button>Email</button></a>
-          us a written contribution.</p>
+      <h1>1884 Memorial <br />Submit Written Memory</h1>
+      <br />
+      <p>If you'd like to share a written memory, please use the form below.</p>
+
+      <form id="memoryForm">
+        <!-- To simplify the tutorial, the value is static. -->
+        <label><span>Your name</span>
+          <input type="text" name="user_name"></label>
+        <label><span>Your email address</span>
+          <input type="email" name="user_email"></label>
+        <label><span>Written contribution</span>
+          <textarea name="memory" rows="6"></textarea></label>
+        <label class="checkbox-label">
+          <input type="checkbox" name="consent" required>
+          <span>I consent to the processing of my data.</span>
+        </label>
+        <label style="display:none;">
+          <!-- Hidden field for honeypot -->
+          Please leave this field blank:
+          <input type="text" name="honeypot" style="display:none;">
+        </label>
+        <input type="submit" value="Send" id="subBtn">
+
+      </form>
 
 
 
 
-
-      </section>
     </div>
+
   </main>
-  <footer>
+  <footer class="flex-start">
+    <div></div>
     <div class="nav-wrapper">
       <div class="nav-item">
-        <a href="../memorial/index.html"><button>Back</button></a>
+        <a href="javascript:history.back()"><button>Back</button></a>
       </div>
     </div>
-
+    <div></div>
   </footer>
 
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
   <script async src="https://www.speakpipe.com/widget/loader.js" charset="utf-8"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
     crossorigin="anonymous"></script>
+
 </body>
 
 </html>

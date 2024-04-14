@@ -353,7 +353,7 @@ setup.backThirty = () => {
 </footer>
 <<timed 3s>>
   <<replace "#skipMount">>
-        <div class="nav-wrapper">
+        <div class="nav-wrapper center">
     <<button "Next">> 
       <<set $sound to false>>
       <<goto $nextpass>>
@@ -404,12 +404,86 @@ setup.backThirty = () => {
   <<replace "#skipMount">>
         <div class="nav-wrapper">
     <<button "Skip to the answer">> 
-      <<set $sound to false>>
-      <<goto $nextpass>>
+       <<timed 2s>>
+        <<replace "#resultbutton1">>
+          <h3>RUBBER</h3>
+       <</replace>>
+        <<replace "#resultbutton2">>
+          <h3>RIVER</h3>
+       <</replace>>
+        <<replace "#resultbutton3">>
+          <h3>IVORY</h3>
+       <</replace>>
+       <<timed 0.2s>>
+         <<replace "#skipMount">>
+          <div class="nav-wrapper">
+            <div class="nav-item">
+                [img[Next|../assets/img/for.png][$nextpass]]
+            </div>
+          </div>
+        <</replace>>
+      <</timed>>
+      <</timed>>
         <</button>>
       </div>
   <</replace>>
   <</timed>>
+
+
+:: footernations [nobr]
+<footer>
+<<if $showBackwards is true>>
+  <div class="nav-wrapper">
+    <div class="nav-item">
+        [img[Back|../assets/img/back.png][$prevpass]]
+    </div>
+  </div>
+  <</if>>
+  <div class="nav-wrapper">
+    <div class="nav-item">
+        [img[Replay|../assets/img/replay.png][$passage]]
+    </div>
+  </div>
+  
+<div id="skipMount">  </div> 
+
+<<timed 3s>>
+  <<replace "#skipMount">> 
+    <div class="nav-wrapper">
+    <<button "Skip to the answer">> 
+      <<timed 1s>>
+  <<replace "#a1">>
+         <p>720</p>
+     <</replace>>
+      <<replace "#a2">>
+          <p>Zanzibar</p>
+      <</replace>>
+      <<replace "#a3">>
+           <p>14</p>
+      <</replace>>
+      <<replace "#a4">>
+          <p>Extremely trustworthy</p>
+      <</replace>>
+       <<replace "#a5">>
+          <p>Neutral purposes</p>
+       
+  <</replace>>
+  <<timed 0.2s>>
+    <<replace "#skipMount">>
+  <div class="nav-wrapper">
+    <div class="nav-item">
+        [img[Next|../assets/img/for.png][$nextpass]]
+    </div>
+  </div>
+    <</replace>>
+    <</timed>>
+  <</timed>>
+        <</button>>
+      </div>
+  <</replace>>
+<</timed>>
+</footer>
+
 
 :: soundonoff [nobr]
 <div class="icon-container inline"> 
@@ -628,7 +702,7 @@ setup.backThirty = () => {
 <<set $nextpass to "resistance-glitch">>
 <main id="main" class="main-section loading">
 <<type 70ms>><h3 class="loading broadcast">Broadcast from the Resistance</h3><</type>>
-<<timed 8s>>
+<<timed 6s>>
 <<goto $nextpass>>
 <</timed>>
 </main>
@@ -1864,8 +1938,34 @@ setup.backThirty = () => {
 		<<if $seconds gt 0>>
 			<<replace "#countdown">><span class="secs">$seconds</span> <span class="extra">seconds</span><</replace>>
 		<<else>>
-			<<replace "#countdown">>Too Late<</replace>>
-
+			<<replace "#countdown">><strong>Too Late</strong><</replace>>
+       <<timed 1s>>
+  <<replace "#a1">>
+         <p>720</p>
+     <</replace>>
+      <<replace "#a2">>
+          <p>Zanzibar</p>
+      <</replace>>
+      <<replace "#a3">>
+           <p>14</p>
+      <</replace>>
+      <<replace "#a4">>
+          <p>Extremely trustworthy</p>
+      <</replace>>
+       <<replace "#a5">>
+          <p>Neutral purposes</p>
+       
+  <</replace>>
+  <<timed 0.2s>>
+    <<replace "#skipMount">>
+  <div class="nav-wrapper">
+    <div class="nav-item">
+        [img[Next|../assets/img/for.png][$nextpass]]
+    </div>
+  </div>
+    <</replace>>
+    <</timed>>
+  <</timed>>
 			<<stop>>
 		<</if>>
 	<</repeat>>
@@ -1960,7 +2060,7 @@ setup.backThirty = () => {
         <</timed>>
         <<timed 2s>>
         <<replace "#a2">>
-    <p>Zanzibar</p>
+          <p>Zanzibar</p>
           <</replace>>
         <</timed>>
     <</button>> 
@@ -2004,7 +2104,7 @@ setup.backThirty = () => {
         <</timed>>
         <<timed 2s>>
         <<replace "#a3">>
-    <p>14</p>
+           <p>14</p>
           <</replace>>
         <</timed>>
     <</button>> 
@@ -2094,7 +2194,7 @@ setup.backThirty = () => {
   </div>
 
 </main>
-<<include "footerws">>
+<<include "footernations">>
 
 
 
@@ -2374,7 +2474,7 @@ When clicked remove from array  */
 <<set $nextpass to "closing">>
 <main id="main" class="main-section loading">
 <<type 70ms>><h3 class="loading broadcast">Broadcast from the Resistance</h3><</type>>
-<<timed 8s>>
+<<timed 6s>>
 <<goto $nextpass>>
 <</timed>>
 </main>

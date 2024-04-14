@@ -110,6 +110,10 @@ nav {
   align-items: flex-end;
 }
 
+.nav-wrapper.center {
+  align-items: center;
+}
+
 .nav-item {
   margin-block-end: 1rem;
 }
@@ -409,6 +413,7 @@ main.wordsearch {
   display: flex;
   gap: 1rem;
   align-items: center;
+  justify-content: center;
 }
 
 .result-wrapper > h3 {
@@ -566,6 +571,7 @@ main.placard-main {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-block-end: 3rem;
 }
 
 .placard-container,

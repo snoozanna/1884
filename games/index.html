@@ -98,7 +98,7 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<!-- UUID://CBA206BA-1CB0-4945-B4F6-859B50163F93// --><tw-storydata name="1884 Twine Experience" startnode="12" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="CBA206BA-1CB0-4945-B4F6-859B50163F93" zoom="0.6" format="SugarCube" format-version="2.36.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url("../styles/generics.css");
+	<!-- UUID://CBA206BA-1CB0-4945-B4F6-859B50163F93// --><tw-storydata name="1884 Twine Experience" startnode="13" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="CBA206BA-1CB0-4945-B4F6-859B50163F93" zoom="0.6" format="SugarCube" format-version="2.36.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url("../styles/generics.css");
 @import url("../styles/main.css");
 @import url("../games/styles/twine.css");</style><script role="script" id="twine-user-script" type="text/twine-javascript">$('#ui-bar').remove();
 $(document.head).find('#style-ui-bar').remove();
@@ -400,7 +400,7 @@ setup.backThirty = () => {
 &lt;/footer&gt;
 &lt;&lt;timed 3s&gt;&gt;
   &lt;&lt;replace &quot;#skipMount&quot;&gt;&gt;
-        &lt;div class=&quot;nav-wrapper&quot;&gt;
+        &lt;div class=&quot;nav-wrapper center&quot;&gt;
     &lt;&lt;button &quot;Next&quot;&gt;&gt; 
       &lt;&lt;set $sound to false&gt;&gt;
       &lt;&lt;goto $nextpass&gt;&gt;
@@ -444,12 +444,81 @@ setup.backThirty = () => {
   &lt;&lt;replace &quot;#skipMount&quot;&gt;&gt;
         &lt;div class=&quot;nav-wrapper&quot;&gt;
     &lt;&lt;button &quot;Skip to the answer&quot;&gt;&gt; 
-      &lt;&lt;set $sound to false&gt;&gt;
-      &lt;&lt;goto $nextpass&gt;&gt;
+       &lt;&lt;timed 2s&gt;&gt;
+        &lt;&lt;replace &quot;#resultbutton1&quot;&gt;&gt;
+          &lt;h3&gt;RUBBER&lt;/h3&gt;
+       &lt;&lt;/replace&gt;&gt;
+        &lt;&lt;replace &quot;#resultbutton2&quot;&gt;&gt;
+          &lt;h3&gt;RIVER&lt;/h3&gt;
+       &lt;&lt;/replace&gt;&gt;
+        &lt;&lt;replace &quot;#resultbutton3&quot;&gt;&gt;
+          &lt;h3&gt;IVORY&lt;/h3&gt;
+       &lt;&lt;/replace&gt;&gt;
+       &lt;&lt;timed 0.2s&gt;&gt;
+         &lt;&lt;replace &quot;#skipMount&quot;&gt;&gt;
+          &lt;div class=&quot;nav-wrapper&quot;&gt;
+            &lt;div class=&quot;nav-item&quot;&gt;
+                [img[Next|../assets/img/for.png][$nextpass]]
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;&lt;/replace&gt;&gt;
+      &lt;&lt;/timed&gt;&gt;
+      &lt;&lt;/timed&gt;&gt;
         &lt;&lt;/button&gt;&gt;
       &lt;/div&gt;
   &lt;&lt;/replace&gt;&gt;
-  &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="soundonoff" tags="nobr" position="100,225" size="100,100">&lt;div class=&quot;icon-container inline&quot;&gt; 
+  &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="footernations" tags="nobr" position="100,225" size="100,100">&lt;footer&gt;
+&lt;&lt;if $showBackwards is true&gt;&gt;
+  &lt;div class=&quot;nav-wrapper&quot;&gt;
+    &lt;div class=&quot;nav-item&quot;&gt;
+        [img[Back|../assets/img/back.png][$prevpass]]
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;&lt;/if&gt;&gt;
+  &lt;div class=&quot;nav-wrapper&quot;&gt;
+    &lt;div class=&quot;nav-item&quot;&gt;
+        [img[Replay|../assets/img/replay.png][$passage]]
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+&lt;div id=&quot;skipMount&quot;&gt;  &lt;/div&gt; 
+
+&lt;&lt;timed 3s&gt;&gt;
+  &lt;&lt;replace &quot;#skipMount&quot;&gt;&gt; 
+    &lt;div class=&quot;nav-wrapper&quot;&gt;
+    &lt;&lt;button &quot;Skip to the answer&quot;&gt;&gt; 
+      &lt;&lt;timed 1s&gt;&gt;
+  &lt;&lt;replace &quot;#a1&quot;&gt;&gt;
+         &lt;p&gt;720&lt;/p&gt;
+     &lt;&lt;/replace&gt;&gt;
+      &lt;&lt;replace &quot;#a2&quot;&gt;&gt;
+          &lt;p&gt;Zanzibar&lt;/p&gt;
+      &lt;&lt;/replace&gt;&gt;
+      &lt;&lt;replace &quot;#a3&quot;&gt;&gt;
+           &lt;p&gt;14&lt;/p&gt;
+      &lt;&lt;/replace&gt;&gt;
+      &lt;&lt;replace &quot;#a4&quot;&gt;&gt;
+          &lt;p&gt;Extremely trustworthy&lt;/p&gt;
+      &lt;&lt;/replace&gt;&gt;
+       &lt;&lt;replace &quot;#a5&quot;&gt;&gt;
+          &lt;p&gt;Neutral purposes&lt;/p&gt;
+       
+  &lt;&lt;/replace&gt;&gt;
+  &lt;&lt;timed 0.2s&gt;&gt;
+    &lt;&lt;replace &quot;#skipMount&quot;&gt;&gt;
+  &lt;div class=&quot;nav-wrapper&quot;&gt;
+    &lt;div class=&quot;nav-item&quot;&gt;
+        [img[Next|../assets/img/for.png][$nextpass]]
+    &lt;/div&gt;
+  &lt;/div&gt;
+    &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/timed&gt;&gt;
+  &lt;&lt;/timed&gt;&gt;
+        &lt;&lt;/button&gt;&gt;
+      &lt;/div&gt;
+  &lt;&lt;/replace&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;/footer&gt;</tw-passagedata><tw-passagedata pid="12" name="soundonoff" tags="nobr" position="225,225" size="100,100">&lt;div class=&quot;icon-container inline&quot;&gt; 
   &lt;&lt;if $sound is true&gt;&gt;
     &lt;&lt;link [img[&quot;../assets/img/audio.png&quot; ]]&gt;&gt; 
   &lt;&lt;set $sound to false&gt;&gt;
@@ -462,7 +531,7 @@ setup.backThirty = () => {
    &lt;&lt;goto $passage&gt;&gt;
     &lt;&lt;/link&gt;&gt;
   &lt;&lt;/if&gt;&gt;
-  &lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="intro" tags="nobr" position="225,225" size="100,100">&lt;&lt;set $prevpass to &quot;intro&quot;&gt;&gt;
+  &lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="intro" tags="nobr" position="350,225" size="100,100">&lt;&lt;set $prevpass to &quot;intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;intro&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;intro2&quot;&gt;&gt;
 &lt;&lt;set $showLogo to false&gt;&gt;
@@ -507,7 +576,7 @@ setup.backThirty = () => {
    
  &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="intro2" tags="nobr" position="350,225" size="100,100">&lt;&lt;set $prevpass to &quot;intro&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="intro2" tags="nobr" position="475,225" size="100,100">&lt;&lt;set $prevpass to &quot;intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;intro2&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;intro-highlight&quot;&gt;&gt;
 &lt;&lt;set $menuOpen to false&gt;&gt;
@@ -540,7 +609,7 @@ setup.backThirty = () => {
    
  &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="intro-highlight" tags="nobr" position="475,225" size="100,100">&lt;&lt;set $prevpass to &quot;intro2&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="15" name="intro-highlight" tags="nobr" position="600,225" size="100,100">&lt;&lt;set $prevpass to &quot;intro2&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;intro-highlight&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;intro-highlight2&quot;&gt;&gt;
 &lt;&lt;set $menuOpen to false&gt;&gt;
@@ -593,7 +662,7 @@ setup.backThirty = () => {
 
   &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="15" name="intro-highlight2" tags="nobr" position="600,225" size="100,100">&lt;&lt;set $prevpass to &quot;intro-highlight&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="intro-highlight2" tags="nobr" position="725,225" size="100,100">&lt;&lt;set $prevpass to &quot;intro-highlight&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;intro-highlight2&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;broadcast&quot;&gt;&gt;
 &lt;&lt;set $menuOpen to false&gt;&gt;
@@ -632,21 +701,21 @@ setup.backThirty = () => {
 
   &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="loading" tags="nobr t8n.typewriter.4" position="725,225" size="100,100">&lt;main id=&quot;main&quot; class=&quot;main-section loading&quot;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="loading" tags="nobr t8n.typewriter.4" position="850,225" size="100,100">&lt;main id=&quot;main&quot; class=&quot;main-section loading&quot;&gt;
 &lt;&lt;type 200ms&gt;&gt;&lt;h3 class=&quot;loading&quot;&gt;Loading...&lt;/h3&gt;&lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 6s&gt;&gt;
 &lt;&lt;goto $nextpass&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="17" name="broadcast" tags="nobr t8n.typewriter.4" position="850,225" size="100,100">&lt;&lt;set $prevpass to &quot;intro-highlight2&quot;&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="18" name="broadcast" tags="nobr t8n.typewriter.4" position="975,225" size="100,100">&lt;&lt;set $prevpass to &quot;intro-highlight2&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;broadcast&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;resistance-glitch&quot;&gt;&gt;
 &lt;main id=&quot;main&quot; class=&quot;main-section loading&quot;&gt;
 &lt;&lt;type 70ms&gt;&gt;&lt;h3 class=&quot;loading broadcast&quot;&gt;Broadcast from the Resistance&lt;/h3&gt;&lt;&lt;/type&gt;&gt;
-&lt;&lt;timed 8s&gt;&gt;
+&lt;&lt;timed 6s&gt;&gt;
 &lt;&lt;goto $nextpass&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="resistance-glitch" tags="nobr" position="975,225" size="100,100">&lt;&lt;set $prevpass to &quot;intro-highlight2&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="resistance-glitch" tags="nobr" position="1100,225" size="100,100">&lt;&lt;set $prevpass to &quot;intro-highlight2&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;resistance-glitch&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;resistance-glitch2&quot;&gt;&gt;
 &lt;&lt;set $menuOpen to false&gt;&gt;
@@ -697,7 +766,7 @@ setup.backThirty = () => {
   &lt;/div&gt;
 &lt;/main&gt;
 
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="resistance-glitch2" tags="nobr" position="1100,225" size="100,100">&lt;&lt;set $prevpass to &quot;resistance-glitch&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="resistance-glitch2" tags="nobr" position="1225,225" size="100,100">&lt;&lt;set $prevpass to &quot;resistance-glitch&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;resistance-glitch2&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $menuOpen to false&gt;&gt;
@@ -761,7 +830,7 @@ setup.backThirty = () => {
   &lt;/div&gt;
 &lt;/main&gt;
 
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="game-intro" tags="nobr" position="425,450" size="100,100">&lt;&lt;set $prevpass to &quot;resistance-glitch2&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="21" name="game-intro" tags="nobr" position="425,450" size="100,100">&lt;&lt;set $prevpass to &quot;resistance-glitch2&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game1&quot;&gt;&gt;
 &lt;&lt;set $menuOpen to false&gt;&gt;
@@ -848,7 +917,7 @@ setup.backThirty = () => {
   
 &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footermap&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="21" name="tally" tags="" position="100,350" size="100,100">&lt;span&gt;Correct answers: $tally&lt;/span&gt;</tw-passagedata><tw-passagedata pid="22" name="game1" tags="nobr" position="225,350" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
+&lt;&lt;include &quot;footermap&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="tally" tags="" position="225,350" size="100,100">&lt;span&gt;Correct answers: $tally&lt;/span&gt;</tw-passagedata><tw-passagedata pid="23" name="game1" tags="nobr" position="350,350" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game1&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game1a&quot;&gt;&gt;
 &lt;&lt;set $showLogo to false&gt;&gt;
@@ -889,7 +958,7 @@ setup.backThirty = () => {
 
   &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="game1a" tags="nobr t8n typewriter" position="350,350" size="100,100">&lt;&lt;set $prevpass to &quot;game1&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="game1a" tags="nobr t8n typewriter" position="475,350" size="100,100">&lt;&lt;set $prevpass to &quot;game1&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game1a&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game1b&quot;&gt;&gt;
 &lt;&lt;set $showLogo to false&gt;&gt;
@@ -980,10 +1049,10 @@ setup.backThirty = () => {
 
   &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footerquiz&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="game1afact" tags="nobr" position="475,350" size="100,100">&lt;p&gt;The Berlin conference represented a rapid increase in the pace and scale of colonisation, but not the start.&lt;/p&gt;
+&lt;&lt;include &quot;footerquiz&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="game1afact" tags="nobr" position="600,350" size="100,100">&lt;p&gt;The Berlin conference represented a rapid increase in the pace and scale of colonisation, but not the start.&lt;/p&gt;
 &lt;p&gt;The transatlantic slave trade started in the 16th century, and the desire for more resources and land led to the ‘scramble’ to colonise Africa in the late 19th century. &lt;/p&gt;
 
-&lt;p&gt;The interior of the continent was still largely a ‘mystery’ to Europeans by the late 1800s; this changed after European powers gathered for 104 days in 1884 to discuss the future of Africa.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="25" name="game1b" tags="nobr t8n typewriter" position="600,350" size="100,100">&lt;&lt;set $prevpass to &quot;game1a&quot;&gt;&gt;
+&lt;p&gt;The interior of the continent was still largely a ‘mystery’ to Europeans by the late 1800s; this changed after European powers gathered for 104 days in 1884 to discuss the future of Africa.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="26" name="game1b" tags="nobr t8n typewriter" position="725,350" size="100,100">&lt;&lt;set $prevpass to &quot;game1a&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game1b&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game1c&quot;&gt;&gt;
 &lt;&lt;set $showLogo to false&gt;&gt;
@@ -1074,8 +1143,8 @@ setup.backThirty = () => {
 
   &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footerquiz&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="game1bfact" tags="" position="725,350" size="100,100">&lt;p&gt;The Berlin conference of 1884 was ‘dressed up’ as a humanitarian summit to look after the welfare of Africans and ensure the end of slavery. However, the Europeans used the conference as a pretext to reinforce colonial practices, notably in Congo, through African trade and &quot;civilisation&quot;. &lt;/p&gt;
-&lt;p&gt;At the 1884 conference, King Leopold II of Belgium promised to focus on abolishing the slave trade in central Africa. This was only said, however, to convince the international community to let him become the absolute and despotic monarch of the Independent State of Congo.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="27" name="game1c" tags="nobr t8n typewriter" position="850,350" size="100,100">&lt;&lt;set $prevpass to &quot;game1b&quot;&gt;&gt;
+&lt;&lt;include &quot;footerquiz&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="27" name="game1bfact" tags="" position="850,350" size="100,100">&lt;p&gt;The Berlin conference of 1884 was ‘dressed up’ as a humanitarian summit to look after the welfare of Africans and ensure the end of slavery. However, the Europeans used the conference as a pretext to reinforce colonial practices, notably in Congo, through African trade and &quot;civilisation&quot;. &lt;/p&gt;
+&lt;p&gt;At the 1884 conference, King Leopold II of Belgium promised to focus on abolishing the slave trade in central Africa. This was only said, however, to convince the international community to let him become the absolute and despotic monarch of the Independent State of Congo.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="28" name="game1c" tags="nobr t8n typewriter" position="975,350" size="100,100">&lt;&lt;set $prevpass to &quot;game1b&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game1c&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game1d&quot;&gt;&gt;
 &lt;&lt;set $showLogo to false&gt;&gt;
@@ -1170,8 +1239,8 @@ setup.backThirty = () => {
 
   &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footerquiz&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="game1cfact" tags="" position="975,350" size="100,100">&lt;p&gt;No representatives from Africa were included in the conference. In 1884, the leaders of 14 European countries, the Ottoman empire, and the USA came together to negotiate the future of Africa. &lt;/p&gt;
-&lt;p&gt;Of the 14, Portugal, France, Britain and Germany were the major players in the conference, controlling most of colonial Africa at the time. &lt;/p&gt;</tw-passagedata><tw-passagedata pid="29" name="game1d" tags="nobr t8n typewriter" position="1100,350" size="100,100">&lt;&lt;set $prevpass to &quot;game1c&quot;&gt;&gt;
+&lt;&lt;include &quot;footerquiz&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="game1cfact" tags="" position="1100,350" size="100,100">&lt;p&gt;No representatives from Africa were included in the conference. In 1884, the leaders of 14 European countries, the Ottoman empire, and the USA came together to negotiate the future of Africa. &lt;/p&gt;
+&lt;p&gt;Of the 14, Portugal, France, Britain and Germany were the major players in the conference, controlling most of colonial Africa at the time. &lt;/p&gt;</tw-passagedata><tw-passagedata pid="30" name="game1d" tags="nobr t8n typewriter" position="1225,350" size="100,100">&lt;&lt;set $prevpass to &quot;game1c&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game1d&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game1e&quot;&gt;&gt;
 &lt;&lt;set $showLogo to false&gt;&gt;
@@ -1266,8 +1335,8 @@ setup.backThirty = () => {
 
   &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footerquiz&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="30" name="game1dfact" tags="" position="1225,350" size="100,100">&lt;p&gt;King Leopold II did not attend the conference, but had well placed representatives (such as ‘explorer’ Henry Morton Stanley) to make sure he got what he wanted. By convincing everyone his interests were purely altruistic, Leopold left the conference as the sole ruler of 905,355 sq miles and 30 million people in central Africa, without ever stepping foot on the continent. &lt;/p&gt;
-&lt;p&gt;Under his rule, an estimated 5-10 million people died as a direct result of the atrocities imposed by his rule. &lt;/p&gt;</tw-passagedata><tw-passagedata pid="31" name="game1e" tags="nobr t8n typewriter" position="100,475" size="100,100">&lt;&lt;set $prevpass to &quot;game1d&quot;&gt;&gt;
+&lt;&lt;include &quot;footerquiz&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="31" name="game1dfact" tags="" position="100,475" size="100,100">&lt;p&gt;King Leopold II did not attend the conference, but had well placed representatives (such as ‘explorer’ Henry Morton Stanley) to make sure he got what he wanted. By convincing everyone his interests were purely altruistic, Leopold left the conference as the sole ruler of 905,355 sq miles and 30 million people in central Africa, without ever stepping foot on the continent. &lt;/p&gt;
+&lt;p&gt;Under his rule, an estimated 5-10 million people died as a direct result of the atrocities imposed by his rule. &lt;/p&gt;</tw-passagedata><tw-passagedata pid="32" name="game1e" tags="nobr t8n typewriter" position="225,475" size="100,100">&lt;&lt;set $prevpass to &quot;game1d&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game1e&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game1complete&quot;&gt;&gt;
 &lt;&lt;set $showLogo to false&gt;&gt;
@@ -1362,8 +1431,8 @@ setup.backThirty = () => {
 
   &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footerquiz&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="32" name="game1efact" tags="" position="225,475" size="100,100">&lt;p&gt;Though the 1884 Berlin conference didn’t technically lead to the partition of Africa, it was a pivotal event in accelerating and formalising the colonial expansion of European powers into Africa. Before the Conference, betw. 80-90% of Africa remained under traditional and local control.&lt;/p&gt;
-&lt;p&gt;After the Conference, by 1902, 90% of Africa had come under tight colonial bondage. Apart from slavery – both transatlantic and Arab – there is no single event in modern African history whose consequences have been so dire for the continent as the Berlin Conference of 1884-85. &lt;/p&gt;</tw-passagedata><tw-passagedata pid="33" name="game1complete" tags="nobr" position="350,475" size="100,100">&lt;&lt;set $menuOpen to false&gt;&gt;
+&lt;&lt;include &quot;footerquiz&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="33" name="game1efact" tags="" position="350,475" size="100,100">&lt;p&gt;Though the 1884 Berlin conference didn’t technically lead to the partition of Africa, it was a pivotal event in accelerating and formalising the colonial expansion of European powers into Africa. Before the Conference, betw. 80-90% of Africa remained under traditional and local control.&lt;/p&gt;
+&lt;p&gt;After the Conference, by 1902, 90% of Africa had come under tight colonial bondage. Apart from slavery – both transatlantic and Arab – there is no single event in modern African history whose consequences have been so dire for the continent as the Berlin Conference of 1884-85. &lt;/p&gt;</tw-passagedata><tw-passagedata pid="34" name="game1complete" tags="nobr" position="475,475" size="100,100">&lt;&lt;set $menuOpen to false&gt;&gt;
 &lt;&lt;include &quot;header&quot;&gt;&gt;
 &lt;main id=&quot;main&quot; &gt;
 
@@ -1373,7 +1442,7 @@ setup.backThirty = () => {
   &lt;&lt;button &quot;Debunk another myth&quot;&gt;&gt;&lt;&lt;goto &quot;game-intro&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
   &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="34" name="game2" tags="nobr" position="475,475" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="35" name="game2" tags="nobr" position="600,475" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game2&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game2a&quot;&gt;&gt;
 &lt;&lt;set $showLogo to false&gt;&gt;
@@ -1403,7 +1472,7 @@ setup.backThirty = () => {
 
   &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="35" name="game2a" tags="nobr" position="600,475" size="100,100">&lt;&lt;set $prevpass to &quot;game2&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="game2a" tags="nobr" position="725,475" size="100,100">&lt;&lt;set $prevpass to &quot;game2&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game2a&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game2b&quot;&gt;&gt;
 &lt;&lt;set $showLogo to false&gt;&gt;
@@ -1428,7 +1497,7 @@ setup.backThirty = () => {
 
   &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="game2b" tags="nobr" position="725,475" size="100,100">&lt;&lt;set $prevpass to &quot;game2a&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="37" name="game2b" tags="nobr" position="850,475" size="100,100">&lt;&lt;set $prevpass to &quot;game2a&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game2b&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game2complete&quot;&gt;&gt;
 &lt;&lt;set $menuOpen to false&gt;&gt;
@@ -1514,11 +1583,11 @@ setup.backThirty = () => {
   &lt;/div&gt;
 
 &lt;/main&gt;
-&lt;&lt;include &quot;footerws&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="37" name="checkcorrectans" tags="" position="850,475" size="100,100">&lt;&lt;if $correctans.includesAll(&quot;RIVER&quot;, &quot;RUBBER&quot;, &quot;IVORY&quot;)&gt;&gt;
+&lt;&lt;include &quot;footerws&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="checkcorrectans" tags="" position="975,475" size="100,100">&lt;&lt;if $correctans.includesAll(&quot;RIVER&quot;, &quot;RUBBER&quot;, &quot;IVORY&quot;)&gt;&gt;
   &lt;&lt;timed 3s&gt;&gt;
   &lt;&lt;goto $nextpass&gt;&gt;
   &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="codewordws1" tags="nobr" position="975,475" size="100,100">&lt;div id=&quot;coderesult1&quot;&gt;&lt;/div&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="39" name="codewordws1" tags="nobr" position="1100,475" size="100,100">&lt;div id=&quot;coderesult1&quot;&gt;&lt;/div&gt;
 /% CODEWORD FEEDBACK %/
 &lt;div id=&quot;resultbutton1&quot; class=&quot;result-wrapper&quot;&gt;
 /% CODEWORD INPUT %/
@@ -1554,7 +1623,7 @@ setup.backThirty = () => {
   &lt;&lt;replace &quot;#coderesult1&quot;&gt;&gt;
     &lt;&lt;/replace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="39" name="codewordws2" tags="nobr" position="1100,475" size="100,100">&lt;div id=&quot;coderesult2&quot;&gt;&lt;/div&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="40" name="codewordws2" tags="nobr" position="1225,475" size="100,100">&lt;div id=&quot;coderesult2&quot;&gt;&lt;/div&gt;
 /% CODEWORD FEEDBACK %/
 &lt;div id=&quot;resultbutton2&quot; class=&quot;result-wrapper&quot;&gt;
 /% CODEWORD INPUT %/
@@ -1590,7 +1659,7 @@ setup.backThirty = () => {
   &lt;&lt;replace &quot;#coderesult2&quot;&gt;&gt;
     &lt;&lt;/replace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="40" name="codewordws3" tags="nobr" position="1225,475" size="100,100">&lt;div id=&quot;coderesult3&quot;&gt;&lt;/div&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="41" name="codewordws3" tags="nobr" position="100,600" size="100,100">&lt;div id=&quot;coderesult3&quot;&gt;&lt;/div&gt;
 /% CODEWORD FEEDBACK %/
 &lt;div id=&quot;resultbutton3&quot; class=&quot;result-wrapper&quot;&gt;
 /% CODEWORD INPUT %/
@@ -1626,7 +1695,7 @@ setup.backThirty = () => {
   &lt;&lt;replace &quot;#coderesult3&quot;&gt;&gt;
     &lt;&lt;/replace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="41" name="game2complete" tags="nobr" position="100,600" size="100,100">&lt;&lt;set $prevpass to &quot;game2b&quot;&gt;&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="42" name="game2complete" tags="nobr" position="225,600" size="100,100">&lt;&lt;set $prevpass to &quot;game2b&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game2complete&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game2complete2&quot;&gt;&gt;
 &lt;&lt;set $showLogo to false&gt;&gt;
@@ -1664,7 +1733,7 @@ setup.backThirty = () => {
   &lt;/div&gt;
 &lt;/main&gt;
 
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="42" name="game2complete2" tags="nobr" position="225,600" size="100,100">&lt;&lt;set $prevpass to &quot;game2complete&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="game2complete2" tags="nobr" position="350,600" size="100,100">&lt;&lt;set $prevpass to &quot;game2complete&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game2complete2&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $showLogo to false&gt;&gt;
@@ -1698,7 +1767,7 @@ setup.backThirty = () => {
   &lt;/div&gt;
 &lt;/main&gt;
 
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="game3" tags="nobr" position="350,600" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="44" name="game3" tags="nobr" position="475,600" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game3&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game3a&quot;&gt;&gt;
 &lt;&lt;set $showLogo to false&gt;&gt;
@@ -1731,7 +1800,7 @@ setup.backThirty = () => {
 
   &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="44" name="game3a" tags="nobr" position="475,600" size="100,100">&lt;&lt;set $prevpass to &quot;game3&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="45" name="game3a" tags="nobr" position="600,600" size="100,100">&lt;&lt;set $prevpass to &quot;game3&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game3a&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game3b&quot;&gt;&gt;
 &lt;&lt;set $showLogo to false&gt;&gt;
@@ -1767,7 +1836,7 @@ setup.backThirty = () => {
 &lt;&lt;/timed&gt;&gt;
   &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="45" name="timer" tags="nobr" position="600,600" size="100,100">&lt;&lt;set $seconds to 60&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="46" name="timer" tags="nobr" position="725,600" size="100,100">&lt;&lt;set $seconds to 60&gt;&gt;
 &lt;span id=&quot;countdown&quot;&gt;&lt;span class=&quot;secs&quot;&gt;$seconds&lt;/span&gt; &lt;span class=&quot;extra&quot;&gt;seconds&lt;/span&gt;&lt;/span&gt;
 
 
@@ -1777,16 +1846,42 @@ setup.backThirty = () => {
 		&lt;&lt;if $seconds gt 0&gt;&gt;
 			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;&lt;span class=&quot;secs&quot;&gt;$seconds&lt;/span&gt; &lt;span class=&quot;extra&quot;&gt;seconds&lt;/span&gt;&lt;&lt;/replace&gt;&gt;
 		&lt;&lt;else&gt;&gt;
-			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;Too Late&lt;&lt;/replace&gt;&gt;
-
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;&lt;strong&gt;Too Late&lt;/strong&gt;&lt;&lt;/replace&gt;&gt;
+       &lt;&lt;timed 1s&gt;&gt;
+  &lt;&lt;replace &quot;#a1&quot;&gt;&gt;
+         &lt;p&gt;720&lt;/p&gt;
+     &lt;&lt;/replace&gt;&gt;
+      &lt;&lt;replace &quot;#a2&quot;&gt;&gt;
+          &lt;p&gt;Zanzibar&lt;/p&gt;
+      &lt;&lt;/replace&gt;&gt;
+      &lt;&lt;replace &quot;#a3&quot;&gt;&gt;
+           &lt;p&gt;14&lt;/p&gt;
+      &lt;&lt;/replace&gt;&gt;
+      &lt;&lt;replace &quot;#a4&quot;&gt;&gt;
+          &lt;p&gt;Extremely trustworthy&lt;/p&gt;
+      &lt;&lt;/replace&gt;&gt;
+       &lt;&lt;replace &quot;#a5&quot;&gt;&gt;
+          &lt;p&gt;Neutral purposes&lt;/p&gt;
+       
+  &lt;&lt;/replace&gt;&gt;
+  &lt;&lt;timed 0.2s&gt;&gt;
+    &lt;&lt;replace &quot;#skipMount&quot;&gt;&gt;
+  &lt;div class=&quot;nav-wrapper&quot;&gt;
+    &lt;div class=&quot;nav-item&quot;&gt;
+        [img[Next|../assets/img/for.png][$nextpass]]
+    &lt;/div&gt;
+  &lt;/div&gt;
+    &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/timed&gt;&gt;
+  &lt;&lt;/timed&gt;&gt;
 			&lt;&lt;stop&gt;&gt;
 		&lt;&lt;/if&gt;&gt;
 	&lt;&lt;/repeat&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="46" name="checkcorrectgame3" tags="" position="725,600" size="100,100">&lt;&lt;if $correctgame3 gte 5&gt;&gt;
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="47" name="checkcorrectgame3" tags="" position="850,600" size="100,100">&lt;&lt;if $correctgame3 gte 5&gt;&gt;
   &lt;&lt;timed 5s&gt;&gt;
   &lt;&lt;goto $nextpass&gt;&gt;
   &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="47" name="game3b" tags="nobr" position="850,600" size="100,100">&lt;&lt;set $prevpass to &quot;game3a&quot;&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="48" name="game3b" tags="nobr" position="975,600" size="100,100">&lt;&lt;set $prevpass to &quot;game3a&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game3b&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game3complete&quot;&gt;&gt;
 &lt;&lt;set $menuOpen to false&gt;&gt;
@@ -1867,7 +1962,7 @@ setup.backThirty = () => {
         &lt;&lt;/timed&gt;&gt;
         &lt;&lt;timed 2s&gt;&gt;
         &lt;&lt;replace &quot;#a2&quot;&gt;&gt;
-    &lt;p&gt;Zanzibar&lt;/p&gt;
+          &lt;p&gt;Zanzibar&lt;/p&gt;
           &lt;&lt;/replace&gt;&gt;
         &lt;&lt;/timed&gt;&gt;
     &lt;&lt;/button&gt;&gt; 
@@ -1911,7 +2006,7 @@ setup.backThirty = () => {
         &lt;&lt;/timed&gt;&gt;
         &lt;&lt;timed 2s&gt;&gt;
         &lt;&lt;replace &quot;#a3&quot;&gt;&gt;
-    &lt;p&gt;14&lt;/p&gt;
+           &lt;p&gt;14&lt;/p&gt;
           &lt;&lt;/replace&gt;&gt;
         &lt;&lt;/timed&gt;&gt;
     &lt;&lt;/button&gt;&gt; 
@@ -2001,7 +2096,7 @@ setup.backThirty = () => {
   &lt;/div&gt;
 
 &lt;/main&gt;
-&lt;&lt;include &quot;footerws&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="48" name="game3complete" tags="nobr" position="975,600" size="100,100">&lt;&lt;set $prevpass to &quot;game3b&quot;&gt;&gt;
+&lt;&lt;include &quot;footernations&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="49" name="game3complete" tags="nobr" position="1100,600" size="100,100">&lt;&lt;set $prevpass to &quot;game3b&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game3complete&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $showLogo to false&gt;&gt;
@@ -2034,7 +2129,7 @@ setup.backThirty = () => {
   &lt;&lt;/timed&gt;&gt;
   &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="49" name="game4" tags="nobr" position="1100,600" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="50" name="game4" tags="nobr" position="1225,600" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game4&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game4a&quot;&gt;&gt;
 &lt;&lt;set $showLogo to false&gt;&gt;
@@ -2068,7 +2163,7 @@ setup.backThirty = () => {
   
   &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="50" name="displayWords" tags="nobr" position="1225,600" size="100,100">&lt;&lt;for _i to 0; _i lt $placardWords.length; _i++&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="51" name="displayWords" tags="nobr" position="100,725" size="100,100">&lt;&lt;for _i to 0; _i lt $placardWords.length; _i++&gt;&gt;
   &lt;&lt;capture _i&gt;&gt;
  &lt;&lt;link $placardWords[_i]&gt;&gt;
   &lt;&lt;set $toDelete to $placardWords[_i]&gt;&gt;
@@ -2079,14 +2174,14 @@ setup.backThirty = () => {
  &lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
  &lt;&lt;/timed&gt;&gt;&lt;&lt;/link&gt;&gt; 
  &lt;&lt;/capture&gt;&gt;
-&lt;&lt;/for&gt;&gt;</tw-passagedata><tw-passagedata pid="51" name="deleteWords" tags="" position="100,725" size="100,100">&lt;&lt;for _i to 0; _i lt $placardWords.length; _i++&gt;&gt;
+&lt;&lt;/for&gt;&gt;</tw-passagedata><tw-passagedata pid="52" name="deleteWords" tags="" position="225,725" size="100,100">&lt;&lt;for _i to 0; _i lt $placardWords.length; _i++&gt;&gt;
   &lt;&lt;capture _i&gt;&gt;
   &lt;&lt;set $placardWords to []&gt;&gt;
   &lt;&lt;timed 0.2s&gt;&gt;
  &lt;&lt;replace &quot;#wordsMount&quot;&gt;&gt;&lt;&lt;include &quot;displayWords&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
  &lt;&lt;/timed&gt;&gt;
  &lt;&lt;/capture&gt;&gt;
-&lt;&lt;/for&gt;&gt;</tw-passagedata><tw-passagedata pid="52" name="game4a" tags="nobr" position="225,725" size="100,100">&lt;&lt;set $prevpass to &quot;game4&quot;&gt;&gt;
+&lt;&lt;/for&gt;&gt;</tw-passagedata><tw-passagedata pid="53" name="game4a" tags="nobr" position="350,725" size="100,100">&lt;&lt;set $prevpass to &quot;game4&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game4a&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;choosewords&quot;&gt;&gt;
 &lt;&lt;set $showLogo to false&gt;&gt;
@@ -2123,7 +2218,7 @@ setup.backThirty = () => {
 
 
 
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="53" name="choosewords" tags="nobr" position="350,725" size="100,100">&lt;&lt;set $prevpass to &quot;game4a&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="54" name="choosewords" tags="nobr" position="475,725" size="100,100">&lt;&lt;set $prevpass to &quot;game4a&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;choosewords&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game4b&quot;&gt;&gt;
 &lt;&lt;set $showLogo to false&gt;&gt;
@@ -2180,13 +2275,13 @@ Make them links
 When clicked remove from array  */
 
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="54" name="myplacard" tags="nobr" position="475,725" size="100,100">&lt;div class=&quot;placard-container&quot;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="55" name="myplacard" tags="nobr" position="600,725" size="100,100">&lt;div class=&quot;placard-container&quot;&gt;
   &lt;&lt;for _i to 0; _i lt $placardWords.length; _i++&gt;&gt;
       &lt;&lt;capture _i&gt;&gt;
         &lt;span&gt;$placardWords[_i]&lt;/span&gt;
         &lt;&lt;/capture&gt;&gt;
     &lt;&lt;/for&gt;&gt;
-  &lt;/div&gt;</tw-passagedata><tw-passagedata pid="55" name="game4b" tags="nobr" position="600,725" size="100,100">&lt;&lt;set $prevpass to &quot;choosewords&quot;&gt;&gt;
+  &lt;/div&gt;</tw-passagedata><tw-passagedata pid="56" name="game4b" tags="nobr" position="725,725" size="100,100">&lt;&lt;set $prevpass to &quot;choosewords&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game4b&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game4complete&quot;&gt;&gt;
 &lt;&lt;set $menuOpen to false&gt;&gt;
@@ -2199,7 +2294,7 @@ When clicked remove from array  */
 &lt;div id=&quot;skipMount&quot;&gt;&lt;/div&gt;
 
 &lt;/main&gt;
-&lt;&lt;include &quot;footerplacard&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="56" name="game4complete" tags="nobr" position="725,725" size="100,100">&lt;&lt;set $prevpass to &quot;game4b&quot;&gt;&gt;
+&lt;&lt;include &quot;footerplacard&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="57" name="game4complete" tags="nobr" position="850,725" size="100,100">&lt;&lt;set $prevpass to &quot;game4b&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game4complete&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $showLogo to false&gt;&gt;
@@ -2238,16 +2333,16 @@ When clicked remove from array  */
   &lt;/div&gt;
 &lt;/main&gt;
 
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="57" name="broadcastmessage" tags="nobr t8n.typewriter.4" position="850,725" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="58" name="broadcastmessage" tags="nobr t8n.typewriter.4" position="975,725" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;broadcastmessage&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;closing&quot;&gt;&gt;
 &lt;main id=&quot;main&quot; class=&quot;main-section loading&quot;&gt;
 &lt;&lt;type 70ms&gt;&gt;&lt;h3 class=&quot;loading broadcast&quot;&gt;Broadcast from the Resistance&lt;/h3&gt;&lt;&lt;/type&gt;&gt;
-&lt;&lt;timed 8s&gt;&gt;
+&lt;&lt;timed 6s&gt;&gt;
 &lt;&lt;goto $nextpass&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="58" name="closing" tags="nobr" position="975,725" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="59" name="closing" tags="nobr" position="1100,725" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;closing&quot;&gt;&gt;
 &lt;&lt;set $menuOpen to false&gt;&gt;
 &lt;&lt;include &quot;header&quot;&gt;&gt;

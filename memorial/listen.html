@@ -230,14 +230,14 @@ setup.backTen = () => {
   &lt;&lt;include &quot;headermenu&quot;&gt;&gt;
 &lt;main id=&quot;main&quot;&gt;
  &lt;div class=&quot;main-container text&quot;&gt;
-   &lt;h1&gt;Memorial&lt;/h1&gt;
+   &lt;h1&gt;1884 Memorial&lt;/h1&gt;
     &lt;p&gt;
       You can  &lt;&lt;button &quot;Listen&quot;&gt;&gt;&lt;&lt;goto &quot;listen&quot;&gt;&gt;&lt;&lt;/button&gt;&gt; to a selection of reflections of people that visited the memorial before you. They are playing in random order. If you want to play the next one, press the  &lt;&lt;button &quot;Next&quot;&gt;&gt;&lt;&lt;goto &quot;listen&quot;&gt;&gt;&lt;&lt;/button&gt;&gt; button.
       
     &lt;/p&gt;
     &lt;p&gt;If you want to make another contribution to the memorial, press &lt;a href=&quot;../memorial/prerecord.html&quot;&gt;&lt;button&gt;Record&lt;/button&gt;&lt;/a&gt; . &lt;/p&gt;
 
-    &lt;p&gt;There is also the option to &lt;&lt;button &quot;Read&quot;&gt;&gt;&lt;&lt;goto &quot;read&quot;&gt;&gt;&lt;&lt;/button&gt;&gt; some written memories.&lt;/p&gt;
+    &lt;p&gt;There is also the option to &lt;&lt;button &quot;Read&quot;&gt;&gt;&lt;&lt;goto &quot;read&quot;&gt;&gt;&lt;&lt;/button&gt;&gt; some written memories. If you&#39;d like to submit your own written memory, please &lt;a href=&quot;../memorial/submit.html&quot;&gt;&lt;button&gt;Email&lt;/button&gt;&lt;/a&gt; us.&lt;/p&gt;
       &lt;&lt;button &quot;Start now&quot;&gt;&gt;
        
 
@@ -497,7 +497,10 @@ setup.backTen = () => {
     &lt;p&gt;And more captions&lt;/p&gt;
     &lt;&lt;/replace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="headerread" tags="nobr" position="1225,225" size="100,100">&lt;header class=&quot;listen&quot; &gt;
-&lt;div class=&quot;logo-container&quot;&gt;&lt;/div&gt;
+
+ &lt;div class=&quot;nav-item&quot;&gt;
+    &lt;a href=&quot;../submit.html&quot;&gt;&lt;button&gt;Submit a written memory&lt;/button&gt;&lt;/a&gt;
+ &lt;/div&gt;
  &lt;div class=&quot;nav-item&quot;&gt;
     &lt;&lt;button &quot;Next memory&quot;&gt;&gt;
      &lt;&lt;set $source to $readoptions[random(0, $readoptions.length - 1)]&gt;&gt;

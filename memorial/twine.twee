@@ -181,14 +181,14 @@ setup.backTen = () => {
   <<include "headermenu">>
 <main id="main">
  <div class="main-container text">
-   <h1>Memorial</h1>
+   <h1>1884 Memorial</h1>
     <p>
       You can  <<button "Listen">><<goto "listen">><</button>> to a selection of reflections of people that visited the memorial before you. They are playing in random order. If you want to play the next one, press the  <<button "Next">><<goto "listen">><</button>> button.
       
     </p>
     <p>If you want to make another contribution to the memorial, press <a href="../memorial/prerecord.html"><button>Record</button></a> . </p>
 
-    <p>There is also the option to <<button "Read">><<goto "read">><</button>> some written memories.</p>
+    <p>There is also the option to <<button "Read">><<goto "read">><</button>> some written memories. If you'd like to submit your own written memory, please <a href="../memorial/submit.html"><button>Email</button></a> us.</p>
       <<button "Start now">>
        
 
@@ -499,7 +499,10 @@ setup.backTen = () => {
 
 :: headerread [nobr]
 <header class="listen" >
-<div class="logo-container"></div>
+
+ <div class="nav-item">
+    <a href="../submit.html"><button>Submit a written memory</button></a>
+ </div>
  <div class="nav-item">
     <<button "Next memory">>
      <<set $source to $readoptions[random(0, $readoptions.length - 1)]>>
