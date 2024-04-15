@@ -3,10 +3,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const paragraph2 = document.getElementById("paragraph2");
   const paragraph3 = document.getElementById("paragraph3");
   const paragraph4 = document.getElementById("paragraph4");
+  const paragraph5 = document.getElementById("paragraph5");
+  const paragraph6 = document.getElementById("paragraph6");
+
   gsap.from(paragraph1, { duration: 0.1, opacity: 0, delay: 0.2 });
   gsap.from(paragraph2, { duration: 0.1, opacity: 0, delay: 2 });
   gsap.from(paragraph3, { duration: 0.1, opacity: 0, delay: 4 });
   gsap.from(paragraph4, { duration: 0.1, opacity: 0, delay: 6 });
-
-  console.log("hello");
+  gsap.from(paragraph5, { duration: 0.1, opacity: 0, delay: 8 });
+  gsap.from(paragraph6, { duration: 0.1, opacity: 0, delay: 10 });
 });

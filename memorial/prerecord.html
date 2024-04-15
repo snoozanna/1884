@@ -15,19 +15,19 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://metatags.io/" />
+  <meta property="og:url" content="https://youhavefoundconey.net/1884FM" />
   <meta property="og:title" content="1884 Experience | Coney" />
   <meta property="og:description" content="Discover the myths about the 1884 Berlin Conference, and uncover the history behind it.
 " />
-  <meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+  <meta property="og:image" content="https://youhavefoundconey.net/1884FM/assets/img/landing.jpeg" />
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://metatags.io/" />
+  <meta property="twitter:url" content="https://youhavefoundconey.net/1884FM" />
   <meta property="twitter:title" content="1884 Experience | Coney" />
   <meta property="twitter:description" content="Discover the myths about the 1884 Berlin Conference, and uncover the history behind it.
 " />
-  <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
+  <meta property="twitter:image" content="https://youhavefoundconey.net/1884FM/assets/img/landing.jpeg" />
 
   <!-- Meta Tags Generated with https://metatags.io -->
 
@@ -47,9 +47,10 @@
 
 
   <!-- tp scripts -->
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
 
   <!-- our scripts -->
+  <script src="../scripts/main.js"></script>
 
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -66,10 +67,17 @@
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
         <h2 class="menu-title"> MENU </h2>
+        <h3 class="menu-item"><a href="../intro/index.html">Intro</a></h3>
         <h3 class="menu-item">
           <a href="../games/index.html">Games</a>
         </h3>
-        <h3 class="menu-item"><a href="../memorial/accept.html">Memorial</a></h3>
+        <h3 class="menu-item"><a href="../memorial/index.html">Memorial</a></h3>
+        <ul>
+          <li><a href="../memorial/listen.html">Listen</a></li>
+          <li><a href="../memorial/read.html">Read</a></li>
+          <li><a href="../memorial/prerecord.html">Record</a></li>
+          <li><a href="../memorial/submit.html">Submit a written contribution</a></li>
+        </ul>
         <h3 class="menu-item"><a href="../history/index.html">History</a></h3>
         <a href=""><button>Close Menu</button></a>
 
@@ -82,21 +90,25 @@
 
 
       <h1>1884 Memorial <br />Record</h1>
+      <br />
+      <p class="hidden" id="paragraph1">On the next page, you’ll be able to record your own reflections about 1884. </p>
+      <p class="hidden" id="paragraph2"> Here’s some prompt questions you could answer:</p>
 
-      <p>On the next page, you’ll be able to record your own reflections about 1884. </p>
-      <p> Here’s some prompt questions you could answer:</p>
+      <p class="provocation hidden" id="paragraph3">What did the 1884 live show or digital experience make you feel or
+        think about?</p>
 
-      <p class="provocation">What did the 1884 live show or digital experience make you feel or think about?</p>
-
-      <p class="provocation">What are your reflections on the history of the 1884 Berlin Conference, and how it is
+      <p class="provocation hidden" id="paragraph4">What are your reflections on the history of the 1884 Berlin
+        Conference, and how it is
         remembered today?</p>
 
-      <p>But feel free to record whatever you feel like sharing.</p>
+      <p class="hidden" id="paragraph5">But feel free to record whatever you feel like sharing.</p>
 
-      <p>Have you attended the 1884 live show?</p>
-      <a href="record-a.html"><button>I have seen the show</button></a>
-      <br /><br />
-      <a href="record-b.html"><button>I haven't seen the show</button></a>
+      <div id="paragraph6" class="hidden">
+        <p>Have you attended the 1884 live show?</p>
+        <a href="record-a.html"><button>I have seen the show</button></a>
+        <br /><br />
+        <a href="record-b.html"><button>I haven't seen the show</button></a>
+      </div>
 
 
 
@@ -115,7 +127,7 @@
   </footer>
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+
   <script async src="https://www.speakpipe.com/widget/loader.js" charset="utf-8"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"

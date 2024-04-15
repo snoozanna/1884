@@ -44,6 +44,20 @@ a:hover {
   margin: 0;
 }
 
+/* DISSOLVE TRANSITION  */
+body[data-tags~="t8n-dissolve"] .transition-in {
+  position: absolute;
+  opacity: 0;
+}
+body[data-tags~="t8n-dissolve"] .passage {
+  transition: 1s;
+  -webkit-transition: 1s;
+}
+body[data-tags~="t8n-dissolve"] .transition-out {
+  position: absolute;
+  opacity: 0;
+}
+
 /* GENERAL STYLES */
 body {
   background: var(--twine-bg-color);
@@ -59,13 +73,15 @@ body {
 }
 
 .dj > p,
-p.dj {
+p.dj,
+.dj > .macro-type > p {
   font-style: italic;
 }
 
-.dj > p > span.emph {
+.dj > p > span.emph,
+.dj > .macro-type > p > span.emph {
   font-family: var(--font-placard);
-  color: var(--color-pink);
+  color: var(--color-offwhite);
   text-transform: uppercase;
   font-size: 2.4rem;
   font-style: normal;
@@ -238,7 +254,11 @@ textarea {
   }
 }
 
-/* INVESTIGATION GROUND */
+/* INTRO  */
+#passage-intro,
+#passage-intro-highlight {
+  background-color: var(--color-brown);
+}
 
 /* BACKPACK  */
 
@@ -252,10 +272,12 @@ main.backpack > .main-container {
   justify-content: center;
   align-items: center;
   padding: var(--padding-mob);
+  padding-top: 0;
 }
 .main-container > .text-container {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 .backpack-container {
   display: flex;
@@ -264,7 +286,7 @@ main.backpack > .main-container {
   /* gap: 3rem; */
   /* padding: 1.5rem 1.5rem 1.5rem 0; */
   flex-wrap: wrap;
-  max-width: 60%;
+  max-width: 50%;
 }
 
 .backpack-container > .backpack-item {
@@ -348,14 +370,14 @@ span.todo {
 }
 
 .game-menu-mem {
-  margin-block-start: 2rem;
+  margin-block-start: 4rem;
 }
 
 @media screen and (max-width: 450px) {
   main.backpack {
     padding: 0;
   }
-  .main-container.backpack {
+  main.backpack > .main-container.backpack {
     display: flex;
     flex-direction: column;
   }
@@ -371,7 +393,7 @@ span.todo {
 
 header.quiz {
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   position: sticky;
   min-height: 10rem;
 }
@@ -489,7 +511,7 @@ main.wordsearch {
 }
 
 .question-container > h3 {
-  color: var(--color-pink);
+  color: var(--color-brown);
   font-size: 3rem;
 }
 
@@ -669,7 +691,7 @@ h3.loading.broadcast {
   font-size: 6rem;
   text-transform: uppercase;
   text-align: center;
-  color: var(--main-bg-color);
+  color: var(--color-brown);
   line-height: 7rem;
 }
 

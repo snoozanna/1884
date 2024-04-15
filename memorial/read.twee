@@ -1,13 +1,13 @@
 :: StoryTitle
-1884 Twine Memorial
+1884 Memorial | Read | Coney
 
 
 :: StoryData
 {
-	 "ifid": "439AD399-857A-40D7-AD21-B078C527B81F",
+	 "ifid": "CC64CC2C-89E8-46F0-903B-9A1C1A090107",
 	"format": "SugarCube",
 	"format-version": "2.36.1",
-	"start": "",
+	"start": "read",
 	"zoom": 0.6
 }
 
@@ -118,11 +118,7 @@ setup.backTen = () => {
     </div>
   </div>
   <</if>>
-  <div class="nav-wrapper">
-    <div class="nav-item">
-    <<button "Start">><<goto "Start">><</button>>
-    </div>
-  </div>
+  
 
   
 </footer>
@@ -168,37 +164,6 @@ setup.backTen = () => {
 
 
 
-:: Start [nobr]
-<<set $prevpass to "start">>
-<<set $passage to "start">>
-<<set $nextpass to "listen">>
-<<set $captions to false>>
-<<set $sound to true>>
-<<set $showMenu to true>>
-<<set $menuOpen to false>>
-
-
-  <<include "headermenu">>
-<main id="main">
- <div class="main-container text">
-   <h1>1884 Memorial</h1>
-    <p>
-      You can  <<button "Listen">><<goto "listen">><</button>> to a selection of reflections of people that visited the memorial before you. They are playing in random order. If you want to play the next one, press the  <<button "Next">><<goto "listen">><</button>> button.
-      
-    </p>
-    <p>If you want to make another contribution to the memorial, press <a href="../memorial/prerecord.html"><button>Record</button></a> . </p>
-
-    <p>There is also the option to <<button "Read">><<goto "read">><</button>> some written memories. If you'd like to submit your own written memory, please <a href="../memorial/submit.html"><button>Email</button></a> us.</p>
-      <<button "Start now">>
-       
-
-      <<goto $nextpass>><</button>>
-    </div>
-
-</main>
-<footer></footer>
-
-
 :: menu [nobr t8n]
 <<set $showLogo to true>>
  <<set $menuOpen to true>>
@@ -228,6 +193,14 @@ setup.backTen = () => {
 <h3 class="menu-item"><<link "Memorial">>
       <<goto "Start">>
     <</link>></h3>
+    <ul>
+     <li><a href="../memorial/listen.html">Listen</a></li>
+    <li> <<link "Read">>
+      <<goto "read">>
+    <</link>></li>
+    <li><a href="../memorial/prerecord.html">Record</a></li>
+    <li><a href="../memorial/submit.html">Submit a written contribution</a></li>
+    </ul>
 <h3 class="menu-item"><a href="../history/index.html">History</a></h3>
   <br/>
   <br/>
@@ -262,128 +235,12 @@ setup.backTen = () => {
   <</if>>
 </header>
 
-:: listen [nobr t8n.typewriter.4]
-<<set $showCaptionsIcon to true>>
-<<set $showAudioIcon to true>>
-<<set $showBackwards to true>>
-<<set $showMenu to false>>
-<<set $menuOpen to false>>
-<<set $prevpass to "Start">>
-<<set $passage to "listen">>
-<<set $audiooptions to ["audio1", "audio2", "audio3", "audio4"]>>
-
-<<include "headerlisten">>
-
-<main class="main-section listen " id="main">
-<audio id="audio" autoplay>
-<<if $sound is true>>
-  <<include $source>>
-  <</if>>
-</audio>
-
-<<if $captions is true>>
-<div id="caption"></div>
-  <<include `$source + "cap"`>>
-<</if>>
-
-</main>
-<<include "footerlisten">>
-
-
-
-
-:: findcap
-<<if $source is "audio1" >>
-  <<include "audio1cap">>
-  <</if>>
-<<if $source is "audio2" >>
-  <<include "audio2cap">>
-  <</if>>
-
-:: footerlisten [nobr]
-
-<footer>
-<div class="nav-container">
-  <<if $showBackwards is true>>
-    <div class="nav-wrapper">
-      <div class="nav-item">
-          [img[Back|../assets/img/back.png][Start]]
-      </div>
-    </div>
-    <</if>>
-  <<if $showCaptionsIcon is true>>
-  <div class="nav-wrapper">
-      <div class="nav-item" id="capIconContainer">
-        <<link [img[../assets/img/captions.png]]>>
-        <<if $captions is true>>
-          <<set $captions to false>>
-  
-           <<goto $passage>>
-       <<else>>
-           <<set $captions to true>>
-  
-             <<goto $passage>>
-          
-          <</if>>
-        <</link>>
-  </div>
-    </div>
-  <</if>> 
-
-
-  
-  <<if $showAudioIcon is true>>
-  <div class="nav-wrapper">
-      <div class="nav-item">
-      <div class="icon-container" id="audioContainer"> 
-    <<if $sound is true>>
-        <<link [img["../assets/img/audio.png" ]]>> 
-        <<set $sound to false>>
-        <<goto $passage>>
-        <</link>>
-    <</if>>
-     <<if $sound is false>>
-        <<link [img["../assets/img/audiooff2.png" ]]>> 
-            <<set $sound to true>>
-            <<goto $passage>>
-          <</link>>
-    <</if>>
-    </div>
-  </div>
-    </div>
-  <</if>> 
-</div>
-<div class="nav-item alone">
-<a href="../memorial/prerecord.html"><button>Record</button></a>
-</div>
-<div class="nav-item alone">
- <<button "Read">> 
-            <<goto "read">>
-        <</button>>
-
-</div>
-<div class="nav-item final">
-
-  <a href="../thanks.html"><button>Leave</button></a>
- 
-</div>
-
-</footer>
-
-<<done>>
-  <<if $captions is true>>
-    <<addclass "#capIconContainer" "activeIcon">>
-  <</if>>
-  <<if $sound is true>>
-   /* <<addclass "#audioContainer" "activeIcon">> */
-  <</if>>
-<</done>>
 
 
 :: footerread [nobr]
 
 <footer>
-<div class="nav-container">
+/* <div class="nav-container">
   <<if $showBackwards is true>>
     <div class="nav-wrapper">
       <div class="nav-item">
@@ -391,21 +248,17 @@ setup.backTen = () => {
       </div>
     </div>
     <</if>>
-</div>
-<div class="nav-item alone ">
- <<button "Listen">> 
-            <<goto "listen">>
-        <</button>>
+</div> */
+<div class="nav-item">
+      <a href="../thanks.html"><button>Leave</button></a>
+ </div>
 
-</div>
-<div class="nav-item alone">
-<a href="../memorial/prerecord.html"><button>Record</button></a>
-</div>
-<div class="nav-item final">
 
-  <a href="../thanks.html"><button>Leave</button></a>
- 
-</div>
+<div class="nav-item">
+    <<button "Next memory">>
+     <<set $source to $readoptions[random(0, $readoptions.length - 1)]>>
+   <<goto $passage>><</button>> 
+ </div>
 
 </footer>
 
@@ -418,90 +271,11 @@ setup.backTen = () => {
   <</if>>
 <</done>>
 
-:: audio1
-<source  src="https://withfireandrageliverpool.com/audio/SC/spiritsv2.mp3">
-
-:: audio1cap [nobr]
-<<timed 0.5s>>
-  <<replace "#caption">>
-    <p>Audio 1 captions</p>
-    <</replace>>
-<</timed>>
-<<timed 3s>>
-  <<replace "#caption">>
-    <p>More captions</p>
-    <</replace>>
-<</timed>>
-<<timed 6s>>
-  <<replace "#caption">>
-    <p>And more captions</p>
-    <</replace>>
-<</timed>>
-
-
-:: audio2 [nobr]
-<source  src="../assets/sound/DJIntro.mp3">
-
-:: audio2cap [nobr]
-<<timed 0.5s>>
-  <<replace "#caption">>
-    <p>Audio 2 captions</p>
-    <</replace>>
-<</timed>>
-<<timed 3s>>
-  <<replace "#caption">>
-    <p>More captions</p>
-    <</replace>>
-<</timed>>
-<<timed 6s>>
-  <<replace "#caption">>
-    <p>And more captions</p>
-    <</replace>>
-<</timed>>
-
-:: audio3 [nobr]
-<source  src="../assets/sound/DJIntro.mp3">
-
-:: audio3cap [nobr]
-<<timed 0.5s>>
-  <<replace "#caption">>
-    <p>Audio 3 captions</p>
-    <</replace>>
-<</timed>>
-<<timed 3s>>
-  <<replace "#caption">>
-    <p>More captions</p>
-    <</replace>>
-<</timed>>
-<<timed 6s>>
-  <<replace "#caption">>
-    <p>And more captions</p>
-    <</replace>>
-<</timed>>
-
-:: audio4cap [nobr]
-<<timed 0.5s>>
-  <<replace "#caption">>
-    <p>Audio 4 captions</p>
-    <</replace>>
-<</timed>>
-<<timed 3s>>
-  <<replace "#caption">>
-    <p>More captions</p>
-    <</replace>>
-<</timed>>
-<<timed 6s>>
-  <<replace "#caption">>
-    <p>And more captions</p>
-    <</replace>>
-<</timed>>
-
-
 :: headerread [nobr]
 <header class="listen" >
 
  <div class="nav-item">
-    <a href="../submit.html"><button>Submit a written memory</button></a>
+    <a href="submit.html"><button>Submit a written memory</button></a>
  </div>
  <div class="nav-item">
     <<button "Next memory">>
@@ -514,14 +288,15 @@ setup.backTen = () => {
 <<set $showCaptionsIcon to false>>
 <<set $showAudioIcon to false>>
 <<set $showBackwards to true>>
-<<set $showMenu to false>>
+<<set $showMenu to true>>
 <<set $menuOpen to false>>
-<<set $prevpass to "Start">>
+<<set $prevpass to "read">>
 <<set $passage to "read">>
 <<set $readoptions to ["read1", "read2", "read3", "read4"]>>
   <<set $readsource to $readoptions[random(0, $readoptions.length - 1)]>>
 
-<<include "headerread">>
+/* <<include "headerread">> */
+<<include "headermenu">>
 
 <main class="main-section text " id="main">
 
@@ -572,7 +347,3 @@ setup.backTen = () => {
 
 <p>Nam sit amet elit blandit, rutrum urna sed, viverra nulla. Ut ac sollicitudin mauris. Mauris viverra eget nisi in tristique. Vestibulum nec libero sagittis, finibus eros in, pharetra nunc. Duis nec posuere nisl, eu rhoncus nisl. Suspendisse non hendrerit libero. Proin scelerisque ultricies sem a volutpat. Integer ultricies egestas nisi vel sodales.</p>
 
-:: postcard
-
-TBC
-<<include "footer">>
