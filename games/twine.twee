@@ -216,7 +216,6 @@ setup.backThirty = () => {
     </div>
   </div>
   <h2 class="menu-title"> MENU </h2>
-  <h3 class="menu-item"><a href="../intro/index.html">Intro</a></h3>
 <h3 class="menu-item"><<link "Games">>
 <<goto "game-intro">>
     <</link>></h3>
@@ -226,9 +225,9 @@ setup.backThirty = () => {
       <<goto "game-intro">>
     <</link>></li>
     </ul>
-
 <h3 class="menu-item"><a href="../memorial/index.html">Memorial</a></h3>
-<h3 class="menu-item"><a href="../history/index.html">History</a></h3>
+<h3 class="menu-item"><a href="../history/index.html">Resources</a></h3>
+<h3 class="menu-item"><a href="../thanks.html">Keep in Touch</a></h3>
   <br/>
   <br/>
 <<button "Close Menu">>
@@ -524,7 +523,7 @@ setup.backThirty = () => {
 
 <div class="text-container">
   <<if not hasVisited("game1complete", "game2complete", "game3complete", "game4complete")>>
-   <p >Click on any of the four images below to discover the myths about the 1884 Berlin Conference, and uncover the history behind it.</p>
+   <p >Click on any of the four images to discover the myths about the 1884 Berlin Conference, and uncover the history behind it.</p>
    <</if>>
   
    <<if not (visited("game1complete") || visited("game2complete") || visited("game3complete") || visited("game4complete"))>>
@@ -622,7 +621,7 @@ setup.backThirty = () => {
   <div id="textMount"></div>
 <<timed 0.5s>> 
   <<replace "#textMount">>
-    <p>Here's some key facts about the 1884 Berlin Conference...</p>
+    <p>Here are some key facts about the 1884 Berlin Conference...</p>
   <</replace>>
 <</timed>>
 
@@ -645,7 +644,7 @@ setup.backThirty = () => {
 <<include "footer">>
 
 
-:: game1a [nobr t8n typewriter]
+:: game1a [nobr t8n typewriter t8n-dissolve]
 <<set $prevpass to "game1">>
 <<set $passage to "game1a">>
 <<set $nextpass to "game1b">>
@@ -741,7 +740,7 @@ setup.backThirty = () => {
           <</replace>>
           <</timed>>
 
-:: game1b [nobr t8n typewriter]
+:: game1b [nobr t8n typewriter t8n-dissolve]
 <<set $prevpass to "game1a">>
 <<set $passage to "game1b">>
 <<set $nextpass to "game1c">>
@@ -824,7 +823,7 @@ setup.backThirty = () => {
 <</timed>>
 <<timed 5s>>
   <<append "#factMount">>
-<p> However, the Europeans used the conference as a pretext to reinforce colonial practices, notably in Congo, through African trade and "civilisation".  </p>
+<p> However, the Europeans used the conference as a pretext to reinforce colonial practices, notably in Congo, through African trade and 'civilisation'.  </p>
 <</append>>
 <</timed>>
 <<timed 10s>>
@@ -839,7 +838,7 @@ setup.backThirty = () => {
 <</timed>>
 
 
-:: game1c [nobr t8n typewriter]
+:: game1c [nobr t8n typewriter t8n-dissolve]
 <<set $prevpass to "game1b">>
 <<set $passage to "game1c">>
 <<set $nextpass to "game1d">>
@@ -938,7 +937,7 @@ setup.backThirty = () => {
 <</timed>>
 
 
-:: game1d [nobr t8n typewriter]
+:: game1d [nobr t8n typewriter t8n-dissolve]
 <<set $prevpass to "game1c">>
 <<set $passage to "game1d">>
 <<set $nextpass to "game1e">>
@@ -1042,7 +1041,7 @@ setup.backThirty = () => {
 <</timed>>
 
 
-:: game1e [nobr t8n typewriter]
+:: game1e [nobr t8n typewriter t8n-dissolve]
 <<set $prevpass to "game1d">>
 <<set $passage to "game1e">>
 <<set $nextpass to "game1complete">>
@@ -1124,7 +1123,7 @@ setup.backThirty = () => {
 <div id="factMount"></div>
 <<timed 0.1s>>
   <<replace "#factMount">>
-<p>Though the 1884 Berlin conference didn’t technically lead to the partition of Africa, it was a pivotal event in accelerating and formalising the colonial expansion of European powers into Africa. Before the Conference, betw. 80-90% of Africa remained under traditional and local control.</p>
+<p>Though the 1884 Berlin conference didn’t technically lead to the partition of Africa, it was a pivotal event in accelerating and formalising the colonial expansion of European powers into Africa. Before the Conference, between 80-90% of Africa remained under traditional and local control.</p>
 
 <</replace>>
 <</timed>>
@@ -1201,7 +1200,7 @@ setup.backThirty = () => {
 
 <<timed 0.5s>> 
   <<append "#textMount">>
-     <p>In the wordsearch on the next page, see if you can find out what interested Leopold in the Congo. Can you spot the 3 words in this puzzle and type them in the boxes?</p>
+     <p>In the wordsearch on the next page, see if you can find out what //really// interested Leopold in the Congo. Can you spot the 3 words in this puzzle and type them in the boxes?</p>
   <</append>>
 <</timed>>
 
@@ -1215,7 +1214,7 @@ setup.backThirty = () => {
 </main>
 <<include "footer">>
 
-:: game2b [nobr]
+:: game2b [nobr t8n-dissolve]
 <<set $prevpass to "game2a">>
 <<set $passage to "game2b">>
 <<set $nextpass to "game2complete">>
@@ -1455,7 +1454,7 @@ setup.backThirty = () => {
  
  <<timed 4s>> 
   <<append "#textMount">>
-    <p>Despite his proclaimed ‘civilising mission’, natural resources were the main reasons that attracted King Leopold to the Congo.</p>
+    <p>Despite his proclaimed ‘civilising mission’, natural resources were the main reasons that King Leopold was attracted to the Congo.</p>
   <</append>>
 <</timed>>
 
@@ -1682,7 +1681,7 @@ setup.backThirty = () => {
 </main>
 <<include "footer">>
 
-:: game3b [nobr]
+:: game3b [nobr t8n-dissolve]
 <<set $prevpass to "game3a">>
 <<set $passage to "game3b">>
 <<set $nextpass to "game3complete">>
@@ -1876,7 +1875,7 @@ setup.backThirty = () => {
 </main>
 <<include "footernations">>
 
-:: game3banswer [nobr]
+:: game3banswer [nobr t8n-dissolve]
 <<set $prevpass to "notime">>
 <<set $passage to "game3banswer">>
 <<set $nextpass to "game-intro">>
@@ -1938,7 +1937,7 @@ setup.backThirty = () => {
    <div id="textMount"> <h3>Congratulations</h3></div>
    <<timed 0.5s>> 
     <<append "#textMount">>
-      <p>You’ve unlocked it.</p>
+      <p>You’ve unlocked the archive.</p>
     <</append>>
   <</timed>>
   <<timed 2s>> 
@@ -2065,7 +2064,7 @@ setup.backThirty = () => {
 
 <<include "footer">>
 
-:: choosewords [nobr]
+:: choosewords [nobr t8n-dissolve]
 <<set $prevpass to "game4a">>
 <<set $passage to "choosewords">>
 <<set $nextpass to "game4b">>
@@ -2202,7 +2201,7 @@ setup.backThirty = () => {
 </main>
 <<include "footer">>
 
-:: closing [nobr]
+:: closing [nobr t8n-dissolve]
 <<set $prevpass to "game-intro">>
 <<set $passage to "closing">>
 <<set $menuOpen to false>>

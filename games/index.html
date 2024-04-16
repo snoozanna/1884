@@ -283,7 +283,6 @@ setup.backThirty = () => {
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;h2 class=&quot;menu-title&quot;&gt; MENU &lt;/h2&gt;
-  &lt;h3 class=&quot;menu-item&quot;&gt;&lt;a href=&quot;../intro/index.html&quot;&gt;Intro&lt;/a&gt;&lt;/h3&gt;
 &lt;h3 class=&quot;menu-item&quot;&gt;&lt;&lt;link &quot;Games&quot;&gt;&gt;
 &lt;&lt;goto &quot;game-intro&quot;&gt;&gt;
     &lt;&lt;/link&gt;&gt;&lt;/h3&gt;
@@ -293,9 +292,9 @@ setup.backThirty = () => {
       &lt;&lt;goto &quot;game-intro&quot;&gt;&gt;
     &lt;&lt;/link&gt;&gt;&lt;/li&gt;
     &lt;/ul&gt;
-
 &lt;h3 class=&quot;menu-item&quot;&gt;&lt;a href=&quot;../memorial/index.html&quot;&gt;Memorial&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 class=&quot;menu-item&quot;&gt;&lt;a href=&quot;../history/index.html&quot;&gt;History&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 class=&quot;menu-item&quot;&gt;&lt;a href=&quot;../history/index.html&quot;&gt;Resources&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 class=&quot;menu-item&quot;&gt;&lt;a href=&quot;../thanks.html&quot;&gt;Keep in Touch&lt;/a&gt;&lt;/h3&gt;
   &lt;br/&gt;
   &lt;br/&gt;
 &lt;&lt;button &quot;Close Menu&quot;&gt;&gt;
@@ -545,7 +544,7 @@ setup.backThirty = () => {
 
 &lt;div class=&quot;text-container&quot;&gt;
   &lt;&lt;if not hasVisited(&quot;game1complete&quot;, &quot;game2complete&quot;, &quot;game3complete&quot;, &quot;game4complete&quot;)&gt;&gt;
-   &lt;p &gt;Click on any of the four images below to discover the myths about the 1884 Berlin Conference, and uncover the history behind it.&lt;/p&gt;
+   &lt;p &gt;Click on any of the four images to discover the myths about the 1884 Berlin Conference, and uncover the history behind it.&lt;/p&gt;
    &lt;&lt;/if&gt;&gt;
   
    &lt;&lt;if not (visited(&quot;game1complete&quot;) || visited(&quot;game2complete&quot;) || visited(&quot;game3complete&quot;) || visited(&quot;game4complete&quot;))&gt;&gt;
@@ -636,7 +635,7 @@ setup.backThirty = () => {
   &lt;div id=&quot;textMount&quot;&gt;&lt;/div&gt;
 &lt;&lt;timed 0.5s&gt;&gt; 
   &lt;&lt;replace &quot;#textMount&quot;&gt;&gt;
-    &lt;p&gt;Here&#39;s some key facts about the 1884 Berlin Conference...&lt;/p&gt;
+    &lt;p&gt;Here are some key facts about the 1884 Berlin Conference...&lt;/p&gt;
   &lt;&lt;/replace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 
@@ -656,7 +655,7 @@ setup.backThirty = () => {
 
   &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="game1a" tags="nobr t8n typewriter" position="975,225" size="100,100">&lt;&lt;set $prevpass to &quot;game1&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="game1a" tags="nobr t8n typewriter t8n-dissolve" position="975,225" size="100,100">&lt;&lt;set $prevpass to &quot;game1&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game1a&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game1b&quot;&gt;&gt;
 &lt;&lt;set $showLogo to false&gt;&gt;
@@ -746,7 +745,7 @@ setup.backThirty = () => {
         &lt;&lt;replace &quot;#btnMount&quot;&gt;&gt;
             &lt;&lt;button &quot;Next&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
           &lt;&lt;/replace&gt;&gt;
-          &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="game1b" tags="nobr t8n typewriter" position="1225,225" size="100,100">&lt;&lt;set $prevpass to &quot;game1a&quot;&gt;&gt;
+          &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="game1b" tags="nobr t8n typewriter t8n-dissolve" position="1225,225" size="100,100">&lt;&lt;set $prevpass to &quot;game1a&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game1b&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game1c&quot;&gt;&gt;
 &lt;&lt;set $showLogo to false&gt;&gt;
@@ -825,7 +824,7 @@ setup.backThirty = () => {
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;timed 5s&gt;&gt;
   &lt;&lt;append &quot;#factMount&quot;&gt;&gt;
-&lt;p&gt; However, the Europeans used the conference as a pretext to reinforce colonial practices, notably in Congo, through African trade and &quot;civilisation&quot;.  &lt;/p&gt;
+&lt;p&gt; However, the Europeans used the conference as a pretext to reinforce colonial practices, notably in Congo, through African trade and &#39;civilisation&#39;.  &lt;/p&gt;
 &lt;&lt;/append&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;timed 10s&gt;&gt;
@@ -837,7 +836,7 @@ setup.backThirty = () => {
    &lt;&lt;replace &quot;#btnMount&quot;&gt;&gt;
     &lt;&lt;button &quot;Next&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
    &lt;&lt;/replace&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="game1c" tags="nobr t8n typewriter" position="225,350" size="100,100">&lt;&lt;set $prevpass to &quot;game1b&quot;&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="game1c" tags="nobr t8n typewriter t8n-dissolve" position="225,350" size="100,100">&lt;&lt;set $prevpass to &quot;game1b&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game1c&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game1d&quot;&gt;&gt;
 &lt;&lt;set $showLogo to false&gt;&gt;
@@ -929,7 +928,7 @@ setup.backThirty = () => {
    &lt;&lt;replace &quot;#btnMount&quot;&gt;&gt;
     &lt;&lt;button &quot;Next&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
    &lt;&lt;/replace&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="game1d" tags="nobr t8n typewriter" position="475,350" size="100,100">&lt;&lt;set $prevpass to &quot;game1c&quot;&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="game1d" tags="nobr t8n typewriter t8n-dissolve" position="475,350" size="100,100">&lt;&lt;set $prevpass to &quot;game1c&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game1d&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game1e&quot;&gt;&gt;
 &lt;&lt;set $showLogo to false&gt;&gt;
@@ -1025,7 +1024,7 @@ setup.backThirty = () => {
    &lt;&lt;replace &quot;#btnMount&quot;&gt;&gt;
     &lt;&lt;button &quot;Next&quot;&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
    &lt;&lt;/replace&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="game1e" tags="nobr t8n typewriter" position="725,350" size="100,100">&lt;&lt;set $prevpass to &quot;game1d&quot;&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="game1e" tags="nobr t8n typewriter t8n-dissolve" position="725,350" size="100,100">&lt;&lt;set $prevpass to &quot;game1d&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game1e&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game1complete&quot;&gt;&gt;
 &lt;&lt;set $showLogo to false&gt;&gt;
@@ -1102,7 +1101,7 @@ setup.backThirty = () => {
 &lt;&lt;include &quot;footerquiz&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="27" name="game1efact" tags="nobr" position="850,350" size="100,100">&lt;div id=&quot;factMount&quot;&gt;&lt;/div&gt;
 &lt;&lt;timed 0.1s&gt;&gt;
   &lt;&lt;replace &quot;#factMount&quot;&gt;&gt;
-&lt;p&gt;Though the 1884 Berlin conference didn’t technically lead to the partition of Africa, it was a pivotal event in accelerating and formalising the colonial expansion of European powers into Africa. Before the Conference, betw. 80-90% of Africa remained under traditional and local control.&lt;/p&gt;
+&lt;p&gt;Though the 1884 Berlin conference didn’t technically lead to the partition of Africa, it was a pivotal event in accelerating and formalising the colonial expansion of European powers into Africa. Before the Conference, between 80-90% of Africa remained under traditional and local control.&lt;/p&gt;
 
 &lt;&lt;/replace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
@@ -1169,7 +1168,7 @@ setup.backThirty = () => {
 
 &lt;&lt;timed 0.5s&gt;&gt; 
   &lt;&lt;append &quot;#textMount&quot;&gt;&gt;
-     &lt;p&gt;In the wordsearch on the next page, see if you can find out what interested Leopold in the Congo. Can you spot the 3 words in this puzzle and type them in the boxes?&lt;/p&gt;
+     &lt;p&gt;In the wordsearch on the next page, see if you can find out what //really// interested Leopold in the Congo. Can you spot the 3 words in this puzzle and type them in the boxes?&lt;/p&gt;
   &lt;&lt;/append&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 
@@ -1181,7 +1180,7 @@ setup.backThirty = () => {
 
   &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="31" name="game2b" tags="nobr" position="100,475" size="100,100">&lt;&lt;set $prevpass to &quot;game2a&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="31" name="game2b" tags="nobr t8n-dissolve" position="100,475" size="100,100">&lt;&lt;set $prevpass to &quot;game2a&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game2b&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game2complete&quot;&gt;&gt;
 &lt;&lt;set $menuOpen to false&gt;&gt;
@@ -1397,7 +1396,7 @@ setup.backThirty = () => {
  
  &lt;&lt;timed 4s&gt;&gt; 
   &lt;&lt;append &quot;#textMount&quot;&gt;&gt;
-    &lt;p&gt;Despite his proclaimed ‘civilising mission’, natural resources were the main reasons that attracted King Leopold to the Congo.&lt;/p&gt;
+    &lt;p&gt;Despite his proclaimed ‘civilising mission’, natural resources were the main reasons that King Leopold was attracted to the Congo.&lt;/p&gt;
   &lt;&lt;/append&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 
@@ -1602,7 +1601,7 @@ setup.backThirty = () => {
 
   &lt;/div&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="game3b" tags="nobr" position="350,600" size="100,100">&lt;&lt;set $prevpass to &quot;game3a&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="game3b" tags="nobr t8n-dissolve" position="350,600" size="100,100">&lt;&lt;set $prevpass to &quot;game3a&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game3b&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game3complete&quot;&gt;&gt;
 &lt;&lt;set $menuOpen to false&gt;&gt;
@@ -1793,7 +1792,7 @@ setup.backThirty = () => {
   &lt;/div&gt;
 
 &lt;/main&gt;
-&lt;&lt;include &quot;footernations&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="44" name="game3banswer" tags="nobr" position="475,600" size="100,100">&lt;&lt;set $prevpass to &quot;notime&quot;&gt;&gt;
+&lt;&lt;include &quot;footernations&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="44" name="game3banswer" tags="nobr t8n-dissolve" position="475,600" size="100,100">&lt;&lt;set $prevpass to &quot;notime&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;game3banswer&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $menuOpen to false&gt;&gt;
@@ -1849,7 +1848,7 @@ setup.backThirty = () => {
    &lt;div id=&quot;textMount&quot;&gt; &lt;h3&gt;Congratulations&lt;/h3&gt;&lt;/div&gt;
    &lt;&lt;timed 0.5s&gt;&gt; 
     &lt;&lt;append &quot;#textMount&quot;&gt;&gt;
-      &lt;p&gt;You’ve unlocked it.&lt;/p&gt;
+      &lt;p&gt;You’ve unlocked the archive.&lt;/p&gt;
     &lt;&lt;/append&gt;&gt;
   &lt;&lt;/timed&gt;&gt;
   &lt;&lt;timed 2s&gt;&gt; 
@@ -1958,7 +1957,7 @@ setup.backThirty = () => {
 
 
 
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="50" name="choosewords" tags="nobr" position="1225,600" size="100,100">&lt;&lt;set $prevpass to &quot;game4a&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="50" name="choosewords" tags="nobr t8n-dissolve" position="1225,600" size="100,100">&lt;&lt;set $prevpass to &quot;game4a&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;choosewords&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;game4b&quot;&gt;&gt;
 &lt;&lt;set $showLogo to false&gt;&gt;
@@ -2078,7 +2077,7 @@ setup.backThirty = () => {
 &lt;&lt;goto $nextpass&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="55" name="closing" tags="nobr" position="600,725" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="55" name="closing" tags="nobr t8n-dissolve" position="600,725" size="100,100">&lt;&lt;set $prevpass to &quot;game-intro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;closing&quot;&gt;&gt;
 &lt;&lt;set $menuOpen to false&gt;&gt;
 &lt;&lt;include &quot;header&quot;&gt;&gt;

@@ -714,6 +714,10 @@ main.listen {
   margin-block-end: inherit;
 }
 
+main.listen.player {
+  display: flex;
+}
+
 main.listen > #caption {
   z-index: 9999;
   color: #ffff;
@@ -722,6 +726,7 @@ main.listen > #caption {
   margin: 0;
   border-radius: 1rem;
   transform: rotate(-2deg);
+  z-index: 0;
 }
 
 main.listen > #caption > p {
@@ -743,8 +748,15 @@ main.listen > #caption > p {
     padding: var(--padding-mob);
   }
 
+  header.listen.player {
+    padding-bottom: 0;
+  }
+
   main.listen {
     display: flex;
+  }
+  main.listen.player {
+    padding-top: 0;
   }
   main.listen > #caption > p {
     font-size: 1.6rem;
