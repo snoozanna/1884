@@ -27,73 +27,6 @@ $(document.head).find('#style-ui-bar').remove();
 
 
 
-// CAPTIONS
-setup.addCaptions = (cuekey) =>  {
-  console.log("cuekey", cuekey)
-    const audio = document.getElementById("audio");
-     const track = audio.addTextTrack('subtitles', 'English', 'en');
-    track.mode = 'showing';
-    const cues = {
-      spirits: [[0.039,10.295,"[audio playing...]"],[10.32,15.335,"Let me introduce you to Clark, my city."],[15.36,18.96,"It's eclectic. Just like Liverpool. It's"],[18.96,21.12,"a center for culture, science,"],[21.145,24.875,"education, philosophy and trade."],[24.9,26.73,"mysteries are full of students from"],[26.73,29.195,"around the world."],[29.22,31.71,"Today that between Asia and Europe, you"],[31.71,34.65,"can see our transnational history carved"],[34.65,38.04,"out in the different architecture. Here"],[38.28,40.59,"is where the first concrete skyscraper"],[40.59,43.71,"was built in Soviet Union, and amazing"],[43.71,46.29,"monument of constructivism, made from"],[46.29,50.435,"concrete and iron using horses."],[50.46,53.52,"Harkey is only 40 kilometers from Russia"],[53.58,56.555,"and has become a city on the front line."],[56.58,58.71,"From the first days are busy streets"],[58.74,61.08,"with targets with rockets, classement"],[61.08,62.795,"air bombs."],[62.82,65.04,"But just like concrete and iron are hard"],[65.04,67.38,"to destroy. Our spirits are also"],[67.38,69.93,"unbreakable. As each of us bravely"],[69.93,73.205,"questions our responsibility, asking,"],[73.23,77.255,"How can I help to win to survive."],[77.28,80.46000000000001,"And for a moment, concerts were silent"],[80.52,82.59,"and Philharmonic music close close the"],[82.59,86.03999999999999,"doors as musicians, like stars couldn't"],[86.03999999999999,88.28999999999999,"have put down the instruments and became"],[88.28999999999999,98.795,"a frontline volunteer."],[98.82,100.97999999999999,"I was meant to play a concert in London"],[100.97999999999999,105.545,"on the 28th of February."],[105.57,108.75,"On the morning of 24th, a friend of mine"],[108.9,111.47999999999999,"came knocking on my door shouting, wake"],[111.47999999999999,115.325,"up, or you will sleep through the war."],[115.35,118.02000000000001,"For the next few days, myself and other"],[118.02000000000001,120.27,"artists gathered in a small flat near"],[120.27,122.015,"the center."],[122.04,124.95,"People were coming and going and we were"],[124.95,128.01,"trying to work out should we stay? Or"],[128.01,130.174,"should we leave."],[130.199,133.019,"I received a phone call from a friend in"],[133.019,135.389,"the more dangerous district saying that"],[135.389,139.444,"there was a basement with 450 people"],[139.469,143.014,"that they didn't have anything. No food,"],[143.039,146.189,"no water. And it's too dangerous to go"],[146.219,150.514,"outside. It was the moment I realized"],[150.539,153.119,"that I must say that there was a"],[153.119,155.429,"responsibility to provide and seek"],[155.429,158.609,"resources. The flight I was in became"],[158.609,161.129,"headquarters and everyone was an actor"],[161.159,164.639,"or connected to music, art culture. It"],[164.639,167.254,"was a little chaotic in the moment."],[167.279,169.439,"Someone provides something and it's"],[169.439,172.769,"distributed to anyone who needs sharing"],[172.799,175.769,"everything. It was a very intense"],[175.769,179.72899999999998,"process. After some time, it became more"],[179.72899999999998,181.619,"organized. And we had districts and"],[181.619,184.949,"volunteers in each area. Because it was"],[184.949,187.559,"dangerous everywhere in Harkey was"],[187.559,190.409,"dangerous. But I know a lot of examples"],[190.439,193.589,"of bravery. And for me what I'm doing is"],[193.589,195.185,"not brave."],[195.21,197.34,"It was stressful and frightening. It was"],[197.365,199.95499999999998,"a lot of things."],[199.98,202.68,"Everything makes you cry. But inside you"],[202.68,204.3,"have this feeling that you are in the"],[204.3,207.75,"right place. You are part of something"],[207.78,210.66,"bigger than yourself, that we are all"],[210.69,214.505,"equal. All Connect."],[214.53,216.72,"Everyone helps everyone. And it doesn't"],[216.72,219.39,"matter who you were before. You could"],[219.39,221.79,"have been a businessman with a Tesla car"],[221.94,225.905,"or an artist drive something very shady."],[225.93,227.79,"Even the Chief Commander of the Military"],[227.79,231.09,"Base work without hierarchy. It was a"],[231.09,233.28,"horizontal connection. It was"],[233.28,235.95,"solidarity. You call someone if you"],[235.95,239.165,"needed something, and you solved it."],[239.19,244.745,"It felt that 100 People were one"],[244.77,247.74,"before the full scale invasion. I was"],[247.74,251.885,"asking these questions. Who am I?"],[251.91,254.495,"What am I?"],[254.52,263.285,"This situation gave me the answers"],[263.31,265.53,"it feels like making music hasn't"],[265.53,268.235,"mattered for a long time."],[268.26,270.33,"A lot of musicians reject music right"],[270.33,272.015,"now."],[272.04,274.86,"To play you must be in the moment. Be"],[274.86,278.31,"present. Connect to your emotions is"],[278.31,280.77,"very stressful and painful. And when you"],[280.77,283.11,"start to play, you feel your pain and it"],[283.11,285.18,"comes in such a way that you stop and"],[285.18,288.995,"think never again."],[289.02,292.085,"We don't have the space to be emotional."],[292.11,295.62,"So you go around in the circle and come"],[295.62,299.165,"back to the idea that is not the time."],[299.19,299.97,"Maybe later"],[299.995,328.412,""]], 
-       mixtape: [[0.001,9.855,"[audio playing...]"],[9.88,12.005,"All musicians that's gone enough"],[12.03,14.61,"continues to volunteer distributing"],[14.61,17.76,"supplies to civilians and soldiers. This"],[17.76,20.345,"on the front line begins to play again"],[20.37,24.155,"concerts for the Army acoustic sounds"],[24.18,26.07,"sounds from his album he is yet to"],[26.07,29.19,"release and the music he recorded to the"],[29.19,31.32,"legendary studio Elysium that has now"],[31.32,42.514,"been completely destroyed."],[42.539,276.865,"[music playing...]"]]
-  }
-    for (let i=0; i<cues[cuekey].length; i++){
-    const cue = new VTTCue(cues[cuekey][i][0],cues[cuekey][i][1],cues[cuekey][i][2]);
-    track.addCue(cue); 
-}
-    track.addEventListener('cuechange', () => {
-    const activeCue = track.activeCues[0];
-    if (activeCue) {
-      console.log("activeCue", activeCue)
-      document.getElementById('caption').textContent = activeCue.text;
-    }
-  });
-  console.log("audio", audio)
-  console.log("track", track)
-
-
- 
-}
-
-
-setup.play = () => {
- const audio = document.getElementById("audio")
- audio.play();
-  }
-
-setup.pause = () => {
- const audio = document.getElementById("audio")
- audio.pause();
-  }
-
-setup.showCap = () => {
-    const track = document.getElementById("captrack")
-    console.log(track)
-track.mode = 'showing';
-    document.getElementById("caption").style.visibility = "visible";
-  }
-
-setup.hideCap = () => {
-    const track = document.getElementById("captrack")
-   track.mode = 'hidden';
-    document.getElementById("caption").style.visibility = "hidden";
-  }
-
-setup.addTen = () => {
-  const audio = document.getElementById("audio")
-  const timeHolder = audio.currentTime;
-  audio.currentTime = timeHolder +10;  
-  }
-
-
-setup.backTen = () => {
-  const audio = document.getElementById("audio");
-  const timeHolder = audio.currentTime;
-  audio.currentTime = timeHolder -10;
-  }
-
-
-
 
 :: StoryInit {"position":"100,100","size":"100,100"}
 
@@ -201,8 +134,8 @@ setup.backTen = () => {
     <li><a href="../memorial/prerecord.html">Record</a></li>
     <li><a href="../memorial/submit.html">Submit a written contribution</a></li>
     </ul>
-<h3 class="menu-item"><a href="../history/index.html">History</a></h3>
-  <br/>
+<h3 class="menu-item"><a href="../history/index.html">Resources</a></h3>
+  <h3 class="menu-item"><a href="../about.html">About</a></h3>
   <br/>
 <<button "Close Menu">>
  <<set $menuOpen to false>>
@@ -249,13 +182,14 @@ setup.backTen = () => {
     </div>
     <</if>>
 </div> */
-<div class="nav-item">
-      <a href="../thanks.html"><button>Leave</button></a>
+<div class="nav-item alone">
+      <a href="../about.html"><button>Leave</button></a>
  </div>
-
-
+ /* <div class="nav-item read-title">
+<h2>READ</h2>
+</div> */
 <div class="nav-item">
-    <<button "Next memory">>
+    <<button "Next">>
      <<set $source to $readoptions[random(0, $readoptions.length - 1)]>>
    <<goto $passage>><</button>> 
  </div>
@@ -284,7 +218,7 @@ setup.backTen = () => {
  </div>
 </header>
 
-:: read [nobr t8n.typewriter.4]
+:: read [nobr t8n.typewriter.4 t8n-dissolve]
 <<set $showCaptionsIcon to false>>
 <<set $showAudioIcon to false>>
 <<set $showBackwards to true>>
@@ -292,18 +226,20 @@ setup.backTen = () => {
 <<set $menuOpen to false>>
 <<set $prevpass to "read">>
 <<set $passage to "read">>
-<<set $readoptions to ["read1", "read2", "read3", "read4"]>>
+<<set $readoptions to ["read1", "read2", "read3"]>>
   <<set $readsource to $readoptions[random(0, $readoptions.length - 1)]>>
 
 /* <<include "headerread">> */
 <<include "headermenu">>
 
-<main class="main-section text " id="main">
-
-<<include $readsource>>
-
-
-</main>
+<div class="main-container read">
+  <main class="main-section text read " id="main">
+  
+  <div class="read-wrapper"><<include $readsource>></div>
+  
+  
+  </main>
+</div>
 <<include "footerread">>
 
 
@@ -316,34 +252,27 @@ setup.backTen = () => {
 
 
 :: read1[nobr]
-<h3>Title 1</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec mauris tincidunt, placerat diam ac, auctor odio. Suspendisse tristique bibendum neque, sed laoreet ex bibendum et. Nam ornare felis lobortis lobortis gravida. Nulla condimentum malesuada magna a vulputate. Aenean congue turpis quam. Aenean consequat neque consectetur dui laoreet, eget venenatis mauris laoreet. Donec sodales accumsan diam, vitae tristique ligula lobortis eu. Sed et pretium risus, sed placerat lectus. Nulla ex tortor, vehicula id risus at, molestie ullamcorper dui.</p>
+<br/>
+<p>I didn’t immediately see the connection between 1884 and the exercises but when it hit, it was extraordinary.</p> 
+
+<p>The commitment that the newly formed groups had to the choices made about traditions, identifiers etc was much deeper than you might expect. The parallels with colonisation became starker with each declaration. The instinct to protest, while powerless and grappling with injustice just resonated. Some capitulated for a quiet life, or saw the change as an opportunity. </p>
+
+<p>Who’s to say what we would do if people close to us are threatened. We assume the state protects us. But increasingly we cannot believe that. There is a message for our own lives - here and now. The ease with which we slide into totalitarianism. A powerful experience.</p>
 
 
 :: read2[nobr]
-<h3>Title 2</h3>
-<p>Quisque pellentesque nec tellus sit amet tempor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas sapien ipsum, pulvinar eu nunc quis, cursus iaculis ante. Ut ut rutrum elit. Nulla faucibus accumsan congue. Suspendisse dictum ipsum vitae eros malesuada, nec pellentesque nibh dapibus. </p>
+<br/>
+<p>The more things change, the more they stay the same. 1884 had me thinking a lot on the way home about the self-perpetuating hegemony of colonialism - how colonisers grasp and steal and then justify themselves, both in the moment and generations after they've torn the land apart. </p>
 
-<p>Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis sem lacus, rutrum vitae commodo quis, faucibus ac tellus. Nunc vel faucibus tellus. Nam egestas lacinia diam, a elementum lacus ullamcorper non. Nulla facilisi. Aenean aliquet nisl non lectus elementum semper. Curabitur et sapien nibh. Integer metus odio, consectetur vel arcu nec, aliquet eleifend nulla. Fusce neque sapien, tristique vitae rhoncus id, tincidunt quis nisl. Nunc non erat mi.</p>
+<p>All this in a show that allows the audience to push back and rise up, building alliances with the audience around us. I think it's fantastic.</p>
+
 
 
 :: read3[nobr]
-<h3>Title 3</h3>
-<p>Fusce molestie euismod ligula, sed porttitor tellus viverra non. Donec sed nisl sapien. Proin congue orci sit amet nibh hendrerit, a sagittis velit facilisis. Praesent a placerat magna. In hac habitasse platea dictumst.</p> 
 
-<p>Maecenas hendrerit lectus ante, at porta lectus accumsan eu. Praesent ornare commodo massa. Nulla dignissim a odio sed facilisis. Donec mollis vitae nunc egestas facilisis. Nulla vulputate nec est eget scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at lorem nec sem lacinia sagittis. Aenean interdum vestibulum augue, non volutpat nisl ultrices accumsan. Curabitur eu pulvinar turpis, nec porttitor eros. Vestibulum lobortis dolor vel tempor vestibulum. Curabitur in lobortis diam.</p>
+<p>1884 is an important piece of theatre allowing us to learn about the Berlin Conference and its impact on the continent of Africa which continues to impact its people, cultures and communities.</p>
 
-:: read4[nobr]
-<h3>Title 4</h3>
-<p>Donec viverra sem nisl, eget aliquam nisl volutpat id. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras iaculis faucibus velit fringilla feugiat. Aenean mollis mattis vehicula. Proin ultricies semper purus, sed luctus odio ultrices ut. In feugiat faucibus odio, vitae tempus arcu luctus eget. </p>
+<p>I could relate it to current conflicts around the world including Ukraine and Gaza. which makes me feel sad that nothing has really changed for ordinary people living in communities experiencing war and conflict. </p> 
 
-<p>Curabitur dapibus tincidunt leo, quis placerat arcu pulvinar in. Vestibulum molestie massa quis tellus volutpat imperdiet. Donec pellentesque lacus eu rhoncus aliquam. Curabitur ut quam et purus porttitor facilisis et in tortor. Etiam posuere tempor tortor, id vulputate erat interdum cursus. Aenean egestas vehicula libero et dictum. Cras imperdiet porta pulvinar. Aenean efficitur ut ex vel elementum. Morbi vulputate, enim quis facilisis mattis, mi justo condimentum quam, et elementum sem sapien id dolor.</p>
 
-:: read5[nobr]
-<h3>Title 5</h3>
-<p>Praesent eget quam non tellus accumsan facilisis. Vestibulum a felis lacinia, tincidunt orci a, sollicitudin erat. Aliquam erat volutpat. </p>
-
-<p>Sed consequat ut quam sit amet fringilla. Praesent a lacinia lorem, ac faucibus turpis. Morbi congue aliquam metus. Vestibulum odio diam, volutpat quis vehicula in, mollis sit amet risus.</p> 
-
-<p>Nam sit amet elit blandit, rutrum urna sed, viverra nulla. Ut ac sollicitudin mauris. Mauris viverra eget nisi in tristique. Vestibulum nec libero sagittis, finibus eros in, pharetra nunc. Duis nec posuere nisl, eu rhoncus nisl. Suspendisse non hendrerit libero. Proin scelerisque ultricies sem a volutpat. Integer ultricies egestas nisi vel sodales.</p>
 

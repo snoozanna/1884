@@ -720,7 +720,8 @@ main.listen.player {
 
 main.listen > #caption {
   z-index: 9999;
-  color: #ffff;
+  color: black;
+  font-weight: 600;
   background: var(--color-offwhite);
   padding: 1rem;
   margin: 0;
@@ -729,7 +730,8 @@ main.listen > #caption {
   z-index: 0;
 }
 
-main.listen > #caption > p {
+main.listen > #caption > p,
+main.listen > #caption > .macro-type > p {
   margin: 0;
   color: black;
 }
@@ -760,5 +762,41 @@ main.listen > #caption > p {
   }
   main.listen > #caption > p {
     font-size: 1.6rem;
+  }
+}
+
+/* READ  */
+
+#passage-read {
+  background-color: var(--color-peach);
+}
+
+.main-container.read {
+  display: flex;
+}
+
+main.read {
+  display: flex;
+}
+
+.main-container.read > main > .read-wrapper {
+  background-color: var(--color-offwhite);
+  color: black;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: solid 6px var(--color-brown);
+}
+
+footer > .nav-item.read-title > h2 {
+  line-height: 1rem;
+  color: var(--color-offwhite);
+}
+
+@media screen and (max-width: 450px) {
+  .main-container.read {
+  }
+  footer > .nav-item.read-title > h2 {
+    line-height: 3rem;
+    color: var(--color-offwhite);
   }
 }

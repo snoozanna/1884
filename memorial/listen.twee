@@ -7,7 +7,7 @@
 	 "ifid": "439AD399-857A-40D7-AD21-B078C527B81F",
 	"format": "SugarCube",
 	"format-version": "2.36.1",
-	"start": "",
+	"start": "Start",
 	"zoom": 0.6
 }
 
@@ -100,32 +100,35 @@ setup.backTen = () => {
 
 
 :: headerlisten [nobr]
-<header class="listen" >
+<header class="listen player" >
 <div class="logo-container"><img src="../assets/img/1884components-23.png"/></div>
  <div class="nav-item">
     <<button "Next memory">>
      <<set $source to $audiooptions[random(0, $audiooptions.length - 1)]>>
+
    <<goto $passage>><</button>> 
  </div>
+  <div class="nav-wrapper">
+    <div class="nav-item">
+        <<link [img[../assets/img/menu.png]]>>
+          <<if $menuOpen is false >>
+
+            <<set $menuOpen to true>>
+            <<append "#main">>
+               <<include "menu">>
+              <</append>>
+           
+          <<elseif $menuOpen is true>>
+             <<set $menuOpen to false>>
+               <<remove "#menu">>
+          <</if>>
+            
+          <</link>>
+
+    </div>
+  </div>
 </header>
 
-:: footer [nobr]{"position":"100,375","size":"100,100"}
-<footer>
-<<if $showBackwards is true>>
-  <div class="nav-wrapper">
-    <div class="nav-item">
-        [img[Back|../assets/img/back.png][$prevpass]]
-    </div>
-  </div>
-  <</if>>
-  <div class="nav-wrapper">
-    <div class="nav-item">
-    <<button "Start">><<goto "Start">><</button>>
-    </div>
-  </div>
-
-  
-</footer>
 
 :: footerend [nobr]{"position":"100,375","size":"100,100"}
 <footer>
@@ -168,7 +171,7 @@ setup.backTen = () => {
 
 
 
-:: Start [nobr]
+:: Start [nobr t8n-dissolve]
 <<set $prevpass to "start">>
 <<set $passage to "start">>
 <<set $nextpass to "listen">>
@@ -176,25 +179,13 @@ setup.backTen = () => {
 <<set $sound to true>>
 <<set $showMenu to true>>
 <<set $menuOpen to false>>
+<<set $audiooptions to ["audio1", "audio2", "audio3"]>>
+<header/>
+<main class="main-section listen player " id="main">
+<<button "Start">>
+     <<set $source to $audiooptions[random(0, $audiooptions.length - 1)]>>
 
-
-  <<include "headermenu">>
-<main id="main">
- <div class="main-container text">
-   <h1>1884 Memorial</h1>
-    <p>
-      You can  <<button "Listen">><<goto "listen">><</button>> to a selection of reflections of people that visited the memorial before you. They are playing in random order. If you want to play the next one, press the  <<button "Next">><<goto "listen">><</button>> button.
-      
-    </p>
-    <p>If you want to make another contribution to the memorial, press <a href="../memorial/prerecord.html"><button>Record</button></a> . </p>
-
-    <p>There is also the option to <a href="../memorial/read.html"><button>Read</button></a> some written memories. If you'd like to submit your own written memory, please <a href="../memorial/submit.html"><button>Email</button></a> us.</p>
-      <<button "Start now">>
-       
-
-      <<goto $nextpass>><</button>>
-    </div>
-
+   <<goto "listen">><</button>> 
 </main>
 <footer></footer>
 
@@ -224,11 +215,8 @@ setup.backTen = () => {
     </div>
   </div>
   <h2 class="menu-title"> MENU </h2> 
-  <h3 class="menu-item"><a href="../intro/index.html">Intro</a></h3>
 <h3 class="menu-item"><a href="../games/index.html">Games</a></h3>
-<h3 class="menu-item"><<link "Memorial">>
-      <<goto "Start">>
-    <</link>></h3>
+<h3 class="menu-item"><a href="../memorial/index.html">Memorial</a></h3>
     <ul>
      <li> <<link "Listen">>
       <<goto "listen">>
@@ -237,8 +225,8 @@ setup.backTen = () => {
     <li><a href="../memorial/prerecord.html">Record</a></li>
     <li><a href="../memorial/submit.html">Submit a written contribution</a></li>
     </ul>
-<h3 class="menu-item"><a href="../history/index.html">History</a></h3>
-  <br/>
+<h3 class="menu-item"><a href="../history/index.html">Resources</a></h3>
+  <h3 class="menu-item"><a href="../about.html">About</a></h3>
   <br/>
 <<button "Close Menu">>
  <<set $menuOpen to false>>
@@ -271,27 +259,35 @@ setup.backTen = () => {
   <</if>>
 </header>
 
-:: listen [nobr t8n.typewriter.4]
+
+
+:: listen [nobr t8n.typewriter.4 t8n-dissolve]
 <<set $showCaptionsIcon to true>>
 <<set $showAudioIcon to true>>
 <<set $showBackwards to true>>
+/* <<set $sound to true>> */
 <<set $showMenu to false>>
 <<set $menuOpen to false>>
-<<set $prevpass to "Start">>
+<<set $prevpass to "listen">>
 <<set $passage to "listen">>
-<<set $audiooptions to ["audio1", "audio2", "audio3", "audio4"]>>
+ /* <<set $source to "audio3">> */
+
 
 <<include "headerlisten">>
 
-<main class="main-section listen " id="main">
+<main class="main-section listen player " id="main">
 <audio id="audio" autoplay>
 <<if $sound is true>>
   <<include $source>>
   <</if>>
 </audio>
 
+
+
 <<if $captions is true>>
-<div id="caption"></div>
+<div id="caption">
+
+</div>
   <<include `$source + "cap"`>>
 <</if>>
 
@@ -362,14 +358,20 @@ setup.backTen = () => {
     </div>
   <</if>> 
 </div>
-<div class="nav-item">
+<div class="nav-wrapper">
+<div class="nav-item ">
 <a href="../memorial/prerecord.html"><button>Record</button></a>
 </div>
-<div class="nav-item">
+</div>
+<div class="nav-wrapper">
+<div class="nav-item ">
 <a href="../memorial/read.html"><button>Read</button></a>
 </div>
-<div class="nav-item final">
-  <a href="../thanks.html"><button>Leave</button></a>
+</div>
+<div class="nav-wrapper">
+<div class="nav-item ">
+  <a href="../about.html"><button>Leave</button></a>
+</div>
 </div>
 
 </footer>
@@ -404,7 +406,7 @@ setup.backTen = () => {
  </div>
  <div class="nav-item ">
 
-  <a href="../thanks.html"><button>Leave</button></a>
+  <a href="../about.html"><button>Leave</button></a>
  
 </div>
 </footer>
@@ -419,82 +421,358 @@ setup.backTen = () => {
 <</done>>
 
 :: audio1
-<source  src="https://withfireandrageliverpool.com/audio/SC/spiritsv2.mp3">
+<source  src="../assets/memorial/audio1.mp3">
 
 :: audio1cap [nobr]
-<<timed 0.5s>>
+
+<<timed 1s>>
   <<replace "#caption">>
-    <p>Audio 1 captions</p>
-    <</replace>>
+    <<type 60ms>>
+<p>The live show made me think about the role and the power of historians</p> 
+<</type>>
+  <</replace>>
 <</timed>>
-<<timed 3s>>
+
+<<timed 7s>>
   <<replace "#caption">>
-    <p>More captions</p>
-    <</replace>>
+ <<type 40ms>>
+<p>to tell the stories of people and communities that they never met</p> 
+<</type>>
+  <</replace>>
 <</timed>>
-<<timed 6s>>
+
+<<timed 12s>>
+  <<append "#caption">>
+  <<type 30ms>>
+<p>and they don't really know </p>
+<</type>>
+  <</append>>
+<</timed>>
+
+<<timed 15s>>
   <<replace "#caption">>
-    <p>And more captions</p>
-    <</replace>>
+  <<type 60ms>>
+<p>and the way that in particular Western white supremacist institutions</p> 
+<</type>>
+  <</replace>>
 <</timed>>
+
+<<timed 24s>>
+  <<append "#caption">>
+  <<type 40ms>>
+<p>apply a bias and a lens</p>
+<</type>>
+  <</append>>
+<</timed>>
+
+<<timed 27s>>
+  <<append "#caption">>
+  <<type 40ms>>
+<p> to the stories and the histories of people of color. </p>
+<</type>>
+  <</append>>
+<</timed>>
+
+<<timed 32s>>
+  <<replace "#caption">>
+  <<type 50ms>>
+<p>The way histories and objects are made to be exotic </p>
+<</type>>
+  <</replace>>
+<</timed>>
+
+<<timed 38s>>
+  <<append "#caption">>
+  <<type 40ms>>
+<p>and are made to be ritualistic and </p>
+<</type>>
+  <</append>>
+<</timed>>
+
+<<timed 41s>>
+  <<append "#caption">>
+  <<type 40ms>>
+<p>made to be... more nonsensical </p>
+<</type>>
+  <</append>>
+<</timed>>
+
+<<timed 46s>>
+  <<replace "#caption">> 
+  <<type 60ms>>
+<p>just because of...</p>
+<</type>>
+  <</replace>>
+<</timed>>
+
+<<timed 50s>>
+  <<append "#caption">> 
+  <<type 60ms>>
+<p>where that community are from.</p>
+<</type>>
+  <</append>>
+<</timed>>
+
 
 
 :: audio2 [nobr]
-<source  src="../assets/sound/DJIntro.mp3">
+<source  src="../assets/memorial/audio2.mp3">
 
 :: audio2cap [nobr]
-<<timed 0.5s>>
+
+<<timed 2s>>
   <<replace "#caption">>
-    <p>Audio 2 captions</p>
-    <</replace>>
+    <<type 55ms>>
+<p>1884 made me think about who gets to tell stories </p> 
+<</type>>
+  <</replace>>
 <</timed>>
-<<timed 3s>>
+
+<<timed 6.5s>>
   <<replace "#caption">>
-    <p>More captions</p>
-    <</replace>>
+    <<type 40ms>>
+<p>and about... </p>
+<</type>>
+  <</replace>>
 <</timed>>
-<<timed 6s>>
+
+<<timed 8s>>
+  <<append "#caption">>
+    <<type 60ms>>
+<p>legacy and impact and how we are remembered </p>
+<</type>>
+  <</append>>
+<</timed>>
+
+<<timed 13s>>
   <<replace "#caption">>
-    <p>And more captions</p>
-    <</replace>>
+    <<type 60ms>>
+<p>and how stories are twisted </p>
+<</type>>
+  <</replace>>
 <</timed>>
+
+<<timed 16s>>
+  <<append "#caption">>
+    <<type 40ms>>
+<p>to suit.. sort of narratives of power. </p>
+<</type>>
+  <</append>>
+<</timed>>
+
+<<timed 20s>>
+  <<replace "#caption">>
+    <<type 40ms>>
+<p>It made me angry as well, </p>
+<</type>>
+  <</replace>>
+<</timed>>
+
+<<timed 22s>>
+  <<append "#caption">>
+    <<type 60ms>>
+<p>but in a good way. </p>
+<</type>>
+  <</append>>
+<</timed>>
+
+<<timed 27s>>
+  <<replace "#caption">>
+    <<type 50ms>>
+<p>Yeah, it was a very... </p>
+<</type>>
+  <</replace>>
+<</timed>>
+
+<<timed 31s>>
+  <<append "#caption">>
+    <<type 60ms>>
+<p>full body experience, I guess.</p>
+<</type>>
+  <</append>>
+<</timed>>
+
+
+
 
 :: audio3 [nobr]
-<source  src="../assets/sound/DJIntro.mp3">
+<source  src="../assets/memorial/audio3.mp3">
 
 :: audio3cap [nobr]
-<<timed 0.5s>>
+<<timed 2s>>
   <<replace "#caption">>
-    <p>Audio 3 captions</p>
-    <</replace>>
-<</timed>>
-<<timed 3s>>
-  <<replace "#caption">>
-    <p>More captions</p>
-    <</replace>>
-<</timed>>
-<<timed 6s>>
-  <<replace "#caption">>
-    <p>And more captions</p>
-    <</replace>>
+    <<type 50ms>>  
+<p>I really enjoyed the 1884 Berlin Conference show.</p>
+<</type>>
+<</replace>>
 <</timed>>
 
-:: audio4cap [nobr]
-<<timed 0.5s>>
+<<timed 8s>>
   <<replace "#caption">>
-    <p>Audio 4 captions</p>
-    <</replace>>
+    <<type 40ms>>  
+<p>I think when looking at history, </p>
+<</type>>
+<</replace>>
 <</timed>>
-<<timed 3s>>
-  <<replace "#caption">>
-    <p>More captions</p>
-    <</replace>>
+
+<<timed 10s>>
+  <<append "#caption">>
+    <<type 50ms>>  
+<p>it's very easy to view it as an outsider </p>
+<</type>>
+<</append>>
 <</timed>>
-<<timed 6s>>
+
+<<timed 14s>>
   <<replace "#caption">>
-    <p>And more captions</p>
-    <</replace>>
+    <<type 30ms>>  
+<p>and view it as just a bunch of facts and figures and numbers and whatever </p>
+<</type>>
+<</replace>>
+<</timed>>
+
+<<timed 17.5s>>
+  <<append "#caption">>
+    <<type 25ms>>  
+<p>but the show really puts you in it,</p>
+<</type>>
+<</append>>
+<</timed>>
+
+<<timed 21s>>
+  <<replace "#caption">>
+    <<type 30ms>>  
+<p> you don't know how it's going to end when it starts </p>
+<</type>>
+<</replace>>
+<</timed>>
+
+<<timed 24s>>
+  <<append "#caption">>
+    <<type 50ms>>  
+<p>and... you spend all this time...</p>
+<</type>>
+<</append>>
+<</timed>>
+
+<<timed 27s>>
+  <<append "#caption">>
+    <<type 40ms>>  
+<p>there's lots of gaps so that you... talk with your team </p>
+<</type>>
+<</append>>
+<</timed>>
+<<timed 31s>>
+  <<replace "#caption">>
+    <<type 40ms>>  
+<p>and... you get to, you know, you build up this culture together of your... </p>
+<</type>>
+<</replace>>
+<</timed>>
+
+<<timed 35s>>
+  <<append "#caption">>
+    <<type 50ms>>  
+<p>your table, your house, you have all this, these codes and these like ideas, </p>
+<</type>>
+<</append>>
+<</timed>>
+
+<<timed 40s>>
+  <<replace "#caption">>
+    <<type 50ms>>  
+<p>you design your room, you've sort of create a culture as a group, </p>
+<</type>>
+<</replace>>
+<</timed>>
+
+<<timed 44s>>
+  <<append "#caption">>
+    <<type 40ms>>  
+<p>and you're not aware of what's going to happen to it. </p>
+<</type>>
+<</append>>
+<</timed>>
+
+<<timed 48s>>
+  <<replace "#caption">>
+    <<type 40ms>>  
+<p>So it does come as a big shock, a big reveal when </p>
+<</type>>
+<</replace>>
+<</timed>>
+
+<<timed 51.5s>>
+  <<append "#caption">>
+    <<type 30ms>>  
+<p>when it gets to the end. </p>
+<</type>>
+<</append>>
+<</timed>>
+
+<<timed 54s>>
+  <<replace "#caption">>
+    <<type 40ms>>  
+<p>And I think yeah, it's interesting how... </p>
+<</type>>
+<</replace>>
+<</timed>>
+
+<<timed 58s>>
+  <<replace "#caption">>
+    <<type 40ms>>  
+<p>you're not told that protest is normally something you wouldn't do. </p>
+<</type>>
+<</replace>>
+<</timed>>
+
+<<timed 62.5s>>
+  <<replace "#caption">>
+    <<type 40ms>>  
+<p>but in my showing, at least everyone sort of got on board with protesting and realised the system was rigged quite quickly</p>
+<</type>>
+<</replace>>
+<</timed>>
+
+<<timed 69.5s>>
+  <<replace "#caption">>
+    <<type 40ms>>  
+<p>and I wonder playing with different groups how how people would react,</p> 
+<</type>>
+<</replace>>
+<</timed>>
+<<timed 74s>>
+  <<append "#caption">>
+    <<type 30ms>>  
+<p>if people would be more or less vocal, </p>
+<</type>>
+<</append>>
+<</timed>>
+<<timed 76s>>
+  <<replace "#caption">>
+    <<type 50ms>>  
+<p>if people would stand up to the regime or not. </p>
+<</type>>
+<</replace>>
+<</timed>>
+<<timed 79s>>
+  <<replace "#caption">>
+    <<type 40ms>>  
+<p>But yeah, I think, you know, that definitely puts you in a different way of experiencing history, I think. </p>
+<</type>>
+<</replace>>
+<</timed>>
+
+<<timed 84s>>
+  <<append "#caption">>
+    <<type 50ms>>  
+<p>All history should be taught in this kind of style.</p>
+<</type>>
+<</append>>
 <</timed>>
 
 
-:
+
+
+
+

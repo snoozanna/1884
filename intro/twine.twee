@@ -86,11 +86,7 @@ $(document.head).find('#style-ui-bar').remove();
 
     </div>
   </div>
-  <h2 class="menu-title"> MENU </h2>
-  <h3 class="menu-item"><<link "Intro">>
-<<goto "intro">>
-    <</link>></h3>
-    
+  <h2 class="menu-title"> MENU </h2>    
 <h3 class="menu-item"><a href="../games/index.html">Games</a></h3>
 
 <h3 class="menu-item"><a href="../memorial/index.html">Memorial</a></h3>
@@ -100,8 +96,8 @@ $(document.head).find('#style-ui-bar').remove();
     <li><a href="../memorial/prerecord.html">Record</a></li>
     <li><a href="../memorial/submit.html">Submit a written contribution</a></li>
     </ul>
-<h3 class="menu-item"><a href="../history/index.html">History</a></h3>
-  <br/>
+<h3 class="menu-item"><a href="../history/index.html">Resources</a></h3>
+<h3 class="menu-item"><a href="../about.html">About</a></h3>
   <br/>
 <<button "Close Menu">>
  <<set $menuOpen to false>>
@@ -184,6 +180,28 @@ $(document.head).find('#style-ui-bar').remove();
     <div class="nav-item">
         [img[Next|../assets/img/for.png][$nextpass]]
     </div>
+  </div>
+  
+</footer>
+
+:: footerend [nobr]{"position":"100,375","size":"100,100"}
+<footer>
+
+  <div class="nav-wrapper">
+    <div class="nav-item">
+        [img[Back|../assets/img/back.png][$prevpass]]
+    </div>
+  </div>
+
+
+<div class="nav-wrapper">
+    <div class="nav-item">
+        [img[Replay|../assets/img/replay.png][$passage]]
+    </div>
+  </div>
+
+<div class="nav-wrapper">
+
   </div>
   
 </footer>
@@ -340,7 +358,7 @@ $(document.head).find('#style-ui-bar').remove();
 :: resistance-glitch [nobr]
 <<set $prevpass to "intro-highlight">>
 <<set $passage to "resistance-glitch">>
-<<set $nextpass to "resistance-glitch2">>
+<<set $nextpass to "resistance-glitch">>
 <<set $menuOpen to false>>
 <<set $showMenu to false>>
 <<include "headerrest">>
@@ -380,7 +398,7 @@ $(document.head).find('#style-ui-bar').remove();
 
 <<timed 12s>> 
     <<append "#textMount">>
-  <<button "Next">><<goto $nextpass>><</button>>
+   <a href="../games/index.html"><button>Play the games</button></a>
 <</append>>
 <</timed>>
 
@@ -389,7 +407,7 @@ $(document.head).find('#style-ui-bar').remove();
   </div>
 </main>
 
-<<include "footer">>
+<<include "footerend">>
 
 :: resistance-glitch2 [nobr]
 <<set $prevpass to "resistance-glitch">>
@@ -457,6 +475,6 @@ $(document.head).find('#style-ui-bar').remove();
   </div>
 </main>
 
-<<include "footer">>
+<<include "footerend">>
 
 
